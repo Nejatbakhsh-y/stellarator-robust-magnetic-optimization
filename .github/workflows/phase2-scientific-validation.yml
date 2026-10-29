@@ -1,0 +1,57 @@
+name: Phase 2 scientific reproducibility
+on:
+  pull_request:
+    branches: [codex/phase2-peak-robustness-uq]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: phase2-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  smoke:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: python scripts/phase2_cloud_ci.py --smoke
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase2-smoke-${{ matrix.os }}
+          path: results/ci/phase2-cloud/
+          retention-days: 14
+  full-phase2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: python scripts/phase2_cloud_ci.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase2-full-evidence
+          path: results/ci/phase2-cloud/
+          retention-days: 14

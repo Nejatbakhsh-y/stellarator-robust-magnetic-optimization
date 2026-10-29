@@ -45,3 +45,13 @@ and its evidence checks using the existing Python 3.11 environment:
 Phase 1 artifacts remain under `results/quick`; new regression evidence is written
 under `results/phase2/regression`. `configs/phase2_research.json` is an unexecuted
 larger preset. Full repeats are stored in the ignored `results/reproduction/`.
+
+Phase 2 cloud reproducibility is implemented in
+[the dedicated workflow](.github/workflows/phase2-scientific-validation.yml).
+Fast unit/saved-evidence checks run on Linux and Windows; the separate full Linux
+job reruns the complete quick studies and independent gates on PRs targeting the
+Phase 2 branch. See [CI methods](docs/PHASE2_CLOUD_CI_METHODS.md),
+[local validation](docs/PHASE2_CLOUD_CI_VALIDATION.md) and
+[execution status](docs/PHASE2_CLOUD_CI_EXECUTION_STATUS.md).
+Remote CI remains pending until its actual runs are observed; a green run would
+validate these bounded checks, while broader scientific validation remains PARTIAL.

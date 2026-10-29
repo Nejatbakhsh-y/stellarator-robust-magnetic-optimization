@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 import numpy as np
 from stellarator_robust.evidence import file_hash
+from stellarator_robust.ci_evidence import compare_study
 
 out = Path('results/phase2')
 out.mkdir(parents=True, exist_ok=True)
@@ -56,7 +57,11 @@ for key in ['summary', 'currents_A', 'holdout_rms_T', 'pareto', 'faults', 'scena
     compare(historical[key], first[key], 'historical/'+key)
 execute(['scripts/phase2_study.py', '--output', 'results/reproduction/phase2-study'])
 study = out/'study.json'
-compare(json.loads(study.read_text()), json.loads(Path('results/reproduction/phase2-study/study.json').read_text()))
+comparison = {}
+try:
+    compare_study(json.loads(study.read_text()), json.loads(Path('results/reproduction/phase2-study/study.json').read_text()), report=comparison)
+finally:
+    (out/'checkpoint_comparison.json').write_text(json.dumps(comparison, indent=2))
 (out/'reproducibility.json').write_text(json.dumps({
     'status': 'PASS', 'rtol': 1e-11, 'atol': 1e-13,
     'phase1_historical_match': True, 'full_phase1_repeat': True, 'full_phase2_repeat': True,
