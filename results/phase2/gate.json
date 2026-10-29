@@ -1,0 +1,12 @@
+{
+  "software_status": "PASS",
+  "phase1_regression_status": "PASS",
+  "scientific_status": "PARTIAL",
+  "failed_checks": [],
+  "limitations": [
+    "No global supremum certificate",
+    "Only IID synthetic scenarios",
+    "Current-budget matching and correlated errors pending; dual check is numerical"
+  ],
+  "study_sha256": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258"
+}

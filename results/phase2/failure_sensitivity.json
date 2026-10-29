@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "expected_child_returncode": 1,
+  "actual_child_returncode": 1,
+  "rejected_evidence": {
+    "software_status": "FAIL",
+    "phase1_regression_status": "FAIL",
+    "scientific_status": "BLOCKED",
+    "failed_checks": [
+      "manifest completeness",
+      "hash src/stellarator_robust/peak.py",
+      "KeyError: 'units'"
+    ],
+    "limitations": [
+      "No global supremum certificate",
+      "Only IID synthetic scenarios",
+      "Current-budget matching and correlated errors pending; dual check is numerical"
+    ],
+    "study_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "stdout": "{\n  \"software_status\": \"FAIL\",\n  \"phase1_regression_status\": \"FAIL\",\n  \"scientific_status\": \"BLOCKED\",\n  \"failed_checks\": [\n    \"manifest completeness\",\n    \"hash src/stellarator_robust/peak.py\",\n    \"KeyError: 'units'\"\n  ],\n  \"limitations\": [\n    \"No global supremum certificate\",\n    \"Only IID synthetic scenarios\",\n    \"Current-budget matching and correlated errors pending; dual check is numerical\"\n  ],\n  \"study_sha256\": \"44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a\"\n}\n",
+  "stderr": "",
+  "study_sha256": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258"
+}

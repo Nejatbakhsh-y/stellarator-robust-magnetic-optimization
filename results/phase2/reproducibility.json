@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "rtol": 1e-11,
+  "atol": 1e-13,
+  "phase1_historical_match": true,
+  "full_phase1_repeat": true,
+  "full_phase2_repeat": true,
+  "study_sha256": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258",
+  "regression_sha256": "0a2313a043a02264d8c6b65513152169149a3e35d235ef80dea56c0ae10e0bd9"
+}
