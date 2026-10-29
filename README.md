@@ -26,3 +26,22 @@ See [methods](docs/SCIENTIFIC_METHODS.md), [source verification](docs/SOURCE_VER
 The quick benchmark uses 512 polygon segments after a 256-segment refinement audit failed. See [the diagnosis](docs/REFINEMENT_DIAGNOSIS.md). Validation thresholds were retained and independent smooth-circle checks added. An executed run and all validation gates must succeed before reporting the checkpoint as verified.
 
 No license has been selected; public availability does not itself grant an open-source license.
+
+Phase 2 implementation and bounded studies are on `codex/phase2-peak-robustness-uq`.
+Scientific status and unfinished milestones are recorded in
+[Phase 2 execution status](docs/PHASE2_EXECUTION_STATUS.md). Peak observations are
+lower bounds, with no global continuum certificate. To repeat the executed study
+and its evidence checks using the existing Python 3.11 environment:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/phase2_study.py
+.\.venv\Scripts\python.exe scripts/phase2_training_audit.py
+.\.venv\Scripts\python.exe scripts/phase2_failure_check.py
+.\.venv\Scripts\python.exe scripts/phase2_verify.py
+.\.venv\Scripts\python.exe scripts/phase2_gate.py --output results/phase2
+.\.venv\Scripts\python.exe scripts/phase2_reports.py
+```
+
+Phase 1 artifacts remain under `results/quick`; new regression evidence is written
+under `results/phase2/regression`. `configs/phase2_research.json` is an unexecuted
+larger preset. Full repeats are stored in the ignored `results/reproduction/`.

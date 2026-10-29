@@ -1,0 +1,14 @@
+{
+  "segments": 1024,
+  "grids": [[20, 48], [40, 96], [80, 192]],
+  "shifts": [0.0, 0.5, 0.2718281828459045],
+  "seeds_per_grid": 3,
+  "maxiter": 200,
+  "maxfev": 400,
+  "holdout_count": 256,
+  "holdout_seed": 20261120,
+  "training_seeds": [20261121, 20261122, 20261123],
+  "training_counts": [4, 8, 16],
+  "bootstrap_seed": 20261124,
+  "bootstrap_resamples": 10000
+}
