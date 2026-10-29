@@ -1,0 +1,8 @@
+{
+  "nt": 20, "np": 48, "segments": 1024, "nphi": 12, "ntheta": 4,
+  "train_scenarios": 40, "holdout_scenarios": 200,
+  "train_seed": 20261029, "holdout_seed": 20261030,
+  "imax_A": 3000.0, "bref_T": 0.001, "ridge": 0.000001,
+  "active_threshold_A": 1.0,
+  "l1_path": [0.000001, 0.00001, 0.0001, 0.001, 0.01]
+}

@@ -1,0 +1,6 @@
+{
+  "command": "python -m pytest -q",
+  "returncode": 0,
+  "stdout": "...........                                                              [100%]\n11 passed in 1.89s\n",
+  "stderr": ""
+}

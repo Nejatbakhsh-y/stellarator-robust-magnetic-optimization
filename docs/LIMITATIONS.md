@@ -1,0 +1,9 @@
+# Limitations
+
+This is independent synthetic reduced-order vacuum filament research. It has no affiliation with or validation by Thea Energy, reproduces no proprietary geometry, and establishes no plasma confinement or equilibrium performance.
+
+Polygon resolution and surface sampling are finite. The quick configuration was raised from 64 to 512 segments after the original 128-to-256 comparison failed a 1e-4 relative RMS-change threshold. The corrected audit retains this threshold and adds a smooth-circle reference and measured second-order checks. These certify sampled benchmark RMS/residual accuracy only. The shifted 20x48 to 40x96 grid changes peak normal field by approximately 3.6% despite RMS agreement below 1e-4; continuum maxima remain unresolved. No finite conductor cross-section, coil-coil mechanical clearance, forces, voltage, power, thermal limits, plasma response, or field-line tracing is modeled. Surface-clearance checks do not certify coil-to-coil engineering feasibility.
+
+Perturbation ranges are assumptions, not manufacturing measurements. Uniform independent perturbations omit bias and correlations. The finite training minimax objective does not guarantee holdout improvement. Twenty-four quick holdout samples cannot establish a precise population tail or confidence interval. Robust and matched nominal fits share an allowed support, but current usage can differ. Commands are bounded; uncertain actual currents need not be.
+
+FISTA uses an absolute proximal-step criterion on a dimensionless problem; this is tested through KKT conditions on a small reference, not a general error certificate. SLSQP status and feasibility are checked, but a separate dual optimality certificate is not implemented. Static fault recovery is not a real-time controller. Research preset, external SIMSOPT comparisons, large Monte Carlo confidence analysis and equilibrium validation remain PLANNED until actually executed.

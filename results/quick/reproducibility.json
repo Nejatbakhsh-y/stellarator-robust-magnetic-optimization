@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "rtol": 1e-11,
+  "atol": 1e-13,
+  "results_sha256": "83162de245bfa5f64fad773f0c8212ccb04d2ae8af8287c03589fd8ee8374889",
+  "groups_compared": [
+    "summary",
+    "currents_A",
+    "holdout_rms_T",
+    "pareto",
+    "faults",
+    "convergence",
+    "scenarios",
+    "solver_status"
+  ],
+  "scenario_records_identical": true,
+  "max_current_difference_A": 0.0,
+  "max_holdout_difference_T": 0.0
+}
