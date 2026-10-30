@@ -48,3 +48,16 @@ Do not merge or modify PRs #1–#3. A new PR is needed to trigger the dedicated 
 workflow; manual dispatch is optional and is not relied on for first execution.
 Observed hosted results must be reported separately from this local checkpoint.
 Recorded elapsed times are wall-clock measurements, not CPU performance claims.
+
+Post-commit verification: a separate clean Windows checkout of implementation
+commit c0660b233cd61638508e6fa663ff13df9c5db326, with core.autocrlf=true,
+passed all 94 tests. Original-evidence preservation, the complete-stage contract,
+raw manifest, strict first/repeat comparison, and portable source fingerprints
+also passed; the checkout remained clean. This is Windows verification only.
+
+The implementation branch was successfully pushed. Stacked draft PR creation
+through the connected GitHub integration failed with HTTP 403, Resource not
+accessible by integration. No new PR was created by this session, and no
+PR-triggered workflow runs were returned for the implementation commit. Hosted
+Windows/Linux and dependency-version comparisons remain PENDING. See
+PHASE2B_PUBLICATION.md for exact authenticated PowerShell handoff commands.

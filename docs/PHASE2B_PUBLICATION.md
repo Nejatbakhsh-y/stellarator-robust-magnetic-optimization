@@ -3,6 +3,15 @@
 Use ordinary authenticated PowerShell if publication inside Codex is blocked.
 GitHub CLI configuration was not inspected or bypassed. Do not merge any PR.
 
+Publication attempt: implementation commit
+`c0660b233cd61638508e6fa663ff13df9c5db326` was successfully pushed to the new
+branch. The connected GitHub integration rejected creation of the new stacked
+draft PR with HTTP 403, `Resource not accessible by integration`. No PR was
+created by this session. No permission workaround was attempted. A read-only
+query found no PR-triggered workflow runs for that implementation commit.
+The commands below are for an ordinary authenticated user session; the push is
+safe to repeat. Hosted Windows/Linux validation remains PENDING.
+
 ```powershell
 Set-Location 'C:\Users\nejat\TheaResearchWorkspace\stellarator-robust-magnetic-optimization'
 git branch --show-current
