@@ -43,7 +43,7 @@ def attest(data, actual):
             raise AssertionError('Runtime provenance mismatch: '+key)
 
 
-def pair(left_root, right_root):
+def pair(left_root, right_root, version=VERSION, comparator=compare, study_comparator=compare_study):
     """Compare all scientific values; explicitly attest input-hash provenance.
 
     Worker completion is a separate gate; this function also compares a repeat
@@ -53,7 +53,7 @@ def pair(left_root, right_root):
     bundles = []
     for root in roots:
         record = load(root/'execution.json')
-        if record['benchmark_version'] != VERSION:
+        if record['benchmark_version'] != version:
             raise AssertionError('Benchmark version mismatch')
         quick = load(root/'quick/results.json'); study = load(root/'study/study.json')
         if sha(root/'quick/results.json') != record['quick_sha256'] or sha(root/'study/study.json') != record['study_sha256']:
@@ -83,9 +83,9 @@ def pair(left_root, right_root):
                          'condition_number', 'rank', 'clearance_sampled_m', 'elapsed_seconds', 'units'}
     if ma.keys() != expected_metadata or mb.keys() != expected_metadata:
         raise AssertionError('Missing or unclassified quick metadata')
-    compare(ma['config'], mb['config'], '/quick/config', exact=True)
+    comparator(ma['config'], mb['config'], '/quick/config', exact=True)
     for key in ('units', 'condition_number', 'rank', 'clearance_sampled_m'):
-        compare(ma[key], mb[key], '/quick/metadata/'+key, records=differences)
+        comparator(ma[key], mb[key], '/quick/metadata/'+key, records=differences)
     for key in ('source_commit', 'source_dirty', 'python', 'packages', 'elapsed_seconds'):
         excluded.append(dict(path='/quick/metadata/'+key, reference=ma[key], current=mb[key]))
     for data in (ma, mb):
@@ -97,13 +97,13 @@ def pair(left_root, right_root):
     paths = clearance_paths(sa)
     if paths != clearance_paths(sb):
         raise AssertionError('Scenario dimensions differ')
-    compare(sa, sb, '/scenarios', records=differences, exact=True, approximate_paths=paths)
-    compare(a, b, '/quick', records=differences)
+    comparator(sa, sb, '/scenarios', records=differences, exact=True, approximate_paths=paths)
+    comparator(a, b, '/quick', records=differences)
     left, right = [copy.deepcopy(x[1]) for x in bundles]
     excluded.append(dict(path='/study/phase1_sha256', reference=left['phase1_sha256'], current=right['phase1_sha256'],
                          reason='actual input bytes individually hash-verified; all input scientific groups compared above'))
     left['phase1_sha256'] = right['phase1_sha256']
-    result = compare_study(left, right, actual=bundles[1][2]['study_runtime'])
+    result = study_comparator(left, right, actual=bundles[1][2]['study_runtime'])
     return dict(status='PASS', rtol=1e-11, atol=1e-13, quick_numeric_differences=differences,
                 study_comparison=result, attested_metadata=excluded,
                 reference_study_sha256=bundles[0][2]['study_sha256'], current_study_sha256=bundles[1][2]['study_sha256'])

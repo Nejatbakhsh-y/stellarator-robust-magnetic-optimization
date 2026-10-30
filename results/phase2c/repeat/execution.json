@@ -1,0 +1,30 @@
+{
+  "benchmark_version": "phase2c-householder-v2-pattern-v2-energy-v3",
+  "quick_runtime": {
+    "source_commit": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379",
+    "source_dirty": true,
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    }
+  },
+  "study_runtime": {
+    "source_commit": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379",
+    "source_dirty": true,
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    }
+  },
+  "status": "DATA_READY",
+  "quick_sha256": "5156eb67648154d5aa9e928edffd71448ce2e7409b7c674533dacf4cba5fb7ac",
+  "study_sha256": "fc5e9947740b91fe01531ce0defe6551fc726939678da19bff48e16887652378"
+}

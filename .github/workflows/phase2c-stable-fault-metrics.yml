@@ -1,0 +1,94 @@
+name: Phase 2C stable fault metrics
+on:
+  pull_request:
+    branches: [codex/phase2b-deterministic-geometry]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: phase2c-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  numerical:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: windows-reference
+            os: windows-latest
+            numpy: '2.4.6'
+            scipy: '1.17.1'
+          - name: linux-reference
+            os: ubuntu-latest
+            numpy: '2.4.6'
+            scipy: '1.17.1'
+          - name: linux-numpy-sensitivity
+            os: ubuntu-latest
+            numpy: '2.3.5'
+            scipy: '1.17.1'
+          - name: linux-scipy-sensitivity
+            os: ubuntu-latest
+            numpy: '2.4.6'
+            scipy: '1.16.3'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 180
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]' numpy==${{ matrix.numpy }} scipy==${{ matrix.scipy }} matplotlib==3.11.2 pytest==9.2.0
+      - run: python -c "import numpy, scipy; assert numpy.__version__ == '${{ matrix.numpy }}'; assert scipy.__version__ == '${{ matrix.scipy }}'"
+      - run: python scripts/phase2c_verify.py --output results/ci/phase2c-run
+        timeout-minutes: 135
+      - run: python scripts/phase2c_fault_audit.py --root results/ci/phase2c-run
+      - run: python scripts/phase2c_legacy_compare.py --root results/ci/phase2c-run
+      - run: python scripts/phase2b_investigate.py --output results/ci/phase2c-run/investigation --corrected results/ci/phase2c-run
+        timeout-minutes: 25
+      - run: python scripts/phase2c_finalize.py --output results/ci/phase2c-run
+      - run: python scripts/phase2c_compare.py --current results/ci/phase2c-run --output results/ci/phase2c-run/committed-reference-comparison.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase2c-${{ matrix.name }}
+          path: results/ci/phase2c-run/
+          retention-days: 14
+  cross-platform:
+    needs: numerical
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]' numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: phase2c-*
+          path: results/ci/phase2c-artifacts
+      - run: python scripts/phase2c_compare.py --reference results/ci/phase2c-artifacts/phase2c-windows-reference --current results/ci/phase2c-artifacts/phase2c-linux-reference --output results/ci/cross-platform.json
+      - run: python scripts/phase2c_compare.py --reference results/ci/phase2c-artifacts/phase2c-windows-reference --current results/ci/phase2c-artifacts/phase2c-linux-numpy-sensitivity --output results/ci/numpy-comparison.json
+        if: always()
+      - run: python scripts/phase2c_compare.py --reference results/ci/phase2c-artifacts/phase2c-windows-reference --current results/ci/phase2c-artifacts/phase2c-linux-scipy-sensitivity --output results/ci/scipy-comparison.json
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase2c-cross-platform
+          path: |
+            results/ci/cross-platform.json
+            results/ci/numpy-comparison.json
+            results/ci/scipy-comparison.json
+          retention-days: 14

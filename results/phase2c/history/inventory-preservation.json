@@ -1,0 +1,6 @@
+{
+    "read_only":  true,
+    "original":  "results/phase2c/investigation/inventory.json",
+    "sha256":  "0af5f1618a7e0722a015bdd3388da69d52fe95e3c386e4f3eb95bdadbfee899a",
+    "immutable_copy":  "results/phase2c/history/inventory-initial.json"
+}

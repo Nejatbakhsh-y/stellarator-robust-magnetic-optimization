@@ -12,6 +12,7 @@ from .optimize import baseline, sparse, deletion_path, robust
 from .uncertainty import scenarios
 from .validation import convergence
 from .faults import outage_offsets
+from .fault_metrics import stable_recovery
 
 
 def metrics(A, b, w, I, bref, threshold):
@@ -28,6 +29,8 @@ def run(config, output):
     if c['train_seed'] == c['holdout_seed']:
         raise ValueError('Train/holdout seeds must differ')
     imax, bref, ridge = c['imax_A'], c['bref_T'], c['ridge']
+    if c.get('fault_metric_version', 'legacy-v1') not in ('legacy-v1', 'residual-energy-v3'):
+        raise ValueError('Unknown fault metric version')
     p, n, w, coils, error, b = benchmark(c['nt'], c['np'], c['segments'], c['nphi'], c['ntheta'],
                                        c.get('geometry_version', 'legacy-v1'))
     A = response(p, n, coils); D, d = A*imax/bref, b/bref
@@ -80,6 +83,11 @@ def run(config, output):
         faults.append({"failed": int(failed), "pre_T": pre, "frozen_T": loss, "recovered_T": post,
                        "fractional_recovery": (loss-post)/(loss-pre) if abs(loss-pre)>1e-15 else None,
                        "recovered_current_A": float(recovered[failed]*imax), "holdout_rms_T": held})
+        if c.get('fault_metric_version') == 'residual-energy-v3':
+            evidence = stable_recovery(Av, bv, wv, dense*imax, frozen*imax, recovered*imax)
+            faults[-1]['fractional_recovery'] = evidence['fractional_recovery']
+            faults[-1]['recovery_evidence'] = evidence
+            evidence['solver_success'] = status['success']
     s = np.linalg.svd(np.sqrt(w)[:, None]*D, compute_uv=False)
     metadata = {"config": c, "python": platform.python_version(),
                 "packages": {p: importlib.metadata.version(p) for p in ['numpy', 'scipy', 'matplotlib', 'pytest']},

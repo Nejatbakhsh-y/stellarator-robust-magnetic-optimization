@@ -1,3 +1,4 @@
 # Preserve exact bytes of hash-linked Phase 2 numerical evidence.
 results/phase2/** -text whitespace=cr-at-eol
 results/phase2b/** -text whitespace=cr-at-eol
+results/phase2c/** -text whitespace=cr-at-eol
