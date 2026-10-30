@@ -1,0 +1,50 @@
+{
+  "artifact_sha256": "befcc90ca3bc461e22b08e379bf1660bab93efe568dd18d8d6fae2fe272c6d14",
+  "linux_study_sha256": "e27f7197aa05f742743bdf8a3430cf907dab964b6bec6b6c4748258ffbdb4c13",
+  "run_id": 40977794679,
+  "artifact_id": 12944135712,
+  "environment": {
+    "status": "FAIL",
+    "remote_verified": false,
+    "local_overlay": false,
+    "commit": "b03fa54ba980aeed34c755a7b2ed377c89826583",
+    "python": "3.11.17",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    },
+    "steps": [
+      {
+        "stage": "worktree",
+        "command": [
+          "git",
+          "worktree",
+          "add",
+          "--detach",
+          "/home/runner/work/stellarator-robust-magnetic-optimization/stellarator-robust-magnetic-optimization/results/reproduction/cloud-work",
+          "HEAD"
+        ],
+        "returncode": 0,
+        "seconds": 0.024044473999992988
+      },
+      {
+        "stage": "fresh-study",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+          "scripts/phase2_study.py"
+        ],
+        "returncode": 0,
+        "seconds": 335.651498989
+      }
+    ],
+    "reference_study_sha256": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258",
+    "phase1_input_bytes": {
+      "checkout_sha256": "087268824c528c789be975ac81ccc50e79efdc9e090ed43b555c7cba57e07780",
+      "frozen_sha256": "83162de245bfa5f64fad773f0c8212ccb04d2ae8af8287c03589fd8ee8374889"
+    },
+    "error": "/scenarios/holdout/1/sampled_clearance_m: absolute_error=5.551115123125783e-17, reference=0.38888759185268096, current=0.3888875918526809"
+  }
+}

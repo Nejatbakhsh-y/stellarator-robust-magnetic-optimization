@@ -28,7 +28,8 @@ def run(config, output):
     if c['train_seed'] == c['holdout_seed']:
         raise ValueError('Train/holdout seeds must differ')
     imax, bref, ridge = c['imax_A'], c['bref_T'], c['ridge']
-    p, n, w, coils, error, b = benchmark(c['nt'], c['np'], c['segments'], c['nphi'], c['ntheta'])
+    p, n, w, coils, error, b = benchmark(c['nt'], c['np'], c['segments'], c['nphi'], c['ntheta'],
+                                       c.get('geometry_version', 'legacy-v1'))
     A = response(p, n, coils); D, d = A*imax/bref, b/bref
     pv, nv, av = surface(1., .25, 2*c['nt'], 2*c['np'], .5); wv = av/av.sum()
     Av = response(pv, nv, coils); bv = np.sum(field(pv, error, 1500)*nv, axis=1)

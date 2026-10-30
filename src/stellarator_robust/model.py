@@ -17,15 +17,41 @@ class Coil:
                     + center + translation)
 
 
-def circle(center, normal, radius: float, segments: int = 128) -> Coil:
+def deterministic_frame(normal):
+    """Version 2 signed-Householder frame: u cross v = normalized normal.
+
+    The hemisphere convention includes signed zero in the northern hemisphere.
+    Denominator magnitude is at least one, avoiding near-tie axis selection.
+    There is an explicit chart boundary at n_z=0, not a global smooth frame.
+    """
+    n = np.asarray(normal, dtype=float)
+    if n.shape != (3,) or not np.isfinite(n).all() or np.max(abs(n)) == 0:
+        raise ValueError('Require a finite nonzero 3-vector normal')
+    n = n/np.max(abs(n)); n = n/np.linalg.norm(n)
+    sign = 1. if n[2] >= 0 else -1.
+    a = -1./(sign+n[2]); b = n[0]*n[1]*a
+    u = np.array([1+sign*n[0]*n[0]*a, sign*b, -sign*n[0]])
+    v = np.array([b, sign+n[1]*n[1]*a, -n[1]])
+    return u, v, n
+
+
+def circle(center, normal, radius: float, segments: int = 128,
+           geometry_version='legacy-v1') -> Coil:
     if radius <= 0 or segments < 8:
         raise ValueError("Positive radius and at least eight segments required")
-    n = np.asarray(normal, dtype=float)
-    n = n / np.linalg.norm(n)
-    helper = np.eye(3)[np.argmin(abs(n))]
-    u = np.cross(helper, n)
-    u /= np.linalg.norm(u)
-    v = np.cross(n, u)
+    if geometry_version == 'legacy-v1':
+        n = np.asarray(normal, dtype=float)
+        n = n / np.linalg.norm(n)
+        helper = np.eye(3)[np.argmin(abs(n))]
+        u = np.cross(helper, n)
+        u /= np.linalg.norm(u)
+        v = np.cross(n, u)
+    elif geometry_version == 'householder-v2':
+        if np.asarray(center).shape != (3,) or not np.isfinite(center).all() or not np.isfinite(radius):
+            raise ValueError('Require a finite 3-vector center and radius')
+        u, v, n = deterministic_frame(normal)
+    else:
+        raise ValueError('Unknown geometry version: '+geometry_version)
     t = np.arange(segments) * 2 * np.pi / segments
     return Coil(np.asarray(center) + radius * (np.cos(t)[:, None] * u + np.sin(t)[:, None] * v))
 
@@ -76,14 +102,15 @@ def response(points, normals, coils):
     return np.column_stack([np.sum(field(points, c)*normals, axis=1) for c in coils])
 
 
-def benchmark(nt=8, np_=16, segments=64, nphi=8, ntheta=3):
+def benchmark(nt=8, np_=16, segments=64, nphi=8, ntheta=3,
+              geometry_version='legacy-v1'):
     points, normals, area = surface(1., .25, nt, np_)
     coils = []
     for t in np.arange(ntheta)*2*np.pi/ntheta:
         for p in np.arange(nphi)*2*np.pi/nphi:
             center = [(1+.65*np.cos(t))*np.cos(p), (1+.65*np.cos(t))*np.sin(p), .65*np.sin(t)]
             n = [np.cos(t)*np.cos(p), np.cos(t)*np.sin(p), np.sin(t)]
-            coils.append(circle(center, n, .16, segments))
-    error = circle([1.6, .25, .35], [1., .2, .4], .22, segments)
+            coils.append(circle(center, n, .16, segments, geometry_version))
+    error = circle([1.6, .25, .35], [1., .2, .4], .22, segments, geometry_version)
     b = np.sum(field(points, error, 1500.)*normals, axis=1)
     return points, normals, area/area.sum(), coils, error, b

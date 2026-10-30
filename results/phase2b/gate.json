@@ -1,0 +1,26 @@
+{
+  "software_status": "PASS",
+  "phase1_regression_status": "PASS",
+  "scientific_status": "PARTIAL",
+  "benchmark_version": "phase2b-householder-v2-pattern-v2",
+  "study_sha256": "c8f1cf9df1cdc6fb8eb5ab8595ede2015aee4647671d98142205ec1ec8f2a960",
+  "quick_sha256": "716ebb2a81585c3240a261902910a5f7d75a35e90c7e298c6bf71701bf871263",
+  "candidate_checks": {
+    "dense": {
+      "independent_difference_T": 0.0,
+      "configured_relative_error": 1.7378030181251516e-05
+    },
+    "matched_nominal": {
+      "independent_difference_T": 0.0,
+      "configured_relative_error": 1.737745502643355e-05
+    },
+    "robust": {
+      "independent_difference_T": 0.0,
+      "configured_relative_error": 1.7377055267158142e-05
+    }
+  },
+  "limitations": [
+    "Finite sampled search, no global peak certificate",
+    "IID synthetic scenarios; no device or confinement validation"
+  ]
+}

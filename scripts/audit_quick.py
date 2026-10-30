@@ -10,7 +10,7 @@ from stellarator_robust.validation import independent_midpoint, independent_circ
 out = Path(sys.argv[1] if len(sys.argv)>1 else 'results/quick')
 data = json.loads((out/'results.json').read_text())
 c = data['metadata']['config']; I = np.array(data['currents_A']['dense'])
-p, n, w, coils, error, b = benchmark(c['nt'], c['np'], c['segments'], c['nphi'], c['ntheta'])
+p, n, w, coils, error, b = benchmark(c['nt'], c['np'], c['segments'], c['nphi'], c['ntheta'], c.get('geometry_version', 'legacy-v1'))
 A = response(p, n, coils)
 idx = np.array([1, 17, 63, 123])
 direct = sum(independent_midpoint(p[idx], coil, amp, 100) for coil, amp in zip(coils, I))
@@ -30,7 +30,7 @@ for multiplier in [1, 2, 4]:
                  'rms_T': float(np.sqrt((av/av.sum())@(r*r))), 'max_T': float(max(abs(r)))})
 segment = []; previous_rms = None; previous_error = None
 for count in [32, 64, 128, 256, 512, 1024]:
-    pp, nn, ww, cc, ee, bb = benchmark(c['nt'], c['np'], count, c['nphi'], c['ntheta'])
+    pp, nn, ww, cc, ee, bb = benchmark(c['nt'], c['np'], count, c['nphi'], c['ntheta'], c.get('geometry_version', 'legacy-v1'))
     r = bb+response(pp, nn, cc)@I
     rms = float(np.sqrt(ww@(r*r)))
     vector_error = float(np.sqrt(ww@((r-reference)**2)))

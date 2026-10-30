@@ -1,5 +1,6 @@
 """Replay training draws and bound the convex primal using a simplex dual."""
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import numpy as np
@@ -8,10 +9,14 @@ from stellarator_robust.model import benchmark
 from stellarator_robust.uncertainty import scenarios
 from stellarator_robust.optimize import baseline
 
-out = Path('results/phase2'); source = out/'study.json'
+parser = argparse.ArgumentParser()
+parser.add_argument('--output', default='results/phase2')
+parser.add_argument('--phase1-input', default='results/quick/results.json')
+args = parser.parse_args()
+out = Path(args.output); source = out/'study.json'
 d = json.loads(source.read_text())
-c = json.loads(Path('results/quick/results.json').read_text())['metadata']['config']
-p, n, w, coils, _, b = benchmark(c['nt'], c['np'], d['config']['segments'], c['nphi'], c['ntheta'])
+c = json.loads(Path(args.phase1_input).read_text())['metadata']['config']
+p, n, w, coils, _, b = benchmark(c['nt'], c['np'], d['config']['segments'], c['nphi'], c['ntheta'], d['config'].get('geometry_version', 'legacy-v1'))
 rows = []
 for trial in d['trials']:
     count, seed = trial['count'], trial['train_seed']

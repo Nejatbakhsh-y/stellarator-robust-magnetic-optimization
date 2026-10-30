@@ -1,0 +1,30 @@
+{
+  "benchmark_version": "phase2b-householder-v2-pattern-v2",
+  "quick_runtime": {
+    "source_commit": "72c70995b7e6c2f56ec6fad4fa07fd73930e3370",
+    "source_dirty": true,
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    }
+  },
+  "study_runtime": {
+    "source_commit": "72c70995b7e6c2f56ec6fad4fa07fd73930e3370",
+    "source_dirty": true,
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    }
+  },
+  "status": "DATA_READY",
+  "quick_sha256": "af26256c04345139866019de369f3ea22b31bb60511d1867c1ad4f9027114b13",
+  "study_sha256": "78398659488fd3b88c621bd788c6f5d6a4c9a27f2829d5ed0e091641d0ea2a6c"
+}

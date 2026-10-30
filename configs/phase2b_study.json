@@ -1,0 +1,40 @@
+{
+    "segments":  512,
+    "grids":  [
+                  [
+                      10,
+                      24
+                  ],
+                  [
+                      20,
+                      48
+                  ],
+                  [
+                      40,
+                      96
+                  ]
+              ],
+    "shifts":  [
+                   0.0,
+                   0.5,
+                   0.2718281828459045
+               ],
+    "seeds_per_grid":  1,
+    "maxiter":  120,
+    "maxfev":  240,
+    "holdout_count":  64,
+    "holdout_seed":  20261110,
+    "training_seeds":  [
+                           20261111,
+                           20261112
+                       ],
+    "training_counts":  [
+                            4,
+                            8
+                        ],
+    "bootstrap_seed":  20261113,
+    "bootstrap_resamples":  2000,
+    "geometry_version":  "householder-v2",
+    "phase1_input":  "results/phase2b/quick/results.json",
+    "peak_algorithm":  "dyadic-pattern-v2"
+}
