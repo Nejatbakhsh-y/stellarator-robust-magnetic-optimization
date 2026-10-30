@@ -1,0 +1,90 @@
+{
+  "base_commit": "ad1ca5285a20717a03c202c31e5d4a5d2152412c",
+  "preserved_evidence_checkout_sha256": {
+    "results/phase2/failure_sensitivity.json": "6542f2b7c5a686562cb1e908e8c09797e906319c01fd0c25084b0a05f6ef20cf",
+    "results/phase2/gate.json": "15355285339a0092402db64f8372c935db5d8010bdd240c40e3cdeccc483f08e",
+    "results/phase2/paired_difference.png": "ac27d7e8c50e705e7a6078b534f6899ceb066bcaad979257870dd4615c3b291e",
+    "results/phase2/peak_location_dense.png": "525affdbe7848eb9a78961e415059cae62be1de39f4fd412646e8a2d563d1d97",
+    "results/phase2/peak_location_matched_nominal.png": "a384b2f8f715cdaf8a9b55a0594d30192328e9472fe034a9d0b7e8cefc732dc1",
+    "results/phase2/peak_location_robust.png": "f1127935d03608225be96ba5ee3991488513402eab4b270e4ddf9b195b05fa5c",
+    "results/phase2/peak_refinement.png": "9a7863448f82a408814616748452157295253b9d7f1a236050a0aa6df131d3d9",
+    "results/phase2/phase1_input.json": "83162de245bfa5f64fad773f0c8212ccb04d2ae8af8287c03589fd8ee8374889",
+    "results/phase2/regression/audit.json": "f0a0a940e47978c32162423e5f634138803b1f77867148720583866d13a992e0",
+    "results/phase2/regression/convergence.png": "4e6469287f742b1c239e5b0984387514198a72e3ffd31b6c37ea45afe26b2732",
+    "results/phase2/regression/current_tradeoff.png": "99dd1c843f8e6e0e5724718b9b949e509b67a0aa71496d02afd543543c8b7f7f",
+    "results/phase2/regression/currents.png": "bbd4e826d585f21c3fd1f5948328d9257d3530591d9cc1ac4426909e1bc2ecca",
+    "results/phase2/regression/geometry.png": "1c34f597541c3b3601a5b16ac0071b4ba0f6913ca2b94ec5b472af5bc4ea11c1",
+    "results/phase2/regression/holdout.png": "0510fce7f9d7172f3718d4d9030b38da2dfee9101929d3e4e8cd5a1a0bce5829",
+    "results/phase2/regression/normal_field.png": "2d7dab5a4c5cb317e07716ec20a638a2d46f1ac22f9006f59ffda918db8378f8",
+    "results/phase2/regression/outages.png": "8693f063e71aa58caf677e2478bdb73ec99b7984e8711f45f0583999c1493fbb",
+    "results/phase2/regression/pareto.csv": "c585f446ba1bab7b5b4169a722293c3324564be8021ca7fa3b0240b3097d09ee",
+    "results/phase2/regression/pareto.png": "0b24f29e5b9bfd1ebdc640106b4dd8603db9c631677a6be920ea8a895981fad6",
+    "results/phase2/regression/results.json": "0a2313a043a02264d8c6b65513152169149a3e35d235ef80dea56c0ae10e0bd9",
+    "results/phase2/reproducibility.json": "2b3a6ea2e40e4514466cf710f27b9f1b4c40562798ed8f30334ede3de266dc34",
+    "results/phase2/study.json": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258",
+    "results/phase2/training_audit.json": "c086a0cb307b233a7c7c13e40f18aa1b5bbae23c2ef9cd5dfc97c417fd3cbbb6",
+    "results/quick/audit.json": "e4946a40dcf2013f9cb59ac40a053735ff1d1f24ecd6009854dfb105ec41f31e",
+    "results/quick/convergence.png": "4e6469287f742b1c239e5b0984387514198a72e3ffd31b6c37ea45afe26b2732",
+    "results/quick/current_tradeoff.png": "99dd1c843f8e6e0e5724718b9b949e509b67a0aa71496d02afd543543c8b7f7f",
+    "results/quick/currents.png": "bbd4e826d585f21c3fd1f5948328d9257d3530591d9cc1ac4426909e1bc2ecca",
+    "results/quick/geometry.png": "1c34f597541c3b3601a5b16ac0071b4ba0f6913ca2b94ec5b472af5bc4ea11c1",
+    "results/quick/holdout.png": "0510fce7f9d7172f3718d4d9030b38da2dfee9101929d3e4e8cd5a1a0bce5829",
+    "results/quick/normal_field.png": "2d7dab5a4c5cb317e07716ec20a638a2d46f1ac22f9006f59ffda918db8378f8",
+    "results/quick/outages.png": "8693f063e71aa58caf677e2478bdb73ec99b7984e8711f45f0583999c1493fbb",
+    "results/quick/pareto.csv": "c585f446ba1bab7b5b4169a722293c3324564be8021ca7fa3b0240b3097d09ee",
+    "results/quick/pareto.png": "0b24f29e5b9bfd1ebdc640106b4dd8603db9c631677a6be920ea8a895981fad6",
+    "results/quick/refinement_diagnosis.json": "430019e6c0133097411af2064fbbcd5aad1c73f699b4bd0195ae4ac868ca78a5",
+    "results/quick/reproducibility.json": "2cba857ac830176a1b3abd769d70dfc6e7c8f99fa4d0ef1aa74ebf0f06bc3bf2",
+    "results/quick/results.json": "83162de245bfa5f64fad773f0c8212ccb04d2ae8af8287c03589fd8ee8374889",
+    "results/quick/tests.json": "0d65a4fcd173f467a0f07d1f290ca1b780fdbd57a2ca25e0ce4d52c9835b5d4c"
+  },
+  "manifest_entry_changes": {
+    "results/phase2/commands.json": {
+      "base": "9d615322f8b0e68c6452153bae6e0ee2f5d9ac434e59c31b16248330c19f3eca",
+      "current": "54bb96691b86ba95a2053cd7f9b1d7a8b2ab01ad4cb45d425d6167d571226c58"
+    },
+    "scripts/phase2_cloud_ci.py": {
+      "base": null,
+      "current": "cd56e636e7b7e0915e274b828e1be45f66430d0969a3c49198d5c6da4439bb75"
+    },
+    "scripts/phase2_reports.py": {
+      "base": "38b168cc5215c98f547497906bd41649ef5c2974fc9a14c67dafe4a304c6f8c5",
+      "current": "5b257051d319c7c7f043312db9ef84613a3c55320c04008477cc2f49cb641be5"
+    },
+    "scripts/phase2_verify.py": {
+      "base": "5372ea332d4c9376c8fdfc59210839525d42fa9def57a1e478e62813e3374b12",
+      "current": "c0b9fc07f9bc33a78fe9b95fd2eb09c30766f7b5d303fbb9fbc7fb359133a7d9"
+    },
+    "src/stellarator_robust/ci_evidence.py": {
+      "base": null,
+      "current": "1ba3dd6bf0a444b83a3585a5c25f377b856f2365f5f9addfdcdab462f26fc7c7"
+    },
+    "tests/test_ci_evidence.py": {
+      "base": null,
+      "current": "1b28a0cfae540eea29fe0f42f97e246c0252f1e0da77c848b2aad94d83543d6e"
+    }
+  },
+  "reason": "CI orchestration/comparison/tests added and tightened; report count derives from executed pytest; commands and manifest refreshed. All 36 numerical/audit evidence files are preserved.",
+  "raw_git_blob_sha256": {
+    "results/quick/results.json": "087268824c528c789be975ac81ccc50e79efdc9e090ed43b555c7cba57e07780",
+    "results/phase2/study.json": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258"
+  },
+  "workflow_normalized_sha256": "43d5d0ff5af3435ac3b3c83e03810f2ee0720204b425d04889bb99609c814783",
+  "metadata_file_hashes": {
+    "results/phase2/manifest.json": {
+      "base": "7d14dded1dbd8b3860be9b1c015b90ee1b3a366f44f769ad424c9d3653ac6a4e",
+      "current": "8f23b9b4747c97272e1b97c46a4f20d91719ae46fa98ca2e8d576638323b4843"
+    },
+    "results/phase2/commands.json": {
+      "base": "9d615322f8b0e68c6452153bae6e0ee2f5d9ac434e59c31b16248330c19f3eca",
+      "current": "54bb96691b86ba95a2053cd7f9b1d7a8b2ab01ad4cb45d425d6167d571226c58"
+    }
+  },
+  "report_normalized_hash_changes": {
+    "docs/PHASE2_VALIDATION.md": {
+      "base": "b0eb59943a273bc58bc8e33460529c1b743247d992116671f3d561fec0f97005",
+      "current": "594578a5318ee03c983cd08fdcde542bad28b13098f82be25632901aba41e617",
+      "reason": "Executed test count replaces hard-coded 17; no scientific table or conclusion changes."
+    }
+  }
+}
