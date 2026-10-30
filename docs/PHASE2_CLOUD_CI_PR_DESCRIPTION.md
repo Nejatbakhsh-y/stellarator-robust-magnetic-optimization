@@ -12,7 +12,9 @@ is validated and recorded separately. Historical Phase 1 line endings are checke
 against Git's filtered blob and its hash-linked frozen input is restored only in
 the disposable runner worktree after semantic/hash validation.
 
-Local checks are recorded in PHASE2_CLOUD_CI_VALIDATION.md. Remote CI is pending;
+Local checks: final suite 34 passed; complete numerical overlay pipeline passed
+with its recorded 30-test snapshot, audits and hash-linked PASS/PASS/PARTIAL gate.
+Details are in PHASE2_CLOUD_CI_VALIDATION.md. Remote CI is pending;
 no actual Actions success is claimed. Scientific status remains PARTIAL: all four
 minimax fits worsen the tested holdout RMS; peaks have no global certificate.
 Broader uncertainty, external-code and confinement validation remain unfinished.

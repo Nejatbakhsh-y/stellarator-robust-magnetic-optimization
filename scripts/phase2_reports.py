@@ -1,6 +1,7 @@
 """Generate reports only from completed hash-linked evidence."""
 import hashlib
 import json
+import re
 from pathlib import Path
 import numpy as np
 
@@ -64,6 +65,12 @@ validation = '''The initial 11-test Phase 1 baseline and analytical validation p
 
 Full Phase 1 and Phase 2 repeated runs matched at rtol=1e-11, atol=1e-13, excluding runtime and dirty-state metadata. The fresh Phase 1 run also matched historical numerical groups. See commands.json, regression/audit.json, reproducibility.json and gate.json for executed evidence. Existing numerical tolerances were retained. CI includes the new bounded unit tests through its existing pytest step; remote CI was not observed. Research-scale experiments are not default CI jobs.
 '''
+# Report the executed suite count, rather than freezing the original checkpoint count.
+commands = json.loads((out/'commands.json').read_text())
+match = re.search(r'(\d+) passed\b', commands[0]['stdout'])
+assert commands[0]['returncode'] == 0 and match, 'Missing passing pytest count'
+validation = validation.replace('final expanded suite passed 17 tests',
+                                f'final expanded suite passed {match.group(1)} tests')
 status = '''Completed: isolated feature branch; fixed-current multi-shift grids; periodic continuous-angle searches; independent smooth-circle and segment checks at candidates; paired 64-scenario holdout across four training configurations; bootstrap intervals; six added tests; separate historical-regression audit; full repeated studies; numerical dual audit; failure-sensitive and portable evidence gate; hash-linked reports.
 
 Unfinished: global peak certification, broader uncertainty/sensitivity matrix, explicit current-budget matching, formal arithmetic certification, paired holdout discretization refinement, external cross-code comparison and large preset. The independent full-dimensional numerical dual audit passed, as distinct from formal certification. See PHASE2_LIMITATIONS.md. No complete Phase 2 scientific verification is claimed.

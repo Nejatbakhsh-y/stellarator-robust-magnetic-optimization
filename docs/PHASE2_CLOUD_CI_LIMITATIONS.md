@@ -1,4 +1,4 @@
-﻿# Phase 2 cloud CI limitations
+# Phase 2 cloud CI limitations
 
 Scientific status remains PARTIAL. All four finite-scenario minimax fits worsened
 holdout RMS under the tested synthetic scenarios; Phase 1's negative finding is
@@ -10,9 +10,9 @@ external-code, correlated-error or current-budget-matched validation. The larger
 research preset has not run.
 
 A green workflow means the explicitly implemented software and scientific evidence
-gates passed. It does not promote scientific status to PASS. Local Windows tests
-cannot establish Linux numerical agreement or clean Windows checkout portability;
-those remain pending until actual GitHub jobs are observed. Current dependency
+gates passed. It does not promote scientific status to PASS. The local clean Windows checkout passes the saved-evidence checks. Linux numerical
+agreement and actual GitHub-hosted Windows portability remain pending until
+the remote jobs are observed. Current dependency
 ranges can expose new SciPy/NumPy differences. Such differences must fail with
 unchanged numerical tolerances and be investigated, not silently accepted.
 

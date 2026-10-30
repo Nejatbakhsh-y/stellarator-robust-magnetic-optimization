@@ -12,17 +12,19 @@ def runtime():
                 python=platform.python_version())
 
 
-def compare(a, b, trail='', records=None):
+def compare(a, b, trail='', records=None, exact=False):
+    if exact and type(a) is not type(b):
+        raise AssertionError(f'{trail}: exact type differs')
     if isinstance(a, dict):
         if not isinstance(b, dict) or a.keys() != b.keys():
             raise AssertionError(f'{trail}: keys differ')
         for key in a:
-            compare(a[key], b[key], trail+'/'+key, records)
+            compare(a[key], b[key], trail+'/'+key, records, exact)
     elif isinstance(a, list):
         if not isinstance(b, list) or len(a) != len(b):
             raise AssertionError(f'{trail}: dimensions differ')
         for i, (x, y) in enumerate(zip(a, b)):
-            compare(x, y, trail+f'/{i}', records)
+            compare(x, y, trail+f'/{i}', records, exact)
     elif isinstance(a, float):
         if isinstance(b, bool) or not isinstance(b, (int, float)) or not math.isfinite(a) or not math.isfinite(b):
             raise AssertionError(f'{trail}: invalid numeric value')
@@ -30,7 +32,7 @@ def compare(a, b, trail='', records=None):
         if records is not None and error:
             records.append(dict(path=trail, absolute_error=error,
                                 relative_error=error/max(abs(a), 1e-300)))
-        if not np.isclose(a, b, rtol=1e-11, atol=1e-13):
+        if not (a == b if exact else np.isclose(a, b, rtol=1e-11, atol=1e-13)):
             raise AssertionError(f'{trail}: absolute_error={error}, reference={a}, current={b}')
     elif type(a) is not type(b) or a != b:
         raise AssertionError(f'{trail}: exact value differs: {a!r} != {b!r}')
@@ -59,8 +61,7 @@ def compare_study(reference, current, actual=None, report=None):
                              reference=old['solver'].pop('seconds'), current=new['solver'].pop('seconds')))
     # Scenario draws and configuration are discrete reference records, even their floats.
     for key in ('scenarios', 'config'):
-        if left[key] != right[key]:
-            raise AssertionError('exact record mismatch: '+key)
+        compare(left[key], right[key], '/'+key, records=errors, exact=True)
     compare(left, right, records=errors)
     result['status'] = 'PASS'
     return result

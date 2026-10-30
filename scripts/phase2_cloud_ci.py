@@ -25,6 +25,14 @@ def references(root):
     manifest = json.loads((root/'results/phase2/manifest.json').read_text())
     if not manifest:
         raise AssertionError('empty manifest')
+    required = []
+    for folder, pattern in (('src', '*.py'), ('tests', '*.py'), ('scripts', '*.py'), ('configs', '*.json')):
+        required.extend((root/folder).rglob(pattern))
+    required.append(root/'.gitattributes')
+    required.extend(p for p in (root/'results/phase2').rglob('*')
+                    if p.is_file() and p.name not in ('manifest.json', 'gate.json'))
+    if not all(p.relative_to(root).as_posix() in manifest for p in required):
+        raise AssertionError('manifest completeness before regeneration')
     for name, digest in manifest.items():
         path = Path(name)
         if path.is_absolute() or '..' in path.parts or not (root/path).is_file():

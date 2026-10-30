@@ -1,6 +1,6 @@
-﻿# Phase 2 cloud CI execution status
+# Phase 2 cloud CI execution status
 
-Implementation and local verification are in progress; remote CI is PENDING.
+Implementation and the complete local overlay pipeline passed; remote CI is PENDING.
 No PR or Actions run has been created or observed in this session. GitHub CLI
 configuration is prohibited by AGENTS.md and was not accessed or bypassed.
 PRs #1 and #2 and the website repository were not accessed.
@@ -42,3 +42,32 @@ Phase 1 checkout and frozen-input SHA256:
 83162de245bfa5f64fad773f0c8212ccb04d2ae8af8287c03589fd8ee8374889.
 A clean initial tree at the exact base ties all initial source/config files to
 that tree; final manifest entries bind the changed implementation separately.
+
+Initial implementation commit: 62aac8ade5fd76f3f9ae49bf40f006576c0687f8.
+A fresh detached Windows checkout with core.autocrlf=true passed the committed
+smoke checks (32 tests, manifest, reference bytes and saved gate), and remained
+clean. Actual GitHub-hosted Linux/Windows jobs are still pending.
+
+Reporting correction: phase2_reports.py now extracts the passing test count from
+the actual command record. The fixed historical '17 passed' text would be false
+for new CI runs. The report script was also copied into the disposable local
+worktree before its manifest/report stages; it changes no scientific computation.
+The repeated experiments retain the original scientific code. Final diagnostics
+and preflight-completeness tests were added after the long run started, so its
+snapshot test count is 30, while the final checkout suite is 34. Final report
+fingerprints record the reporting correction; numerical evidence stays unchanged.
+
+Completed full local overlay pipeline: all eight outer stages returned 0; all
+seven inner regression/repeat commands returned 0. The expected negative child
+returned 1. Fresh/reference and repeat comparisons passed with no nonzero
+scientific numeric differences, unchanged 1e-11/1e-13 tolerances, and exact
+scenario/configuration identity. Independent training checks passed; maximum
+numerical dual gap 3.839244037701778e-11. Final gate PASS/PASS/PARTIAL.
+Fresh study SHA256:
+c5af7c1db7edf620c08f19d8793e1f892407ab9ceef0b95bdfd7cf3b141132e6.
+All 36 preserved numerical/audit files still match base Git data; only the two
+provenance records are refreshed. The generated validation report's test count
+is now derived from executed commands. Full local records and exact source,
+metadata, workflow and report hash changes are in PHASE2_CLOUD_CI_LOCAL_VALIDATION.json
+and PHASE2_CLOUD_CI_HASH_REVIEW.json. Final checkout suite: 34 passed; the full
+run's initial snapshot: 30 passed. Actual hosted CI and publication remain pending.

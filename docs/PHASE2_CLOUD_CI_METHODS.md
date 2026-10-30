@@ -1,9 +1,10 @@
-﻿# Phase 2 cloud CI methods
+# Phase 2 cloud CI methods
 
 The PR trigger targets `codex/phase2-peak-robustness-uq`. The existing Phase 1
 workflow is preserved. Linux and Windows smoke jobs run pytest, verify the entire
 saved manifest and published numerical references, and execute the saved gate.
-The full Linux job has a 180-minute ceiling; smoke jobs have 20 minutes. Redundant
+The full Linux job has a 180-minute ceiling; its compute step has 160 minutes to
+leave time for failure artifact upload. Smoke jobs have 20 minutes. Redundant
 PR updates cancel older runs. No larger research preset is requested.
 
 Checkout credentials are disabled; permissions are contents:read. Full validation
@@ -17,7 +18,8 @@ published checkpoint, then runs phase2_verify: pytest, analytical validation,
 fresh Phase 1 quick experiment, output checks, independent audit, second Phase 1
 experiment, historical comparison, and second complete Phase 2 study. Independent
 training replay/dual audit, intentional invalid-evidence rejection, manifest
-refresh, final gate, and six reports follow. Every subprocess failure propagates.
+refresh, final gate, and six reports follow. Reports derive the passing test count
+from executed commands, instead of freezing the original 17-test checkpoint count. Every subprocess failure propagates.
 
 Scientific arrays retain rtol=1e-11, atol=1e-13. Scenario records, configuration,
 integer values, statuses, keys and dimensions match exactly. Only top-level
@@ -41,4 +43,5 @@ comparison details, and reports for 14 days, including failures. Study JSON cont
 peak candidate metrics and paired holdout statistics; training_audit.json contains
 numerical primal-dual gaps. execution.json records stage failures. Cancellation or
 runner termination can interrupt finalization; workflow artifact upload is always
-attempted for files already written. No credentials/configuration are uploaded.
+attempted for files already written. The full upload explicitly includes the
+worktree result/repeat/report directories, so it does not depend on final copying. No credentials/configuration are uploaded.

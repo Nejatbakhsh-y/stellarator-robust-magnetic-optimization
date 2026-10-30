@@ -72,3 +72,29 @@ def test_failed_comparison_retains_exclusions_and_error_magnitudes():
     assert report['status'] == 'FAIL'
     assert len(report['excluded']) == 3
     assert report['numeric_differences'][0]['absolute_error'] == 1.0
+
+
+def test_exact_scenario_mismatch_retains_numeric_magnitude():
+    a = study(); b = copy.deepcopy(a)
+    b['scenarios']['draw'][0] += 1e-14
+    report = {}
+    actual = {k: b[k] for k in ('source_commit', 'source_dirty', 'python')}
+    with pytest.raises(AssertionError, match='/scenarios/draw/0: absolute_error'):
+        compare_study(a, b, actual, report=report)
+    assert report['status'] == 'FAIL'
+    assert report['numeric_differences'][0]['absolute_error'] > 0
+
+
+def test_reference_preflight_rejects_unlisted_source(tmp_path):
+    import json
+    import runpy
+    from pathlib import Path
+    from stellarator_robust.evidence import file_hash
+    references = runpy.run_path(str(Path(__file__).parents[1]/'scripts/phase2_cloud_ci.py'))['references']
+    (tmp_path/'src').mkdir()
+    (tmp_path/'src/unlisted.py').write_text('x = 1\n')
+    (tmp_path/'.gitattributes').write_text('results/phase2/** -text\n')
+    out = tmp_path/'results/phase2'; out.mkdir(parents=True)
+    (out/'manifest.json').write_text(json.dumps({'.gitattributes': file_hash(tmp_path/'.gitattributes')}))
+    with pytest.raises(AssertionError, match='manifest completeness before regeneration'):
+        references(tmp_path)

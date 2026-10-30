@@ -1,0 +1,659 @@
+{
+  "kind": "local_validation_not_remote_actions",
+  "status": "PASS",
+  "remote_status": "PENDING",
+  "reference_study_sha256": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258",
+  "fresh_study_sha256": "c5af7c1db7edf620c08f19d8793e1f892407ab9ceef0b95bdfd7cf3b141132e6",
+  "full_run_source_commit": "ad1ca5285a20717a03c202c31e5d4a5d2152412c",
+  "full_run_local_overlay": true,
+  "full_run_manifest_sha256": "217b0a2c290195e78ef19766c56d90692e45c06eecbbd1890fd327814b3c89b3",
+  "final_source_manifest_sha256": "8f23b9b4747c97272e1b97c46a4f20d91719ae46fa98ca2e8d576638323b4843",
+  "snapshot_pytest_passed": 30,
+  "final_checkout_pytest_passed": 34,
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.2",
+    "pytest": "9.2.0"
+  },
+  "steps": [
+    {
+      "stage": "worktree",
+      "returncode": 0,
+      "seconds": 0.20400000002700835
+    },
+    {
+      "stage": "fresh-study",
+      "returncode": 0,
+      "seconds": 1314.625
+    },
+    {
+      "stage": "full-repeat",
+      "returncode": 0,
+      "seconds": 1869.5310000000754
+    },
+    {
+      "stage": "training-audit",
+      "returncode": 0,
+      "seconds": 35.53099999995902
+    },
+    {
+      "stage": "negative-gate",
+      "returncode": 0,
+      "seconds": 1.4849999999860302
+    },
+    {
+      "stage": "manifest",
+      "returncode": 0,
+      "seconds": 3.187000000034459
+    },
+    {
+      "stage": "final-gate",
+      "returncode": 0,
+      "seconds": 2.375
+    },
+    {
+      "stage": "reports",
+      "returncode": 0,
+      "seconds": 0.375
+    }
+  ],
+  "inner_commands": [
+    {
+      "command": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "stellarator_robust.cli",
+        "validate"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "stellarator_robust.cli",
+        "run",
+        "--config",
+        "configs/quick.json",
+        "--output",
+        "results\\phase2\\regression"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "scripts/check_outputs.py",
+        "results\\phase2\\regression"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "scripts/audit_quick.py",
+        "results\\phase2\\regression"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "stellarator_robust.cli",
+        "run",
+        "--config",
+        "configs/quick.json",
+        "--output",
+        "results\\reproduction\\phase2-regression"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "scripts/phase2_study.py",
+        "--output",
+        "results/reproduction/phase2-study"
+      ],
+      "returncode": 0
+    }
+  ],
+  "checkpoint_comparison": {
+    "status": "PASS",
+    "excluded": [
+      {
+        "path": "/source_commit",
+        "reference": "ad96ee2ac9e6265ca0b97caa5d0b88f13454f6b2",
+        "current": "ad1ca5285a20717a03c202c31e5d4a5d2152412c"
+      },
+      {
+        "path": "/source_dirty",
+        "reference": true,
+        "current": true
+      },
+      {
+        "path": "/python",
+        "reference": "3.11.9",
+        "current": "3.11.9"
+      },
+      {
+        "path": "/trials/0/solver/seconds",
+        "reference": 0.010540299932472408,
+        "current": 0.016862899996340275
+      },
+      {
+        "path": "/trials/1/solver/seconds",
+        "reference": 0.013589699985459447,
+        "current": 0.024396600085310638
+      },
+      {
+        "path": "/trials/2/solver/seconds",
+        "reference": 0.016270100022666156,
+        "current": 0.011709499987773597
+      },
+      {
+        "path": "/trials/3/solver/seconds",
+        "reference": 0.010380599997006357,
+        "current": 0.022446699906140566
+      }
+    ],
+    "numeric_differences": [],
+    "rtol": 1e-11,
+    "atol": 1e-13
+  },
+  "repeat_comparison": {
+    "status": "PASS",
+    "excluded": [
+      {
+        "path": "/source_commit",
+        "reference": "ad1ca5285a20717a03c202c31e5d4a5d2152412c",
+        "current": "ad1ca5285a20717a03c202c31e5d4a5d2152412c"
+      },
+      {
+        "path": "/source_dirty",
+        "reference": true,
+        "current": true
+      },
+      {
+        "path": "/python",
+        "reference": "3.11.9",
+        "current": "3.11.9"
+      },
+      {
+        "path": "/trials/0/solver/seconds",
+        "reference": 0.016862899996340275,
+        "current": 0.004629000090062618
+      },
+      {
+        "path": "/trials/1/solver/seconds",
+        "reference": 0.024396600085310638,
+        "current": 0.00642859993968159
+      },
+      {
+        "path": "/trials/2/solver/seconds",
+        "reference": 0.011709499987773597,
+        "current": 0.010025799972936511
+      },
+      {
+        "path": "/trials/3/solver/seconds",
+        "reference": 0.022446699906140566,
+        "current": 0.006199900060892105
+      }
+    ],
+    "numeric_differences": [],
+    "rtol": 1e-11,
+    "atol": 1e-13
+  },
+  "gate": {
+    "software_status": "PASS",
+    "phase1_regression_status": "PASS",
+    "scientific_status": "PARTIAL",
+    "failed_checks": [],
+    "limitations": [
+      "No global supremum certificate",
+      "Only IID synthetic scenarios",
+      "Current-budget matching and correlated errors pending; dual check is numerical"
+    ],
+    "study_sha256": "c5af7c1db7edf620c08f19d8793e1f892407ab9ceef0b95bdfd7cf3b141132e6"
+  },
+  "training_checks": {
+    "scenario_records_identical": true,
+    "saved_objectives_match_1e-12": true,
+    "robust_training_no_worse_1e-8": true,
+    "numerical_dual_gap_1e-8": true,
+    "epigraph_residual_1e-8": true
+  },
+  "training_primal_dual_gaps": [
+    1.574830294382573e-11,
+    3.839244037701778e-11,
+    8.63113888086714e-12,
+    4.653439742915988e-12
+  ],
+  "negative_gate_child_returncode": 1,
+  "phase1_audit_gates": {
+    "independent_midpoint_agreement_1e-10_T": true,
+    "smooth_reference_error_estimate_relative_1e-8": true,
+    "analytic_256_segments_relative_6e-5": true,
+    "last_refinement_relative_rms_change_1e-4": true,
+    "configured_refinement_relative_rms_change_1e-4": true,
+    "configured_residual_vs_smooth_reference_relative_1e-4": true,
+    "last_three_orders_between_1p95_and_2p05": true,
+    "fine_grid_relative_rms_change_1e-4": true,
+    "all_solvers_successful": true
+  },
+  "phase1_results_sha256": "e2049f5a732c3af1b9aedf81734dc6cda57c298c767ddfc7bae0756a0129b47b",
+  "reproducibility": {
+    "status": "PASS",
+    "rtol": 1e-11,
+    "atol": 1e-13,
+    "phase1_historical_match": true,
+    "full_phase1_repeat": true,
+    "full_phase2_repeat": true,
+    "study_sha256": "c5af7c1db7edf620c08f19d8793e1f892407ab9ceef0b95bdfd7cf3b141132e6",
+    "regression_sha256": "e2049f5a732c3af1b9aedf81734dc6cda57c298c767ddfc7bae0756a0129b47b"
+  },
+  "peaks": {
+    "dense": {
+      "candidate": {
+        "angles_rad": [
+          0.5739481891918794,
+          0.17125034062549457
+        ],
+        "field_T": 0.00029933265784163585,
+        "sign": 1,
+        "success": true,
+        "nfev": 127,
+        "message": "Optimization terminated successfully."
+      },
+      "smooth_reference_T": 0.0002993378597474208,
+      "status": "UNRESOLVED",
+      "certificate": false
+    },
+    "matched_nominal": {
+      "candidate": {
+        "angles_rad": [
+          0.5740448060092014,
+          0.17126894663133307
+        ],
+        "field_T": 0.0002993101488827382,
+        "sign": 1,
+        "success": true,
+        "nfev": 100,
+        "message": "Optimization terminated successfully."
+      },
+      "smooth_reference_T": 0.0002993153502217191,
+      "status": "UNRESOLVED",
+      "certificate": false
+    },
+    "robust": {
+      "candidate": {
+        "angles_rad": [
+          0.5737530143627521,
+          0.1711974785280702
+        ],
+        "field_T": 0.0002992656670560333,
+        "sign": 1,
+        "success": true,
+        "nfev": 106,
+        "message": "Optimization terminated successfully."
+      },
+      "smooth_reference_T": 0.0002992708674976962,
+      "status": "UNRESOLVED",
+      "certificate": false
+    }
+  },
+  "holdout_pairs": [
+    {
+      "seed": 20261111,
+      "count": 4,
+      "paired": {
+        "count": 64,
+        "delta_T": [
+          8.193541341817978e-09,
+          9.733651629796397e-09,
+          9.167426541776728e-09,
+          8.360992028083115e-09,
+          8.386277447928683e-09,
+          7.012232451229279e-09,
+          8.701878734149556e-09,
+          8.368136869838703e-09,
+          6.802510461319217e-09,
+          7.573342654543659e-09,
+          7.975010879076574e-09,
+          6.834012874518965e-09,
+          8.38273340063699e-09,
+          7.832563463495388e-09,
+          7.177498573444712e-09,
+          8.945905548828228e-09,
+          8.292507298043384e-09,
+          7.865613707657115e-09,
+          8.21788149215594e-09,
+          7.759225211449023e-09,
+          8.177819887385902e-09,
+          9.076929378573861e-09,
+          8.842666010710945e-09,
+          9.164133607732661e-09,
+          1.0153165350474031e-08,
+          6.611619487752039e-09,
+          8.125766683201159e-09,
+          7.580905290489334e-09,
+          8.446950256943262e-09,
+          8.62198056719943e-09,
+          7.291024810517744e-09,
+          8.315854322843755e-09,
+          7.089684776879731e-09,
+          7.599538697044118e-09,
+          6.969704716972203e-09,
+          9.771983059748865e-09,
+          6.870289399736021e-09,
+          7.3580698698684965e-09,
+          8.437386393370236e-09,
+          8.238783458758926e-09,
+          8.013957075848714e-09,
+          8.460486836295137e-09,
+          8.104932875835108e-09,
+          8.943401069999042e-09,
+          9.008469480053757e-09,
+          7.149864829579771e-09,
+          8.156360438682882e-09,
+          7.326040153783419e-09,
+          9.597841854793446e-09,
+          8.293309625814798e-09,
+          7.628826480715655e-09,
+          7.572628143739756e-09,
+          8.625565729179004e-09,
+          8.72285940770791e-09,
+          9.222286266832749e-09,
+          9.17052754208518e-09,
+          6.010101404995815e-09,
+          8.815351935460771e-09,
+          8.604326396505473e-09,
+          8.531382629630634e-09,
+          8.833108180543437e-09,
+          9.33878233447079e-09,
+          9.192685150512134e-09,
+          8.387587503640463e-09
+        ],
+        "mean_T": 8.21934190597966e-09,
+        "median_T": 8.304581974329277e-09,
+        "q90_T": 9.186037867984048e-09,
+        "q95_T": 9.558982926745046e-09,
+        "max_T": 1.0153165350474031e-08,
+        "fraction_improved": 0.0,
+        "mean_bootstrap_95_T": [
+          8.012464608317794e-09,
+          8.420109623558577e-09
+        ],
+        "bootstrap_seed": 20261113,
+        "resamples": 2000,
+        "interpretation": "positive means robust worse; percentile bootstrap assumes IID paired draws; no population guarantee"
+      }
+    },
+    {
+      "seed": 20261111,
+      "count": 8,
+      "paired": {
+        "count": 64,
+        "delta_T": [
+          7.960619012461703e-09,
+          9.467696741624989e-09,
+          8.928036494671143e-09,
+          8.133128635462618e-09,
+          8.185461550221454e-09,
+          6.8131327023583156e-09,
+          8.4573417216807e-09,
+          8.159890385996474e-09,
+          6.6106717840987465e-09,
+          7.359228651618251e-09,
+          7.762605068576566e-09,
+          6.626539189636164e-09,
+          8.156897963555043e-09,
+          7.622218650316808e-09,
+          6.97095841958539e-09,
+          8.698673598509426e-09,
+          8.049392191841303e-09,
+          7.659934601477754e-09,
+          7.988793736005638e-09,
+          7.528958956827628e-09,
+          7.951407586687402e-09,
+          8.840876751703061e-09,
+          8.624266587913654e-09,
+          8.903305836140585e-09,
+          9.890094067146381e-09,
+          6.429309565808658e-09,
+          7.909615099698533e-09,
+          7.383414309631518e-09,
+          8.228066537085103e-09,
+          8.374417075764182e-09,
+          7.089464329118259e-09,
+          8.107327650561937e-09,
+          6.904388641348067e-09,
+          7.377889123098315e-09,
+          6.783128041191506e-09,
+          9.513253478904995e-09,
+          6.664073669961437e-09,
+          7.163051987705237e-09,
+          8.227771008912721e-09,
+          8.006028367503053e-09,
+          7.79864923918159e-09,
+          8.232560688094557e-09,
+          7.870694097087929e-09,
+          8.71524764057836e-09,
+          8.765721733321614e-09,
+          6.959893348010461e-09,
+          7.928389412118717e-09,
+          7.114333937250966e-09,
+          9.36903535947049e-09,
+          8.050286970924487e-09,
+          7.415898592110751e-09,
+          7.377274964743066e-09,
+          8.417069050587958e-09,
+          8.501292295133415e-09,
+          9.00353320119684e-09,
+          8.932939540458036e-09,
+          5.824712051560459e-09,
+          8.573387693100307e-09,
+          8.366001919070149e-09,
+          8.303480307325059e-09,
+          8.606124857648802e-09,
+          9.097343607386831e-09,
+          8.965149878858449e-09,
+          8.17524030460168e-09
+        ],
+        "mean_T": 7.99805610097237e-09,
+        "median_T": 8.078807310743212e-09,
+        "q90_T": 8.955486777338324e-09,
+        "q95_T": 9.32828159665794e-09,
+        "max_T": 9.890094067146381e-09,
+        "fraction_improved": 0.0,
+        "mean_bootstrap_95_T": [
+          7.795088630513396e-09,
+          8.195935915024517e-09
+        ],
+        "bootstrap_seed": 20261113,
+        "resamples": 2000,
+        "interpretation": "positive means robust worse; percentile bootstrap assumes IID paired draws; no population guarantee"
+      }
+    },
+    {
+      "seed": 20261112,
+      "count": 4,
+      "paired": {
+        "count": 64,
+        "delta_T": [
+          6.9638996432415975e-09,
+          8.028992088156538e-09,
+          7.82791825045494e-09,
+          7.473361384566262e-09,
+          6.670496475540382e-09,
+          5.787305783844308e-09,
+          7.382547229979218e-09,
+          6.562194257902837e-09,
+          5.929029509965899e-09,
+          7.1495245839563475e-09,
+          7.308992478961054e-09,
+          5.9338752418071296e-09,
+          7.215960074572771e-09,
+          6.4221664384104854e-09,
+          6.328425421149369e-09,
+          7.876208198118092e-09,
+          7.550454778900784e-09,
+          6.424798284587838e-09,
+          7.156992364734465e-09,
+          6.820258032855654e-09,
+          7.143094485566028e-09,
+          8.122739260036976e-09,
+          7.334182622639973e-09,
+          7.532574899628752e-09,
+          8.251355400463019e-09,
+          5.776360786369103e-09,
+          7.041779655552822e-09,
+          6.5121479073145644e-09,
+          7.80931932350452e-09,
+          7.514137613171668e-09,
+          5.370496619943097e-09,
+          6.703180753360813e-09,
+          6.010534174545449e-09,
+          7.2075651279019e-09,
+          6.601963109983516e-09,
+          7.72151367278763e-09,
+          5.98109294356087e-09,
+          5.498178797514711e-09,
+          6.638659881266437e-09,
+          7.1005552678562816e-09,
+          7.278868861710248e-09,
+          7.492166206665973e-09,
+          7.65633211584143e-09,
+          7.712385503934923e-09,
+          7.91143953811585e-09,
+          6.320297765171116e-09,
+          7.012086316500747e-09,
+          6.896078784202005e-09,
+          7.673750166102962e-09,
+          7.481226929106005e-09,
+          6.982743453512317e-09,
+          6.26555270970077e-09,
+          6.7521893337747925e-09,
+          7.3463946901415524e-09,
+          7.620669531312483e-09,
+          7.608924260984736e-09,
+          5.49439369467171e-09,
+          7.798062209905896e-09,
+          6.970499863588126e-09,
+          7.180153025172987e-09,
+          7.204712681497144e-09,
+          8.145892689819401e-09,
+          7.618291229424915e-09,
+          7.399334177106588e-09
+        ],
+        "mean_T": 7.039176227541231e-09,
+        "median_T": 7.168572694953726e-09,
+        "q90_T": 7.822338572369814e-09,
+        "q95_T": 8.011359205650434e-09,
+        "max_T": 8.251355400463019e-09,
+        "fraction_improved": 0.0,
+        "mean_bootstrap_95_T": [
+          6.864432160775984e-09,
+          7.2019422962767595e-09
+        ],
+        "bootstrap_seed": 20261113,
+        "resamples": 2000,
+        "interpretation": "positive means robust worse; percentile bootstrap assumes IID paired draws; no population guarantee"
+      }
+    },
+    {
+      "seed": 20261112,
+      "count": 8,
+      "paired": {
+        "count": 64,
+        "delta_T": [
+          5.991228723800212e-10,
+          6.160626789863456e-10,
+          6.776221539721468e-10,
+          6.979594939554763e-10,
+          7.231853233459159e-10,
+          3.5995081178516854e-10,
+          4.946001910238599e-10,
+          6.106056836943706e-10,
+          2.6979936052268683e-10,
+          1.1244834660721062e-10,
+          4.137827964890582e-10,
+          3.8776624069024996e-10,
+          1.5709457388770774e-10,
+          7.896684366245823e-10,
+          5.940918692221378e-10,
+          6.143976869353216e-10,
+          7.400664930800271e-10,
+          1.7243910996783988e-10,
+          3.6590695873437947e-10,
+          5.827660384629166e-10,
+          1.7548117413378542e-10,
+          1.5272607682445907e-10,
+          3.485267952503025e-10,
+          8.49236782780779e-10,
+          5.90833780768433e-10,
+          4.987100781642172e-10,
+          5.592199808726486e-10,
+          1.1869508020973993e-10,
+          3.756837037776706e-10,
+          6.649233966669833e-10,
+          8.393242710276558e-10,
+          2.2581153435766404e-10,
+          2.2865090121507322e-10,
+          4.4503649136246265e-10,
+          2.1742393341062137e-10,
+          7.888202384310431e-10,
+          3.4304713726317497e-10,
+          5.41131155902823e-10,
+          6.171975640799614e-10,
+          5.664595441136669e-10,
+          3.450015391202692e-10,
+          3.2862564641297407e-10,
+          2.011131484396943e-10,
+          5.235815779485006e-10,
+          1.9106095353694846e-10,
+          5.831337138083813e-11,
+          4.41706202670755e-10,
+          9.082385518443875e-11,
+          3.336997613150939e-10,
+          6.517446216333731e-10,
+          1.3569397403536678e-10,
+          2.32402808071153e-10,
+          4.02941830516233e-10,
+          2.5987781314046657e-10,
+          5.239792472388474e-10,
+          6.224539292134265e-10,
+          4.098554952490388e-10,
+          3.277078788047798e-10,
+          7.385690957133358e-10,
+          4.838399930882854e-10,
+          4.721650333053046e-10,
+          5.653378536656225e-10,
+          3.60387433433971e-10,
+          4.47077540705618e-10
+        ],
+        "mean_T": 4.417849585125769e-10,
+        "median_T": 4.4337134701660883e-10,
+        "q90_T": 7.156175745287841e-10,
+        "q95_T": 7.815071766283904e-10,
+        "max_T": 8.49236782780779e-10,
+        "fraction_improved": 0.0,
+        "mean_bootstrap_95_T": [
+          3.894517529051648e-10,
+          4.921714326799913e-10
+        ],
+        "bootstrap_seed": 20261113,
+        "resamples": 2000,
+        "interpretation": "positive means robust worse; percentile bootstrap assumes IID paired draws; no population guarantee"
+      }
+    }
+  ],
+  "preserved_evidence_files": 36,
+  "scope": "Full numerical run used an explicitly recorded local overlay. Final diagnostic/preflight/report changes were separately checked with the final suite; calculations are unchanged. No remote CI observation."
+}

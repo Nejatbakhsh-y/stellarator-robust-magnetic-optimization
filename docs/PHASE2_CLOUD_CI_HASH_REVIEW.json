@@ -41,11 +41,15 @@
   "manifest_entry_changes": {
     "results/phase2/commands.json": {
       "base": "9d615322f8b0e68c6452153bae6e0ee2f5d9ac434e59c31b16248330c19f3eca",
-      "current": "ee473ad7d2ae1fd6df92a5b31c448e4b4add19723d9e7b5aa67c3efa0f5a52f7"
+      "current": "54bb96691b86ba95a2053cd7f9b1d7a8b2ab01ad4cb45d425d6167d571226c58"
     },
     "scripts/phase2_cloud_ci.py": {
       "base": null,
-      "current": "ab9294d9e8f036cc49bc9c0efb242ea77fcf617e56334c3dc2e57a94d1787542"
+      "current": "cd56e636e7b7e0915e274b828e1be45f66430d0969a3c49198d5c6da4439bb75"
+    },
+    "scripts/phase2_reports.py": {
+      "base": "38b168cc5215c98f547497906bd41649ef5c2974fc9a14c67dafe4a304c6f8c5",
+      "current": "5b257051d319c7c7f043312db9ef84613a3c55320c04008477cc2f49cb641be5"
     },
     "scripts/phase2_verify.py": {
       "base": "5372ea332d4c9376c8fdfc59210839525d42fa9def57a1e478e62813e3374b12",
@@ -53,12 +57,34 @@
     },
     "src/stellarator_robust/ci_evidence.py": {
       "base": null,
-      "current": "0697ed4e07fd5ddcc80a5c63f928e3faf94509aa8237b53cd1da2ec3cdfa321c"
+      "current": "1ba3dd6bf0a444b83a3585a5c25f377b856f2365f5f9addfdcdab462f26fc7c7"
     },
     "tests/test_ci_evidence.py": {
       "base": null,
-      "current": "3ee0f51b71ec238d35258a4c1de9ca02a126b23d2ddb0b3c4416364ae713667a"
+      "current": "1b28a0cfae540eea29fe0f42f97e246c0252f1e0da77c848b2aad94d83543d6e"
     }
   },
-  "reason": "CI scripts/tests and provenance-aware comparison added; commands.json records expanded pytest. Numerical evidence unchanged."
+  "reason": "CI orchestration/comparison/tests added and tightened; report count derives from executed pytest; commands and manifest refreshed. All 36 numerical/audit evidence files are preserved.",
+  "raw_git_blob_sha256": {
+    "results/quick/results.json": "087268824c528c789be975ac81ccc50e79efdc9e090ed43b555c7cba57e07780",
+    "results/phase2/study.json": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258"
+  },
+  "workflow_normalized_sha256": "43d5d0ff5af3435ac3b3c83e03810f2ee0720204b425d04889bb99609c814783",
+  "metadata_file_hashes": {
+    "results/phase2/manifest.json": {
+      "base": "7d14dded1dbd8b3860be9b1c015b90ee1b3a366f44f769ad424c9d3653ac6a4e",
+      "current": "8f23b9b4747c97272e1b97c46a4f20d91719ae46fa98ca2e8d576638323b4843"
+    },
+    "results/phase2/commands.json": {
+      "base": "9d615322f8b0e68c6452153bae6e0ee2f5d9ac434e59c31b16248330c19f3eca",
+      "current": "54bb96691b86ba95a2053cd7f9b1d7a8b2ab01ad4cb45d425d6167d571226c58"
+    }
+  },
+  "report_normalized_hash_changes": {
+    "docs/PHASE2_VALIDATION.md": {
+      "base": "b0eb59943a273bc58bc8e33460529c1b743247d992116671f3d561fec0f97005",
+      "current": "594578a5318ee03c983cd08fdcde542bad28b13098f82be25632901aba41e617",
+      "reason": "Executed test count replaces hard-coded 17; no scientific table or conclusion changes."
+    }
+  }
 }
