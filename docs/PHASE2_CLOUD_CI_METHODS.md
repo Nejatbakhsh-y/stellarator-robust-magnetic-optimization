@@ -21,8 +21,12 @@ training replay/dual audit, intentional invalid-evidence rejection, manifest
 refresh, final gate, and six reports follow. Reports derive the passing test count
 from executed commands, instead of freezing the original 17-test checkpoint count. Every subprocess failure propagates.
 
-Scientific arrays retain rtol=1e-11, atol=1e-13. Scenario records, configuration,
-integer values, statuses, keys and dimensions match exactly. Only top-level
+Scientific arrays retain rtol=1e-11, atol=1e-13. Scenario random inputs and configuration,
+integer values, statuses, keys and dimensions match exactly. The derived
+sampled_clearance_m leaf in validated holdout/training records alone uses these
+same numerical tolerances; its nonzero errors remain recorded. Missing fields,
+invalid types and nonfinite values fail. See PHASE2_CLEARANCE_REPAIR.md for the
+additional archived Linux disagreement that this narrow exception still rejects. Only top-level
 source_commit, source_dirty and python are excluded after validation against Git
 and platform at runtime. Each trial's nonnegative finite solver timing is also
 excluded. Every excluded reference/current value is recorded. Scientific numeric

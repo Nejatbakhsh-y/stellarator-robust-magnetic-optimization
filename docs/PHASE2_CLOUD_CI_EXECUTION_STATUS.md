@@ -1,5 +1,10 @@
 # Phase 2 cloud CI execution status
 
+Latest clearance repair: PR #3 is open. Original hosted smoke jobs and Phase 1 CI passed; full Phase 2 run 40977794679 failed. The derived-rounding exception is fixed, but offline artifact replay reveals an additional out-of-tolerance geometry discrepancy and peak-trace mismatches. Full Linux reproducibility remains BLOCKED; science remains PARTIAL. See PHASE2_CLEARANCE_REPAIR.md and its evidence JSON. No new hosted success is claimed.
+
+The following is the preserved historical local implementation checkpoint, written before PR #3 publication:
+
+
 Implementation and the complete local overlay pipeline passed; remote CI is PENDING.
 No PR or Actions run has been created or observed in this session. GitHub CLI
 configuration is prohibited by AGENTS.md and was not accessed or bypassed.
