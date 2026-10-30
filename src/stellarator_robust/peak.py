@@ -60,3 +60,39 @@ def local_extrema(evaluate, seeds, maxiter=100, maxfev=200):
                          'nfev': int(fit.nfev), 'message': str(fit.message)})
     return {'certificate': False, 'interpretation': 'observed lower bound only',
             'searches': rows, 'best': max(rows, key=lambda r: abs(r['field_T']))}
+
+
+def lattice_extrema(evaluate, seeds, levels=24, initial_step=.2, decision_T=5e-14):
+    """Version 2 finite signed pattern search with an explicit field tie band.
+
+    Fixed budgets and dyadic steps make trial coordinates reproducible. A move
+    requires a field gain above decision_T; canonical candidate order breaks
+    near ties within that band. This is a finite observation, never a local or
+    global optimality certificate. decision_T is half the existing 1e-13 T atol.
+    """
+    if levels < 1 or not initial_step > 0 or not 0 < decision_T <= 5e-14:
+        raise ValueError('Invalid finite-search settings')
+    offsets = np.array([(i, j) for i in (-1, 0, 1) for j in (-1, 0, 1)])
+    rows = []
+    for seed in np.asarray(seeds):
+        for sign in (-1, 1):
+            angle = np.remainder(seed, 2*np.pi)
+            value = float(evaluate(angle[None, :])[0]); moves = []
+            for level in range(levels):
+                trial = np.remainder(angle+offsets*(initial_step/2**level), 2*np.pi)
+                fields = np.asarray(evaluate(trial), dtype=float)
+                if fields.shape != (9,) or not np.isfinite(fields).all():
+                    raise ValueError('Invalid finite-search evaluation')
+                scores = sign*fields; best = float(scores.max())
+                chosen = 4
+                if best > sign*value+decision_T:
+                    chosen = int(np.flatnonzero(scores >= best-decision_T)[0])
+                    angle, value = trial[chosen], float(fields[chosen])
+                moves.append(chosen)
+            rows.append(dict(angles_rad=angle.tolist(), field_T=value, sign=sign,
+                             success=True, nfev=1+9*levels, moves=moves,
+                             message='fixed finite-search budget completed'))
+    return dict(certificate=False, interpretation='observed lower bound only',
+                algorithm='dyadic-pattern-v2', levels=levels, initial_step_rad=initial_step,
+                decision_T=decision_T, searches=rows,
+                best=max(rows, key=lambda r: abs(r['field_T'])))

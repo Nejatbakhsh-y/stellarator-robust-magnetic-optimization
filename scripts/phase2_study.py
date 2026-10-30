@@ -10,23 +10,24 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from stellarator_robust.model import benchmark, response, surface, field
-from stellarator_robust.peak import grid_angles, coordinates, normal_field, local_extrema
+from stellarator_robust.peak import grid_angles, coordinates, normal_field, local_extrema, lattice_extrema
 from stellarator_robust.validation import independent_circle
 from stellarator_robust.analysis import paired_summary
 from stellarator_robust.uncertainty import scenarios
 from stellarator_robust.optimize import baseline, robust
 
 
-def run(config, output):
+def run(config, output, phase1_input=None):
     cfg = json.loads(Path(config).read_text())
-    source = Path('results/quick/results.json')
+    source = Path(phase1_input or cfg.get('phase1_input', 'results/quick/results.json'))
     phase1 = json.loads(source.read_text())
     c = phase1['metadata']['config']
     out = Path(output); out.mkdir(parents=True, exist_ok=True)
     (out/'phase1_input.json').write_bytes(source.read_bytes())
     assert cfg['holdout_seed'] not in cfg['training_seeds']
     assert len(set(cfg['training_seeds'])) == len(cfg['training_seeds'])
-    p, n, w, coils, error, b = benchmark(c['nt'], c['np'], cfg['segments'], c['nphi'], c['ntheta'])
+    geometry = cfg.get('geometry_version', 'legacy-v1')
+    p, n, w, coils, error, b = benchmark(c['nt'], c['np'], cfg['segments'], c['nphi'], c['ntheta'], geometry)
     methods = ['dense', 'matched_nominal', 'robust']
     currents = {m: np.array(phase1['currents_A'][m]) for m in methods}
     peaks = {m: {'grids': []} for m in methods}; seeds = {m: [] for m in methods}
@@ -51,7 +52,8 @@ def run(config, output):
     for m in methods:
         print('search', m, flush=True)
         evaluate = lambda a: normal_field(a, coils, currents[m], error)
-        search = local_extrema(evaluate, seeds[m], cfg['maxiter'], cfg['maxfev'])
+        search = (lattice_extrema(evaluate, seeds[m]) if cfg.get('peak_algorithm') == 'dyadic-pattern-v2'
+                  else local_extrema(evaluate, seeds[m], cfg['maxiter'], cfg['maxfev']))
         best = search['best']; angles = np.array([best['angles_rad']])
         xyz, normals = coordinates(angles)
         vector, err = independent_circle(xyz, error, 1500.)
@@ -60,7 +62,7 @@ def run(config, output):
         reference = float(np.sum(vector*normals))
         refinement = []
         for segments in [256, 512, 1024]:
-            _, _, _, cc, ee, _ = benchmark(3, 3, segments, c['nphi'], c['ntheta'])
+            _, _, _, cc, ee, _ = benchmark(3, 3, segments, c['nphi'], c['ntheta'], geometry)
             value = float(normal_field(angles, cc, currents[m], ee)[0])
             refinement.append({'segments': segments, 'field_T': value,
                                'absolute_error_T': abs(value-reference),
@@ -131,4 +133,5 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', default='configs/phase2_quick.json')
     parser.add_argument('--output', default='results/phase2')
-    args = parser.parse_args(); run(args.config, args.output)
+    parser.add_argument('--phase1-input')
+    args = parser.parse_args(); run(args.config, args.output, args.phase1_input)

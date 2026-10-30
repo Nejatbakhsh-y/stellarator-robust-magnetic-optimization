@@ -55,3 +55,20 @@ Phase 2 branch. See [CI methods](docs/PHASE2_CLOUD_CI_METHODS.md),
 [execution status](docs/PHASE2_CLOUD_CI_EXECUTION_STATUS.md).
 Remote CI remains pending until its actual runs are observed; a green run would
 validate these bounded checks, while broader scientific validation remains PARTIAL.
+
+Phase 2B adds an explicit `householder-v2` geometry and `dyadic-pattern-v2` finite
+peak benchmark. Legacy APIs and all original numerical evidence are retained.
+See [methods](docs/PHASE2B_METHODS.md), [local results](docs/PHASE2B_RESULTS.md),
+[execution status](docs/PHASE2B_EXECUTION_STATUS.md) and
+[limitations](docs/PHASE2B_LIMITATIONS.md). Reproduce into fresh output paths:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/phase2b_verify.py --output results/ci/phase2b-run
+.\.venv\Scripts\python.exe scripts/phase2b_investigate.py --output results/ci/phase2b-run/investigation --corrected results/ci/phase2b-run
+.\.venv\Scripts\python.exe scripts/phase2b_finalize.py --output results/ci/phase2b-run
+.\.venv\Scripts\python.exe scripts/phase2b_compare.py --current results/ci/phase2b-run
+```
+
+The dedicated Phase 2B PR workflow generates full Windows/Linux studies and
+isolated library-sensitivity cohorts. Local success is not hosted CI success;
+scientific status remains PARTIAL even after numerical agreement is observed.
