@@ -38,8 +38,8 @@ Final regression output:
 
 ```text
 ........................................................................ [ 64%]
-.......................................                                  [100%]
-111 passed in 2.38s
+........................................                                 [100%]
+112 passed in 2.62s
 ```
 
 Python compilation passed; see compilation.log. The initial numerical

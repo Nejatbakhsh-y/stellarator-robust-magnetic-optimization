@@ -8,7 +8,7 @@ from stellarator_robust.ci_evidence import compare
 parser = argparse.ArgumentParser()
 parser.add_argument('--reference', type=Path, default=Path('results/phase2c'))
 parser.add_argument('--current', type=Path, required=True)
-parser.add_argument('--output', type=Path, default=Path('results/ci/phase2b-comparison.json'))
+parser.add_argument('--output', type=Path, default=Path('results/ci/phase2c-comparison.json'))
 args = parser.parse_args()
 record = dict(status='FAIL', scientific_status='PARTIAL', comparisons={})
 try:
@@ -28,14 +28,16 @@ try:
                                 current_legacy_displacement_m=b.pop('legacy_indexed_vertex_displacement_m'),
                                 reason='legacy-v1 input geometry itself is platform-sensitive; raw values retained'))
     geometry_errors = []
+    before_geometry=len(failures)
     compare(geometries[0], geometries[1], '/geometry', records=geometry_errors)
-    record['comparisons']['geometry'] = dict(status='PASS', numeric_differences=geometry_errors,
+    record['comparisons']['geometry'] = dict(status='FAIL' if len(failures)>before_geometry else 'PASS', numeric_differences=geometry_errors,
                                              legacy_diagnostics=diagnostics)
     # Adaptive NM is retained as an investigation, not substituted for the new
     # finite-search benchmark. Its physical field values still face the same
     # numerical gates; its coordinates/counts are explicitly reported below.
     analyses = [load(root/'investigation/analysis.json') for root in (args.reference, args.current)]
     nm_diagnostics, nm_field_errors = [], []
+    before_nm=len(failures)
     for method in analyses[0]['corrected_peak_sensitivity']:
         first, second = [a['corrected_peak_sensitivity'][method]['nelder_mead'] for a in analyses]
         if len(first['searches']) != len(second['searches']) or first['certificate'] is not False or second['certificate'] is not False:
@@ -48,7 +50,7 @@ try:
                 reference_nfev=a['nfev'], current_nfev=b['nfev'],
                 reference_success=a['success'], current_success=b['success'],
                 qualification='Adaptive trace/position estimates retained; no claim of exact coordinate reproduction or optimality. All primary finite-search coordinates remain strictly compared.'))
-    record['comparisons']['diagnostic_NM'] = dict(field_status='PASS', field_differences=nm_field_errors,
+    record['comparisons']['diagnostic_NM'] = dict(field_status='FAIL' if len(failures)>before_nm else 'PASS', field_differences=nm_field_errors,
                                                 retained_trace_and_coordinate_values=nm_diagnostics)
     record['failures']=failures
     if failures:

@@ -130,3 +130,30 @@ def test_independent_audit_tampering_fails_closed(tmp_path,monkeypatch,tamper):
         q['faults'][0]['recovery_evidence']['solver_success']=False; write('quick/results.json',q)
     write('fault-audit.json',audit)
     with pytest.raises(AssertionError): contract.require_complete(tmp_path)
+
+
+def test_cli_aggregates_geometry_and_nm_failures_without_pass_labels(tmp_path,monkeypatch):
+    """Reporting-unit fixture; completion/hash gates have their own contract tests."""
+    import runpy
+    import sys
+    import stellarator_robust.phase2c as contract
+    monkeypatch.setattr(contract,'require_complete',lambda _:None)
+    monkeypatch.setattr(contract,'verify_manifest',lambda _:None)
+    monkeypatch.setattr(contract,'pair',lambda *_:dict(status='PASS'))
+    def data(path):
+        changed=path.parent.parent.name=='current'
+        if path.name=='geometry.json':
+            return dict(coils=[dict(legacy_indexed_vertex_displacement_m=0.,radius_m=2. if changed else 1.)])
+        return dict(corrected_peak_sensitivity=dict(dense=dict(nelder_mead=dict(certificate=False,searches=[
+            dict(sign=1,field_T=2. if changed else 1.,angles_rad=[0.,0.],nfev=1,success=True)]))))
+    monkeypatch.setattr(contract,'load',data)
+    output=tmp_path/'comparison.json'
+    monkeypatch.setattr(sys,'argv',['phase2c_compare.py','--reference',str(tmp_path/'reference'),'--current',str(tmp_path/'current'),'--output',str(output)])
+    with pytest.raises(AssertionError,match='2 scientific differences'):
+        runpy.run_path('scripts/phase2c_compare.py',run_name='__main__')
+    report=json.loads(output.read_text())
+    assert report['status']=='FAIL'
+    assert report['comparisons']['numerical']['status']=='PASS'
+    assert report['comparisons']['geometry']['status']=='FAIL'
+    assert report['comparisons']['diagnostic_NM']['field_status']=='FAIL'
+    assert len(report['failures'])==2

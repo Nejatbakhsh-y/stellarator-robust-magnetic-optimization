@@ -60,8 +60,20 @@ New source, configuration and automation files:
 New documentation is under `docs/PHASE2C_*`; complete new numerical data, logs,
 original ZIP archives, configurations/provenance, reference inputs, manifests and
 source fingerprints are under `results/phase2c/`. The implementation commit's
-102-file changeset enumerates every evidence file. Only this publication record
-is added afterward; numerical evidence is not regenerated or edited.
+102-file changeset enumerates every evidence file. Subsequent commits record
+publication status and correct aggregate geometry/NM subsection failure labels
+that could otherwise say PASS while the overall collected comparison failed.
+A reporting regression now verifies both failing subsection labels and the
+nonzero command outcome. The final complete suite passes 112 tests; compilation,
+integrity, strict repeat and all 104 preservation checks pass. The checker-only
+source fingerprints, test log, manifest and generated report were refreshed;
+the original at-run fingerprints remain preserved. All nine calculation-file
+hashes and every numerical result byte are unchanged. In particular, quick SHA
+`ba6f27db86176606a82e360220e2e96f250976bfc2774be167ab746ccc1914e5`
+and study SHA
+`20f28ceb4a195c15c04d5ec3b36bc95ae65399cc540d8782eb593fc1fce63eca`
+are unchanged. The earlier 111-test clean-checkout record above describes its
+explicit implementation commit; the final reporting regression is additional.
 
 `model.py`, `optimize.py`, `peak.py`, uncertainty generation, solver settings,
 objectives, physical constraints, original configurations and all historical

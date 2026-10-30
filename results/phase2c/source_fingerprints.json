@@ -26,7 +26,7 @@
   "scripts/phase2b_legacy_regression.py": "670a8f7cfcd16ffa551067fd6f76a0bb1730f6cd78ee25cbc62fbac48bdf788e",
   "scripts/phase2b_report.py": "a612875732f70c1511979cf9793d4439a7c571dfe73a52333bdb34119667fbe1",
   "scripts/phase2b_verify.py": "14053142c31f0555f114d2172d25d3af9584042afad4224d54c646d369205f69",
-  "scripts/phase2c_compare.py": "d436bf0b35900833d67ae04fbf3f0a4f23310182a70f134f74deb052a8b6842c",
+  "scripts/phase2c_compare.py": "3cbdbf672579eb9897d5fb14298cf336d7d06c369144534288af6c6b4f9b3114",
   "scripts/phase2c_fault_audit.py": "cd173676654f4a8b9463dbea14dc9235adb3349c1bd98e0e3b6c1b943fe379f4",
   "scripts/phase2c_finalize.py": "98374c29385aa605a0fc66b72e6d504d45552087129e48a66101a9903325a34a",
   "scripts/phase2c_inventory.py": "04770c7bc849a5b2461380ec3eb86c6a820ab2ea691163e8defac9e2eafdf000",
@@ -59,7 +59,7 @@
   "tests/test_phase2.py": "57e11b64386f5a6356e09d162c2dd35c03fb25c0d95232563a816a088f4e3a78",
   "tests/test_phase2b.py": "1475bc0b4c09820abd8363697729c99022c8642a855033427e72448b5e41b3e5",
   "tests/test_phase2b_evidence.py": "70e422be3c086af202c352971c116555e40cb5b2d054af37479f6a634d2d2510",
-  "tests/test_phase2c.py": "17eae6d7a9ac9e8ca7285977e2d2d81a4ad09ad7a41eb650eebdbca4139b6341",
+  "tests/test_phase2c.py": "7dc7ba45c1bcf26c948ac18a463a13f6dd2db4f60262459cb11d6f71902615ce",
   "tests/test_physics.py": "19e96b7925082fbd2e4215f71f79d8cd79c34d957e5b403455a7b097d8426f92",
   "tests/test_refinement.py": "65fc9c7e5c17dd972bc0c2fb30410d5cbba53bf00b710eda02ea0b3dff92d736"
 }
