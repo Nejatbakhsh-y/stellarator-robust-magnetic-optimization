@@ -1,0 +1,500 @@
+{
+  "run_id": 41044895641,
+  "artifacts": [
+    {
+      "id": 12973076567,
+      "name": "phase2b-windows-reference",
+      "size_in_bytes": 2181238,
+      "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12973076567",
+      "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12973076567/zip",
+      "expired": false,
+      "created_at": "2026-10-30T11:20:04Z",
+      "expires_at": "2026-11-13T11:20:03Z",
+      "updated_at": "2026-10-30T11:20:04Z",
+      "digest": "sha256:53a3878f7535bc798636027f734bc511aa9c44f744edb842f4f162f00631be82",
+      "workflow_run": {
+        "id": 41044895641,
+        "repository_id": 1438931879,
+        "head_repository_id": 1438931879,
+        "head_branch": "codex/phase2b-deterministic-geometry",
+        "head_sha": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379"
+      }
+    },
+    {
+      "id": 12972722607,
+      "name": "phase2b-linux-reference",
+      "size_in_bytes": 2277835,
+      "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12972722607",
+      "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12972722607/zip",
+      "expired": false,
+      "created_at": "2026-10-30T11:18:21Z",
+      "expires_at": "2026-11-13T11:18:19Z",
+      "updated_at": "2026-10-30T11:18:21Z",
+      "digest": "sha256:3e5103fd3cc8242ad551d14149866b28e54ac852e853864c65be9f702462dea8",
+      "workflow_run": {
+        "id": 41044895641,
+        "repository_id": 1438931879,
+        "head_repository_id": 1438931879,
+        "head_branch": "codex/phase2b-deterministic-geometry",
+        "head_sha": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379"
+      }
+    },
+    {
+      "id": 12972578470,
+      "name": "phase2b-cross-platform",
+      "size_in_bytes": 321,
+      "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12972578470",
+      "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12972578470/zip",
+      "expired": false,
+      "created_at": "2026-10-30T11:20:31Z",
+      "expires_at": "2026-11-13T11:20:30Z",
+      "updated_at": "2026-10-30T11:20:31Z",
+      "digest": "sha256:59850854fed914ecddc2466e1606c88867d28066e9f04120ab1911ea9a495c83",
+      "workflow_run": {
+        "id": 41044895641,
+        "repository_id": 1438931879,
+        "head_repository_id": 1438931879,
+        "head_branch": "codex/phase2b-deterministic-geometry",
+        "head_sha": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379"
+      }
+    },
+    {
+      "id": 12972289316,
+      "name": "phase2b-linux-scipy-sensitivity",
+      "size_in_bytes": 2278065,
+      "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12972289316",
+      "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12972289316/zip",
+      "expired": false,
+      "created_at": "2026-10-30T11:18:38Z",
+      "expires_at": "2026-11-13T11:18:37Z",
+      "updated_at": "2026-10-30T11:18:38Z",
+      "digest": "sha256:43348ecaa87d8126a25fae9374c0a8f18d823e09ae73aeb3d49066283ddf0e13",
+      "workflow_run": {
+        "id": 41044895641,
+        "repository_id": 1438931879,
+        "head_repository_id": 1438931879,
+        "head_branch": "codex/phase2b-deterministic-geometry",
+        "head_sha": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379"
+      }
+    },
+    {
+      "id": 12972048882,
+      "name": "phase2b-linux-numpy-sensitivity",
+      "size_in_bytes": 2277822,
+      "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12972048882",
+      "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/12972048882/zip",
+      "expired": false,
+      "created_at": "2026-10-30T11:10:29Z",
+      "expires_at": "2026-11-13T11:10:28Z",
+      "updated_at": "2026-10-30T11:10:29Z",
+      "digest": "sha256:e2f3efbbd7690ef03de89463307a925ad3aa004293d770f91a4fe57367d26fcd",
+      "workflow_run": {
+        "id": 41044895641,
+        "repository_id": 1438931879,
+        "head_repository_id": 1438931879,
+        "head_branch": "codex/phase2b-deterministic-geometry",
+        "head_sha": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379"
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "id": 124026475046,
+      "name": "numerical (linux-numpy-sensitivity, ubuntu-latest, 2.3.5, 1.17.1)",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 41044895641,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install -e '.[dev]' numpy==2.3.5 scipy==1.17.1 matplotlib==3.11.2 pytest==9.2.0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/phase2b_verify.py --output results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python scripts/phase2b_investigate.py --output results/ci/phase2b-run/investigation --corrected results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python scripts/phase2b_finalize.py --output results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run python scripts/phase2b_compare.py --current results/ci/phase2b-run --output results/ci/phase2b-run/committed-reference-comparison.json",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 8
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 124026475235,
+      "name": "numerical (windows-reference, windows-latest, 2.4.6, 1.17.1)",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 41044895641,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install -e '.[dev]' numpy==2.4.6 scipy==1.17.1 matplotlib==3.11.2 pytest==9.2.0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/phase2b_verify.py --output results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python scripts/phase2b_investigate.py --output results/ci/phase2b-run/investigation --corrected results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python scripts/phase2b_finalize.py --output results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run python scripts/phase2b_compare.py --current results/ci/phase2b-run --output results/ci/phase2b-run/committed-reference-comparison.json",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 8
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 124026475271,
+      "name": "numerical (linux-reference, ubuntu-latest, 2.4.6, 1.17.1)",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 41044895641,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install -e '.[dev]' numpy==2.4.6 scipy==1.17.1 matplotlib==3.11.2 pytest==9.2.0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/phase2b_verify.py --output results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python scripts/phase2b_investigate.py --output results/ci/phase2b-run/investigation --corrected results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python scripts/phase2b_finalize.py --output results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run python scripts/phase2b_compare.py --current results/ci/phase2b-run --output results/ci/phase2b-run/committed-reference-comparison.json",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 8
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 124026475299,
+      "name": "numerical (linux-scipy-sensitivity, ubuntu-latest, 2.4.6, 1.16.3)",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 41044895641,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install -e '.[dev]' numpy==2.4.6 scipy==1.16.3 matplotlib==3.11.2 pytest==9.2.0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/phase2b_verify.py --output results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python scripts/phase2b_investigate.py --output results/ci/phase2b-run/investigation --corrected results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python scripts/phase2b_finalize.py --output results/ci/phase2b-run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run python scripts/phase2b_compare.py --current results/ci/phase2b-run --output results/ci/phase2b-run/committed-reference-comparison.json",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 8
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 124034543188,
+      "name": "cross-platform",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 41044895641,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install -e '.[dev]' numpy==2.4.6 scipy==1.17.1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run actions/download-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python scripts/phase2b_compare.py --reference results/ci/phase2b-artifacts/phase2b-windows-reference --current results/ci/phase2b-artifacts/phase2b-linux-reference --output results/ci/cross-platform.json",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ]
+    }
+  ]
+}

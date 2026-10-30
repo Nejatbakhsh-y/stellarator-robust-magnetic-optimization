@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "checks": {
+    "scenario_records_identical": true,
+    "saved_objectives_match_1e-12": true,
+    "robust_training_no_worse_1e-8": true,
+    "numerical_dual_gap_1e-8": true,
+    "epigraph_residual_1e-8": true
+  },
+  "trials": [
+    {
+      "seed": 20261111,
+      "count": 4,
+      "nominal_training_objective": 0.0006676710310629889,
+      "robust_training_objective": 0.0006676393060238119,
+      "dual_lower_estimate": 0.0006676392902755089,
+      "primal_dual_gap": 1.574830305224595e-11,
+      "dual_weights": [
+        1.474513421256722e-15,
+        0.0,
+        3.327198093599947e-15,
+        0.9999999999999951
+      ],
+      "dual_solver_success": true,
+      "dual_message": "Optimization terminated successfully",
+      "primal_saved_objective_difference": 0.0,
+      "epigraph_residual": 7.014788055981214e-16
+    },
+    {
+      "seed": 20261111,
+      "count": 8,
+      "nominal_training_objective": 0.0006676710310629889,
+      "robust_training_objective": 0.0006676393286679492,
+      "dual_lower_estimate": 0.000667639290275509,
+      "primal_dual_gap": 3.839244026859756e-11,
+      "dual_weights": [
+        0.0,
+        8.326672684688661e-16,
+        0.0,
+        0.9999999999999984,
+        1.9193406751618311e-16,
+        4.2857961362184124e-16,
+        0.0,
+        0.0
+      ],
+      "dual_solver_success": true,
+      "dual_message": "Optimization terminated successfully",
+      "primal_saved_objective_difference": 0.0,
+      "epigraph_residual": 1.6388192886074293e-13
+    },
+    {
+      "seed": 20261112,
+      "count": 4,
+      "nominal_training_objective": 0.0006660843081043634,
+      "robust_training_objective": 0.0006660553898250119,
+      "dual_lower_estimate": 0.0006660553811938732,
+      "primal_dual_gap": 8.631138772446922e-12,
+      "dual_weights": [
+        0.9999999999999996,
+        0.0,
+        0.0,
+        5.551115123125781e-16
+      ],
+      "dual_solver_success": true,
+      "dual_message": "Optimization terminated successfully",
+      "primal_saved_objective_difference": 0.0,
+      "epigraph_residual": 3.3109192471014737e-13
+    },
+    {
+      "seed": 20261112,
+      "count": 8,
+      "nominal_training_objective": 0.0006666129594748913,
+      "robust_training_objective": 0.0006666020059130401,
+      "dual_lower_estimate": 0.0006666020012596001,
+      "primal_dual_gap": 4.6534399597564224e-12,
+      "dual_weights": [
+        0.0,
+        2.558950301149159e-16,
+        8.93615764211427e-17,
+        0.0,
+        0.0,
+        5.022678654359009e-16,
+        8.248843302353078e-16,
+        0.9999999999999982
+      ],
+      "dual_solver_success": true,
+      "dual_message": "Optimization terminated successfully",
+      "primal_saved_objective_difference": 0.0,
+      "epigraph_residual": -2.282245573081987e-16
+    }
+  ],
+  "study_sha256": "20f28ceb4a195c15c04d5ec3b36bc95ae65399cc540d8782eb593fc1fce63eca",
+  "interpretation": "Numerical convex-dual check with bounded least-squares inner solves; no interval-arithmetic certificate or external cross-code validation"
+}

@@ -1,0 +1,259 @@
+{
+  "benchmark_version": "phase2c-householder-v2-pattern-v2-energy-v3",
+  "status": "PASS",
+  "environment": {
+    "source_commit": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379",
+    "source_dirty": true,
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    }
+  },
+  "steps": [
+    {
+      "stage": "tests",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "returncode": 0,
+      "seconds": 2.7040000000270084
+    },
+    {
+      "stage": "analytical",
+      "command": [
+        "python",
+        "-m",
+        "stellarator_robust.cli",
+        "validate"
+      ],
+      "returncode": 0,
+      "seconds": 1.375
+    },
+    {
+      "stage": "quick",
+      "command": [
+        "python",
+        "-m",
+        "stellarator_robust.cli",
+        "run",
+        "--config",
+        "configs/phase2c_quick.json",
+        "--output",
+        "results\\phase2c\\quick"
+      ],
+      "returncode": 0,
+      "seconds": 200.73400000005495
+    },
+    {
+      "stage": "outputs",
+      "command": [
+        "python",
+        "scripts/check_outputs.py",
+        "results\\phase2c\\quick"
+      ],
+      "returncode": 0,
+      "seconds": 0.4220000000204891
+    },
+    {
+      "stage": "independent-audit",
+      "command": [
+        "python",
+        "scripts/audit_quick.py",
+        "results\\phase2c\\quick"
+      ],
+      "returncode": 0,
+      "seconds": 221.4529999999795
+    },
+    {
+      "stage": "study",
+      "command": [
+        "python",
+        "scripts/phase2_study.py",
+        "--config",
+        "configs/phase2c_study.json",
+        "--output",
+        "results\\phase2c\\study",
+        "--phase1-input",
+        "results\\phase2c\\quick\\results.json"
+      ],
+      "returncode": 0,
+      "seconds": 1319.5
+    },
+    {
+      "stage": "repeat-quick",
+      "command": [
+        "python",
+        "-m",
+        "stellarator_robust.cli",
+        "run",
+        "--config",
+        "configs/phase2c_quick.json",
+        "--output",
+        "results\\phase2c\\repeat\\quick"
+      ],
+      "returncode": 0,
+      "seconds": 284.4220000000205
+    },
+    {
+      "stage": "repeat-study",
+      "command": [
+        "python",
+        "scripts/phase2_study.py",
+        "--config",
+        "configs/phase2c_study.json",
+        "--output",
+        "results\\phase2c\\repeat\\study",
+        "--phase1-input",
+        "results\\phase2c\\repeat\\quick\\results.json"
+      ],
+      "returncode": 0,
+      "seconds": 749.5
+    },
+    {
+      "stage": "training-audit",
+      "command": [
+        "python",
+        "scripts/phase2_training_audit.py",
+        "--output",
+        "results\\phase2c\\study",
+        "--phase1-input",
+        "results\\phase2c\\quick\\results.json"
+      ],
+      "returncode": 0,
+      "seconds": 53.75
+    }
+  ],
+  "scientific_status": "PARTIAL",
+  "legacy_evidence": {
+    "results/phase2/commands.json": "ec3d08013769282029c314543f8c5e85a9ccc3c4bf22aaa6b3bf16d007db51a0",
+    "results/phase2/failure_sensitivity.json": "6542f2b7c5a686562cb1e908e8c09797e906319c01fd0c25084b0a05f6ef20cf",
+    "results/phase2/gate.json": "15355285339a0092402db64f8372c935db5d8010bdd240c40e3cdeccc483f08e",
+    "results/phase2/manifest.json": "efdd8f71beb0b4133f1fb623470965652b425f6e22185b434c5c97a0bfff2d6c",
+    "results/phase2/paired_difference.png": "ac27d7e8c50e705e7a6078b534f6899ceb066bcaad979257870dd4615c3b291e",
+    "results/phase2/peak_location_dense.png": "525affdbe7848eb9a78961e415059cae62be1de39f4fd412646e8a2d563d1d97",
+    "results/phase2/peak_location_matched_nominal.png": "a384b2f8f715cdaf8a9b55a0594d30192328e9472fe034a9d0b7e8cefc732dc1",
+    "results/phase2/peak_location_robust.png": "f1127935d03608225be96ba5ee3991488513402eab4b270e4ddf9b195b05fa5c",
+    "results/phase2/peak_refinement.png": "9a7863448f82a408814616748452157295253b9d7f1a236050a0aa6df131d3d9",
+    "results/phase2/phase1_input.json": "83162de245bfa5f64fad773f0c8212ccb04d2ae8af8287c03589fd8ee8374889",
+    "results/phase2/regression/audit.json": "f0a0a940e47978c32162423e5f634138803b1f77867148720583866d13a992e0",
+    "results/phase2/regression/convergence.png": "4e6469287f742b1c239e5b0984387514198a72e3ffd31b6c37ea45afe26b2732",
+    "results/phase2/regression/current_tradeoff.png": "99dd1c843f8e6e0e5724718b9b949e509b67a0aa71496d02afd543543c8b7f7f",
+    "results/phase2/regression/currents.png": "bbd4e826d585f21c3fd1f5948328d9257d3530591d9cc1ac4426909e1bc2ecca",
+    "results/phase2/regression/geometry.png": "1c34f597541c3b3601a5b16ac0071b4ba0f6913ca2b94ec5b472af5bc4ea11c1",
+    "results/phase2/regression/holdout.png": "0510fce7f9d7172f3718d4d9030b38da2dfee9101929d3e4e8cd5a1a0bce5829",
+    "results/phase2/regression/normal_field.png": "2d7dab5a4c5cb317e07716ec20a638a2d46f1ac22f9006f59ffda918db8378f8",
+    "results/phase2/regression/outages.png": "8693f063e71aa58caf677e2478bdb73ec99b7984e8711f45f0583999c1493fbb",
+    "results/phase2/regression/pareto.csv": "c585f446ba1bab7b5b4169a722293c3324564be8021ca7fa3b0240b3097d09ee",
+    "results/phase2/regression/pareto.png": "0b24f29e5b9bfd1ebdc640106b4dd8603db9c631677a6be920ea8a895981fad6",
+    "results/phase2/regression/results.json": "0a2313a043a02264d8c6b65513152169149a3e35d235ef80dea56c0ae10e0bd9",
+    "results/phase2/reproducibility.json": "2b3a6ea2e40e4514466cf710f27b9f1b4c40562798ed8f30334ede3de266dc34",
+    "results/phase2/study.json": "395027e9fdda163448789beda6b1c7eb7d1537d6024d0a0ee32790ddf53bb258",
+    "results/phase2/training_audit.json": "c086a0cb307b233a7c7c13e40f18aa1b5bbae23c2ef9cd5dfc97c417fd3cbbb6",
+    "results/quick/audit.json": "e4946a40dcf2013f9cb59ac40a053735ff1d1f24ecd6009854dfb105ec41f31e",
+    "results/quick/convergence.png": "4e6469287f742b1c239e5b0984387514198a72e3ffd31b6c37ea45afe26b2732",
+    "results/quick/current_tradeoff.png": "99dd1c843f8e6e0e5724718b9b949e509b67a0aa71496d02afd543543c8b7f7f",
+    "results/quick/currents.png": "bbd4e826d585f21c3fd1f5948328d9257d3530591d9cc1ac4426909e1bc2ecca",
+    "results/quick/geometry.png": "1c34f597541c3b3601a5b16ac0071b4ba0f6913ca2b94ec5b472af5bc4ea11c1",
+    "results/quick/holdout.png": "0510fce7f9d7172f3718d4d9030b38da2dfee9101929d3e4e8cd5a1a0bce5829",
+    "results/quick/normal_field.png": "2d7dab5a4c5cb317e07716ec20a638a2d46f1ac22f9006f59ffda918db8378f8",
+    "results/quick/outages.png": "8693f063e71aa58caf677e2478bdb73ec99b7984e8711f45f0583999c1493fbb",
+    "results/quick/pareto.csv": "c585f446ba1bab7b5b4169a722293c3324564be8021ca7fa3b0240b3097d09ee",
+    "results/quick/pareto.png": "0b24f29e5b9bfd1ebdc640106b4dd8603db9c631677a6be920ea8a895981fad6",
+    "results/quick/refinement_diagnosis.json": "430019e6c0133097411af2064fbbcd5aad1c73f699b4bd0195ae4ac868ca78a5",
+    "results/quick/reproducibility.json": "2cba857ac830176a1b3abd769d70dfc6e7c8f99fa4d0ef1aa74ebf0f06bc3bf2",
+    "results/quick/results.json": "83162de245bfa5f64fad773f0c8212ccb04d2ae8af8287c03589fd8ee8374889",
+    "results/quick/tests.json": "0d65a4fcd173f467a0f07d1f290ca1b780fdbd57a2ca25e0ce4d52c9835b5d4c",
+    "results/phase2b/analytical.log": "98e405105912f3703f2accaed76c77ad489a7197cef76526f1757e49648599db",
+    "results/phase2b/execution.json": "9d1d45f39f98b4e4f223b59f8f93260e7427104b17e5702e402a6fafadd9b2de",
+    "results/phase2b/final-tests.log": "cd2ebcbdb47033536f582157dba42dd1551c3c97e86fb3786c2083dc521d9804",
+    "results/phase2b/gate.json": "73a7506e33cc12e90fbfa9fd6328cf7276736e549e073e0b11cb8ce310be58fc",
+    "results/phase2b/history/linux-v1-study.json": "e27f7197aa05f742743bdf8a3430cf907dab964b6bec6b6c4748258ffbdb4c13",
+    "results/phase2b/history/provenance.json": "b6ba61cf4dd7c376d4798b1ba57b79ed77fdef80dc948a42c75850afdbfea7ee",
+    "results/phase2b/independent-audit.log": "98bdf6334d7381c0604573cdf4b6aa7946ec3ab67f8fe0fc930b6361a3dd3292",
+    "results/phase2b/integrity.json": "f80436ff9aa55c234da89c6105c42acc80bfdc314e9e2c6d1133c7deb747a495",
+    "results/phase2b/investigation/analysis.json": "3c9f0b56462b633681f739504c57a5c884f7f669056259f8be4505db0ca42a3c",
+    "results/phase2b/investigation/geometry.json": "b4e555b012d039c02bbc99e5d7e4301ca996e354414b5637590ef41be622ff51",
+    "results/phase2b/investigation/initial-geometry-audit-failure.json": "f3d55add95c7a22737d00131c365a3049e1a4ecca2aeafd34eb87b2dd29423b5",
+    "results/phase2b/manifest.json": "c0297a4fcf2977ca9df54ecb220512f1d69f1f507a3ac2ebeb3dc35777614fef",
+    "results/phase2b/outputs.log": "f963584617ffd26ade347a3b97acaf8ddccecdd3e96d79d44558443b96a4277d",
+    "results/phase2b/quick.log": "b7b10ff8b7e3fdbbfc3d705e1c565495523cd60621cc939636842be0a9abdb8e",
+    "results/phase2b/quick/audit.json": "30e35588d13ee91b397a3395d76b825074e9318832b0cc6dd8f651915a44dc96",
+    "results/phase2b/quick/convergence.png": "4e6469287f742b1c239e5b0984387514198a72e3ffd31b6c37ea45afe26b2732",
+    "results/phase2b/quick/current_tradeoff.png": "99dd1c843f8e6e0e5724718b9b949e509b67a0aa71496d02afd543543c8b7f7f",
+    "results/phase2b/quick/currents.png": "a9b3c458829d40b3fff00e37fdd11e46f966533fa9ed3a3a5be3de4e4b964ab6",
+    "results/phase2b/quick/geometry.png": "a00d0910a9696d339baa777234668adb508f122c9fba8c1e84adc1eac7aec220",
+    "results/phase2b/quick/holdout.png": "0510fce7f9d7172f3718d4d9030b38da2dfee9101929d3e4e8cd5a1a0bce5829",
+    "results/phase2b/quick/normal_field.png": "2d7dab5a4c5cb317e07716ec20a638a2d46f1ac22f9006f59ffda918db8378f8",
+    "results/phase2b/quick/outages.png": "8693f063e71aa58caf677e2478bdb73ec99b7984e8711f45f0583999c1493fbb",
+    "results/phase2b/quick/pareto.csv": "e287db2de909fbe0fe8b21664f365e0d275f08562b7a384566512130ace29b26",
+    "results/phase2b/quick/pareto.png": "0b24f29e5b9bfd1ebdc640106b4dd8603db9c631677a6be920ea8a895981fad6",
+    "results/phase2b/quick/results.json": "716ebb2a81585c3240a261902910a5f7d75a35e90c7e298c6bf71701bf871263",
+    "results/phase2b/repeat-quick.log": "a10ff7bc013d4c3691780cebd2a7e5f91fe2f2babff81b43df85f7beeda7582f",
+    "results/phase2b/repeat-study.log": "f1eea9a4c69f88953353fbc212afb09446417da0c69615ab191e43ad61f63f79",
+    "results/phase2b/repeat/execution.json": "e43898b202c74643c3c0bdcd175152a0238edf31119d8d4110fd1ff8fcc3b427",
+    "results/phase2b/repeat/quick/convergence.png": "4e6469287f742b1c239e5b0984387514198a72e3ffd31b6c37ea45afe26b2732",
+    "results/phase2b/repeat/quick/current_tradeoff.png": "99dd1c843f8e6e0e5724718b9b949e509b67a0aa71496d02afd543543c8b7f7f",
+    "results/phase2b/repeat/quick/currents.png": "a9b3c458829d40b3fff00e37fdd11e46f966533fa9ed3a3a5be3de4e4b964ab6",
+    "results/phase2b/repeat/quick/geometry.png": "a00d0910a9696d339baa777234668adb508f122c9fba8c1e84adc1eac7aec220",
+    "results/phase2b/repeat/quick/holdout.png": "0510fce7f9d7172f3718d4d9030b38da2dfee9101929d3e4e8cd5a1a0bce5829",
+    "results/phase2b/repeat/quick/normal_field.png": "2d7dab5a4c5cb317e07716ec20a638a2d46f1ac22f9006f59ffda918db8378f8",
+    "results/phase2b/repeat/quick/outages.png": "8693f063e71aa58caf677e2478bdb73ec99b7984e8711f45f0583999c1493fbb",
+    "results/phase2b/repeat/quick/pareto.csv": "e287db2de909fbe0fe8b21664f365e0d275f08562b7a384566512130ace29b26",
+    "results/phase2b/repeat/quick/pareto.png": "0b24f29e5b9bfd1ebdc640106b4dd8603db9c631677a6be920ea8a895981fad6",
+    "results/phase2b/repeat/quick/results.json": "af26256c04345139866019de369f3ea22b31bb60511d1867c1ad4f9027114b13",
+    "results/phase2b/repeat/study/paired_difference.png": "ac27d7e8c50e705e7a6078b534f6899ceb066bcaad979257870dd4615c3b291e",
+    "results/phase2b/repeat/study/peak_location_dense.png": "525affdbe7848eb9a78961e415059cae62be1de39f4fd412646e8a2d563d1d97",
+    "results/phase2b/repeat/study/peak_location_matched_nominal.png": "a384b2f8f715cdaf8a9b55a0594d30192328e9472fe034a9d0b7e8cefc732dc1",
+    "results/phase2b/repeat/study/peak_location_robust.png": "f1127935d03608225be96ba5ee3991488513402eab4b270e4ddf9b195b05fa5c",
+    "results/phase2b/repeat/study/peak_refinement.png": "9a7863448f82a408814616748452157295253b9d7f1a236050a0aa6df131d3d9",
+    "results/phase2b/repeat/study/phase1_input.json": "af26256c04345139866019de369f3ea22b31bb60511d1867c1ad4f9027114b13",
+    "results/phase2b/repeat/study/study.json": "78398659488fd3b88c621bd788c6f5d6a4c9a27f2829d5ed0e091641d0ea2a6c",
+    "results/phase2b/reproducibility.json": "3041ac9f2f3ba4b02bb9fd43a5e7ad6ed33e876b5560c3619f00359680a215f0",
+    "results/phase2b/source_fingerprints.json": "f85c1ac89e947168040bfa80fd2b11feb8188f7504bf9a9a0a097bd0d53b51ec",
+    "results/phase2b/source_fingerprints_at_run.json": "5c39bb2d25f7ee6195131a1ecb0e8103cdc56f7f53699367311d3c8cb3bfa864",
+    "results/phase2b/study.log": "f1eea9a4c69f88953353fbc212afb09446417da0c69615ab191e43ad61f63f79",
+    "results/phase2b/study/paired_difference.png": "ac27d7e8c50e705e7a6078b534f6899ceb066bcaad979257870dd4615c3b291e",
+    "results/phase2b/study/peak_location_dense.png": "525affdbe7848eb9a78961e415059cae62be1de39f4fd412646e8a2d563d1d97",
+    "results/phase2b/study/peak_location_matched_nominal.png": "a384b2f8f715cdaf8a9b55a0594d30192328e9472fe034a9d0b7e8cefc732dc1",
+    "results/phase2b/study/peak_location_robust.png": "f1127935d03608225be96ba5ee3991488513402eab4b270e4ddf9b195b05fa5c",
+    "results/phase2b/study/peak_refinement.png": "9a7863448f82a408814616748452157295253b9d7f1a236050a0aa6df131d3d9",
+    "results/phase2b/study/phase1_input.json": "716ebb2a81585c3240a261902910a5f7d75a35e90c7e298c6bf71701bf871263",
+    "results/phase2b/study/study.json": "c8f1cf9df1cdc6fb8eb5ab8595ede2015aee4647671d98142205ec1ec8f2a960",
+    "results/phase2b/study/training_audit.json": "f4cdc27c041e03d4f5b519eb7f32958463b80ebb4367522ebcce8387d67adec2",
+    "results/phase2b/tests.log": "ef2fc09d9deb6397bd91a1b98ff956fd68314e6e4ba9e7c63a7068190bddc119",
+    "results/phase2b/training-audit.log": "419055989e9dfff23e8b93b732c513c623e284d6aa5360884acfc4110ca3dee7"
+  },
+  "quick_runtime": {
+    "source_commit": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379",
+    "source_dirty": true,
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    }
+  },
+  "study_runtime": {
+    "source_commit": "74fddfe3a2a7cf95ee334f8bc1ec7757ef22c379",
+    "source_dirty": true,
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "pytest": "9.2.0"
+    }
+  },
+  "quick_sha256": "ba6f27db86176606a82e360220e2e96f250976bfc2774be167ab746ccc1914e5",
+  "study_sha256": "20f28ceb4a195c15c04d5ec3b36bc95ae65399cc540d8782eb593fc1fce63eca"
+}

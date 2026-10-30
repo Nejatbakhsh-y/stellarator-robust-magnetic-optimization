@@ -1,0 +1,27 @@
+[
+  {
+    "segments": 16,
+    "max_relative_error": 0.013052368338676956,
+    "center_relative_error": 0.013052368338676956
+  },
+  {
+    "segments": 32,
+    "max_relative_error": 0.003225196566424504,
+    "center_relative_error": 0.003225196566424504
+  },
+  {
+    "segments": 64,
+    "max_relative_error": 0.0008039653559865911,
+    "center_relative_error": 0.0008039653559865911
+  },
+  {
+    "segments": 128,
+    "max_relative_error": 0.00020084601100234245,
+    "center_relative_error": 0.00020084601100234245
+  },
+  {
+    "segments": 256,
+    "max_relative_error": 5.0202428052203985e-05,
+    "center_relative_error": 5.0202428052203985e-05
+  }
+]

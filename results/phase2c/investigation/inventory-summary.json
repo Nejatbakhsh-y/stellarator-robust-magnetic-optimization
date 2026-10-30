@@ -1,0 +1,315 @@
+[
+  {
+    "reference": "results\\phase2b",
+    "current": "results\\ci\\phase2c-failures\\phase2b-linux-numpy-sensitivity",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.4146889971338583,
+          "current": -0.4146889971081558,
+          "absolute_error": 2.5702495687340843e-11,
+          "permitted_error": 4.246889971081558e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.0317963589982326,
+          "current": 1.031796358966853,
+          "absolute_error": 3.137956561261035e-11,
+          "permitted_error": 1.041796358966853e-11
+        }
+      ],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\phase2b",
+    "current": "results\\ci\\phase2c-failures\\phase2b-linux-reference",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.4146889971338583,
+          "current": -0.4146889971081558,
+          "absolute_error": 2.5702495687340843e-11,
+          "permitted_error": 4.246889971081558e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.0317963589982326,
+          "current": 1.031796358966853,
+          "absolute_error": 3.137956561261035e-11,
+          "permitted_error": 1.041796358966853e-11
+        }
+      ],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\phase2b",
+    "current": "results\\ci\\phase2c-failures\\phase2b-linux-scipy-sensitivity",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.4146889971338583,
+          "current": -0.41468899695849326,
+          "absolute_error": 1.7536505581006168e-10,
+          "permitted_error": 4.246889969584933e-12
+        },
+        {
+          "path": "/quick/faults/4/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.16726624850524488,
+          "current": 0.16726624849117971,
+          "absolute_error": 1.4065165698795568e-11,
+          "permitted_error": 1.772662484911797e-12
+        },
+        {
+          "path": "/quick/faults/10/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.3046569456781286,
+          "current": 0.3046569456748157,
+          "absolute_error": 3.312905505481467e-12,
+          "permitted_error": 3.146569456748157e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.0317963589982326,
+          "current": 1.03179635890597,
+          "absolute_error": 9.226264197081946e-11,
+          "permitted_error": 1.04179635890597e-11
+        }
+      ],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\phase2b",
+    "current": "results\\ci\\phase2c-failures\\phase2b-windows-reference",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.4146889971338583,
+          "current": -0.4146889970461758,
+          "absolute_error": 8.768252790503084e-11,
+          "permitted_error": 4.246889970461758e-12
+        },
+        {
+          "path": "/quick/faults/4/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.16726624850524488,
+          "current": 0.16726624849117971,
+          "absolute_error": 1.4065165698795568e-11,
+          "permitted_error": 1.772662484911797e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.0317963589982326,
+          "current": 1.0317963589373496,
+          "absolute_error": 6.088307635820911e-11,
+          "permitted_error": 1.0417963589373495e-11
+        }
+      ],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\ci\\phase2c-failures\\phase2b-linux-numpy-sensitivity",
+    "current": "results\\ci\\phase2c-failures\\phase2b-linux-reference",
+    "primary": {
+      "quick": [],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\ci\\phase2c-failures\\phase2b-linux-numpy-sensitivity",
+    "current": "results\\ci\\phase2c-failures\\phase2b-linux-scipy-sensitivity",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.4146889971081558,
+          "current": -0.41468899695849326,
+          "absolute_error": 1.4966256012272083e-10,
+          "permitted_error": 4.246889969584933e-12
+        },
+        {
+          "path": "/quick/faults/4/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.16726624850415936,
+          "current": 0.16726624849117971,
+          "absolute_error": 1.297964513646832e-11,
+          "permitted_error": 1.772662484911797e-12
+        },
+        {
+          "path": "/quick/faults/10/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.30465694567989426,
+          "current": 0.3046569456748157,
+          "absolute_error": 5.078548692694085e-12,
+          "permitted_error": 3.146569456748157e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.031796358966853,
+          "current": 1.03179635890597,
+          "absolute_error": 6.088307635820911e-11,
+          "permitted_error": 1.04179635890597e-11
+        }
+      ],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\ci\\phase2c-failures\\phase2b-linux-numpy-sensitivity",
+    "current": "results\\ci\\phase2c-failures\\phase2b-windows-reference",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.4146889971081558,
+          "current": -0.4146889970461758,
+          "absolute_error": 6.198003221769e-11,
+          "permitted_error": 4.246889970461758e-12
+        },
+        {
+          "path": "/quick/faults/4/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.16726624850415936,
+          "current": 0.16726624849117971,
+          "absolute_error": 1.297964513646832e-11,
+          "permitted_error": 1.772662484911797e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.031796358966853,
+          "current": 1.0317963589373496,
+          "absolute_error": 2.950351074559876e-11,
+          "permitted_error": 1.0417963589373495e-11
+        }
+      ],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\ci\\phase2c-failures\\phase2b-linux-reference",
+    "current": "results\\ci\\phase2c-failures\\phase2b-linux-scipy-sensitivity",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.4146889971081558,
+          "current": -0.41468899695849326,
+          "absolute_error": 1.4966256012272083e-10,
+          "permitted_error": 4.246889969584933e-12
+        },
+        {
+          "path": "/quick/faults/4/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.16726624850415936,
+          "current": 0.16726624849117971,
+          "absolute_error": 1.297964513646832e-11,
+          "permitted_error": 1.772662484911797e-12
+        },
+        {
+          "path": "/quick/faults/10/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.30465694567989426,
+          "current": 0.3046569456748157,
+          "absolute_error": 5.078548692694085e-12,
+          "permitted_error": 3.146569456748157e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.031796358966853,
+          "current": 1.03179635890597,
+          "absolute_error": 6.088307635820911e-11,
+          "permitted_error": 1.04179635890597e-11
+        }
+      ],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\ci\\phase2c-failures\\phase2b-linux-reference",
+    "current": "results\\ci\\phase2c-failures\\phase2b-windows-reference",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.4146889971081558,
+          "current": -0.4146889970461758,
+          "absolute_error": 6.198003221769e-11,
+          "permitted_error": 4.246889970461758e-12
+        },
+        {
+          "path": "/quick/faults/4/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.16726624850415936,
+          "current": 0.16726624849117971,
+          "absolute_error": 1.297964513646832e-11,
+          "permitted_error": 1.772662484911797e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.031796358966853,
+          "current": 1.0317963589373496,
+          "absolute_error": 2.950351074559876e-11,
+          "permitted_error": 1.0417963589373495e-11
+        }
+      ],
+      "study": []
+    }
+  },
+  {
+    "reference": "results\\ci\\phase2c-failures\\phase2b-linux-scipy-sensitivity",
+    "current": "results\\ci\\phase2c-failures\\phase2b-windows-reference",
+    "primary": {
+      "quick": [
+        {
+          "path": "/quick/faults/3/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": -0.41468899695849326,
+          "current": -0.4146889970461758,
+          "absolute_error": 8.768252790503084e-11,
+          "permitted_error": 4.246889970461758e-12
+        },
+        {
+          "path": "/quick/faults/10/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 0.3046569456748157,
+          "current": 0.30465694567912066,
+          "absolute_error": 4.304945289135276e-12,
+          "permitted_error": 3.1465694567912062e-12
+        },
+        {
+          "path": "/quick/faults/13/fractional_recovery",
+          "reason": "outside-tolerance",
+          "reference": 1.03179635890597,
+          "current": 1.0317963589373496,
+          "absolute_error": 3.137956561261035e-11,
+          "permitted_error": 1.0417963589373495e-11
+        }
+      ],
+      "study": []
+    }
+  }
+]

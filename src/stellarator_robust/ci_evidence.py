@@ -79,7 +79,7 @@ def clearance_paths(scenarios):
     return paths
 
 
-def compare_study(reference, current, actual=None, report=None):
+def compare_study(reference, current, actual=None, report=None, comparator=compare):
     actual = runtime() if actual is None else actual
     excluded = []
     for key in ('source_commit', 'source_dirty', 'python'):
@@ -106,10 +106,10 @@ def compare_study(reference, current, actual=None, report=None):
     if paths != clearance_paths(right['scenarios']):
         raise AssertionError('scenario dimensions differ')
     result['approximate_scenario_fields'] = sorted(paths)
-    compare(left['scenarios'], right['scenarios'], '/scenarios', records=errors,
+    comparator(left['scenarios'], right['scenarios'], '/scenarios', records=errors,
             exact=True, approximate_paths=paths)
-    compare(left['config'], right['config'], '/config', records=errors, exact=True)
-    compare({k: v for k, v in left.items() if k not in ('scenarios', 'config')},
+    comparator(left['config'], right['config'], '/config', records=errors, exact=True)
+    comparator({k: v for k, v in left.items() if k not in ('scenarios', 'config')},
             {k: v for k, v in right.items() if k not in ('scenarios', 'config')}, records=errors)
     result['status'] = 'PASS'
     return result

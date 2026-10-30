@@ -72,3 +72,21 @@ See [methods](docs/PHASE2B_METHODS.md), [local results](docs/PHASE2B_RESULTS.md)
 The dedicated Phase 2B PR workflow generates full Windows/Linux studies and
 isolated library-sensitivity cohorts. Local success is not hosted CI success;
 scientific status remains PARTIAL even after numerical agreement is observed.
+
+Phase 2C adds the opt-in `residual-energy-v3` fault-recovery evaluation, preserving
+the original metric and all Phase 2B evidence. See
+[the mathematical investigation](docs/PHASE2C_METHODS.md),
+[validation results](docs/PHASE2C_RESULTS.md) and
+[publication handoff](docs/PHASE2C_PUBLICATION.md). Use a fresh output directory:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/phase2c_verify.py --output results/ci/phase2c-run
+.\.venv\Scripts\python.exe scripts/phase2c_fault_audit.py --root results/ci/phase2c-run
+.\.venv\Scripts\python.exe scripts/phase2c_legacy_compare.py --root results/ci/phase2c-run
+.\.venv\Scripts\python.exe scripts/phase2b_investigate.py --output results/ci/phase2c-run/investigation --corrected results/ci/phase2c-run
+.\.venv\Scripts\python.exe scripts/phase2c_finalize.py --output results/ci/phase2c-run
+.\.venv\Scripts\python.exe scripts/phase2c_compare.py --current results/ci/phase2c-run
+```
+
+The dedicated Phase 2C workflow targets the Phase 2B branch. Completed hosted
+Windows/Linux comparisons are required before claiming cross-platform success.

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "cohorts": [
+    {
+      "name": "windows-reference",
+      "os": "windows-latest",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1"
+    },
+    {
+      "name": "linux-reference",
+      "os": "ubuntu-latest",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1"
+    },
+    {
+      "name": "linux-numpy-sensitivity",
+      "os": "ubuntu-latest",
+      "numpy": "2.3.5",
+      "scipy": "1.17.1"
+    },
+    {
+      "name": "linux-scipy-sensitivity",
+      "os": "ubuntu-latest",
+      "numpy": "2.4.6",
+      "scipy": "1.16.3"
+    }
+  ],
+  "target": [
+    "codex/phase2b-deterministic-geometry"
+  ],
+  "read_only_permissions": true
+}

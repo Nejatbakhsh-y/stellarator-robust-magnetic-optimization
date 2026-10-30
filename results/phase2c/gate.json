@@ -1,0 +1,26 @@
+{
+  "software_status": "PASS",
+  "phase1_regression_status": "PASS",
+  "scientific_status": "PARTIAL",
+  "benchmark_version": "phase2c-householder-v2-pattern-v2-energy-v3",
+  "study_sha256": "20f28ceb4a195c15c04d5ec3b36bc95ae65399cc540d8782eb593fc1fce63eca",
+  "quick_sha256": "ba6f27db86176606a82e360220e2e96f250976bfc2774be167ab746ccc1914e5",
+  "candidate_checks": {
+    "dense": {
+      "independent_difference_T": 0.0,
+      "configured_relative_error": 1.7378030181251516e-05
+    },
+    "matched_nominal": {
+      "independent_difference_T": 0.0,
+      "configured_relative_error": 1.737745502643355e-05
+    },
+    "robust": {
+      "independent_difference_T": 0.0,
+      "configured_relative_error": 1.7377055267158142e-05
+    }
+  },
+  "limitations": [
+    "Finite sampled search, no global peak certificate",
+    "IID synthetic scenarios; no device or confinement validation"
+  ]
+}
