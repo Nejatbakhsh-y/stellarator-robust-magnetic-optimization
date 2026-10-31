@@ -42,8 +42,25 @@ def main():
             name, expected = pin.split('==')
             if version(name) != expected:
                 raise RuntimeError('Installed version mismatch: '+name)
-        from stellarator_robust.upstream_attribution import environment, write
-        write(a.output/'environment.json', environment())
+        probe = [
+            sys.executable,
+            '-c',
+            'import sys; from stellarator_robust.upstream_attribution import environment, write; '
+            'write(sys.argv[1], environment())',
+            str(a.output/'environment.json'),
+        ]
+        with (a.output/'installed-package-import.log').open('x') as log:
+            result = subprocess.run(
+                probe, stdout=log, stderr=subprocess.STDOUT
+            )
+        status['steps'].append({
+            'arguments': probe,
+            'exit_code': result.returncode,
+        })
+        if result.returncode:
+            raise RuntimeError(
+                'Fresh-interpreter package import/environment capture failed'
+            )
         status['status'] = 'PASS'
     except Exception as exc:
         status.update(status='FAIL', error=repr(exc))
