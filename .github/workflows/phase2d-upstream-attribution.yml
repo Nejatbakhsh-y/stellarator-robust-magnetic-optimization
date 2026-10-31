@@ -1,0 +1,127 @@
+name: Phase 2D upstream attribution (diagnostic, PARTIAL science)
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - 'codex/phase2d-cross-platform-reproducibility'
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  # Keep raw source fingerprints identical on hosted Windows/Linux checkouts.
+  GIT_CONFIG_COUNT: '2'
+  GIT_CONFIG_KEY_0: core.autocrlf
+  GIT_CONFIG_VALUE_0: 'false'
+  GIT_CONFIG_KEY_1: core.eol
+  GIT_CONFIG_VALUE_1: lf
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+jobs:
+  seal:
+    runs-on: windows-latest
+    outputs:
+      digest: ${{ steps.hash.outputs.digest }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy 2.4.6 --scipy 1.17.1 --output results/ci/seal-dependencies
+      - run: python scripts/phase2d_upstream.py prepare --output results/ci/upstream-sealed
+      - id: hash
+        shell: pwsh
+        run: |
+          $digest = (Get-FileHash results/ci/upstream-sealed/inputs.json -Algorithm SHA256).Hash.ToLowerInvariant()
+          "digest=$digest" >> $env:GITHUB_OUTPUT
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: upstream-sealed
+          path: results/ci/upstream-sealed/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dependency-seal
+          path: results/ci/seal-dependencies/
+          if-no-files-found: error
+          retention-days: 30
+  workers:
+    needs: seal
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: windows-reference, os: windows-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-reference, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-numpy-sensitivity, os: ubuntu-latest, numpy: '2.3.5', scipy: '1.17.1'}
+          - {name: linux-scipy-sensitivity, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.16.3'}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy ${{ matrix.numpy }} --scipy ${{ matrix.scipy }} --output results/ci/worker-dependencies
+      - uses: actions/download-artifact@v4
+        with: {name: upstream-sealed, path: results/ci/upstream-sealed}
+      - run: python -m pytest -q
+      - run: python -m stellarator_robust.cli validate
+      - run: python scripts/phase2d_upstream.py run --input results/ci/upstream-sealed/inputs.json --input-sha256 ${{ needs.seal.outputs.digest }} --output results/ci/upstream-worker
+      # Full production remains a separate required gate; diagnostic agreement cannot replace it.
+      - run: python scripts/phase2c_verify.py --output results/ci/upstream-production
+        if: always()
+      - run: python scripts/phase2c_fault_audit.py --root results/ci/upstream-production
+        if: always()
+      - run: python scripts/phase2c_legacy_compare.py --root results/ci/upstream-production
+        if: always()
+      - run: python scripts/phase2b_investigate.py --output results/ci/upstream-production/investigation --corrected results/ci/upstream-production
+        if: always()
+      - run: python scripts/phase2c_finalize.py --output results/ci/upstream-production
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: upstream-${{ matrix.name }}
+          path: |
+            results/ci/upstream-worker/
+            results/ci/upstream-production/
+            results/ci/worker-dependencies/
+          if-no-files-found: error
+          retention-days: 30
+  compare:
+    needs: [seal, workers]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy 2.4.6 --scipy 1.17.1 --output results/ci/compare-dependencies
+      - uses: actions/download-artifact@v4
+        with: {pattern: upstream-*, path: results/ci/upstream-artifacts}
+      - run: python scripts/phase2d_upstream.py compare --input-sha256 ${{ needs.seal.outputs.digest }} --reference results/ci/upstream-artifacts/upstream-windows-reference/upstream-worker --current results/ci/upstream-artifacts/upstream-linux-reference/upstream-worker --output results/ci/upstream-comparison-reference
+      - run: python scripts/phase2d_upstream.py compare --input-sha256 ${{ needs.seal.outputs.digest }} --reference results/ci/upstream-artifacts/upstream-windows-reference/upstream-worker --current results/ci/upstream-artifacts/upstream-linux-numpy-sensitivity/upstream-worker --output results/ci/upstream-comparison-numpy
+        if: always()
+      - run: python scripts/phase2d_upstream.py compare --input-sha256 ${{ needs.seal.outputs.digest }} --reference results/ci/upstream-artifacts/upstream-windows-reference/upstream-worker --current results/ci/upstream-artifacts/upstream-linux-scipy-sensitivity/upstream-worker --output results/ci/upstream-comparison-scipy
+        if: always()
+      - run: python scripts/phase2c_compare.py --reference results/ci/upstream-artifacts/upstream-windows-reference/upstream-production --current results/ci/upstream-artifacts/upstream-linux-reference/upstream-production --output results/ci/upstream-production-reference.json
+        if: always()
+      - run: python scripts/phase2c_compare.py --reference results/ci/upstream-artifacts/upstream-windows-reference/upstream-production --current results/ci/upstream-artifacts/upstream-linux-numpy-sensitivity/upstream-production --output results/ci/upstream-production-numpy.json
+        if: always()
+      - run: python scripts/phase2c_compare.py --reference results/ci/upstream-artifacts/upstream-windows-reference/upstream-production --current results/ci/upstream-artifacts/upstream-linux-scipy-sensitivity/upstream-production --output results/ci/upstream-production-scipy.json
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: upstream-comparisons
+          path: |
+            results/ci/upstream-comparison-*/
+            results/ci/upstream-production-*.json
+            results/ci/compare-dependencies/
+          if-no-files-found: error
+          retention-days: 30
