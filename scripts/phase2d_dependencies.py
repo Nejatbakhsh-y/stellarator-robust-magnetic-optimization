@@ -20,7 +20,7 @@ def main():
             raise RuntimeError('Python 3.11 required')
         if (a.numpy, a.scipy) not in {('2.4.6', '1.17.1'), ('2.3.5', '1.17.1'), ('2.4.6', '1.16.3')}:
             raise ValueError('Unsupported cohort')
-        pins = [line for line in Path('requirements-tested.txt').read_text().splitlines()
+        pins = [line for line in Path('requirements-tested.txt').read_text(encoding='utf-8-sig').splitlines()
                 if line and not line.startswith(('numpy==', 'scipy=='))]
         pins += [f'numpy=={a.numpy}', f'scipy=={a.scipy}', 'threadpoolctl==3.6.0',
                  'setuptools==80.9.0', 'wheel==0.45.1', 'PyYAML==6.0.3']
