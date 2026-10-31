@@ -2,3 +2,13 @@
 results/phase2/** -text whitespace=cr-at-eol
 results/phase2b/** -text whitespace=cr-at-eol
 results/phase2c/** -text whitespace=cr-at-eol
+results/phase2d/** -text whitespace=cr-at-eol
+benchmarks/phase2d-frozen-v1/** -text whitespace=cr-at-eol
+benchmarks/phase2d-sealed-v1/** -text whitespace=cr-at-eol
+# Calculation fingerprints must describe identical checkout bytes on each OS.
+scripts/phase2d_frozen.py -text
+scripts/phase2d_investigate.py -text
+src/stellarator_robust/frozen_diagnostics.py -text
+src/stellarator_robust/model.py -text
+src/stellarator_robust/optimize.py -text
+src/stellarator_robust/fault_metrics.py -text
