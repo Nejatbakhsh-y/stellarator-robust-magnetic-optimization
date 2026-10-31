@@ -90,3 +90,10 @@ the original metric and all Phase 2B evidence. See
 
 The dedicated Phase 2C workflow targets the Phase 2B branch. Completed hosted
 Windows/Linux comparisons are required before claiming cross-platform success.
+
+Phase 2D adds an investigation-only frozen field/least-squares benchmark.
+See [the current publication review](docs/PHASE2D_PUBLICATION_REVIEW.md).
+The recorded Windows execution passed 18 frozen-input tests and 145 regression
+tests, analytical validation, independent audits and the full local repeat.
+Hosted Phase 2D validation remains pending; production cross-platform
+fault-ratio discrepancies remain unresolved. Scientific status is PARTIAL.

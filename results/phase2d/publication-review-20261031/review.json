@@ -1,0 +1,285 @@
+﻿{
+    "status":  "LOCAL_EVIDENCE_REVIEW_PASS",
+    "scientific_status":  "PARTIAL",
+    "head":  "5a415c457e9f60c983a52d309a242583d73b40b6",
+    "branch":  "codex/phase2d-cross-platform-reproducibility",
+    "origin":  "https://github.com/Nejatbakhsh-y/stellarator-robust-magnetic-optimization.git",
+    "execution_root":  "results/ci/phase2d-controlled-20261031-060324",
+    "execution_manifest_sha256":  "2658a8d19508b8266c23110a9dee2277fa50ac2ad546afbdded48d64f4c118fa",
+    "execution_entries_verified":  92,
+    "execution_steps":  [
+                            {
+                                "label":  "frozen-tests",
+                                "arguments":  [
+                                                  "-m",
+                                                  "pytest",
+                                                  "-q",
+                                                  "tests/test_phase2d_frozen.py"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "full-tests",
+                                "arguments":  [
+                                                  "-m",
+                                                  "pytest",
+                                                  "-q"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "compile",
+                                "arguments":  [
+                                                  "-m",
+                                                  "compileall",
+                                                  "-q",
+                                                  "src",
+                                                  "scripts",
+                                                  "tests"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "analytical",
+                                "arguments":  [
+                                                  "-m",
+                                                  "stellarator_robust.cli",
+                                                  "validate"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "original-windows-manifest",
+                                "arguments":  [
+                                                  "scripts/phase2d_frozen.py",
+                                                  "verify-evidence",
+                                                  "--root",
+                                                  "results/ci/phase2d-frozen-host-20261030-205117-4a683b/windows"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "prepare",
+                                "arguments":  [
+                                                  "scripts/phase2d_frozen.py",
+                                                  "prepare",
+                                                  "--output",
+                                                  "results/ci/phase2d-controlled-20261031-060324/shared"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "windows",
+                                "arguments":  [
+                                                  "scripts/phase2d_frozen.py",
+                                                  "run",
+                                                  "--fixture",
+                                                  "results/ci/phase2d-controlled-20261031-060324/shared/fixture",
+                                                  "--contract",
+                                                  "results/ci/phase2d-controlled-20261031-060324/shared/contract.json",
+                                                  "--contract-sha256",
+                                                  "c994d97807a4ba621c1973879d954fa588b4615408efe49257f8a58cba0de34d",
+                                                  "--output",
+                                                  "results/ci/phase2d-controlled-20261031-060324/windows",
+                                                  "--cohort",
+                                                  "windows-reference"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "new-windows-manifest",
+                                "arguments":  [
+                                                  "scripts/phase2d_frozen.py",
+                                                  "verify-evidence",
+                                                  "--root",
+                                                  "results/ci/phase2d-controlled-20261031-060324/windows"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "production-replay",
+                                "arguments":  [
+                                                  "scripts/phase2c_verify.py",
+                                                  "--output",
+                                                  "results/ci/phase2d-controlled-20261031-060324/science"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "production-fault-audit",
+                                "arguments":  [
+                                                  "scripts/phase2c_fault_audit.py",
+                                                  "--root",
+                                                  "results/ci/phase2d-controlled-20261031-060324/science"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "production-legacy",
+                                "arguments":  [
+                                                  "scripts/phase2c_legacy_compare.py",
+                                                  "--root",
+                                                  "results/ci/phase2d-controlled-20261031-060324/science"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "production-investigation",
+                                "arguments":  [
+                                                  "scripts/phase2b_investigate.py",
+                                                  "--output",
+                                                  "results/ci/phase2d-controlled-20261031-060324/science/investigation",
+                                                  "--corrected",
+                                                  "results/ci/phase2d-controlled-20261031-060324/science"
+                                              ],
+                                "exit_code":  0
+                            },
+                            {
+                                "label":  "production-manifest",
+                                "arguments":  [
+                                                  "scripts/phase2c_finalize.py",
+                                                  "--output",
+                                                  "results/ci/phase2d-controlled-20261031-060324/science"
+                                              ],
+                                "exit_code":  0
+                            }
+                        ],
+    "production_steps":  [
+                             {
+                                 "stage":  "tests",
+                                 "command":  [
+                                                 "python",
+                                                 "-m",
+                                                 "pytest",
+                                                 "-q"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  7.047000000020489
+                             },
+                             {
+                                 "stage":  "analytical",
+                                 "command":  [
+                                                 "python",
+                                                 "-m",
+                                                 "stellarator_robust.cli",
+                                                 "validate"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  1.2179999999934807
+                             },
+                             {
+                                 "stage":  "quick",
+                                 "command":  [
+                                                 "python",
+                                                 "-m",
+                                                 "stellarator_robust.cli",
+                                                 "run",
+                                                 "--config",
+                                                 "configs/phase2c_quick.json",
+                                                 "--output",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\quick"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  113.26600000006147
+                             },
+                             {
+                                 "stage":  "outputs",
+                                 "command":  [
+                                                 "python",
+                                                 "scripts/check_outputs.py",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\quick"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  0.3440000000409782
+                             },
+                             {
+                                 "stage":  "independent-audit",
+                                 "command":  [
+                                                 "python",
+                                                 "scripts/audit_quick.py",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\quick"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  63.375
+                             },
+                             {
+                                 "stage":  "study",
+                                 "command":  [
+                                                 "python",
+                                                 "scripts/phase2_study.py",
+                                                 "--config",
+                                                 "configs/phase2c_study.json",
+                                                 "--output",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\study",
+                                                 "--phase1-input",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\quick\\results.json"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  656.3129999999655
+                             },
+                             {
+                                 "stage":  "repeat-quick",
+                                 "command":  [
+                                                 "python",
+                                                 "-m",
+                                                 "stellarator_robust.cli",
+                                                 "run",
+                                                 "--config",
+                                                 "configs/phase2c_quick.json",
+                                                 "--output",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\repeat\\quick"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  195.03200000000652
+                             },
+                             {
+                                 "stage":  "repeat-study",
+                                 "command":  [
+                                                 "python",
+                                                 "scripts/phase2_study.py",
+                                                 "--config",
+                                                 "configs/phase2c_study.json",
+                                                 "--output",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\repeat\\study",
+                                                 "--phase1-input",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\repeat\\quick\\results.json"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  673.6720000000205
+                             },
+                             {
+                                 "stage":  "training-audit",
+                                 "command":  [
+                                                 "python",
+                                                 "scripts/phase2_training_audit.py",
+                                                 "--output",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\study",
+                                                 "--phase1-input",
+                                                 "results\\ci\\phase2d-controlled-20261031-060324\\science\\quick\\results.json"
+                                             ],
+                                 "returncode":  0,
+                                 "seconds":  43.07799999997951
+                             }
+                         ],
+    "frozen_tests":  18,
+    "regression_tests":  145,
+    "historical_files_verified":  247,
+    "continuation_snapshot_files_verified":  26,
+    "controlled_manifest_entries_verified":  41,
+    "frozen_manifest_entries_verified":  11,
+    "sealed_manifest_entries_verified":  13,
+    "frozen_raw_source_hashes_verified":  6,
+    "production_normalized_source_hashes_verified":  68,
+    "tracked_production_and_historical_diff":  "NONE",
+    "archive_entries_verified":  93,
+    "archive_sha256":  "ab419148c77ada75c00997b344b70d253357b583f378c68eb8cbfba92b1af1e1",
+    "quick_sha256":  "6371be978f9bb1356a667b19a3edee3c2e8d6a7da1090cc6c9b3dbd75fbfcf48",
+    "study_sha256":  "acbfabd96f2b8af249775b3a147226f79e272fffdc2a560d4236e9da9a953e10",
+    "fresh_execution":  "BLOCKED: existing .venv launcher cannot find configured Python 3.11; recorded runs reviewed, no new scientific checkpoint claimed",
+    "hosted_windows":  "PENDING",
+    "hosted_linux":  "PENDING",
+    "hosted_comparisons":  "PENDING",
+    "production_fault_ratio_failures":  "UNRESOLVED",
+    "git_mutations":  "NONE: .git is read-only under supplied permissions",
+    "github_access":  "Not attempted; AGENTS.md restriction respected"
+}
