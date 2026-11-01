@@ -5,6 +5,7 @@ import importlib.util
 from pathlib import Path
 import subprocess
 import sys
+import tomllib
 
 import pytest
 import yaml
@@ -15,6 +16,16 @@ WORKFLOW = ROOT / ".github/workflows/phase2d-step33-causal.yml"
 SPEC = importlib.util.spec_from_file_location("workflow_validator", SCRIPT)
 VALIDATOR = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(VALIDATOR)
+
+
+def test_workflow_parser_declared_in_ci_dev_dependencies():
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8-sig"))
+    assert "PyYAML>=6,<7" in project["project"]["optional-dependencies"]["dev"]
+    ci = yaml.load((ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8"),
+                   Loader=yaml.BaseLoader)
+    assert ci["on"] == ["push", "pull_request"]
+    commands = [step["run"] for step in ci["jobs"]["validate"]["steps"] if "run" in step]
+    assert commands.index("python -m pip install -e '.[dev]'") < commands.index("python -m pytest -q")
 
 
 def baseline():
