@@ -6,3 +6,7 @@ build/
 dist/
 results/reproduction/
 results/ci/
+
+# Preserve Phase 2D local execution evidence outside Git.
+# Existing tracked scientific results remain unaffected.
+/results/phase2d/
