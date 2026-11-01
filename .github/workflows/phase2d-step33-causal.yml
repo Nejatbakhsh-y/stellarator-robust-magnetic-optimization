@@ -1,0 +1,128 @@
+name: Phase 2D STEP 33 controlled causal attribution
+on:
+  push:
+    branches: [codex/phase2d-upstream-attribution]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [codex/phase2d-cross-platform-reproducibility]
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  GIT_CONFIG_COUNT: '2'
+  GIT_CONFIG_KEY_0: core.autocrlf
+  GIT_CONFIG_VALUE_0: 'false'
+  GIT_CONFIG_KEY_1: core.eol
+  GIT_CONFIG_VALUE_1: lf
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+jobs:
+  capture:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: windows-reference, os: windows-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-reference, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-numpy-sensitivity, os: ubuntu-latest, numpy: '2.3.5', scipy: '1.17.1'}
+          - {name: linux-scipy-sensitivity, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.16.3'}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, persist-credentials: false, ref: "${{ github.event.pull_request.head.sha || github.sha }}"}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy ${{ matrix.numpy }} --scipy ${{ matrix.scipy }} --output results/ci/dependencies
+      - run: python -m pytest -q
+      - run: python -m compileall -q src scripts tests
+      - run: python -m stellarator_robust.cli validate
+      - run: python scripts/phase2d_step33.py capture --output results/ci/capture-${{ matrix.name }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step33-capture-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/capture-${{ matrix.name }}/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step33-capture-dependencies-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/dependencies/
+          if-no-files-found: error
+  replay:
+    needs: capture
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: windows-reference, os: windows-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-reference, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-numpy-sensitivity, os: ubuntu-latest, numpy: '2.3.5', scipy: '1.17.1'}
+          - {name: linux-scipy-sensitivity, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.16.3'}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, persist-credentials: false, ref: "${{ github.event.pull_request.head.sha || github.sha }}"}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy ${{ matrix.numpy }} --scipy ${{ matrix.scipy }} --output results/ci/dependencies
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: step33-capture-*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/downloads
+      - name: Normalize capture directories
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory results/ci/inputs
+          foreach ($cohort in @('windows-reference','linux-reference','linux-numpy-sensitivity','linux-scipy-sensitivity')) {
+            Copy-Item -LiteralPath "results/ci/downloads/step33-capture-$cohort-${{ github.run_id }}-${{ github.run_attempt }}" -Destination "results/ci/inputs/capture-$cohort" -Recurse
+          }
+      - run: python scripts/phase2d_step33.py replay --inputs results/ci/inputs --expected-head ${{ github.event.pull_request.head.sha || github.sha }} --output results/ci/replay-${{ matrix.name }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step33-replay-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/replay-${{ matrix.name }}/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step33-replay-dependencies-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/dependencies/
+          if-no-files-found: error
+  compare:
+    needs: [capture, replay]
+    if: always() && needs.capture.result == 'success' && needs.replay.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, persist-credentials: false, ref: "${{ github.event.pull_request.head.sha || github.sha }}"}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy 2.4.6 --scipy 1.17.1 --output results/ci/dependencies
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: step33-*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/downloads
+      - name: Require every capture and replay
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory results/ci/evidence
+          foreach ($stage in @('capture','replay')) {
+            foreach ($cohort in @('windows-reference','linux-reference','linux-numpy-sensitivity','linux-scipy-sensitivity')) {
+              Copy-Item -LiteralPath "results/ci/downloads/step33-$stage-$cohort-${{ github.run_id }}-${{ github.run_attempt }}" -Destination "results/ci/evidence/$stage-$cohort" -Recurse
+            }
+          }
+      - run: python scripts/phase2d_step33.py compare --inputs results/ci/evidence --expected-head ${{ github.event.pull_request.head.sha || github.sha }} --output results/ci/comparison
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step33-comparison-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            results/ci/comparison/
+            results/ci/dependencies/
+          if-no-files-found: error
