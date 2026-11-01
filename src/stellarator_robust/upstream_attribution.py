@@ -287,6 +287,7 @@ def validate_solve(result, data, a):
     for name in ('row3', 'row4'):
         frozen = currents['dense'].copy(); frozen[data['cases'][name]['failed']] = 0
         expected = stable_recovery(a['fine_A'], a['fine_b'], a['fine_weights'], currents['dense'], frozen, currents[name])
+        incomplete |= expected['fractional_recovery'] is None
         record = result['recovery'][name]
         require_keys(record, expected)
         for key, value in expected.items():
@@ -297,6 +298,16 @@ def validate_solve(result, data, a):
                 numeric(record[key], np.asarray(value).shape)
                 agreement(record[key], value)
     return gates, incomplete
+
+
+def require_solve(result, data, arrays):
+    """Enforce, rather than discard, the scientific validation verdict."""
+    gates, incomplete = validate_solve(result, data, arrays)
+    if incomplete or set(gates) != {'dense', 'row3', 'row4'} or not all(gates.values()):
+        raise ValueError('Solver validation failed or is incomplete')
+    for row in ('row3', 'row4'):
+        numeric(result['recovery'][row]['fractional_recovery'], ())
+    return gates
 
 
 def write(path, value):

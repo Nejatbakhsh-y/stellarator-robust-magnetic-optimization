@@ -277,6 +277,43 @@ def test_complete_real_producer_worker_accepted(producer_worker):
     assert u.verify_worker(producer_worker, u.sha(producer_worker/'sealed-inputs.json')) == u.load_evidence(producer_worker/'status.json')
 
 
+@pytest.mark.parametrize('damage', ['termination', 'repeat'])
+def test_required_solve_rejects_valid_but_failed_record(producer_worker, damage):
+    from stellarator_robust import upstream_attribution as u
+    data = u.load_evidence(producer_worker/'sealed-inputs.json')
+    arrays = u.validate_inputs(data)
+    result = u.load_evidence(producer_worker/'frozen-solve.json')
+    u.require_solve(result, data, arrays)
+    d = result['diagnostics']['dense']
+    if damage == 'termination':
+        d.update(success=False, status=0, message='Maximum iterations exceeded')
+    else:
+        d['repeated'].update(status='FAIL', exact=False, failures=1, max_absolute=1e-6)
+    gates, _ = u.validate_solve(result, data, arrays)
+    assert not gates['dense']  # valid failed evidence must remain inspectable
+    with pytest.raises(ValueError, match='failed or is incomplete'):
+        u.require_solve(result, data, arrays)
+
+
+def test_undefined_recovery_marks_solve_incomplete(producer_worker):
+    from stellarator_robust import upstream_attribution as u
+    data = u.load_evidence(producer_worker/'sealed-inputs.json')
+    arrays = u.validate_inputs(data)
+    result = u.load_evidence(producer_worker/'frozen-solve.json')
+    # Diagnostic synthetic evaluation: no current can change this field, so
+    # L-B is zero. Training arrays and the real candidate remain untouched.
+    arrays['fine_A'] = np.zeros_like(arrays['fine_A'])
+    dense = u.unpack(result['currents_A']['dense'])
+    for row in ('row3', 'row4'):
+        frozen = dense.copy(); frozen[data['cases'][row]['failed']] = 0.
+        result['recovery'][row] = u.stable_recovery(arrays['fine_A'], arrays['fine_b'],
+            arrays['fine_weights'], dense, frozen, u.unpack(result['currents_A'][row]))
+    gates, incomplete = u.validate_solve(result, data, arrays)
+    assert all(gates.values()) and incomplete
+    with pytest.raises(ValueError, match='incomplete'):
+        u.require_solve(result, data, arrays)
+
+
 def test_complete_executed_nonpass_evidence_retains_classification(producer_worker, tmp_path):
     import json
     import shutil
