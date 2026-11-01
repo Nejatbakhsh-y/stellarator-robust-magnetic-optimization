@@ -82,7 +82,15 @@ function Wait-Step33Run([string]$Commit, [int]$MaxPolls=420, [int]$PollSeconds=3
       if (-not [long]::TryParse([string]$candidate.id, [ref]$id) -or $id -le 0 -or $seen.ContainsKey($id)) { throw 'Malformed or ambiguous eligible workflow run ID' }
       if ([string]$candidate.run_attempt -notmatch '^[1-9][0-9]*$') { throw 'Malformed run attempt' }
       $seen[$id] = $true
-      if ([string]$candidate.created_at -notmatch '^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$' -or -not [DateTimeOffset]::TryParse([string]$candidate.created_at, [ref]$created)) { throw 'Malformed eligible workflow creation timestamp' }
+      # PowerShell 6+ JSON decoding materializes ISO timestamps as DateTime.
+      # Its default string cast loses the ISO format and timezone. Preserve the
+      # instant using round-trip formatting; unspecified dates still fail closed.
+      $timestamp = $candidate.created_at
+      if ($timestamp -is [datetime]) {
+        if ($timestamp.Kind -eq [DateTimeKind]::Unspecified) { throw 'Malformed eligible workflow creation timestamp' }
+        $timestamp = $timestamp.ToString('o', [Globalization.CultureInfo]::InvariantCulture)
+      }
+      if ($timestamp -isnot [string] -or $timestamp -notmatch '^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$' -or -not [DateTimeOffset]::TryParse($timestamp, [Globalization.CultureInfo]::InvariantCulture, [Globalization.DateTimeStyles]::None, [ref]$created)) { throw 'Malformed eligible workflow creation timestamp' }
       if ($candidate.status -cnotin @('queued','in_progress','completed','waiting','pending','requested') -or ($candidate.status -ceq 'completed' -and $candidate.conclusion -cnotin @('success','failure','cancelled','skipped','timed_out','action_required','neutral','startup_failure','stale'))) { throw 'Malformed workflow status' }
       $run = [pscustomobject]@{databaseId=$id; status=$candidate.status; conclusion=$candidate.conclusion; event=$candidate.event; headSha=$source; sourceSha=$Commit; runAttempt=$candidate.run_attempt}
       $runs += [pscustomobject]@{Run=$run; Created=$created; Id=$id}

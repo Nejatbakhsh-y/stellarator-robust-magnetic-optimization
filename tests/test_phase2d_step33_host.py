@@ -14,7 +14,7 @@ BASE_SHA = 'b' * 40
 NAME = 'Phase 2D STEP 33 controlled causal attribution'
 
 
-def invoke(tmp_path, records, command):
+def invoke(tmp_path, records, command, *, setup=''):
     exe = shutil.which('powershell') or shutil.which('pwsh')
     if not exe:
         pytest.skip('PowerShell unavailable')
@@ -32,7 +32,7 @@ def invoke(tmp_path, records, command):
         "if ($args[1] -like '*/pulls/7') { '{\"number\":7,\"head\":{\"ref\":\"research\",\"sha\":\"" + SHA + "\",\"repo\":{\"full_name\":\"owner/repo\"}},\"base\":{\"ref\":\"codex/phase2d-cross-platform-reproducibility\",\"repo\":{\"full_name\":\"owner/repo\"}}}' } "
         "elseif ($args[1] -like '*/commits/*') { '{\"sha\":\"" + 'c' * 40 + "\",\"parents\":[{\"sha\":\"" + BASE_SHA + "\"},{\"sha\":\"" + SHA + "\"}]}' } "
         "else { Get-Content (Join-Path $out 'runs.json') -Raw } }\n"
-        + helpers + '\ntry { ' + command +
+        + setup + '\n' + helpers + '\ntry { ' + command +
         " } catch { Set-HostFailure; $report.error=$_.Exception.Message }\n"
         "@{report=$report;cli=$script:cli} | ConvertTo-Json -Depth 20\n",
         encoding='utf-8')
@@ -52,7 +52,7 @@ def record(**changes):
 
 def test_branch_only_commit_discovery(tmp_path):
     result = invoke(tmp_path, [record()], "$r=Wait-Step33Run 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' 1 0")
-    assert result['report']['hosted_workflow_discovery'] == 'PASS'
+    assert result['report']['hosted_workflow_discovery'] == 'PASS', result
     assert '--workflow' not in result['cli']
     assert result['cli'][0] == 'api'
     assert 'actions/runs?branch=research&per_page=100' in result['cli'][1]
@@ -78,8 +78,56 @@ def test_creation_time_tie_uses_numeric_run_id(tmp_path):
     assert result['report']['selected'] == 10
 
 
+@pytest.mark.parametrize('kind', ['Utc', 'Local', 'Unspecified'])
+def test_json_datetime_representation(tmp_path, kind):
+    # Reproduce PS 6+ decoding even when this test runs under Windows PS 5.1.
+    # Module qualification keeps the mock from recursively calling itself.
+    setup = """
+function ConvertFrom-Json {
+  param($InputObject)
+  $value = Microsoft.PowerShell.Utility\\ConvertFrom-Json -InputObject $InputObject
+  foreach ($item in $value.workflow_runs) {
+    if ($item.created_at -is [string]) {
+      $item.created_at = [datetime]::Parse($item.created_at,
+        [Globalization.CultureInfo]::InvariantCulture,
+        [Globalization.DateTimeStyles]::RoundtripKind)
+    }
+    KIND_CONVERSION
+  }
+  return $value
+}
+[Threading.Thread]::CurrentThread.CurrentCulture = 'fr-FR'
+""".replace('KIND_CONVERSION', {
+        'Utc': '$item.created_at = $item.created_at.ToUniversalTime()',
+        'Local': '$item.created_at = $item.created_at.ToLocalTime()',
+        'Unspecified': '$item.created_at = [datetime]::SpecifyKind($item.created_at, [DateTimeKind]::Unspecified)',
+    }[kind])
+    result = invoke(tmp_path, [record(id=20, created_at='2026-10-31T13:00:00+02:00'),
+                               record(created_at='2026-10-31T12:00:00Z')],
+                    f"$r=Wait-Step33Run '{SHA}' 1 0; $report.selected=$r.databaseId",
+                    setup=setup)['report']
+    if kind == 'Unspecified':
+        assert result['hosted_workflow_discovery'] == 'FAIL'
+        assert result['error'] == 'Malformed eligible workflow creation timestamp'
+    else:
+        assert result['hosted_workflow_discovery'] == 'PASS', result
+        assert result['selected'] == 9
+
+
+@pytest.mark.parametrize('timestamp', [None, 123, '', 'invalid',
+                                       '2026-10-31T12:00:00',
+                                       '2026-02-30T12:00:00Z'])
+def test_missing_or_invalid_timestamp(tmp_path, timestamp):
+    result = invoke(tmp_path, [record(created_at=timestamp)],
+                    f"$r=Wait-Step33Run '{SHA}' 1 0")['report']
+    assert result['hosted_workflow_discovery'] == 'FAIL'
+    assert result['error'] == 'Malformed eligible workflow creation timestamp'
+
+
 @pytest.mark.parametrize('records', [
-    [record(id='invalid')], [record(created_at='invalid')],
+    [record(id='invalid')], [record(id=None)], [record(id=0)], [record(id=-1)],
+    [record(id='9223372036854775808')], [record(created_at='invalid')],
+    [{key: value for key, value in record().items() if key != 'created_at'}],
     [record(), record()], record(),
 ])
 def test_malformed_or_ambiguous_discovery_fails(tmp_path, records):
@@ -109,6 +157,8 @@ def test_delayed_visibility(tmp_path):
 
 
 @pytest.mark.parametrize('changes', [dict(path='other.yml'), dict(head_sha='wrong'),
+                                    dict(path='.github/workflows/PHASE2D-step33-causal.yml'),
+                                    dict(head_branch='Research'), dict(event='Push'),
                                     dict(event='workflow_dispatch'), dict(head_branch='main'), dict(head_branch=None)])
 def test_exact_identity_rejection(tmp_path, changes):
     r = record(); r.update(changes)
@@ -187,7 +237,10 @@ def test_pr_source_and_synthetic_merge(tmp_path, merge):
 
 
 @pytest.mark.parametrize('field,value', [('number', 8), ('head.ref', 'wrong'),
-                                         ('base.ref', 'main'), ('head.sha', 'd' * 40)])
+                                         ('head.ref', 'Research'),
+                                         ('base.ref', 'Codex/phase2d-cross-platform-reproducibility'),
+                                         ('base.ref', 'main'), ('head.sha', None),
+                                         ('head.sha', 'd' * 40)])
 def test_pr_identity_rejected(tmp_path, field, value):
     item = pr_record()
     target = item['pull_requests'][0]
