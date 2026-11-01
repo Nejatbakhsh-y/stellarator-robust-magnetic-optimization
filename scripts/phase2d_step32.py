@@ -20,7 +20,7 @@ from stellarator_robust import optimize
 from stellarator_robust.upstream_attribution import (
     capture, close, environment, field_replay, independent_field_checks, load_evidence,
     manifest, pack, sha, solve_inputs, source_fingerprints, unpack, validate_inputs,
-    validate_solve, write,
+    validate_solve, require_solve, numeric, agreement, write,
 )
 
 COHORTS = ('windows-reference', 'linux-reference', 'linux-numpy-sensitivity', 'linux-scipy-sensitivity')
@@ -222,7 +222,17 @@ def support_trace(data):
 def replay(data):
     a = validate_inputs(data)
     result = solve_inputs(data)
-    validate_solve(result, data, a)
+    try:
+        require_solve(result, data, a)
+    except ValueError:
+        # Retain an executed failed candidate before stopping diagnostics.
+        if '--output' in sys.argv:
+            out = Path(sys.argv[sys.argv.index('--output')+1])
+            if out.is_dir():
+                failed = out/('failed-solve-'+fingerprint(result)+'.json')
+                if not failed.exists():
+                    write(failed, result)
+        raise
     independent = {}; sensitivity = {}
     for name in CASES:
         support = data['cases'][name].get('support', list(range(a['A'].shape[1])))
@@ -248,6 +258,13 @@ def replay(data):
                 fit = lsq_linear(M, y, **data['cases'][name]['arguments'])
                 checks['threads'+str(threads)] = dict(x=pack(fit.x), success=bool(fit.success),
                     comparison=close(x, fit.x), environment=environment())
+        for probe in checks.values():
+            candidate = numeric(unpack(probe['x']), x.shape)
+            metrics = optimality(M, y, candidate)
+            for key in ('objective', 'constraint_violation', 'kkt_max'):
+                numeric(metrics[key], ())
+            if metrics['constraint_violation'] != 0 or metrics['kkt_max'] > 1e-12:
+                raise ValueError('Invalid sensitivity candidate optimality')
         sensitivity[name] = checks
     ratios = {}
     for name in ('row3', 'row4'):
@@ -267,11 +284,14 @@ def require_replay(result):
         raise ValueError('Incomplete solver evidence')
     for name in CASES:
         v = result['optimality'][name]
+        violation = numeric(v['production']['constraint_violation'], ())
+        kkt = numeric(v['production']['kkt_max'], ())
         if (v['coordinate']['status'] != 'PASS' or v['production']['constraint_violation'] != 0
-                or v['production']['kkt_max'] > 1e-12):
+                or violation < 0 or kkt < 0 or kkt > 1e-12):
             raise ValueError('Invalid constrained optimality evidence')
         sensitivity = result['sensitivity'][name]
-        if not all(sensitivity[k]['success'] for k in ('bvls', 'threads1', 'threads2')):
+        if not all(sensitivity[k]['success'] is True for k in
+                   ('bvls', 'threads1', 'threads2', 'reverse_rows', 'reverse_columns')):
             raise ValueError('Independent solver/sensitivity failed')
         for digits in ('60', '90'):
             if result['ratios'].keys() != {'row3', 'row4'}:
@@ -279,6 +299,40 @@ def require_replay(result):
             for row in ('row3', 'row4'):
                 if digits not in result['ratios'][row]:
                     raise ValueError('Incomplete high precision evidence')
+                ratio = result['ratios'][row][digits]
+                values = [Decimal(v) for v in ratio['rms_T']]
+                denominator = Decimal(ratio['denominator_T'])
+                recovery = Decimal(ratio['ratio']) if ratio['ratio'] is not None else None
+                if (len(values) != 3 or any(not v.is_finite() or v < 0 for v in values)
+                        or not denominator.is_finite() or abs(denominator) <= Decimal('1e-15')
+                        or recovery is None or not recovery.is_finite()):
+                    raise ValueError('Invalid or unavailable high precision ratio')
+
+
+def validate_replay(result, data, arrays):
+    """Bind saved diagnostic ratios to their sealed inputs and current vectors."""
+    require_solve(result['solve'], data, arrays)
+    require_replay(result)
+    for name in CASES:
+        support = data['cases'][name].get('support', list(range(arrays['A'].shape[1])))
+        x = unpack(result['solve']['currents_A'][name])[support]/data['config']['imax_A']
+        expected = optimality(arrays[name+'_M'], arrays[name+'_y'], x)
+        actual = result['optimality'][name]['production']
+        if set(actual) != set(expected):
+            raise ValueError('Incomplete production optimality evidence')
+        for key, value in expected.items():
+            if key in ('active_lower', 'active_upper', 'rank') or value is None:
+                if actual[key] != value:
+                    raise ValueError('Inconsistent production optimality evidence')
+            else:
+                agreement(actual[key], value)
+    for row in ('row3', 'row4'):
+        currents = dict(dense=unpack(result['solve']['currents_A']['dense']),
+                        recovered=unpack(result['solve']['currents_A'][row]))
+        for digits in (60, 90):
+            expected = decimal_metric(arrays, currents, data['cases'][row]['failed'], digits)
+            if result['ratios'][row][str(digits)] != expected:
+                raise ValueError('Inconsistent high precision recovery evidence')
 
 
 def source_check(left, right, expected):
@@ -344,8 +398,7 @@ def comparisons(root, expected):
                 raise ValueError('Replay binary64 inputs changed')
             data = load_evidence(cap/'inputs.json')
             result = load_evidence(path/origin/'result.json')
-            validate_solve(result['solve'], data, validate_inputs(data))
-            require_replay(result)
+            validate_replay(result, data, validate_inputs(data))
             for name in CASES:
                 metrics = result['optimality'][name]
                 if (metrics['coordinate']['status'] != 'PASS' or

@@ -47,12 +47,14 @@ def replay(data):
         support = data['cases'][name].get('support', list(range(a['A'].shape[1])))
         x = s.unpack(result['solve']['currents_A'][name])[support]/data['config']['imax_A']
         baseline = lsq_linear(M, y, **data['cases'][name]['arguments'])
+        require_candidate(M, y, baseline)
         # Both interventions retain the original box and production solver settings.
         perturbations = {}
         for block in ('M', 'y'):
             mm = np.nextafter(M, np.inf) if block == 'M' else M
             yy = np.nextafter(y, np.inf) if block == 'y' else y
             fit = lsq_linear(mm, yy, **data['cases'][name]['arguments'])
+            require_candidate(mm, yy, fit)
             metrics = s.optimality(mm, yy, fit.x)
             delta = mm-M if block == 'M' else yy-y
             input_norm = float(np.linalg.norm(delta))
@@ -85,6 +87,17 @@ def replay(data):
             comparison=s.close(reference, actual))
     result['step33_fields'] = fields
     return result
+
+
+def require_candidate(M, y, fit):
+    """Reject invalid probe solutions independently of solver termination."""
+    metrics = s.optimality(M, y, fit.x)
+    for key in ('objective', 'constraint_violation', 'kkt_max'):
+        s.numeric(metrics[key], ())
+    if (fit.success is not True and not isinstance(fit.success, np.bool_)) or not fit.success:
+        raise ValueError('Unsuccessful STEP 33 probe')
+    if metrics['constraint_violation'] != 0 or metrics['kkt_max'] > 1e-12:
+        raise ValueError('Invalid STEP 33 probe optimality')
 
 
 def cohort_environment(cohort, env):
@@ -138,9 +151,22 @@ def require_replay(result):
     checks = result.get('step33', {})
     failed = set(checks) != set(s.CASES)
     if not failed:
-        failed = any(v['status'] != 'PASS' for c in checks.values() for v in c['decimal'].values())
-        failed |= any(not v['success'] for c in checks.values() for v in c['perturbations'].values())
-        failed |= any(not c['unperturbed_probe']['success'] for c in checks.values())
+        for check in checks.values():
+            if set(check['decimal']) != {'60', '90'} or set(check['perturbations']) != {'M', 'y'}:
+                raise ValueError('Incomplete STEP 33 precision or perturbation evidence')
+            for precision, value in check['decimal'].items():
+                if value['precision'] != int(precision):
+                    raise ValueError('Incorrect STEP 33 precision')
+                for key in ('objective', 'kkt_max', 'constraint_violation'):
+                    number = Decimal(value[key])
+                    if not number.is_finite() or number < 0:
+                        raise ValueError('Invalid STEP 33 Decimal diagnostic')
+                if (Decimal(value['constraint_violation']) != 0 or
+                        Decimal(value['kkt_max']) > Decimal('1e-12')):
+                    failed = True
+        failed |= any(v['status'] != 'PASS' for c in checks.values() for v in c['decimal'].values())
+        failed |= any(v['success'] is not True for c in checks.values() for v in c['perturbations'].values())
+        failed |= any(c['unperturbed_probe']['success'] is not True for c in checks.values())
     failed |= not result.get('step33_fields') or any(
         v['comparison']['status'] != 'PASS' for v in result.get('step33_fields', {}).values())
     if failed:
@@ -164,7 +190,7 @@ def assess(root, output):
     local = s.verified(root/'local')
     data = s.load_evidence(cap/'inputs.json'); arrays = s.validate_inputs(data)
     record = s.load_evidence(local/'result.json')
-    s.validate_solve(record['solve'], data, arrays); s.require_replay(record)
+    s.validate_replay(record, data, arrays)
     if s.load_evidence(local/'input-sha256.json')['inputs.json'] != s.sha(cap/'inputs.json'):
         raise ValueError('Local worker input mismatch')
     output.mkdir(parents=True, exist_ok=False)
