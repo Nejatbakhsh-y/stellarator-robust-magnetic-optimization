@@ -66,6 +66,15 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
       - run: python scripts/phase2d_dependencies.py --numpy ${{ matrix.numpy }} --scipy ${{ matrix.scipy }} --output results/ci/worker-dependencies
+      - name: Capture complete reciprocal solver inputs
+        run: python scripts/phase2d_step33.py capture --output results/ci/step42-capture
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step42-capture-${{ matrix.name }}
+          path: results/ci/step42-capture/
+          if-no-files-found: error
+          retention-days: 90
       - uses: actions/download-artifact@v4
         with: {name: upstream-sealed, path: results/ci/upstream-sealed}
       - run: python -m pytest -q
@@ -92,6 +101,70 @@ jobs:
             results/ci/worker-dependencies/
           if-no-files-found: error
           retention-days: 30
+  step42-replay:
+    needs: workers
+    if: always()
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: windows-reference, os: windows-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-reference, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-numpy-sensitivity, os: ubuntu-latest, numpy: '2.3.5', scipy: '1.17.1'}
+          - {name: linux-scipy-sensitivity, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.16.3'}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    env:
+      STEP42_OUTPUT_ROOT: results/ci/step42-output
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy ${{ matrix.numpy }} --scipy ${{ matrix.scipy }} --output results/ci/step42-dependencies
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'step42-capture-*', path: results/ci/step42-inputs}
+      - name: Fresh exact-input reciprocal TRF solves (science FAIL remains visible)
+        run: python scripts/phase2d_step42_replay.py --input results/ci/step42-inputs --expected-captures 4 --output results/ci/step42-output/replay
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step42-${{ matrix.name }}
+          path: results/ci/step42-output/replay/
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step42-dependencies-${{ matrix.name }}
+          path: results/ci/step42-dependencies/
+          if-no-files-found: error
+          retention-days: 90
+  step42-compare:
+    needs: step42-replay
+    if: always()
+    runs-on: ubuntu-latest
+    env:
+      STEP42_OUTPUT_ROOT: results/ci/step42-output
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy 2.4.6 --scipy 1.17.1 --output results/ci/step42-dependencies
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'step42-*', path: results/ci/step42-workers}
+      - name: Require every origin and worker before scientific comparison
+        if: always()
+        run: python scripts/phase2d_step42_replay.py --compare --input results/ci/step42-workers --output results/ci/step42-output/comparison
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step42-comparison
+          path: results/ci/step42-output/comparison/
+          if-no-files-found: error
+          retention-days: 90
   compare:
     needs: [seal, workers]
     if: always()
