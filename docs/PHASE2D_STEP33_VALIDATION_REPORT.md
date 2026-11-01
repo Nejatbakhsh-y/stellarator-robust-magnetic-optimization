@@ -1,3 +1,132 @@
+## STEP 34 permanent Python/YAML verification repair (2026-10-31)
+
+production_acceptance = **FAIL**; scientific_status = **PARTIAL**.
+Local implementation only; no new verified research checkpoint is claimed.
+The prior four uncommitted STEP 33 files were inspected and their trigger,
+source-SHA, stage guard and discovery corrections preserved.
+
+The supported command is now:
+
+```powershell
+python scripts/verify_phase2d_step33_workflow.py .github/workflows/phase2d-step33-causal.yml
+```
+
+The validator reads a normal path argument using pathlib.Path and
+encoding="utf-8-sig", parses with yaml.safe_load, and handles both quoted `on`
+and PyYAML YAML 1.1's boolean trigger key. It rejects duplicate mapping keys,
+missing/malformed contract fields, incorrect trigger branches, absent synchronize
+or manual dispatch, pull_request_target, incomplete capture/replay cohorts,
+invalid compare dependencies and unsafe global or job permission grants.
+This is a project contract validator, not a complete GitHub Actions schema validator.
+PyYAML must be installed in the executing environment.
+
+The host calls the standalone script with an argument array before tests and
+publication. Its optional --host-preflight also replaces the two existing inline
+Python interpreter/dependency snippets, so the host transfers no Python statements
+through shell quoting. Existing publication file restrictions now include the two
+new Python files. No commit, push, merge or workflow dispatch was performed.
+
+New regression cases exercise invalid and missing YAML, required fields and jobs,
+every missing cohort in capture and replay, permissions, dependencies, duplicate
+keys, quoted/unquoted trigger keys, BOMs, paths with spaces, shell-independent
+subprocess invocation, process exit status and Python 3.11 syntax parsing.
+
+Validation attempts in this session:
+
+- git diff --check: PASS.
+- Available Windows PowerShell parser: zero host syntax errors.
+- Existing .venv pytest, compileall and standalone validator: blocked before
+  interpreter startup; the configured Python311 executable is missing.
+- No new test count, Python 3.11 runtime pass or PowerShell 7 runtime pass is
+  asserted. The earlier 311-test result supplied with this task does not validate
+  these changes. The Windows host must execute the new and existing regressions.
+- Analytical, quick, independent audit, output and full reproducibility gates
+  remain unverified for this repair; no result-file SHA256-bound scientific pass
+  is claimed. Production calculations, gates, historical results and failed
+  evidence were not changed.
+
+## STEP 33 trigger and verification repair (2026-10-31 session)
+
+production_acceptance = **FAIL**; scientific_status = **PARTIAL**.
+This repair is prepared locally, with no commit, push, merge or dispatch.
+No new research checkpoint is claimed verified.
+
+Authenticated connected API inspection confirmed draft PR #7 is open, with
+head `codex/phase2d-upstream-attribution`, source
+`cf77cf5466beadec7bd273e5c72ce9732cf253a7`, and base
+`codex/phase2d-cross-platform-reproducibility`.
+Contrary to the earlier empty CLI observation, the repository run API now exposes
+[STEP 33 run 41256776296](https://github.com/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/runs/41256776296)
+for that exact source, event `push`, workflow ID `403150023`. It progressed from
+in_progress to completed/failure during inspection. All four capture jobs and all
+four replay jobs succeeded; the compare job's Python comparison command failed.
+Thus this is an observed failed hosted workflow, not an absent workflow. No
+artifact download or independent hash-bound numerical revalidation was performed
+here; the specific numerical cause remains unverified.
+
+Registration and ability to execute are demonstrated for that existing run.
+The connector rejected workflow-list and Actions-permissions endpoints as outside
+its supported endpoint set. Repository policy settings were not inspected through
+another route, and GitHub CLI configuration was not inspected or bypassed.
+The original cause of the transient empty listing cannot be established from
+these observations; no claim that default-branch absence prevented push runs is
+supported. Existing CI workflows use PR base filters for earlier research branches;
+STEP 33 previously had only push and manual dispatch events.
+
+The repair preserves push and adds opened/synchronize/reopened PR events targeting
+the actual base. Read-only contents permission, all four environments, numerical
+commands and thresholds, artifact failure detection and digest verification remain.
+All jobs explicitly check out the PR source SHA when applicable and use it for
+expected-head comparison, avoiding accidental merged-source evidence. Compare
+requires successful capture and replay jobs and successful preceding comparison
+steps; artifact uploads retain always() for failure evidence.
+
+Host discovery uses authenticated repository REST run metadata and exact workflow
+path, avoiding workflow-name/default-branch lookup. It supports push source SHA
+and PR association #7 with exact head/base/source identity. Authenticated PR detail
+confirms repository and current source identity. A synthetic run SHA additionally
+requires authenticated commit metadata with exactly the associated base and source
+as its ordered parents. Eligible runs rank by creation time then numeric run ID;
+duplicate IDs, missing timestamps, malformed states/attempts and ambiguous PR
+associations fail closed. Polls are bounded (maximum 420, at most 60 seconds each).
+Discovery examines at most 100 branch runs per poll and explicitly rejects a
+truncated inventory rather than selecting from incomplete results. A large branch
+history requires a future bounded pagination extension; it is not classified as
+an absent run. Artifacts bind the selected run attempt; missing/ambiguous required
+captures or replays prevent comparison. Earlier hosted failure cannot yield a
+scientific PASS from a successful downloaded comparison. Comparison exit 1 remains
+scientific FAIL, and hosted failures preserve an established local PASS.
+
+Validation in this session:
+
+- Available Windows PowerShell parser: zero host syntax errors.
+- Extracted real helper smoke checks: push discovery PASS, bounded absence PASS,
+  PR source discovery PASS, synthetic merge/source binding PASS, complete artifact
+  inventory PASS, scientific FAIL with preserved local PASS PASS.
+- git diff --check: PASS.
+- Existing .venv Python 3.11 pytest, compileall and analytical validation attempts:
+  blocked before interpreter startup (missing configured Python311 executable).
+- Full production verifier attempt (fresh output path): same launcher failure;
+  quick, independent audit, output and reproducibility gates could not execute.
+- PowerShell 7 runtime attempt: executable cannot be accessed by the system.
+- YAML reviewed structurally against existing workflows; no local YAML/Actions
+  schema validator was available through the working Python environment. Hosted
+  validation of the edited workflow is pending publication by the Windows launcher.
+
+Regression tests now cover push/PR discovery, merge SHA, source/branch identity,
+absence, pending/failed/successful runs, deterministic ranking, malformed metadata,
+complete/incomplete artifacts, scientific FAIL and local PASS preservation, and
+workflow stage/security guards. They are prepared but pytest could not execute in
+this environment. Full local and hosted verification remains required. No
+production equations, objectives, bounds, solver tolerances, 1e-4 refinement limit
+or historical numerical evidence were changed. Infrastructure execution does not
+establish reproducibility, robust outperformance or confinement validation.
+
+References: [GitHub event semantics](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)
+explain PR base filtering and synthetic merge SHA; [workflow triggering](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
+explains token-originated event restrictions. These mechanisms are possibilities,
+not an established diagnosis of the earlier empty observation.
+
 # STEP 33 validation record
 
 ## Permanent PowerShell 7 syntax verifier (2026-10-31)

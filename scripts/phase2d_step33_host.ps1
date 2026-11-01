@@ -39,35 +39,55 @@ function Git-Read([string[]]$Arguments) {
 function Wait-Step33Run([string]$Commit, [int]$MaxPolls=420, [int]$PollSeconds=30) {
   $script:stage = 'hosted-workflow-discovery'
   $report.hosted_execution = 'INCONCLUSIVE'
+  if ($Commit -cnotmatch '^[0-9a-f]{40}$' -or $MaxPolls -lt 1 -or $MaxPolls -gt 420 -or $PollSeconds -lt 0 -or $PollSeconds -gt 60) { throw 'Invalid bounded discovery arguments' }
+  $expectedBase = 'codex/phase2d-cross-platform-reproducibility'
+  $workflowPath = '.github/workflows/phase2d-step33-causal.yml'
   for ($poll=0; $poll -lt $MaxPolls; $poll++) {
-    # Commit listing does not require default-branch workflow registration.
-    $json = & gh run list --repo $repository --commit $Commit --json databaseId,workflowName,headSha,status,conclusion,event,headBranch,createdAt --limit '100'
-    if ($LASTEXITCODE) { $report.hosted_workflow_discovery='FAIL'; throw 'Commit workflow listing failed' }
-    # Explicit enumeration also handles Windows PowerShell's JSON array output.
-    $records = ConvertFrom-Json -InputObject ($json -join "`n") -ErrorAction Stop
-    if (($json -join "`n").Trim() -notmatch '^\[') { throw 'Workflow listing must be a JSON array' }
-    $runs = @(@($records) | Where-Object {
-      $_.headSha -ceq $Commit -and
-      $_.workflowName -ceq 'Phase 2D STEP 33 controlled causal attribution' -and
-      $_.event -ceq 'push' -and (-not $_.headBranch -or $_.headBranch -ceq $branch)
-    })
-    $seen = @{}
-    $ranked = @(foreach ($candidate in $runs) {
-      [long]$id = 0
-      if (-not [long]::TryParse([string]$candidate.databaseId, [ref]$id) -or $id -le 0 -or $seen.ContainsKey($id)) {
-        throw 'Malformed or ambiguous eligible workflow run ID'
-      }
-      $seen[$id] = $true
-      $created = [DateTimeOffset]::MinValue
-      if ($null -ne $candidate.createdAt) {
-        if ([string]$candidate.createdAt -notmatch '^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$' -or
-            -not [DateTimeOffset]::TryParse([string]$candidate.createdAt, [ref]$created)) {
-          throw 'Malformed eligible workflow creation timestamp'
+    # Repository REST listing does not depend on default-branch workflow registration.
+    # Do not filter by head_sha: PR runs can identify a synthetic merge commit.
+    $json = & gh api "repos/$repository/actions/runs?branch=$branch&per_page=100"
+    if ($LASTEXITCODE) { throw 'Authenticated workflow listing failed' }
+    $listing = ConvertFrom-Json -InputObject ($json -join "`n") -ErrorAction Stop
+    if ($null -eq $listing.total_count -or $null -eq $listing.workflow_runs -or $listing.workflow_runs -isnot [array]) { throw 'Malformed workflow listing' }
+    # Refuse truncated inventories rather than silently choosing an older candidate.
+    if ($listing.total_count -gt 100) { throw 'Workflow listing exceeds bounded inventory; narrow observation required' }
+    $runs = @(); $seen = @{}
+    foreach ($candidate in $listing.workflow_runs) {
+      if ($candidate.path -cne $workflowPath -or $candidate.event -cnotin @('push','pull_request')) { continue }
+      if ($candidate.repository.full_name -cne $repository -or $candidate.head_repository.full_name -cne $repository) { throw 'Malformed workflow repository identity' }
+      $source = $candidate.head_sha
+      if ($candidate.event -ceq 'push') {
+        if ($candidate.head_branch -cne $branch -or $source -cne $Commit) { continue }
+      } else {
+        if ($candidate.pull_requests -isnot [array]) { throw 'Malformed PR association' }
+        $prs = @($candidate.pull_requests)
+        if ($prs.Count -ne 1) { throw 'Missing or ambiguous PR association' }
+        $pr = $prs[0]
+        if ($pr.number -ne 7 -or $pr.head.ref -cne $branch -or $pr.base.ref -cne $expectedBase -or $pr.head.sha -cne $Commit) { continue }
+        # Run association binds the historical source; current authenticated PR metadata
+        # independently confirms repository and branch identity, never substitutes its SHA.
+        $prJson = & gh api "repos/$repository/pulls/7"
+        if ($LASTEXITCODE) { throw 'Authenticated PR metadata unavailable' }
+        $identity = ConvertFrom-Json -InputObject ($prJson -join "`n") -ErrorAction Stop
+        if ($identity.number -ne 7 -or $identity.head.ref -cne $branch -or $identity.base.ref -cne $expectedBase -or $identity.head.repo.full_name -cne $repository -or $identity.base.repo.full_name -cne $repository -or $identity.head.sha -cne $Commit) { throw 'PR #7 identity or source commit mismatch' }
+        if ($source -cne $Commit) {
+          $mergeJson = & gh api "repos/$repository/commits/$source"
+          if ($LASTEXITCODE) { throw 'Synthetic merge metadata unavailable' }
+          $merge = ConvertFrom-Json -InputObject ($mergeJson -join "`n") -ErrorAction Stop
+          if ($source -cnotmatch '^[0-9a-f]{40}$' -or $merge.sha -cne $source -or @($merge.parents).Count -ne 2 -or $merge.parents[0].sha -cne $pr.base.sha -or $merge.parents[1].sha -cne $Commit) { throw 'Synthetic merge is not bound to PR source and base' }
         }
       }
-      [pscustomobject]@{ Run=$candidate; Created=$created; Id=$id }
-    })
-    $selected = $ranked | Sort-Object -Property @{Expression='Created';Descending=$true}, @{Expression='Id';Descending=$true} | Select-Object -First 1
+      [long]$id = 0
+      $created = [DateTimeOffset]::MinValue
+      if (-not [long]::TryParse([string]$candidate.id, [ref]$id) -or $id -le 0 -or $seen.ContainsKey($id)) { throw 'Malformed or ambiguous eligible workflow run ID' }
+      if ([string]$candidate.run_attempt -notmatch '^[1-9][0-9]*$') { throw 'Malformed run attempt' }
+      $seen[$id] = $true
+      if ([string]$candidate.created_at -notmatch '^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$' -or -not [DateTimeOffset]::TryParse([string]$candidate.created_at, [ref]$created)) { throw 'Malformed eligible workflow creation timestamp' }
+      if ($candidate.status -cnotin @('queued','in_progress','completed','waiting','pending','requested') -or ($candidate.status -ceq 'completed' -and $candidate.conclusion -cnotin @('success','failure','cancelled','skipped','timed_out','action_required','neutral','startup_failure','stale'))) { throw 'Malformed workflow status' }
+      $run = [pscustomobject]@{databaseId=$id; status=$candidate.status; conclusion=$candidate.conclusion; event=$candidate.event; headSha=$source; sourceSha=$Commit; runAttempt=$candidate.run_attempt}
+      $runs += [pscustomobject]@{Run=$run; Created=$created; Id=$id}
+    }
+    $selected = $runs | Sort-Object -Property @{Expression='Created';Descending=$true}, @{Expression='Id';Descending=$true} | Select-Object -First 1
     $run = if ($selected) { $selected.Run } else { $null }
     $report.hosted_workflow_discovery = if ($run) { 'PASS' } else { 'NOT_YET_VISIBLE' }
     $report.hosted_execution = if ($run) { 'RUNNING' } else { 'NOT_EXECUTED' }
@@ -77,11 +97,11 @@ function Wait-Step33Run([string]$Commit, [int]$MaxPolls=420, [int]$PollSeconds=3
     if ($poll+1 -lt $MaxPolls) { Start-Sleep -Seconds $PollSeconds }
   }
   $report.hosted_workflow_discovery = if ($run) { 'PASS' } else { 'NOT_FOUND_WITHIN_BOUND' }
-  # Absence within a bounded observation cannot prove a run will never exist.
   throw 'Bounded polling ended: run absent or still running; comparison not executed'
 }
 function Set-HostedComparison([int]$ExitCode) {
   $report.hosted_scientific_comparison = if ($ExitCode -eq 0) { 'PASS' } elseif ($ExitCode -eq 1) { 'FAIL' } else { 'INCONCLUSIVE' }
+  if ($ExitCode -eq 0 -and $report.hosted_run_conclusion -ne 'success') { $report.hosted_scientific_comparison='INCONCLUSIVE' }
   $report.numerical_causal_attribution = $report.hosted_scientific_comparison
   if ($ExitCode -eq 1) { $report.hosted_execution='NUMERICAL_COMPARISON_FAILURE' }
   elseif ($ExitCode -eq 0 -and $report.hosted_run_conclusion -eq 'success') { $report.hosted_execution='PASS' }
@@ -102,11 +122,11 @@ function Set-HostFailure {
     $report.hosted_workflow_discovery='FAIL'; $report.hosted_execution='INCONCLUSIVE'
   }
 }
-function Require-Step33Artifacts($Artifacts, $RunId) {
+function Require-Step33Artifacts($Artifacts, $RunId, $Attempt) {
   $report.hosted_artifacts='INCONCLUSIVE'
   foreach ($kind in @('capture','replay')) {
     foreach ($cohort in @('windows-reference','linux-reference','linux-numpy-sensitivity','linux-scipy-sensitivity')) {
-      $required = @($Artifacts | Where-Object { $_.name -like "step33-$kind-$cohort-$RunId-*" -and -not $_.expired })
+      $required = @($Artifacts | Where-Object { $_.name -cmatch ("^step33-$kind-$cohort-$RunId-" + $(if ($Attempt) { [regex]::Escape([string]$Attempt) } else { '[1-9][0-9]*' }) + '$') -and -not $_.expired })
       if ($required.Count -ne 1) {
         $report.hosted_artifacts='FAIL'; $report.hosted_execution='MISSING_REQUIRED_ARTIFACTS'
         throw 'Missing or ambiguous required artifact; numerical comparison not executed'
@@ -213,8 +233,7 @@ try {
   } else {
     $report.original_hosted_artifact_authenticity = 'INCONCLUSIVE'
   }
-  Run-Python 'python-version' @('-c', 'import sys; assert sys.version_info[:2] == (3,11); print(sys.version)')
-  Run-Python 'dependency-preflight' @('-c', 'import numpy, scipy, matplotlib, pytest, threadpoolctl; print(threadpoolctl.__version__)')
+  Run-Python 'workflow-validation' @('scripts/verify_phase2d_step33_workflow.py','.github/workflows/phase2d-step33-causal.yml','--host-preflight')
   $report.preflight = 'PASS'
   Run-Python 'tests' @('-m','pytest','-q')
   Run-Python 'compilation' @('-m','compileall','-q','src','scripts','tests')
@@ -235,12 +254,12 @@ try {
   $report.local_validation = 'PASS'
   $report.implementation = 'LOCAL_GATES_PASSED'
   if ($PublishDiagnostic) {
-    $pr = & gh pr view 7 --repo $repository --json isDraft,headRefName,headRefOid,state
+    $pr = & gh pr view 7 --repo $repository --json isDraft,headRefName,headRefOid,baseRefName,state
     if ($LASTEXITCODE) { throw 'Existing PR metadata unavailable' }
     $prRecord = $pr | ConvertFrom-Json
-    if (-not $prRecord.isDraft -or $prRecord.state -ne 'OPEN' -or $prRecord.headRefName -ne $branch -or $prRecord.headRefOid -ne $report.starting_head) { throw 'Draft PR #7 identity or remote head mismatch' }
+    if (-not $prRecord.isDraft -or $prRecord.state -ne 'OPEN' -or $prRecord.baseRefName -ne 'codex/phase2d-cross-platform-reproducibility' -or $prRecord.headRefName -ne $branch -or $prRecord.headRefOid -ne $report.starting_head) { throw 'Draft PR #7 identity or remote head mismatch' }
     Save-Json (Join-Path $out 'publication-pr-preflight.json') $prRecord
-    $allowed = @('pyproject.toml','scripts/phase2d_step31_diagnose.py','scripts/phase2d_step31e_review.py','scripts/phase2d_step32.py','scripts/phase2d_step32_host.ps1','scripts/phase2d_step32_repair_validate.ps1','tests/test_phase2d_step31.py','tests/test_phase2d_step31e.py','tests/test_phase2d_step32.py','tests/test_phase2d_step32_host.py','docs/PHASE2D_STEP31E_ROOT_CAUSE_ASSESSMENT.md','docs/PHASE2D_STEP31_REPRODUCIBILITY.md','docs/PHASE2D_STEP31_ROOT_CAUSE_REPORT.md','docs/PHASE2D_STEP32_CAUSAL_ATTRIBUTION_REPORT.md','docs/PHASE2D_STEP32_EXPERIMENT_PROTOCOL.md','docs/PHASE2D_STEP32_HOST_REPAIR.md','.github/workflows/phase2d-step32-causal.yml','docs/PHASE2D_STEP33_VALIDATION_REPORT.md','scripts/phase2d_step33.py','scripts/phase2d_step33_host.ps1','tests/test_phase2d_step33.py','tests/test_phase2d_step33_host.py','docs/PHASE2D_STEP33_CAUSAL_ATTRIBUTION_REPORT.md','docs/PHASE2D_STEP33_EXPERIMENT_PROTOCOL.md','.github/workflows/phase2d-step33-causal.yml')
+    $allowed = @('pyproject.toml','scripts/phase2d_step31_diagnose.py','scripts/phase2d_step31e_review.py','scripts/phase2d_step32.py','scripts/phase2d_step32_host.ps1','scripts/phase2d_step32_repair_validate.ps1','tests/test_phase2d_step31.py','tests/test_phase2d_step31e.py','tests/test_phase2d_step32.py','tests/test_phase2d_step32_host.py','docs/PHASE2D_STEP31E_ROOT_CAUSE_ASSESSMENT.md','docs/PHASE2D_STEP31_REPRODUCIBILITY.md','docs/PHASE2D_STEP31_ROOT_CAUSE_REPORT.md','docs/PHASE2D_STEP32_CAUSAL_ATTRIBUTION_REPORT.md','docs/PHASE2D_STEP32_EXPERIMENT_PROTOCOL.md','docs/PHASE2D_STEP32_HOST_REPAIR.md','.github/workflows/phase2d-step32-causal.yml','docs/PHASE2D_STEP33_VALIDATION_REPORT.md','scripts/phase2d_step33.py','scripts/phase2d_step33_host.ps1','tests/test_phase2d_step33.py','tests/test_phase2d_step33_host.py','scripts/verify_phase2d_step33_workflow.py','tests/test_phase2d_step33_workflow.py','docs/PHASE2D_STEP33_CAUSAL_ATTRIBUTION_REPORT.md','docs/PHASE2D_STEP33_EXPERIMENT_PROTOCOL.md','.github/workflows/phase2d-step33-causal.yml')
     $staged = @(Git-Read @('diff','--cached','--name-only'))
     if (@($staged | Where-Object { $_ -and $_ -notin $allowed }).Count) { throw 'Unrelated staged changes; publication refused' }
     foreach ($path in $preexisting.Keys) {
@@ -268,7 +287,7 @@ try {
     if ($LASTEXITCODE) { throw 'Artifact metadata unavailable' }
     $metadata | Set-Content (Join-Path $out 'hosted-artifacts.json')
     $artifacts = ($metadata | ConvertFrom-Json).artifacts
-    Require-Step33Artifacts $artifacts $run.databaseId
+    Require-Step33Artifacts $artifacts $run.databaseId $run.runAttempt
     $hosted = Join-Path $out 'hosted'; New-Item -ItemType Directory $hosted | Out-Null
     foreach ($artifact in $artifacts) {
       if ($artifact.name -notmatch '^step33-' -or $artifact.expired) { throw 'Unexpected or expired hosted artifact' }
@@ -278,15 +297,15 @@ try {
     $normalized = Join-Path $out 'hosted-evidence'; New-Item -ItemType Directory $normalized | Out-Null
     foreach ($stage in @('capture','replay')) {
       foreach ($cohort in @('windows-reference','linux-reference','linux-numpy-sensitivity','linux-scipy-sensitivity')) {
-        $matches = @($artifacts | Where-Object { $_.name -like "step33-$stage-$cohort-$($run.databaseId)-*" })
+        $matches = @($artifacts | Where-Object { $_.name -ceq "step33-$stage-$cohort-$($run.databaseId)-$($run.runAttempt)" })
         if ($matches.Count -ne 1) { throw 'Missing or ambiguous required artifact' }
         Copy-Item -LiteralPath (Join-Path $hosted $matches[0].name) -Destination (Join-Path $normalized "$stage-$cohort") -Recurse
       }
     }
     Run-Python 'hosted-comparison' @('scripts/phase2d_step33.py','compare','--inputs',$normalized,'--expected-head',$commit,'--output',"$out/hosted-comparison")
-    if ($report.hosted_run_conclusion -ne 'success' -and $report.hosted_scientific_comparison -eq 'PASS') {
+    if ($report.hosted_run_conclusion -ne 'success' -and $report.hosted_scientific_comparison -ne 'FAIL') {
       $report.hosted_execution='HOSTED_INFRASTRUCTURE_OR_SOFTWARE_FAILURE'
-      throw 'Hosted workflow failed despite passing downloaded numerical comparison; inspect hosted-jobs.json'
+      throw 'Hosted workflow failed; downloaded comparison cannot establish hosted success; inspect hosted-jobs.json'
     }
     if ($report.hosted_scientific_comparison -eq 'FAIL') { throw 'Completed hosted numerical comparison failed; evidence retained' }
   }
