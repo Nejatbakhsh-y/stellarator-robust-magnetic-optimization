@@ -1,5 +1,84 @@
 # STEP 45 permanent monitoring repair and scientific assessment
 
+## Windows SHA256 harness regression repair (2026-11-02)
+
+This follow-up changes only the monitor test harness and this report. Production
+monitoring, workflows, numerical code, tolerances and historical evidence are
+unchanged. Nothing was staged, committed, pushed or merged.
+
+### Exact root cause and investigation limits
+
+The supplied hosted failures (41433684553, 41433684343, 41433684626,
+41433693674) identify command resolution of `Get-FileHash` in
+`test_scalar_binding_and_unique_directories[powershell]`, rather than a solver
+failure or a demonstrated incorrect SHA256 calculation. The harness depended on
+an available PowerShell command for both snapshot creation and verification.
+`Get-FileHash` is supplied by Microsoft.PowerShell.Utility; on this local 5.1 host
+it resolves successfully (module version 3.1.0.0). Inspection of the harness and
+monitor found no module imports/removals, autoload preference changes or command
+shadowing that intentionally excludes it. Each harness uses a fresh `-NoProfile
+-NonInteractive -File` subprocess. The exact reason the hosted session could not
+resolve the command is **not established** by the available source or supplied
+error. No hosted environment diagnosis or exact local reproduction is claimed.
+GitHub CLI restrictions were not inspected or bypassed.
+
+### Permanent correction and SHA256 integrity
+
+Both snapshot operations now call the same test-only `Get-TestSha256` helper.
+It creates `System.Security.Cryptography.SHA256`, reads exact file bytes with
+`System.IO.File.ReadAllBytes`, calls `ComputeHash`, formats all 32 bytes using
+`System.BitConverter.ToString` as 64 lowercase hexadecimal characters, and disposes
+the hash object in `finally`, including on read/hash failure. It requires no
+implicit PowerShell module loading for hashing. Comparison remains an exact,
+case-sensitive digest comparison; evidence is never rewritten by the helper.
+Python additionally compares all 14 returned snapshots against independent
+`hashlib.sha256` digests of the saved bytes. A constant, file-size check or
+existence check cannot substitute for the digest.
+
+All 24 invalid objects and both public entry points remain: 48 rejection checks,
+zero CLI calls and no directories for invalid IDs, 14 unique valid evidence
+directories and 28 mocked CLI calls. Null, empty, arrays, negative, noncanonical,
+overflow, floating-point, boolean and misleading object cases are retained.
+The offline cases still require scientific comparison NOT_ASSESSED and production
+acceptance NOT_ESTABLISHED. Monitoring success establishes no scientific acceptance.
+
+### Local regression results and compatibility
+
+| Check | Result in this follow-up |
+|---|---|
+| Targeted monitor pytest | Blocked before collection: existing .venv references missing Python311 executable |
+| Complete pytest | Same Python startup failure |
+| compileall src scripts tests | Same Python startup failure |
+| pip check | Same Python startup failure |
+| Windows PowerShell 5.1.26100.9711 helper | Executed: standard ASCII `abc` SHA256 vector passed; zero helper parser errors |
+| Windows PowerShell 5.1 monitor execution | Blocked: scripts disabled by host execution policy |
+| PowerShell 7 | Installed launcher cannot execute: file cannot be accessed by the system |
+| git diff --check | Passed after correction |
+
+The observed 5.1 digest was
+`ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad`.
+The helper uses APIs available in Windows PowerShell 5.1 and PowerShell 7, but a
+full runtime pass on either shell is not claimed. The existing .venv was preserved;
+no execution-policy override was used. The temporary known-vector file was removed.
+Final controlling-host regression and hosted scientific-validation/Windows capture
+job passes remain required; this session cannot claim CI passed or the historical
+785 passed / 4 skipped count was reproduced.
+
+### Historical evidence and remaining scientific failures
+
+Only the two authorized files differ in the working tree. No historical evidence
+was written by this repair; historical manifests were not newly reauthenticated.
+The earlier integrity results below remain historical records, not fresh checks.
+The harness continues hashing each monitor.json immediately after creation and
+checking every earlier snapshot after all later invocations, now also against
+Python's SHA256 implementation when the test can execute.
+
+STEP 32 and STEP 33 retain their recorded scientific comparison failures. STEP 45
+retains historical FAIL and incomplete fresh artifact-level closure. No scientific
+FAIL or artifact-upload failure is suppressed, and no verified research checkpoint
+or production acceptance is claimed. All original scientific limitations below
+remain in force.
+
 2026-11-02. Automation implementation prepared; runtime verification BLOCKED.
 Scientific comparison FAIL; production acceptance FAIL; overall scientific status
 PARTIAL. This is not a verified research checkpoint.

@@ -1,4 +1,5 @@
 """Offline PowerShell contract tests. Never invokes GitHub or authenticates history."""
+import hashlib
 import json
 from pathlib import Path
 import shutil
@@ -102,6 +103,16 @@ def test_scalar_binding_and_unique_directories(shell, tmp_path):
     if shell is None:
         pytest.skip('PowerShell unavailable')
     body = r'''
+function Get-TestSha256 {
+    param([string]$LiteralPath)
+    $sha256 = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $bytes = [System.IO.File]::ReadAllBytes($LiteralPath)
+        return [System.BitConverter]::ToString($sha256.ComputeHash($bytes)).Replace('-', '').ToLowerInvariant()
+    } finally {
+        $sha256.Dispose()
+    }
+}
 $global:calls=0
 function Invoke-Step45Gh {
     param([string[]]$Arguments,[int]$LimitSeconds)
@@ -154,13 +165,13 @@ foreach ($valid in @(1,123,41371734831,'1','123','41371734831',[long]::MaxValue)
         if ($record.monitor_status -ne 'COMPLETED' -or $record.github_conclusion -ne 'success') {throw 'valid ID failed'}
         if ($directories.Contains($record.output_directory)) {throw 'overwritten'}
         $directories.Add($record.output_directory)
-        $snapshots.Add(@{Path=(Join-Path $record.output_directory 'monitor.json');Hash=(Get-FileHash -LiteralPath (Join-Path $record.output_directory 'monitor.json')).Hash})
+        $snapshots.Add(@{Path=(Join-Path $record.output_directory 'monitor.json');Hash=(Get-TestSha256 -LiteralPath (Join-Path $record.output_directory 'monitor.json'))})
     }
 }
 foreach ($snapshot in $snapshots) {
-    if ((Get-FileHash -LiteralPath $snapshot.Path).Hash -ne $snapshot.Hash) {throw 'previous evidence changed'}
+    if ((Get-TestSha256 -LiteralPath $snapshot.Path) -cne $snapshot.Hash) {throw 'previous evidence changed'}
 }
-@{rejected=$rejected;directories=$directories;calls=$global:calls}|ConvertTo-Json
+@{rejected=$rejected;directories=$directories;calls=$global:calls;snapshots=@($snapshots.ToArray())}|ConvertTo-Json -Depth 4
 '''.replace('__OUT__', str(tmp_path).replace("'", "''")).replace('__SCRIPT__', str(SCRIPT).replace("'", "''"))
     proc = run_ps(shell, tmp_path, body)
     assert proc.returncode == 0, proc.stderr
@@ -168,3 +179,6 @@ foreach ($snapshot in $snapshots) {
     assert result['rejected'] == 48
     assert len(set(result['directories'])) == 14
     assert result['calls'] == 28
+    assert len(result['snapshots']) == 14
+    for snapshot in result['snapshots']:
+        assert snapshot['Hash'] == hashlib.sha256(Path(snapshot['Path']).read_bytes()).hexdigest()
