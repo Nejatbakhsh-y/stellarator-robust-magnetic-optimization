@@ -183,7 +183,19 @@ def bind_comparisons(rows, evidence):
     the unchanged STEP41 binder remain mandatory.
     """
     inventory = evidence.parents[0]/Path(STEP41).name/'recomputed-comparisons.json'
-    if transport.sha(inventory) != '3847225855df15864ef0a4668b15f0684b1b25847e7c0d4bc71fd9e117fac719':
+    return _bind_comparison_inventory(rows, evidence, inventory,
+        '3847225855df15864ef0a4668b15f0684b1b25847e7c0d4bc71fd9e117fac719')
+
+
+def _bind_comparison_inventory(rows, evidence, inventory, expected_sha256):
+    """Software binding mechanism, not historical authentication.
+
+    Tests may supply explicitly synthetic bytes and their measured seal here.
+    Production must use bind_comparisons, whose historical seal is immutable.
+    No acceptance policy or original-archive authentication is established here.
+    """
+    transport.valid_digest(expected_sha256)
+    if transport.sha(inventory) != expected_sha256:
         raise ValueError('Historical comparison inventory SHA256 mismatch')
     historical = transport.load(inventory)
     tokens = json.loads(inventory.read_text(encoding='utf-8-sig'), parse_float=str)

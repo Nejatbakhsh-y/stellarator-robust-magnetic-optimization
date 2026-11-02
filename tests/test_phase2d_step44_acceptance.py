@@ -224,8 +224,7 @@ def test_early_inventory_incomplete_and_false_failure(tmp_path):
         s.early_records([dict(run='invalid',original_file='x',path='/')]*22,tmp_path)
 
 
-def test_observed_host_serialization_failure_bound_to_real_originals():
-    root = Path(__file__).resolve().parents[1]
+def _check_real_historical_originals(root):
     raw = s.transport.load(root/s.STEP41/'recomputed-comparisons.json')
     with pytest.raises(ValueError, match='Comparison scalar differs'):
         s.prior.bind_comparisons(raw, root/s.EVIDENCE)
@@ -259,9 +258,8 @@ def test_observed_host_serialization_failure_bound_to_real_originals():
 
 @pytest.mark.parametrize('mutation', ['candidate_identity','reference_identity','swap','cohort',
                                      'duplicate','missing','nonfinite','false_pass','genuine'])
-def test_historical_binding_adversaries(mutation):
-    root = Path(__file__).resolve().parents[1]
-    rows = s.transport.load(root/s.STEP41/'recomputed-comparisons.json')
+def test_historical_binding_adversaries(mutation, synthetic_binding):
+    rows, evidence, inventory, digest = synthetic_binding
     if mutation == 'candidate_identity':
         rows[0]['result_sha256'] = rows[0]['reference_sha256']
     elif mutation == 'reference_identity':
@@ -281,37 +279,23 @@ def test_historical_binding_adversaries(mutation):
     else:
         rows[0]['candidate'] += 1e-15
     with pytest.raises((ValueError, FileNotFoundError, KeyError)):
-        s.bind_comparisons(rows, root/s.EVIDENCE)
+        s._bind_comparison_inventory(rows, evidence, inventory, digest)
 
 
-def test_modified_original_bytes_rejected(tmp_path):
-    import shutil
-    root = Path(__file__).resolve().parents[1]
-    evidence = tmp_path/Path(s.EVIDENCE).name
-    inventory = tmp_path/Path(s.STEP41).name
-    inventory.mkdir()
-    shutil.copyfile(root/s.STEP41/'recomputed-comparisons.json', inventory/'recomputed-comparisons.json')
-    rows = s.transport.load(inventory/'recomputed-comparisons.json')
-    source_run = root/s.EVIDENCE/'github-hosted'/rows[0]['run']
-    target_run = evidence/'github-hosted'/rows[0]['run']
-    target_run.mkdir(parents=True)
-    shutil.copyfile(source_run/'artifact-index.json',target_run/'artifact-index.json')
+def test_modified_original_bytes_rejected(synthetic_binding):
+    rows, evidence, inventory, digest = synthetic_binding
     index = s.transport.load(evidence/'github-hosted'/rows[0]['run']/'artifact-index.json')
     artifact = next(a for a in index['artifacts'] if a['name'] ==
                     f"step33-replay-{rows[0]['worker']}-{rows[0]['run']}-1")
     file = evidence/'github-hosted'/rows[0]['run']/f"artifact-{artifact['id']}"/rows[0]['origin']/'result.json'
-    file.parent.mkdir(parents=True)
-    original = source_run/f"artifact-{artifact['id']}"/rows[0]['origin']/'result.json'
-    shutil.copyfile(original,file)
-    shutil.copyfile(original.parent/'inputs.json',file.parent/'inputs.json')
-    file.write_bytes(file.read_bytes()+b' ')
+    original = file.read_bytes()
+    file.write_bytes(original+b' ')
     with pytest.raises(ValueError, match='fingerprint'):
-        s.bind_comparisons(rows,evidence)
-    with (inventory/'recomputed-comparisons.json').open('ab') as stream:
-        stream.write(b' ')
+        s._bind_comparison_inventory(rows, evidence, inventory, digest)
+    file.write_bytes(original)
+    inventory.write_bytes(inventory.read_bytes()+b' ')
     with pytest.raises(ValueError, match='SHA256'):
-        s.bind_comparisons(rows,evidence)
-
+        s._bind_comparison_inventory(rows, evidence, inventory, digest)
 
 def test_indispensable_missing_input_returns_two(tmp_path, monkeypatch):
     monkeypatch.setattr(s, 'source_identity', lambda root: s.SOURCE_COMMIT)
@@ -337,3 +321,160 @@ def test_corrupted_mandatory_json_returns_two(tmp_path, monkeypatch):
     assert s.main(['--root', str(tmp_path), '--output', str(out)]) == 2
     data = s.transport.load(out/'numerical-comparisons.json')
     assert any('JSONDecodeError' in e for e in data['errors'])
+
+@pytest.fixture
+def synthetic_binding(tmp_path):
+    """Generated software fixtures ONLY; no original historical evidence."""
+    import hashlib
+    evidence = tmp_path/'synthetic-step38'
+    inventory = tmp_path/'synthetic-comparisons.json'
+
+    def sealed(path, value):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes((json.dumps(value, sort_keys=True, allow_nan=False)+'\n').encode())
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        assert s.transport.sha(path) == digest
+        return digest
+
+    rows = []
+    for run in s.transport.RUNS[2:]:
+        folder = evidence/'github-hosted'/run
+        artifacts = []
+        paths = {}
+        for kind in ('capture', 'replay'):
+            for cohort in s.transport.COHORTS:
+                number = len(artifacts)+1
+                artifacts.append(dict(id=number, name=f'step33-{kind}-{cohort}-{run}-1'))
+                paths[kind, cohort] = folder/f'artifact-{number}'
+        sealed(folder/'artifact-index.json',
+               dict(synthetic_test_fixture=True, artifacts=artifacts))
+        for origin in s.transport.COHORTS:
+            inputs = dict(synthetic_test_fixture=True, origin=origin, run=run)
+            input_hash = sealed(paths['capture', origin]/'inputs.json', inputs)
+            results = {}
+            for j, worker in enumerate(s.transport.COHORTS):
+                values = dict(row3=.1+j*.1, row4=.5 if j < 2 else .7)
+                if run == '41257645149' and origin == 'windows-reference' and j == 1:
+                    values['row3'] = float('-0.41468899707880597')
+                sub = paths['replay', worker]/origin
+                assert sealed(sub/'inputs.json', inputs) == input_hash
+                digest = sealed(sub/'result.json', dict(
+                    synthetic_test_fixture=True, worker=worker,
+                    solve=dict(recovery={case:dict(fractional_recovery=v)
+                                         for case,v in values.items()})))
+                results[worker] = (values, digest)
+            for worker in s.transport.COHORTS[1:]:
+                for case in ('row3', 'row4'):
+                    candidate = results[worker][0][case]
+                    if (run,origin,worker,case) == (
+                            '41257645149','windows-reference','linux-reference','row3'):
+                        candidate = float('-0.414688997078806')
+                    reference = results[s.transport.COHORTS[0]][0][case]
+                    rows.append(dict(run=run, origin=origin, worker=worker, case=case,
+                        candidate=candidate, reference=reference,
+                        high_candidate=candidate, high_reference=reference,
+                        high_pass=s.agrees(candidate,reference),
+                        **{'pass':s.agrees(candidate,reference)},
+                        input_sha256=input_hash, result_sha256=results[worker][1],
+                        reference_sha256=results[s.transport.COHORTS[0]][1]))
+    digest = sealed(inventory, rows)
+    return s.transport.load(inventory), evidence, inventory, digest
+
+
+def test_observed_host_serialization_failure_bound_to_real_originals(synthetic_binding):
+    # The name is retained; the portable portion reproduces the token mechanism,
+    # while _check_real_historical_originals independently checks real bytes.
+    rows, evidence, inventory, digest = synthetic_binding
+    with pytest.raises(ValueError, match='Comparison scalar differs'):
+        s.prior.bind_comparisons(rows, evidence)
+    bound, corrections = s._bind_comparison_inventory(rows, evidence, inventory, digest)
+    assert len(bound) == 48
+    assert {tuple(r[k] for k in ('run','origin','worker','case')):r['pass'] for r in bound} == {
+        tuple(r[k] for k in ('run','origin','worker','case')):r['pass'] for r in rows}
+    assert len(corrections) == 1
+    defect = corrections[0]
+    assert not defect['binary64_equal']
+    assert defect['original_scalar_token'] == '-0.414688997078806'
+    assert defect['saved_scalar_token'] == '-0.41468899707880597'
+    assert Decimal(defect['exact_decimal_token_difference']) == Decimal('3e-17')
+    assert Fraction(Decimal(defect['exact_difference'])) == Fraction(1,2**54)
+    assert Fraction.from_float(float(Decimal(defect['saved_scalar_token']))) == Fraction.from_float(
+        json.loads(defect['saved_scalar_token']))
+    assert float('-0.41468899703150891') == float('-0.4146889970315089')
+    assert Fraction.from_float(.1) != Fraction(Decimal('.1'))
+    # Production cannot authenticate this synthetic inventory.
+    historical_inventory = evidence.parent/Path(s.STEP41).name/'recomputed-comparisons.json'
+    historical_inventory.parent.mkdir()
+    historical_inventory.write_bytes(inventory.read_bytes())
+    with pytest.raises(ValueError, match='SHA256'):
+        s.bind_comparisons(rows, evidence)
+
+
+@pytest.mark.parametrize('target', ['capture_input', 'replay_input'])
+def test_synthetic_input_bytes_rejected(synthetic_binding, target):
+    rows, evidence, inventory, digest = synthetic_binding
+    row = rows[0]
+    folder = evidence/'github-hosted'/row['run']
+    index = s.transport.load(folder/'artifact-index.json')['artifacts']
+    kind, cohort = ('capture', row['origin']) if target == 'capture_input' else ('replay', row['worker'])
+    artifact = next(a for a in index if a['name'] == f"step33-{kind}-{cohort}-{row['run']}-1")
+    file = folder/f"artifact-{artifact['id']}"
+    if kind == 'replay':
+        file /= row['origin']
+    file /= 'inputs.json'
+    file.write_bytes(file.read_bytes()+b' ')
+    with pytest.raises(ValueError, match='fingerprint'):
+        s._bind_comparison_inventory(rows, evidence, inventory, digest)
+
+
+def test_independent_historical_integration(tmp_path, record_property):
+    """Actual local originals only; absence explicitly establishes no authentication."""
+    root = Path(__file__).resolve().parents[1]
+    inventory = root/s.STEP41/'recomputed-comparisons.json'
+    if not inventory.is_file():
+        # Only a wholly absent historical source tree is a portable checkout.
+        # A partial local archive must fail rather than bypass authentication.
+        assert not (root/s.STEP41).exists(), 'Incomplete historical STEP41 evidence'
+        assert not (root/s.EVIDENCE).exists(), 'Incomplete historical STEP38 evidence'
+        with pytest.raises(FileNotFoundError):
+            s.bind_comparisons([], root/s.EVIDENCE)
+        print('Historical authentication NOT ESTABLISHED: original evidence unavailable')
+        record_property('historical_authentication', 'NOT ESTABLISHED: missing original evidence')
+        assert s.policy()['evidence_authentication'] == 'INCOMPLETE'
+        return
+    _check_real_historical_originals(root)
+    rows = s.transport.load(inventory)
+    digest = s.transport.sha(inventory)
+    for mutation in ('candidate_identity','reference_identity','swap','cohort',
+                     'duplicate','missing','nonfinite','false_pass','genuine'):
+        test_historical_binding_adversaries(mutation,
+            (s.transport.load(inventory), root/s.EVIDENCE, inventory, digest))
+    # Copy only the first original replay needed to reject modified bytes;
+    # never mutate the actual original evidence directories.
+    import shutil
+    evidence = tmp_path/Path(s.EVIDENCE).name
+    copied_inventory = tmp_path/Path(s.STEP41).name/'recomputed-comparisons.json'
+    copied_inventory.parent.mkdir()
+    shutil.copyfile(inventory, copied_inventory)
+    row = rows[0]
+    source = root/s.EVIDENCE/'github-hosted'/row['run']
+    target = evidence/'github-hosted'/row['run']
+    target.mkdir(parents=True)
+    shutil.copyfile(source/'artifact-index.json', target/'artifact-index.json')
+    index = s.transport.load(source/'artifact-index.json')['artifacts']
+    artifact = next(a for a in index if a['name'] ==
+                    f"step33-replay-{row['worker']}-{row['run']}-1")
+    relative = Path(f"artifact-{artifact['id']}")/row['origin']
+    (target/relative).mkdir(parents=True)
+    for name in ('inputs.json', 'result.json'):
+        shutil.copyfile(source/relative/name, target/relative/name)
+    file = target/relative/'result.json'
+    file.write_bytes(file.read_bytes()+b' ')
+    with pytest.raises(ValueError, match='fingerprint'):
+        s.bind_comparisons(rows, evidence)
+    copied_inventory.write_bytes(copied_inventory.read_bytes()+b' ')
+    with pytest.raises(ValueError, match='SHA256'):
+        s.bind_comparisons(rows, evidence)
+    record_property('historical_authentication', 'Extracted binding verified; archives INCOMPLETE')
+    print('Historical extracted-byte binding verified; original archive authentication INCOMPLETE')
+    assert s.policy()['evidence_authentication'] == 'INCOMPLETE'

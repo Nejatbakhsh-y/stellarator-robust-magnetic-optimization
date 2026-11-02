@@ -1,4 +1,4 @@
-﻿# STEP 44 independent scientific acceptance
+# STEP 44 independent scientific acceptance
 
 2026-11-01. **Scientific comparison FAIL; production acceptance FAIL; overall
 scientific status PARTIAL.** Causal root cause INCONCLUSIVE; original artifact
@@ -493,3 +493,98 @@ remain separate. Scientific comparison FAIL; production acceptance FAIL; overall
 PARTIAL; numerical causality INCONCLUSIVE; original archive authentication
 INCOMPLETE. Equations, objectives, solver/current settings and all numerical
 limits remain unchanged. No historical evidence or STEP41 source was edited.
+
+## Permanent clean-checkout regression repair (2026-11-01)
+
+The user-confirmed scientific-validation run 41360197923 reported 11 failures,
+682 passes and 24 skips. All 11 failures required ignored local files: the
+serialization test, nine binding adversaries and the original-byte tampering test.
+The common first dependency was STEP41/recomputed-comparisons.json. Further
+dependencies were STEP38/github-hosted/{run}/artifact-index.json, capture
+inputs.json, and each origin/worker replay inputs.json and result.json. The
+complete binding grid spans two runs, four origins, three nonself workers and
+two recovery cases. No archive is needed to test the software mechanism.
+
+The earlier Windows workspace had these local files. A Git checkout omits the
+ignored historical STEP38/41 archives. It preserves tracked files, including
+results/phase2d/publication-review-20261031. This explains the fixture availability
+difference; it does not establish any Windows/Linux numerical explanation.
+The scientific-validation workflow in .github/workflows/ci.yml installs Python
+3.11 and runs ordinary pytest in an Ubuntu checkout. No workflow was changed.
+
+All 11 regression cases retain their names and execute with a deterministic
+tmp_path fixture. Every generated payload is labelled synthetic_test_fixture;
+historical run/cohort identifiers only exercise the existing mapping contract.
+Generated capture/replay inputs, result JSON, artifact indexes and comparison
+inventory are sealed from actual UTF-8 bytes, independently checked with hashlib.
+No generated seal is represented as an authenticated historical seal.
+The extracted private binding mechanism takes an explicit inventory seal for
+software tests. The production entry point retains its immutable historical
+SHA256 and cannot accept the synthetic inventory. STEP41 is unchanged.
+Both retained and reconstructed PASS/FAIL classifications are rechecked.
+
+Portable assertions cover exact binary64 versus decimal values, correctly rounded
+JSON parsing, adjacent binary64 values, distinct decimal spellings with equal
+binary64 values, the precise one-ULP token pair, complete identity/cohort mapping,
+candidate/reference seals, duplicate/missing comparisons, nonfinite values, false
+PASS, genuine scalar mismatch even within tolerance, input tampering, result
+tampering and inventory tampering. Two additional cases independently tamper
+capture and replay input bytes. Synthetic classifications are checked for
+preservation, never represented as historical numerical results.
+
+The separate test_independent_historical_integration invokes the retained
+original-evidence assertions when local STEP38/41 evidence is supplied at its
+original paths. It requires the pinned inventory, original input/result seals,
+48 comparisons, the known result SHA256, exact token corrections and unchanged
+21 preceding/11 latest failures. Missing historical evidence exercises production
+failure and explicitly reports authentication NOT ESTABLISHED; no test is skipped.
+Run pytest -s on that test to display its authentication limitation. Corrupt or
+partially supplied historical evidence fails instead of falling back to synthetic
+data. Original archive authentication remains INCOMPLETE even if extracted-byte
+binding succeeds; STEP38 transport explicitly distinguishes those responsibilities.
+
+Validation in this restricted session:
+- Existing .venv Python launcher: blocked before startup, exit 103; configured
+  Python311 base executable unavailable.
+- Targeted pytest, complete pytest, compilation and pip check: attempted, each
+  exit 103. No passing counts or Python compilation/dependency success claimed.
+- A source-only copy was constructed with git archive HEAD, then overlaid with
+  the authorized changes under ignored results/phase2d/step44-ci-repair-validation.
+  Its ignored STEP38/41 historical directories are absent (the tracked publication-review directory remains). Targeted and full pytest
+  were attempted there with the same required .venv. Python startup remains a
+  blocker; neither clean-checkout execution success nor Linux reproduction is
+  claimed. The controlling host must independently run both suites.
+- Git whitespace integrity checked. Only the three authorized source/report files
+  are changed. Original STEP38/41 directories were read only; no historical
+  numerical file was written. Without a pre-session complete hash baseline,
+  a current integrity sweep alone cannot prove all historical bytes unchanged.
+
+For host validation, use the functioning Python 3.11 .venv in the original
+checkout and the source-only copy, running targeted/full pytest, compileall and
+pip check. For a definitive Linux check run the same patched source through
+the unchanged scientific-validation workflow after user-controlled publication.
+Do not treat this repair as a verified research checkpoint: README analytical
+validation, quick experiment, independent audit, output checks and full
+reproducibility must all pass and bind records to result-file SHA256 first.
+
+The clean-checkout guard must check only that the original historical source
+directories named by `phase2d_step44_acceptance.EVIDENCE` (STEP38) and `STEP41`
+are absent. Do not require `results/phase2d` itself to be absent and do not delete
+tracked results. Overlay only the three authorized STEP44 files. The historical
+integration test rejects partially supplied source trees; wholly missing originals
+exercise production authentication failure without substituting synthetic evidence.
+On this final guard review, targeted and complete pytest were attempted again
+using the existing .venv. Both stopped before collection because its configured
+Python311 executable is unavailable (PowerShell exit 1). The previously reported
+host counts of 59 targeted and 727 complete passes were not independently rerun
+here; host validation of this final correction remains required. `git diff --check`
+passed. No historical files were modified or removed.
+
+Scientific comparison and production acceptance remain FAIL; overall status
+PARTIAL; numerical root cause INCONCLUSIVE; historical archive authentication
+INCOMPLETE. The latest 11 recovery failures, preceding 21 recovery failures and
+earlier 22 scalar failures remain separate. The recovery formula, equations,
+objectives, solver settings, rtol=1e-11, atol=1e-13, 1e-15 T denominator guard and
+1e-4 refinement gate are unchanged. Missing original archives, provenance gaps,
+fresh reciprocal SciPy executions and final-source scientific gates remain
+blockers. No commit, push or merge was performed.
