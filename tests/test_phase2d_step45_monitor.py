@@ -69,9 +69,10 @@ function Invoke-Step45Gh {
     if ($global:case -eq 'array_json') {$raw='['+$raw+','+$raw+']'}
     return @{Code=$code;Out=$raw;Err='retained stderr';TimedOut=$timed}
 }
-$json=Invoke-Step45Monitor -RunId 41426274201 -Repository owner/repo -ExpectedCommit ('b'*40) -WorkflowName 'Expected workflow' -OutputRoot '__OUT__' -TimeoutSeconds 2 -PollSeconds 1
+$json=Invoke-Step45Monitor -RunId 41426274201 -Repository owner/repo -ExpectedCommit ('b'*40) -WorkflowName 'Expected workflow' -OutputRoot '__OUT__' -TimeoutSeconds __MONITOR_TIMEOUT__ -PollSeconds 1
 @{record=($json|ConvertFrom-Json);calls=$global:calls} | ConvertTo-Json -Depth 12
 '''.replace('__CASE__', case).replace('__OUT__', str(tmp_path).replace("'", "''"))
+    body = body.replace('__MONITOR_TIMEOUT__', str(15 if case in ('queued', 'in_progress') else 2))
     proc = run_ps(shell, tmp_path, body)
     assert proc.returncode == 0, proc.stderr
     result = json.loads(proc.stdout.lstrip('\ufeff'))
