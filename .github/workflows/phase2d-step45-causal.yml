@@ -1,0 +1,140 @@
+name: Phase 2D STEP 45 independent causal validation
+on:
+  push:
+    branches: [codex/phase2d-upstream-attribution]
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  GIT_CONFIG_COUNT: '2'
+  GIT_CONFIG_KEY_0: core.autocrlf
+  GIT_CONFIG_VALUE_0: 'false'
+  GIT_CONFIG_KEY_1: core.eol
+  GIT_CONFIG_VALUE_1: lf
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  capture:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: windows-reference, os: windows-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-reference, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-numpy-sensitivity, os: ubuntu-latest, numpy: '2.3.5', scipy: '1.17.1'}
+          - {name: linux-scipy-sensitivity, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.16.3'}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, persist-credentials: false}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy ${{ matrix.numpy }} --scipy ${{ matrix.scipy }} --output results/ci/dependencies
+      - run: python -m pytest -q
+      - run: python -m compileall -q src scripts tests
+      - run: python -m pip check
+      - run: python scripts/phase2d_step33.py capture --output results/ci/capture
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step45-capture-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/capture/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step45-capture-dependencies-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/dependencies/
+          if-no-files-found: error
+  replay:
+    needs: capture
+    if: always()
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: windows-reference, os: windows-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-reference, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.17.1'}
+          - {name: linux-numpy-sensitivity, os: ubuntu-latest, numpy: '2.3.5', scipy: '1.17.1'}
+          - {name: linux-scipy-sensitivity, os: ubuntu-latest, numpy: '2.4.6', scipy: '1.16.3'}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 180
+    env:
+      STEP42_OUTPUT_ROOT: results/ci/replay-root
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, persist-credentials: false}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy ${{ matrix.numpy }} --scipy ${{ matrix.scipy }} --output results/ci/dependencies
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: step45-capture-*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/downloads
+      - name: Normalize only this run's four origins
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory results/ci/inputs
+          foreach ($cohort in @('windows-reference','linux-reference','linux-numpy-sensitivity','linux-scipy-sensitivity')) {
+            Copy-Item -LiteralPath "results/ci/downloads/step45-capture-$cohort-${{ github.run_id }}-${{ github.run_attempt }}" -Destination "results/ci/inputs/step42-capture-$cohort" -Recurse -ErrorAction Stop
+          }
+      - name: Reciprocal sealed-input solves; genuine science exit remains nonzero
+        run: python scripts/phase2d_step42_replay.py --input results/ci/inputs --expected-captures 4 --output results/ci/replay-root/replay
+      - name: Independent QR and controlled LAPACK driver diagnostics
+        if: always()
+        run: python scripts/phase2d_step45_rootcause.py --root . --input results/ci/inputs --output results/ci/step45
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step45-worker-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/replay-root/replay/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step45-diagnostics-${{ matrix.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            results/ci/step45/
+            results/ci/dependencies/
+          if-no-files-found: error
+  compare:
+    needs: replay
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, persist-credentials: false}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/phase2d_dependencies.py --numpy 2.4.6 --scipy 1.17.1 --output results/ci/dependencies
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: step45-worker-*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/downloads
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: step45-capture-*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/capture-downloads
+      - shell: pwsh
+        run: |
+          New-Item -ItemType Directory results/ci/workers
+          New-Item -ItemType Directory results/ci/workers/captures
+          foreach ($cohort in @('windows-reference','linux-reference','linux-numpy-sensitivity','linux-scipy-sensitivity')) {
+            Copy-Item -LiteralPath "results/ci/downloads/step45-worker-$cohort-${{ github.run_id }}-${{ github.run_attempt }}" -Destination "results/ci/workers/step42-$cohort" -Recurse -ErrorAction Stop
+            Copy-Item -LiteralPath "results/ci/capture-downloads/step45-capture-$cohort-${{ github.run_id }}-${{ github.run_attempt }}" -Destination "results/ci/workers/captures/step42-capture-$cohort" -Recurse -ErrorAction Stop
+          }
+      - name: Require every cohort; retain historical FAIL
+        if: always()
+        run: python scripts/phase2d_step45_rootcause.py --root . --compare --input results/ci/workers --output results/ci/step45-comparison
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step45-comparison-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            results/ci/step45-comparison/
+            results/ci/dependencies/
+          if-no-files-found: error
