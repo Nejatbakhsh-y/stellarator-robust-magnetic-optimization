@@ -1,0 +1,68 @@
+[
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe -m pytest -q tests/test_phase2d_step51_numerical.py tests/test_phase2d_step52_audit.py",
+        "output_file":  "command-1.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe -m pytest -q",
+        "output_file":  "command-2.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe -m compileall -q src scripts tests",
+        "output_file":  "command-3.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe -m pip check",
+        "output_file":  "command-4.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe -m stellarator_robust.cli validate",
+        "output_file":  "command-5.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe -m stellarator_robust.cli run --config configs/quick.json --output results/phase2d/final-execution/quick",
+        "output_file":  "command-6.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe scripts/check_outputs.py results/phase2d/final-execution/quick",
+        "output_file":  "command-7.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe scripts/audit_quick.py",
+        "output_file":  "command-8.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe scripts/test_and_record.py",
+        "output_file":  "command-9.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe scripts/reproduce_check.py",
+        "output_file":  "command-10.txt",
+        "exit_code":  103
+    },
+    {
+        "status":  "BLOCKED_BEFORE_PYTHON_STARTUP",
+        "command":  ".venv/Scripts/python.exe scripts/phase2d_step51_numerical.py --archive-root results/phase2d/step49-original-archives-20261102-120255-a1314650 --manifest results/phase2d/step49-original-archives-20261102-120255-a1314650/manifest.json --output results/phase2d/final-numerical",
+        "output_file":  "command-11.txt",
+        "exit_code":  103
+    }
+]

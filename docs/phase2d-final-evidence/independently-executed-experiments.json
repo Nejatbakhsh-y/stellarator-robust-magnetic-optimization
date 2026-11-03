@@ -1,0 +1,18 @@
+{
+  "executed": [
+    {"experiment": "Original ZIP SHA256 authentication and full member inventory", "implementation": "scripts/phase2d_original_member_inventory.ps1", "runtime": "Windows PowerShell and .NET", "exit_code": 0, "outputs": "inventory-summary.json"},
+    {"experiment": "Independent repeat of complete inventory", "exit_code": 0, "outputs": "inventory-repeat-checks.json", "identical_substantive_outputs": 5},
+    {"experiment": "Connected GitHub artifact metadata association for four STEP49 runs", "outputs": "remote-observations.json", "association_check_output": "remote-association-checks.json", "matched": 71},
+    {"experiment": "Connected GitHub PR7 status", "outputs": "remote-observations.json"},
+    {"experiment": "Tracked historical paths unchanged from baseline", "exit_code": 0, "outputs": "execution/historical-tracked-diff.txt"},
+    {"experiment": "Git whitespace check", "exit_code": 0, "outputs": "execution/git-whitespace.txt"}
+  ],
+  "failed_attempts": [
+    {"experiment": "Direct PowerShell script launch", "result": "Execution policy disallowed script files; same source subsequently evaluated as ordinary inline commands; no execution-policy setting changed"},
+    {"experiment": "Additional scalar traversal", "result": "Dictionary Contains method overload error", "outputs": "original-scalar-comparisons.json", "measurements": 0},
+    {"experiment": "Eleven Python validation/reproduction commands", "outputs": "execution/commands.json", "exit_code_each": 103, "python_started": false},
+    {"experiment": "Python 3.11 launcher discovery", "command": "py -3.11 --version", "exit_code": 1, "output": "No installed Python found!"}
+  ],
+  "inventory_invocation": "$code = Get-Content scripts/phase2d_original_member_inventory.ps1 -Raw; $block = [scriptblock]::Create($code.Replace('(Get-FileHash $PSCommandPath -Algorithm SHA256)', '(Get-FileHash scripts/phase2d_original_member_inventory.ps1 -Algorithm SHA256)')); & $block -Output <fresh-output>",
+  "scope": "Inventory and metadata experiments executed; zero fresh Python numerical experiments. Output files are sealed separately in evidence-sha256.json."
+}
