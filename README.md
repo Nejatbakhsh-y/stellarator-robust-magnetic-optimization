@@ -97,3 +97,42 @@ The recorded Windows execution passed 18 frozen-input tests and 145 regression
 tests, analytical validation, independent audits and the full local repeat.
 Hosted Phase 2D validation remains pending; production cross-platform
 fault-ratio discrepancies remain unresolved. Scientific status is PARTIAL.
+
+## FINAL RESEARCH DEMONSTRATION
+
+**Research demonstration: COMPLETE WITH DOCUMENTED LIMITATIONS.**
+**Scientific comparison: FAIL. Full scientific acceptance: NOT ESTABLISHED.**
+**Production acceptance: FAIL — NOT ACCEPTED FOR PRODUCTION USE.**
+
+The completed independent computational demonstration studies normal-field
+correction on a synthetic toroidal boundary with 24 planar shaping coils,
+512 polygon segments per circle and a separate disturbance coil. Implemented
+methods include Biot–Savart response matrices, constrained ridge fitting,
+sparse support selection/refitting, finite-scenario minimax optimization,
+paired uncertainty evaluation and static single-coil recovery.
+
+Historical dense fitting reduced fine-grid RMS from 30.95589774 to
+25.91442556 microtesla. Sparse tradeoffs were demonstrated. The robust fit
+worsened matched-nominal mean holdout RMS by 0.006260212 microtesla on the
+original 24 paired scenarios; no generalized robust outperformance is claimed.
+Historical analytical, integration, refinement and local-repeat checks have
+bounded scope. Recovery-ratio comparison failures remain unresolved, full
+independent scientific validation is INCOMPLETE and numerical root cause is
+INCONCLUSIVE. No confinement, equilibrium or hardware validation is established.
+
+Final deliverables:
+
+- [Final research report](docs/FINAL_RESEARCH_DEMONSTRATION_REPORT.md)
+- [Ten-slide research presentation](docs/FINAL_RESEARCH_PRESENTATION.md)
+- [Professional portfolio summary](docs/FINAL_RESEARCH_PORTFOLIO_SUMMARY.md)
+- [Final demonstration completion record](docs/FINAL_DEMONSTRATION_COMPLETION.md)
+- [Final root-cause and scientific acceptance disposition](docs/PHASE2D_FINAL_ROOT_CAUSE_AND_ACCEPTANCE.md)
+
+These final documents consolidate existing evidence. The existing Python
+launcher failed before startup during finalization; numerical results were
+not freshly rerun. Historical material and execution instructions above are
+retained as records of their respective checkpoints. The final adverse
+disposition governs current scientific acceptance. PR #7 remains open and
+unmerged under the established record; no new remote observation is claimed.
+Historical evidence is preserved. This is independent research with no Thea
+Energy employment, collaboration, endorsement or scientific validation.
