@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 env:
   GIT_CONFIG_COUNT: '2'
   GIT_CONFIG_KEY_0: core.autocrlf
@@ -35,6 +36,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
       - run: python scripts/phase2d_dependencies.py --numpy ${{ matrix.numpy }} --scipy ${{ matrix.scipy }} --output results/ci/dependencies
+      - uses: ./.github/actions/provision-original-archives
       - run: python -m pytest -q
       - run: python -m compileall -q src scripts tests
       - run: python -m stellarator_robust.cli validate

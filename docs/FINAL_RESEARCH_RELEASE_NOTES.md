@@ -27,3 +27,20 @@ The 4 November 2026 publication continuation confirmed that the existing Python 
 Hosted failures have distinct causes: an unprovisioned original-archive manifest blocks pytest and cascades through production stages, while separately executed reciprocal replay comparisons retain a numerical FAIL. Authenticated artifacts from run 41633435313 contain 48 passing current-vector records and 24 failing recovery-ratio records out of 32. Shared inputs and reference/self comparisons are not independent trial counts. These findings do not establish a unique upstream numerical cause or production acceptance.
 
 Publication remains blocked by hosted evidence provisioning, numerical disagreements, incomplete scientific verification, independent review and integration into the default branch. PR #7 targets a feature branch rather than main. Historical links to ignored local-only evidence also require a reviewed archival distribution strategy. See [release readiness](FINAL_RELEASE_READINESS.md) for actual test outcomes, review scope and remaining blockers. No release, tag, merge or production-readiness claim is made. Public availability grants no open-source license; none has been selected. This is independent work with no Thea Energy employment, collaboration, endorsement or validation.
+
+The subsequent infrastructure correction adds explicit, digest-pinned historical
+archive provisioning before CI regression/verifier jobs, without skipping tests
+or changing historical bytes. All 71 local originals and their current remote
+metadata associations verify. GitHub artifact expiration remains a retention
+limitation, not grounds for substituting newly generated evidence. The corrected
+local suite passed 973 tests with two warnings. Analytical validation and local
+sealed-input gates passed; a same-OS frozen repeat was byte-identical. No new
+local Linux execution or complete standalone research checkpoint is claimed.
+
+Run 41870669468 independently retains 23/32 failed recovery-ratio comparisons,
+while all 48 current records pass; the earlier 24/32 record is preserved as a
+separate run. Four-way and high-precision checks support amplification by small
+denominators but do not identify a unique upstream defect. No production
+numerical correction is justified. Hosted verification of the infrastructure
+correction remains a separate requirement. All release prerequisites and the
+three scientific dispositions above remain unchanged; these notes are unpublished.

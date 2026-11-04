@@ -1,0 +1,13 @@
+name: Provision authenticated original archives
+description: Retrieve the pinned historical collection before regression or replay; fail if unavailable.
+runs:
+  using: composite
+  steps:
+    - name: Verify or retrieve original archive bytes
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: python scripts/provision_original_archives.py --report results/ci/original-archive-provision.json
+    - name: Share the explicit archive root with isolated source-copy verifiers
+      shell: bash
+      run: python -c "from pathlib import Path; print('STELLARATOR_ORIGINAL_ARCHIVES='+str(Path('results/phase2d/step49-original-archives-20261102-120255-a1314650').resolve()))" >> "$GITHUB_ENV"

@@ -35,3 +35,30 @@ All five final deliverables' 98 relative destinations are present and tracked. T
 PR #7 is open, draft and unmerged, reported mergeable. No reviews or review threads were returned; no approval is inferred. Branch listing reports the target unprotected and the ruleset collection empty, but protection details return HTTP 403. User-required checks and independent review remain binding. Historical 201-test statements describe older checkpoints.
 
 Keep draft and unmerged. Resolve authenticated evidence provisioning without skipping tests or altering reference evidence; retain all numerical failures. Obtain independent review, complete required verification and plan integration into main before release. The proposed release `research-demonstration-v1.0` is unpublished. See `docs/FINAL_RELEASE_READINESS.md` and `docs/FINAL_RESEARCH_RELEASE_NOTES.md` for details. This body is a prepared local replacement; the earlier remote update was rejected with integration HTTP 403.
+
+## Infrastructure correction and independent continuation
+
+Starting at `60b2e5b`, explicit fail-closed provisioning was implemented for all
+regression/verifier workflows. It uses an unchanged, versioned original manifest
+and exact original GitHub artifact IDs/hashes, with read-only Actions permission.
+No test is skipped, no historical evidence is regenerated and no current output
+substitutes for originals. Artifact expiration remains an explicit failure and
+long-term archival limitation. The original archive test now also pins the
+manifest's SHA256. An absolute documented archive root supports source-copy checks.
+
+The final local suite passed **973 tests with two warnings**, exit 0. An earlier
+971-pass/two-contract-failure run is preserved; the required read-only Actions
+permission was then reflected in the workflow contract. Analytical validation
+and workflow preflight passed. Two local Windows frozen runs passed all their
+gates and produced byte-identical records; the cross-platform comparator rejected
+that same-OS pairing as designed. No new local Linux pass is claimed.
+
+Fresh authenticated artifacts from run 41870669468 retain **23/32 failing
+recovery-ratio records**, with 48/48 current records passing; the earlier 24/32
+result remains a separate observation. Independent Decimal evaluation reproduced
+all 32 recorded ratios, and four-way attribution confirms small input/execution
+differences amplified by sensitive denominators. It does not establish a unique
+upstream defect. No production numerical correction or threshold change was made.
+The complete README checkpoint was not rerun, and full scientific acceptance and
+production acceptance remain unchanged. Updated hosted results must be observed
+after push; local regression success is not hosted or scientific acceptance.

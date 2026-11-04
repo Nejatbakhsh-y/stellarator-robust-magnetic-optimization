@@ -91,3 +91,132 @@ gh pr edit 7 --repo Nejatbakhsh-y/stellarator-robust-magnetic-optimization --tit
 Release notes use the requested title and intended tag `research-demonstration-v1.0`, with the exact disclaimer. They are unpublished. No merge, release, tag creation/movement, default-branch change or history rewrite was performed. Any future publication must freshly check existing tags/releases and satisfy all specified validation/review requirements.
 
 Remaining blockers: hosted archive provisioning; executed recovery-ratio comparison failures; incomplete full independent scientific validation and causal attribution; no current complete README result-SHA256-bound checkpoint; independent PR review; clean-clone historical evidence navigation; integration into the default branch; and restricted GitHub metadata-write access. Commit and push results must be reported from actual command outcomes, not inferred from this handoff.
+
+## Infrastructure and numerical continuation, 4 November 2026
+
+This continuation starts at `60b2e5b2daacb783e9994c90929197306ccb1d53` and
+supersedes the implementation/validation status above where specified. It does
+not replace historical measurements or scientific dispositions. The additive
+[machine-readable evidence](phase2d-final-evidence/validation-repair.json) has
+SHA256 `6065e0a144e387b95d26a3e2cab8d69053ccea9cfa3d15e3db0bb98a82354da0` and
+contains input artifact identities/digests, exact analysis commands, independent
+measurements, environment details, both regression attempts and log hashes.
+
+### Confirmed infrastructure defect and correction
+
+At the starting head, PR runs 41870670061 (scientific-validation) and
+41870669541 (STEP 33), plus corresponding push runs and STEP 32/45 captures,
+again fail the unconditional original-archive test because its manifest is
+absent. Upstream run 41870669468 also has missing-manifest pytest failures and
+missing-output cascades. These are provisioning failures, distinct from its
+executed reciprocal numerical comparison. Representative failed job IDs include
+126716523574, 126716521178, 126716522267, 126716493329, 126716493170 and 126717337478.
+
+The expected path is
+`results/phase2d/step49-original-archives-20261102-120255-a1314650/manifest.json`.
+The historical STEP49 supplied collection records GitHub artifact IDs, run/source
+associations and byte hashes. A generator for that supplied manifest is not
+present in the repository; no new historical manifest is inferred or fabricated.
+The original 31,359-byte manifest is now copied **without changing a byte** into
+[versioned metadata](phase2d-final-evidence/original-archive-manifest.json), pinned
+at SHA256 `4ca1db2a783f2d62295e5ec2ef623b434a03c1b5a2a485f728c0f67df3d4a26e`.
+Git attributes preserve those bytes across Windows/Linux line-ending policies.
+
+Fresh GitHub listings for runs 41465448215, 41465448226, 41465448239 and
+41465460206 match all 71 original artifact IDs, names, digests and source
+associations, and report them unexpired. All 71 local ZIPs also pass the existing
+archive and internal-hash checks. Their total ZIP size is 60,672,855 bytes.
+No fresh download of those 71 original ZIPs is claimed in this continuation;
+the nine current capture/replay ZIPs were freshly downloaded and authenticated.
+
+The new non-numbered [provisioner](../scripts/provision_original_archives.py)
+retrieves only the original artifact IDs, validates paginated GitHub metadata,
+checks ZIP SHA256/CRC/path safety and internal hash mismatches, and publishes
+the exact manifest only after the complete collection validates. Existing
+conflicting bytes are never overwritten. A partial, expired, inaccessible or
+corrupt collection returns nonzero and an explicit missing/invalid-evidence
+record. There is no current-result fallback, skipped historical test or new
+scientific PASS. The original archive regression additionally pins the exact
+manifest digest, strengthening its provenance check.
+
+All ten workflows that invoke the regression suite directly or via established
+verifiers now provision first through one composite action. Tokens have only
+Contents/Actions read permissions; the provisioner does not forward the GitHub
+credential to redirected artifact storage. The absolute
+`STELLARATOR_ORIGINAL_ARCHIVES` root is inherited by isolated source-copy
+verifiers, eliminating working-directory assumptions. Filesystem paths use
+`pathlib`; metadata uses strict UTF-8/BOM-aware JSON decoding, and raw historical
+bytes are never newline-normalized. Code and contract regressions cover absent,
+expired, wrong-origin, corrupt and conflicting evidence, explicit roots and
+credential redirect behavior.
+
+This corrects the missing provisioning procedure; it does **not** guarantee
+indefinite GitHub artifact retention. Future expiration requires authenticated
+archival storage of the same bytes. Until that storage exists, expiration or
+authorization failure remains a hard blocker. Newly generated captures have
+their own run/source/digest records and never substitute for originals.
+
+### Executed verification and numerical findings
+
+| Check | Actual outcome |
+|---|---|
+| Python/dependencies | PASS; existing Python 3.11.9; `pip check` exit 0; no rebuild or package upgrade |
+| Focused provisioning/workflow tests | PASS; 65 executed tests before the additional redirect/root cases |
+| First full regression attempt | FAIL; 971 passed, two workflow-contract assertions failed, two warnings; exit 1; preserved separately |
+| Workflow-contract correction | Required `actions: read` explicitly; retained read-only grants and original stage guards; two focused failures then passed |
+| Final full suite | PASS; **973 passed, two warnings**, zero skips, exit 0; 482.70 seconds |
+| Analytical loop validation | PASS; exit 0; 256-segment maximum relative error 5.0202428052203985e-05 |
+| Existing workflow preflight | PASS; STEP 33 contract and host preflight |
+| Original archive verification | PASS; 71 local originals and 71 fresh remote metadata associations, no original bytes changed |
+| Seeded scenario/current perturbation checks | PASS within the full suite; original gain/offset, outage and serialization regressions retained |
+| Local sealed-input runs | PASS; two Windows runs each exit 0; every existing local gate passes |
+| Local frozen repeat bytes | PASS; complete `record.json` byte identity, SHA256 `eef76369cdb166317add30650f7c1f26c80088f6163c6807eebbebd1e8bb7244`; no raw numerical differences |
+| Attempted cross-platform comparator on those two Windows runs | FAIL, preserved; `expected_cohort_pair=false`, all other contract checks true and no numerical failures. This was an inapplicable invocation, not a Linux test or an implementation defect; no gate was changed |
+| Fresh local Linux frozen execution | NOT RUN; no independent Linux runtime available in this local execution path |
+| Standalone full quick/study/audit/output/reproduction checkpoint | NOT RUN; no new complete result-SHA256-bound research checkpoint claimed |
+
+Final suite log SHA256:
+`7dcca367b92a13739a69f7554e633598cb12414804c1f6ce08b3af7228465258`.
+Final JUnit SHA256:
+`c4c46ad7584ee85ef3e3fc80ca57f716237785995a1a92d944c36543e31d8d92`.
+The initial failed run and rejected frozen comparison remain in the fresh
+ignored audit directory and are recorded by the additive evidence file.
+
+The [numerical investigation continuation](PHASE2D_NUMERICAL_ROOT_CAUSE_INVESTIGATION.md)
+records the authenticated four-way A/B/C/D cells, precision checks, QR and LAPACK
+interventions. Current run 41870669468 has 48/48 passing current records and
+**23/32 failing recovery-ratio records**, distinct from the older 24/32 result.
+Independent full-residual Decimal evaluation reproduces all 32 ratios within
+1e-75. Augmented condition numbers are about 1.947; every captured solve terminates
+successfully at a feasible unconstrained optimum without iteration. The small
+recovery denominator amplifies last-bit input/current differences. A unique
+OS/interpreter/BLAS/CPU operation defect is not established. No numerical
+production correction meets the stated evidence criteria, so none was applied.
+
+Reproduction uses the existing Python environment outside the filesystem
+sandbox where necessary:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/provision_original_archives.py --verify-only --report results/ci/new-audit/originals.json
+.\.venv\Scripts\python.exe -m pytest -q --junitxml=results/ci/new-audit/regression.xml
+.\.venv\Scripts\python.exe -m stellarator_robust.cli validate
+.\.venv\Scripts\python.exe scripts/verify_phase2d_step33_workflow.py .github/workflows/phase2d-step33-causal.yml --host-preflight
+```
+
+Omit `--verify-only` only when authenticated retrieval is needed; CI supplies
+its read-only token. Always use fresh report/output paths. The machine-readable
+record includes the exact frozen commands and independent analysis source,
+with a rejected cross-platform invocation retained rather than presented as PASS.
+
+Research demonstration: COMPLETE WITH DOCUMENTED LIMITATIONS
+
+Full scientific acceptance: NOT ESTABLISHED
+
+Production acceptance: FAIL
+
+Remaining acceptance blockers include executed recovery-ratio disagreement,
+unisolated upstream causality, incomplete full scientific/engineering validation,
+the complete README checkpoint not newly executed, independent review and the
+historical clean-clone navigation/retention limitations. Hosted verification of
+the corrected provisioning requires observing actual results after publication
+of this correction; successful local tests alone do not establish hosted success.

@@ -1,6 +1,7 @@
 """Archive rejection and conservative scientific status regression coverage."""
 import importlib.util
 import json
+import os
 from pathlib import Path
 import stat
 import zipfile
@@ -11,7 +12,10 @@ ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('step50', ROOT/'scripts/phase2d_step50_reproduction.py')
 s = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(s)
-EVIDENCE = ROOT/'results/phase2d/step49-original-archives-20261102-120255-a1314650'
+# CI provisions authenticated originals explicitly. Source-copy verifiers retain
+# the same absolute root; absence/corruption still fails rather than skipping.
+EVIDENCE = Path(os.environ.get('STELLARATOR_ORIGINAL_ARCHIVES',
+    ROOT/'results/phase2d/step49-original-archives-20261102-120255-a1314650'))
 
 
 def make(tmp_path, names=None):
@@ -47,7 +51,9 @@ def make(tmp_path, names=None):
 
 
 def test_all_71_original_archives():
-    manifest = s.decode((EVIDENCE/'manifest.json').read_bytes())
+    raw_manifest = (EVIDENCE/'manifest.json').read_bytes()
+    assert s.digest(raw_manifest) == '4ca1db2a783f2d62295e5ec2ef623b434a03c1b5a2a485f728c0f67df3d4a26e'
+    manifest = s.decode(raw_manifest)
     artifacts = [a for r in manifest['runs'] for a in r['artifacts']]
     assert len(artifacts) == 71
     assert len({a['id'] for a in artifacts}) == 71

@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 env:
   # Keep raw source fingerprints identical on hosted Windows/Linux checkouts.
   GIT_CONFIG_COUNT: '2'
@@ -77,10 +78,12 @@ jobs:
           retention-days: 90
       - uses: actions/download-artifact@v4
         with: {name: upstream-sealed, path: results/ci/upstream-sealed}
+      - uses: ./.github/actions/provision-original-archives
       - run: python -m pytest -q
       - run: python -m stellarator_robust.cli validate
       - run: python scripts/phase2d_upstream.py run --input results/ci/upstream-sealed/inputs.json --input-sha256 ${{ needs.seal.outputs.digest }} --output results/ci/upstream-worker
       # Full production remains a separate required gate; diagnostic agreement cannot replace it.
+      - uses: ./.github/actions/provision-original-archives
       - run: python scripts/phase2c_verify.py --output results/ci/upstream-production
         if: always()
       - run: python scripts/phase2c_fault_audit.py --root results/ci/upstream-production

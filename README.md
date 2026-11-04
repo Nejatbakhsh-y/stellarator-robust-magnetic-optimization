@@ -9,6 +9,7 @@ From this checkout in Windows PowerShell, using the existing environment:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -e '.[dev]'
+.\.venv\Scripts\python.exe scripts/provision_original_archives.py --report results/ci/original-archive-provision.json
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe -m stellarator_robust.cli validate
 .\.venv\Scripts\python.exe -m stellarator_robust.cli run --config configs/quick.json --output results/quick
@@ -20,6 +21,17 @@ From this checkout in Windows PowerShell, using the existing environment:
 ```
 
 On other platforms use the environment's `python` executable. Tested dependency versions are recorded in `requirements-tested.txt`; install those first for the tested environment. JSON configuration avoids a YAML dependency. `configs/research.json` is an opt-in larger study, whose completion status is tracked separately.
+
+The regression suite includes authenticated historical archive checks. On a clean
+checkout the provisioner retrieves the exact 71 original GitHub artifact ZIPs
+using `GITHUB_TOKEN` with Actions read access, a versioned original manifest and
+unchanged SHA256 pins. Valid existing originals can be checked offline. Missing,
+expired, conflicting or corrupt evidence remains a hard failure; new experiment
+outputs never substitute for historical inputs. CI provisions this collection
+explicitly and passes its absolute root through `STELLARATOR_ORIGINAL_ARCHIVES`
+to isolated source-copy checks. Use a fresh `--report` path for each invocation.
+See [release readiness](docs/FINAL_RELEASE_READINESS.md) for availability and
+scientific limits; successful provisioning is not scientific acceptance.
 
 See [methods](docs/SCIENTIFIC_METHODS.md), [source verification](docs/SOURCE_VERIFICATION.md), [validation](docs/VALIDATION_REPORT.md), [results](docs/RESEARCH_REPORT.md), and [limitations](docs/LIMITATIONS.md). Figures and unrounded data are in `results/quick/`. The CLI validation subcommand checks analytical loop convergence; the full validation gate also requires pytest and the quick experiment/output checks.
 

@@ -125,7 +125,8 @@ def test_hosted_validation_workflow_contract():
     yaml = pytest.importorskip('yaml', reason='Hosted pinned setup includes PyYAML')
     # BaseLoader preserves the GitHub key "on" rather than YAML 1.1 boolean conversion.
     doc = yaml.load(Path('.github/workflows/phase2d-upstream-attribution.yml').read_text(), Loader=yaml.BaseLoader)
-    assert doc['permissions'] == {'contents': 'read'}
+    # Historical artifact retrieval needs Actions read, with no write grants.
+    assert doc['permissions'] == {'contents': 'read', 'actions': 'read'}
     assert 'pull_request_target' not in doc['on']
     assert doc['on']['pull_request']['branches'] == ['codex/phase2d-cross-platform-reproducibility']
     workers = doc['jobs']['workers']
