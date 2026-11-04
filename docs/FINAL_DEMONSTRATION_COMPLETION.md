@@ -1,5 +1,15 @@
 # Final Demonstration Completion
 
+Finalization update, 4 November 2026: demonstration completion remains
+COMPLETE WITH DOCUMENTED LIMITATIONS. The dated execution and staging failures
+below are historical observations, not the current environment diagnosis or
+latest regression result. Subsequent preserved verification passed 973 tests
+with two warnings; their log and JUnit hashes were rechecked during finalization.
+Current PR #7 is draft, open and unmerged, has no submitted reviews and has
+three failed observed PR workflows. Default-branch integration and release
+publication remain blocked. See [current release readiness](FINAL_RELEASE_READINESS.md)
+for exact observations. No new numerical checkpoint is claimed.
+
 3 November 2026 | Final documentation and presentation task
 
 | Deliverable or disposition | Final status |

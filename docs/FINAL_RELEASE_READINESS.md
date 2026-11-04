@@ -1,5 +1,75 @@
 # Final research-demonstration release readiness
 
+## Finalization observation: 4 November 2026
+
+Reviewed HEAD: `a5386296e0456951c77bb055f0183c1a29dee9e2`, on
+`codex/phase2d-upstream-attribution`; the working tree was initially clean.
+Research demonstration: COMPLETE WITH DOCUMENTED LIMITATIONS. Full scientific
+acceptance: NOT ESTABLISHED. Production acceptance: FAIL.
+
+Lightweight read-only verification found 111 relative Markdown destinations
+across README, report, presentation, portfolio, completion record, readiness and
+release notes; none was missing locally. The report has 16 numbered sections
+and the presentation has 10 slides. Historical clean-clone evidence limitations
+below remain. The original quick result SHA256 remains
+`83162de245bfa5f64fad773f0c8212ccb04d2ae8af8287c03589fd8ee8374889`.
+The preserved final regression log and JUnit SHA256 values match the records
+below; JUnit reports 973 tests, zero failures, errors or skips. No numerical
+research, regression rerun or new verified scientific checkpoint was performed.
+
+Live connected GitHub reads confirm PR #7 is open, draft and unmerged, with
+no submitted reviews. Its actual base remains
+`codex/phase2d-cross-platform-reproducibility` at
+`ecad1a2db55e91dfab9fdc63114b4cc4c3af9fb7`. All three observed PR-triggered
+workflows at the reviewed HEAD completed with failure: scientific-validation
+41882097180, STEP 33 41882097002 and upstream attribution 41882097064.
+Scientific-validation's validate job failed at original-archive provisioning;
+pytest, analytical validation, quick experiment, output checks and independent
+audit were skipped. The underlying provisioning error was not diagnosed in
+this finalization. Empty legacy commit statuses do not establish CI success.
+
+The default branch is `main`, still at initial commit
+`d711580800820b3b38bcd7006994c58b4665226c`; demonstration integration is absent.
+Rulesets returned an empty collection, but the actual base's branch-protection
+detail returned HTTP 403, Resource not accessible by integration. Mandatory
+settings cannot be fully verified. No independent approval exists. These
+unsatisfied gates prevent merging; mergeability alone does not authorize it.
+
+The intended tag and release `research-demonstration-v1.0` both returned
+HTTP 404. Neither was created. Release publication remains blocked by failed
+CI, absent independent review, unverified protection requirements and absent
+default-branch integration. The qualified release notes are preserved.
+Direct Git remote access failed to connect to github.com:443; connected
+read access succeeded. GitHub CLI configuration was neither inspected nor used.
+Publication mutations and final local Git outcomes are reported separately;
+this entry does not assert a successful commit, push or remote PR update.
+
+Final local publication outcome: `git add` for the three finalization documents
+failed with Permission denied creating `.git/index.lock`. No staging or commit
+was completed; HEAD remains the reviewed source SHA above. Push is blocked by
+that failure and the observed direct Git network failure. The authorized
+connected PR-description update was rejected with: "MCP tool call requires
+approval, but approval policy is never". It did not update PR #7. No alternate
+write path or permission bypass was attempted. The three documentation changes
+remain unstaged and pass `git diff --check`.
+
+For an authorized ordinary PowerShell session, the prepared local changes can
+be reviewed and published with the following commands; these are unexecuted
+handoff commands, not evidence of publication:
+
+```powershell
+git diff --check
+git diff -- docs/FINAL_RELEASE_READINESS.md docs/FINAL_DEMONSTRATION_COMPLETION.md docs/FINAL_RESEARCH_RELEASE_NOTES.md
+git add -- docs/FINAL_RELEASE_READINESS.md docs/FINAL_DEMONSTRATION_COMPLETION.md docs/FINAL_RESEARCH_RELEASE_NOTES.md
+git diff --cached --check
+git diff --cached --stat
+git commit -m "Record research demonstration finalization and publication blockers"
+git push origin HEAD:codex/phase2d-upstream-attribution
+```
+
+These commands do not merge, retarget or publish a release, and must stop on
+any failure. No further numerical research phase is introduced.
+
 Observed 4 November 2026. Reviewed research source: `f1c3309b9c8887a29c6be22f2de4caa575f4c732`. This publication audit does not establish a new verified numerical checkpoint.
 
 Research demonstration: COMPLETE WITH DOCUMENTED LIMITATIONS

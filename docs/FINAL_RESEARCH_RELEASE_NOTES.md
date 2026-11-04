@@ -1,4 +1,11 @@
-# Planar-Coil Magnetic-Field Research Demonstration — Completed with Documented Limitations
+# Robust Optimization and Independent Validation of Stellarator Planar-Coil Magnetic-Field Models ? Research Demonstration
+
+Finalization status, 4 November 2026: UNPUBLISHED. Intended tag:
+`research-demonstration-v1.0`. Live checks at source commit `a538629` show
+three failed PR workflows, a draft PR with no submitted reviews, inaccessible
+base-branch protection details and no integration into `main`. Both the intended
+tag and release returned HTTP 404. No tag or release was created. The 973-test
+result below remains historical local evidence, not current CI success.
 
 Prepared release-note draft; unpublished. Reviewed source: `f1c3309b9c8887a29c6be22f2de4caa575f4c732`. Intended tag: `research-demonstration-v1.0`. No tag has been created, overwritten or moved. Publish only after PR merge and default-branch verification, with all specified checks and reviews satisfied.
 
