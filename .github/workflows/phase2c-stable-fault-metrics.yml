@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: phase2c-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -46,6 +47,7 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]' numpy==${{ matrix.numpy }} scipy==${{ matrix.scipy }} matplotlib==3.11.2 pytest==9.2.0
       - run: python -c "import numpy, scipy; assert numpy.__version__ == '${{ matrix.numpy }}'; assert scipy.__version__ == '${{ matrix.scipy }}'"
+      - uses: ./.github/actions/provision-original-archives
       - run: python scripts/phase2c_verify.py --output results/ci/phase2c-run
         timeout-minutes: 135
       - run: python scripts/phase2c_fault_audit.py --root results/ci/phase2c-run

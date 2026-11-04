@@ -1,0 +1,632 @@
+{
+  "schema": "step49-original-archive-recovery-v1",
+  "repository": "Nejatbakhsh-y/stellarator-robust-magnetic-optimization",
+  "expected_run_head": "4177d52f1ac68f869147c2e3e02e1f8b876546d0",
+  "historical_merge": "8d87244eb07b7ff6e811596728441aee8b2fd618",
+  "source_commits": [
+    {
+      "commit": "4177d52f1ac68f869147c2e3e02e1f8b876546d0",
+      "parents": [
+        "3eabd1a98dad81493e664929890ba0effdd97a05"
+      ],
+      "tree_sha": "bf827d94f8a1828b79019aed2679c2d720461ef6",
+      "workflow_blob_sha": "5b1e1438f8089aac35ddc421a57f151fb2ec5183",
+      "workflow_sha256": "21703ab6edc3f69ac9108531d92fb467f2b05fbe96ca5bb713fe61be91eed7ff"
+    },
+    {
+      "commit": "8d87244eb07b7ff6e811596728441aee8b2fd618",
+      "parents": [
+        "ecad1a2db55e91dfab9fdc63114b4cc4c3af9fb7",
+        "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+      ],
+      "tree_sha": "bf827d94f8a1828b79019aed2679c2d720461ef6",
+      "workflow_blob_sha": "5b1e1438f8089aac35ddc421a57f151fb2ec5183",
+      "workflow_sha256": "21703ab6edc3f69ac9108531d92fb467f2b05fbe96ca5bb713fe61be91eed7ff"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": 41465448215,
+      "source_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0",
+      "workflow": "Phase 2D STEP 32 controlled causal attribution",
+      "conclusion": "failure",
+      "artifacts": [
+        {
+          "id": 13154085391,
+          "name": "step32-comparison-41465448215-1",
+          "github_sha256": "sha256:0b81f8761e781a50ad2907c7b4f08b5da5fe30a9de1280b5380ee1b5aa4d4893",
+          "verified_sha256": "0b81f8761e781a50ad2907c7b4f08b5da5fe30a9de1280b5380ee1b5aa4d4893",
+          "zip_entries": 16,
+          "file": "41465448215/artifact-13154085391.zip"
+        },
+        {
+          "id": 13153455263,
+          "name": "step32-replay-dependencies-linux-reference-41465448215-1",
+          "github_sha256": "sha256:fe2f690287633adb63bb083cedfe4d35cb5e254ab084b6d3f388f40c8ad60760",
+          "verified_sha256": "fe2f690287633adb63bb083cedfe4d35cb5e254ab084b6d3f388f40c8ad60760",
+          "zip_entries": 9,
+          "file": "41465448215/artifact-13153455263.zip"
+        },
+        {
+          "id": 13153300612,
+          "name": "step32-replay-linux-reference-41465448215-1",
+          "github_sha256": "sha256:514a12a09dbf4336b96d4c3ab37c65953c9d6aec35afdeebdfe8a5073fc2d521",
+          "verified_sha256": "514a12a09dbf4336b96d4c3ab37c65953c9d6aec35afdeebdfe8a5073fc2d521",
+          "zip_entries": 27,
+          "file": "41465448215/artifact-13153300612.zip"
+        },
+        {
+          "id": 13153290408,
+          "name": "step32-capture-dependencies-windows-reference-41465448215-1",
+          "github_sha256": "sha256:6792529d31ffe779652ca2a98bb8e1a1866e73d29914d0821b9c97f68bb7183a",
+          "verified_sha256": "6792529d31ffe779652ca2a98bb8e1a1866e73d29914d0821b9c97f68bb7183a",
+          "zip_entries": 9,
+          "file": "41465448215/artifact-13153290408.zip"
+        },
+        {
+          "id": 13153175380,
+          "name": "step32-capture-linux-scipy-sensitivity-41465448215-1",
+          "github_sha256": "sha256:82d754aacfbad6ba1884f039a81d421e00987819f1c5dccb2e5b959d5d419340",
+          "verified_sha256": "82d754aacfbad6ba1884f039a81d421e00987819f1c5dccb2e5b959d5d419340",
+          "zip_entries": 11,
+          "file": "41465448215/artifact-13153175380.zip"
+        },
+        {
+          "id": 13153105709,
+          "name": "step32-replay-dependencies-linux-numpy-sensitivity-41465448215-1",
+          "github_sha256": "sha256:24c1bd9e625b9f1c3df90bf9dbfe20fdb5b80e9fb767bd8936417e609c812830",
+          "verified_sha256": "24c1bd9e625b9f1c3df90bf9dbfe20fdb5b80e9fb767bd8936417e609c812830",
+          "zip_entries": 9,
+          "file": "41465448215/artifact-13153105709.zip"
+        },
+        {
+          "id": 13153100498,
+          "name": "step32-capture-dependencies-linux-reference-41465448215-1",
+          "github_sha256": "sha256:d69ba3241b880c5176e16d2bd0112339236321bf8445cb179de644c07b3ea92b",
+          "verified_sha256": "d69ba3241b880c5176e16d2bd0112339236321bf8445cb179de644c07b3ea92b",
+          "zip_entries": 9,
+          "file": "41465448215/artifact-13153100498.zip"
+        },
+        {
+          "id": 13153060601,
+          "name": "step32-capture-windows-reference-41465448215-1",
+          "github_sha256": "sha256:df36f3701dad1bf25e3637745142557c0d7fdbd3a0adbc5c33d50e4e56a9ed42",
+          "verified_sha256": "df36f3701dad1bf25e3637745142557c0d7fdbd3a0adbc5c33d50e4e56a9ed42",
+          "zip_entries": 11,
+          "file": "41465448215/artifact-13153060601.zip"
+        },
+        {
+          "id": 13153050729,
+          "name": "step32-replay-linux-numpy-sensitivity-41465448215-1",
+          "github_sha256": "sha256:d78b0f57055aac7097a31bb684c89f86afa01c4213e569f6f747cfb4d785a3d9",
+          "verified_sha256": "d78b0f57055aac7097a31bb684c89f86afa01c4213e569f6f747cfb4d785a3d9",
+          "zip_entries": 27,
+          "file": "41465448215/artifact-13153050729.zip"
+        },
+        {
+          "id": 13152995562,
+          "name": "step32-capture-linux-reference-41465448215-1",
+          "github_sha256": "sha256:11862ec34ccf8ec99fb28c11e79acd2e374221683686c6fd7d43bf12904b53ea",
+          "verified_sha256": "11862ec34ccf8ec99fb28c11e79acd2e374221683686c6fd7d43bf12904b53ea",
+          "zip_entries": 11,
+          "file": "41465448215/artifact-13152995562.zip"
+        },
+        {
+          "id": 13152970582,
+          "name": "step32-capture-dependencies-linux-scipy-sensitivity-41465448215-1",
+          "github_sha256": "sha256:43205c0c53cf85f26f602a110c9f4ca334c3c809f625aa89abf5790d0208e8da",
+          "verified_sha256": "43205c0c53cf85f26f602a110c9f4ca334c3c809f625aa89abf5790d0208e8da",
+          "zip_entries": 9,
+          "file": "41465448215/artifact-13152970582.zip"
+        },
+        {
+          "id": 13152020521,
+          "name": "step32-capture-linux-numpy-sensitivity-41465448215-1",
+          "github_sha256": "sha256:517e96d915e76dd1b44021dcb60fe38c13816ad0c24bb55d9cfdfc48546ed0b2",
+          "verified_sha256": "517e96d915e76dd1b44021dcb60fe38c13816ad0c24bb55d9cfdfc48546ed0b2",
+          "zip_entries": 11,
+          "file": "41465448215/artifact-13152020521.zip"
+        },
+        {
+          "id": 13151756000,
+          "name": "step32-replay-windows-reference-41465448215-1",
+          "github_sha256": "sha256:44a5697778271a322a40c72cfafec5576cb57038a7eb7d5a91a9e63a4619b09e",
+          "verified_sha256": "44a5697778271a322a40c72cfafec5576cb57038a7eb7d5a91a9e63a4619b09e",
+          "zip_entries": 27,
+          "file": "41465448215/artifact-13151756000.zip"
+        },
+        {
+          "id": 13151447642,
+          "name": "step32-replay-dependencies-windows-reference-41465448215-1",
+          "github_sha256": "sha256:22c8cd8de8943c348f585dbedc081e1b50f3ce35e617e5f9068a7bdc3f545180",
+          "verified_sha256": "22c8cd8de8943c348f585dbedc081e1b50f3ce35e617e5f9068a7bdc3f545180",
+          "zip_entries": 9,
+          "file": "41465448215/artifact-13151447642.zip"
+        },
+        {
+          "id": 13149824685,
+          "name": "step32-replay-linux-scipy-sensitivity-41465448215-1",
+          "github_sha256": "sha256:70b16cc02d5134f8fe35a81dcc4dcadcc19862e0af812fd8f45e422e69cf4528",
+          "verified_sha256": "70b16cc02d5134f8fe35a81dcc4dcadcc19862e0af812fd8f45e422e69cf4528",
+          "zip_entries": 27,
+          "file": "41465448215/artifact-13149824685.zip"
+        },
+        {
+          "id": 13149659999,
+          "name": "step32-replay-dependencies-linux-scipy-sensitivity-41465448215-1",
+          "github_sha256": "sha256:68f5ae55ff58989cc511b4ce038e1ebaeed007287aecabd21deff542ed14b4d3",
+          "verified_sha256": "68f5ae55ff58989cc511b4ce038e1ebaeed007287aecabd21deff542ed14b4d3",
+          "zip_entries": 9,
+          "file": "41465448215/artifact-13149659999.zip"
+        },
+        {
+          "id": 13149604920,
+          "name": "step32-capture-dependencies-linux-numpy-sensitivity-41465448215-1",
+          "github_sha256": "sha256:d3d2b1f386951c882103abf8f6e18aea18c16f3df83389e6398751ce8244520d",
+          "verified_sha256": "d3d2b1f386951c882103abf8f6e18aea18c16f3df83389e6398751ce8244520d",
+          "zip_entries": 9,
+          "file": "41465448215/artifact-13149604920.zip"
+        }
+      ]
+    },
+    {
+      "run_id": 41465448226,
+      "source_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0",
+      "workflow": "Phase 2D STEP 33 controlled causal attribution",
+      "conclusion": "failure",
+      "artifacts": [
+        {
+          "id": 13153310646,
+          "name": "step33-replay-dependencies-linux-reference-41465448226-1",
+          "github_sha256": "sha256:6cf05ab14ce8a956c8bb20a7c55e9f91e1f662f149a64a40c0c343e41d165729",
+          "verified_sha256": "6cf05ab14ce8a956c8bb20a7c55e9f91e1f662f149a64a40c0c343e41d165729",
+          "zip_entries": 9,
+          "file": "41465448226/artifact-13153310646.zip"
+        },
+        {
+          "id": 13153200761,
+          "name": "step33-replay-linux-reference-41465448226-1",
+          "github_sha256": "sha256:c789ee9db60e1bc1508ea4a045b5b9a1980a222f006ce8c930f8ead6715a3deb",
+          "verified_sha256": "c789ee9db60e1bc1508ea4a045b5b9a1980a222f006ce8c930f8ead6715a3deb",
+          "zip_entries": 27,
+          "file": "41465448226/artifact-13153200761.zip"
+        },
+        {
+          "id": 13153141194,
+          "name": "step33-comparison-41465448226-1",
+          "github_sha256": "sha256:9822f812bf375e3b819387d1292a432ff086dff389eaf2495e6439d0014d3ead",
+          "verified_sha256": "9822f812bf375e3b819387d1292a432ff086dff389eaf2495e6439d0014d3ead",
+          "zip_entries": 16,
+          "file": "41465448226/artifact-13153141194.zip"
+        },
+        {
+          "id": 13152425063,
+          "name": "step33-replay-dependencies-linux-scipy-sensitivity-41465448226-1",
+          "github_sha256": "sha256:c146f258ef59a2d2f985e463c9e50ccb38828175192878802cf8ca33a66720a8",
+          "verified_sha256": "c146f258ef59a2d2f985e463c9e50ccb38828175192878802cf8ca33a66720a8",
+          "zip_entries": 9,
+          "file": "41465448226/artifact-13152425063.zip"
+        },
+        {
+          "id": 13151985089,
+          "name": "step33-capture-dependencies-linux-numpy-sensitivity-41465448226-1",
+          "github_sha256": "sha256:24379f9186a065d49b2803e7b65d8dcc58d0238596709b26adb1432c95354600",
+          "verified_sha256": "24379f9186a065d49b2803e7b65d8dcc58d0238596709b26adb1432c95354600",
+          "zip_entries": 9,
+          "file": "41465448226/artifact-13151985089.zip"
+        },
+        {
+          "id": 13151745823,
+          "name": "step33-capture-linux-scipy-sensitivity-41465448226-1",
+          "github_sha256": "sha256:572f70a996c521de17875d4e5797bd82429281cf962c889a8bbb17881b2880f7",
+          "verified_sha256": "572f70a996c521de17875d4e5797bd82429281cf962c889a8bbb17881b2880f7",
+          "zip_entries": 11,
+          "file": "41465448226/artifact-13151745823.zip"
+        },
+        {
+          "id": 13151591012,
+          "name": "step33-capture-dependencies-linux-scipy-sensitivity-41465448226-1",
+          "github_sha256": "sha256:23a2024f448429878611d2136a2815ab4ff05cfa2c0866ea343534ec4d8ce940",
+          "verified_sha256": "23a2024f448429878611d2136a2815ab4ff05cfa2c0866ea343534ec4d8ce940",
+          "zip_entries": 9,
+          "file": "41465448226/artifact-13151591012.zip"
+        },
+        {
+          "id": 13151556273,
+          "name": "step33-capture-dependencies-windows-reference-41465448226-1",
+          "github_sha256": "sha256:fb8cd79e7dd6a8545f14f0123f7016f67741ccd289154f0003ec137da2186abf",
+          "verified_sha256": "fb8cd79e7dd6a8545f14f0123f7016f67741ccd289154f0003ec137da2186abf",
+          "zip_entries": 9,
+          "file": "41465448226/artifact-13151556273.zip"
+        },
+        {
+          "id": 13151522085,
+          "name": "step33-replay-dependencies-linux-numpy-sensitivity-41465448226-1",
+          "github_sha256": "sha256:c10aa96d238d11cc653395b2990a0eebf7029d33406c5762b11bb2cf04c869d2",
+          "verified_sha256": "c10aa96d238d11cc653395b2990a0eebf7029d33406c5762b11bb2cf04c869d2",
+          "zip_entries": 9,
+          "file": "41465448226/artifact-13151522085.zip"
+        },
+        {
+          "id": 13151465925,
+          "name": "step33-replay-linux-numpy-sensitivity-41465448226-1",
+          "github_sha256": "sha256:26b790911761232df75b772aac772c2358b7dcb3224f2d5d058ecdcca4a7b2a4",
+          "verified_sha256": "26b790911761232df75b772aac772c2358b7dcb3224f2d5d058ecdcca4a7b2a4",
+          "zip_entries": 27,
+          "file": "41465448226/artifact-13151465925.zip"
+        },
+        {
+          "id": 13151452195,
+          "name": "step33-replay-dependencies-windows-reference-41465448226-1",
+          "github_sha256": "sha256:a05b987da9209da16dad12cc670587d88d8ffad9457d9798c63dbe73faa9c036",
+          "verified_sha256": "a05b987da9209da16dad12cc670587d88d8ffad9457d9798c63dbe73faa9c036",
+          "zip_entries": 9,
+          "file": "41465448226/artifact-13151452195.zip"
+        },
+        {
+          "id": 13151272044,
+          "name": "step33-replay-windows-reference-41465448226-1",
+          "github_sha256": "sha256:964b6d30eda94cc7a57dec57d1533a565401e80bc8750a4c1132ab04660a944b",
+          "verified_sha256": "964b6d30eda94cc7a57dec57d1533a565401e80bc8750a4c1132ab04660a944b",
+          "zip_entries": 27,
+          "file": "41465448226/artifact-13151272044.zip"
+        },
+        {
+          "id": 13151171808,
+          "name": "step33-capture-dependencies-linux-reference-41465448226-1",
+          "github_sha256": "sha256:21508c759c105780d1d7b836dd346abb5c5d212350f58c60d5ac070feeb335fd",
+          "verified_sha256": "21508c759c105780d1d7b836dd346abb5c5d212350f58c60d5ac070feeb335fd",
+          "zip_entries": 9,
+          "file": "41465448226/artifact-13151171808.zip"
+        },
+        {
+          "id": 13151051541,
+          "name": "step33-capture-linux-numpy-sensitivity-41465448226-1",
+          "github_sha256": "sha256:3ef0f57d4771dc5a30018ed46d1b4a178ef58e4e0615648f070416d080c25118",
+          "verified_sha256": "3ef0f57d4771dc5a30018ed46d1b4a178ef58e4e0615648f070416d080c25118",
+          "zip_entries": 11,
+          "file": "41465448226/artifact-13151051541.zip"
+        },
+        {
+          "id": 13150484964,
+          "name": "step33-capture-linux-reference-41465448226-1",
+          "github_sha256": "sha256:c96d8c6b9c24dd6f23f925d9acd60fce5a6b0b8a7057052097c157e59af5957d",
+          "verified_sha256": "c96d8c6b9c24dd6f23f925d9acd60fce5a6b0b8a7057052097c157e59af5957d",
+          "zip_entries": 11,
+          "file": "41465448226/artifact-13150484964.zip"
+        },
+        {
+          "id": 13149894692,
+          "name": "step33-replay-linux-scipy-sensitivity-41465448226-1",
+          "github_sha256": "sha256:ffcda4fdd2dcfdadc7285745819299af9d8649d04a11e00676f190d0f884c2e4",
+          "verified_sha256": "ffcda4fdd2dcfdadc7285745819299af9d8649d04a11e00676f190d0f884c2e4",
+          "zip_entries": 27,
+          "file": "41465448226/artifact-13149894692.zip"
+        },
+        {
+          "id": 13149559818,
+          "name": "step33-capture-windows-reference-41465448226-1",
+          "github_sha256": "sha256:2ef0105eb0ff7a58077ead6132b93bee306cd1f0e3d3712e2ab17c46d4f06d2b",
+          "verified_sha256": "2ef0105eb0ff7a58077ead6132b93bee306cd1f0e3d3712e2ab17c46d4f06d2b",
+          "zip_entries": 11,
+          "file": "41465448226/artifact-13149559818.zip"
+        }
+      ]
+    },
+    {
+      "run_id": 41465448239,
+      "source_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0",
+      "workflow": "Phase 2D STEP 45 independent causal validation",
+      "conclusion": "failure",
+      "artifacts": [
+        {
+          "id": 13153285610,
+          "name": "step45-diagnostics-linux-scipy-sensitivity-41465448239-1",
+          "github_sha256": "sha256:051d8c4f4cca553cedffdb064ed18230c5b05893c11cf77d9987fabd62df1281",
+          "verified_sha256": "051d8c4f4cca553cedffdb064ed18230c5b05893c11cf77d9987fabd62df1281",
+          "zip_entries": 17,
+          "file": "41465448239/artifact-13153285610.zip"
+        },
+        {
+          "id": 13153215648,
+          "name": "step45-worker-linux-reference-41465448239-1",
+          "github_sha256": "sha256:472d30beeba9d763b60e7812dbbaf2727a90595dc2a060d11601976e6d4d03f3",
+          "verified_sha256": "472d30beeba9d763b60e7812dbbaf2727a90595dc2a060d11601976e6d4d03f3",
+          "zip_entries": 8,
+          "file": "41465448239/artifact-13153215648.zip"
+        },
+        {
+          "id": 13152845939,
+          "name": "step45-worker-linux-scipy-sensitivity-41465448239-1",
+          "github_sha256": "sha256:1573d16039b91f3d47cec05b51fe5056523fb303d23e830e8f082c0133923cd4",
+          "verified_sha256": "1573d16039b91f3d47cec05b51fe5056523fb303d23e830e8f082c0133923cd4",
+          "zip_entries": 8,
+          "file": "41465448239/artifact-13152845939.zip"
+        },
+        {
+          "id": 13152395332,
+          "name": "step45-worker-windows-reference-41465448239-1",
+          "github_sha256": "sha256:d881344cc044281e8eac1d3fd0b737ba3c55f2197170e6b7edb007f6dbfdfc86",
+          "verified_sha256": "d881344cc044281e8eac1d3fd0b737ba3c55f2197170e6b7edb007f6dbfdfc86",
+          "zip_entries": 8,
+          "file": "41465448239/artifact-13152395332.zip"
+        },
+        {
+          "id": 13152155646,
+          "name": "step45-worker-linux-numpy-sensitivity-41465448239-1",
+          "github_sha256": "sha256:3531381131ea2e923f478b39be0bd0ac3c7a8ce0a71545c08c5a8e8037bcf0c9",
+          "verified_sha256": "3531381131ea2e923f478b39be0bd0ac3c7a8ce0a71545c08c5a8e8037bcf0c9",
+          "zip_entries": 8,
+          "file": "41465448239/artifact-13152155646.zip"
+        },
+        {
+          "id": 13152030604,
+          "name": "step45-capture-dependencies-windows-reference-41465448239-1",
+          "github_sha256": "sha256:a6951e391a8c1d82bf080a4d28a695f409bccce3908dc5e96aa6e2619055cc23",
+          "verified_sha256": "a6951e391a8c1d82bf080a4d28a695f409bccce3908dc5e96aa6e2619055cc23",
+          "zip_entries": 9,
+          "file": "41465448239/artifact-13152030604.zip"
+        },
+        {
+          "id": 13151680828,
+          "name": "step45-diagnostics-windows-reference-41465448239-1",
+          "github_sha256": "sha256:9002641fcbf2f772fd314d2f8e04decf41dcdee6cbd9a50fe84869c6c192b74c",
+          "verified_sha256": "9002641fcbf2f772fd314d2f8e04decf41dcdee6cbd9a50fe84869c6c192b74c",
+          "zip_entries": 17,
+          "file": "41465448239/artifact-13151680828.zip"
+        },
+        {
+          "id": 13151590849,
+          "name": "step45-capture-linux-reference-41465448239-1",
+          "github_sha256": "sha256:7add4e5e7946e420c8c7de6c9c5f88ad17308df558e3bc985fb837b3830cdbc7",
+          "verified_sha256": "7add4e5e7946e420c8c7de6c9c5f88ad17308df558e3bc985fb837b3830cdbc7",
+          "zip_entries": 11,
+          "file": "41465448239/artifact-13151590849.zip"
+        },
+        {
+          "id": 13151361335,
+          "name": "step45-capture-dependencies-linux-numpy-sensitivity-41465448239-1",
+          "github_sha256": "sha256:cbb8176045354c9c6ce551a0c1ece5478696b49a15f41a94fb7f4801bb2bd556",
+          "verified_sha256": "cbb8176045354c9c6ce551a0c1ece5478696b49a15f41a94fb7f4801bb2bd556",
+          "zip_entries": 9,
+          "file": "41465448239/artifact-13151361335.zip"
+        },
+        {
+          "id": 13151296397,
+          "name": "step45-capture-linux-scipy-sensitivity-41465448239-1",
+          "github_sha256": "sha256:dec944f469e638a2af880ce9fbd5cbfcf5c15556c5ef01de735c58094501cc19",
+          "verified_sha256": "dec944f469e638a2af880ce9fbd5cbfcf5c15556c5ef01de735c58094501cc19",
+          "zip_entries": 11,
+          "file": "41465448239/artifact-13151296397.zip"
+        },
+        {
+          "id": 13151172544,
+          "name": "step45-diagnostics-linux-numpy-sensitivity-41465448239-1",
+          "github_sha256": "sha256:aeede1f4f0eaa9fd165b915cdd8f3f94d2b81139ac27f28e854103db8facd25a",
+          "verified_sha256": "aeede1f4f0eaa9fd165b915cdd8f3f94d2b81139ac27f28e854103db8facd25a",
+          "zip_entries": 17,
+          "file": "41465448239/artifact-13151172544.zip"
+        },
+        {
+          "id": 13151117206,
+          "name": "step45-comparison-41465448239-1",
+          "github_sha256": "sha256:ecd9c26de3f2bd137551ee991f9a36c9049b8b6c041acdc9ea20470973455656",
+          "verified_sha256": "ecd9c26de3f2bd137551ee991f9a36c9049b8b6c041acdc9ea20470973455656",
+          "zip_entries": 17,
+          "file": "41465448239/artifact-13151117206.zip"
+        },
+        {
+          "id": 13151081508,
+          "name": "step45-capture-linux-numpy-sensitivity-41465448239-1",
+          "github_sha256": "sha256:53b7ea742e4c5aabb251e53620a529d59646b7137051272a9e6acf83247f642b",
+          "verified_sha256": "53b7ea742e4c5aabb251e53620a529d59646b7137051272a9e6acf83247f642b",
+          "zip_entries": 11,
+          "file": "41465448239/artifact-13151081508.zip"
+        },
+        {
+          "id": 13151026786,
+          "name": "step45-diagnostics-linux-reference-41465448239-1",
+          "github_sha256": "sha256:271ffc402bb9c60b012c0452f2d1eaf07520a06ce3dab28cabe7bd35c2b65be4",
+          "verified_sha256": "271ffc402bb9c60b012c0452f2d1eaf07520a06ce3dab28cabe7bd35c2b65be4",
+          "zip_entries": 17,
+          "file": "41465448239/artifact-13151026786.zip"
+        },
+        {
+          "id": 13150449994,
+          "name": "step45-capture-dependencies-linux-scipy-sensitivity-41465448239-1",
+          "github_sha256": "sha256:858ba079910a2c02bf18ad785902bb66d04e11e41057b358528ee57b6bd6af73",
+          "verified_sha256": "858ba079910a2c02bf18ad785902bb66d04e11e41057b358528ee57b6bd6af73",
+          "zip_entries": 9,
+          "file": "41465448239/artifact-13150449994.zip"
+        },
+        {
+          "id": 13149674558,
+          "name": "step45-capture-dependencies-linux-reference-41465448239-1",
+          "github_sha256": "sha256:92399f14683ca29339d7a8f50875637689985b497943619357252691f7352077",
+          "verified_sha256": "92399f14683ca29339d7a8f50875637689985b497943619357252691f7352077",
+          "zip_entries": 9,
+          "file": "41465448239/artifact-13149674558.zip"
+        },
+        {
+          "id": 13149624774,
+          "name": "step45-capture-windows-reference-41465448239-1",
+          "github_sha256": "sha256:958e9b23535bed6a50b77150a92a022282a7d34dff525ce49ff854a62b21048c",
+          "verified_sha256": "958e9b23535bed6a50b77150a92a022282a7d34dff525ce49ff854a62b21048c",
+          "zip_entries": 11,
+          "file": "41465448239/artifact-13149624774.zip"
+        }
+      ]
+    },
+    {
+      "run_id": 41465460206,
+      "source_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0",
+      "workflow": "Phase 2D upstream attribution (diagnostic, PARTIAL science)",
+      "conclusion": "failure",
+      "artifacts": [
+        {
+          "id": 13155270163,
+          "name": "step42-dependencies-linux-scipy-sensitivity",
+          "github_sha256": "sha256:06b4545de3a5bbb1de420bf71d6a0d6f35a456d91a85c2af773958245469f070",
+          "verified_sha256": "06b4545de3a5bbb1de420bf71d6a0d6f35a456d91a85c2af773958245469f070",
+          "zip_entries": 9,
+          "file": "41465460206/artifact-13155270163.zip"
+        },
+        {
+          "id": 13155245206,
+          "name": "step42-dependencies-linux-numpy-sensitivity",
+          "github_sha256": "sha256:7c5d143c60412c9f326b6e77c7664ce5011c894c96f598216960f1fa14ccab81",
+          "verified_sha256": "7c5d143c60412c9f326b6e77c7664ce5011c894c96f598216960f1fa14ccab81",
+          "zip_entries": 9,
+          "file": "41465460206/artifact-13155245206.zip"
+        },
+        {
+          "id": 13155010531,
+          "name": "step42-linux-numpy-sensitivity",
+          "github_sha256": "sha256:ffe9f5d054fa367bf0f9b2fa03f3ae736ae010a040b9258a10cdc99c98e27498",
+          "verified_sha256": "ffe9f5d054fa367bf0f9b2fa03f3ae736ae010a040b9258a10cdc99c98e27498",
+          "zip_entries": 8,
+          "file": "41465460206/artifact-13155010531.zip"
+        },
+        {
+          "id": 13154712537,
+          "name": "step42-windows-reference",
+          "github_sha256": "sha256:077ae6a16aa1d7a466cc1ffcf0d9bbcb763a13edbff85e9f1552456bd1372e4d",
+          "verified_sha256": "077ae6a16aa1d7a466cc1ffcf0d9bbcb763a13edbff85e9f1552456bd1372e4d",
+          "zip_entries": 8,
+          "file": "41465460206/artifact-13154712537.zip"
+        },
+        {
+          "id": 13154627532,
+          "name": "step42-linux-scipy-sensitivity",
+          "github_sha256": "sha256:f3e7cbf201061d1180ff3cf113ff3eaf3e465c6eddb4e1a6b27d3191e32d06e3",
+          "verified_sha256": "f3e7cbf201061d1180ff3cf113ff3eaf3e465c6eddb4e1a6b27d3191e32d06e3",
+          "zip_entries": 8,
+          "file": "41465460206/artifact-13154627532.zip"
+        },
+        {
+          "id": 13154523937,
+          "name": "step42-comparison",
+          "github_sha256": "sha256:4d37ad39ba2e202192d9f167b547102dfd429e3997064a1184f67f8eee096dd5",
+          "verified_sha256": "4d37ad39ba2e202192d9f167b547102dfd429e3997064a1184f67f8eee096dd5",
+          "zip_entries": 5,
+          "file": "41465460206/artifact-13154523937.zip"
+        },
+        {
+          "id": 13154478383,
+          "name": "upstream-linux-numpy-sensitivity",
+          "github_sha256": "sha256:6430b983fd5102684554a4f02a5b361c8bd10b9a94fc2a5bce61c9fb24ff8d75",
+          "verified_sha256": "6430b983fd5102684554a4f02a5b361c8bd10b9a94fc2a5bce61c9fb24ff8d75",
+          "zip_entries": 80,
+          "file": "41465460206/artifact-13154478383.zip"
+        },
+        {
+          "id": 13154098463,
+          "name": "upstream-linux-reference",
+          "github_sha256": "sha256:ea01b1c58c0cb010a4dda15130637aa261d4979148e0e586c61b8b0cd0daa768",
+          "verified_sha256": "ea01b1c58c0cb010a4dda15130637aa261d4979148e0e586c61b8b0cd0daa768",
+          "zip_entries": 80,
+          "file": "41465460206/artifact-13154098463.zip"
+        },
+        {
+          "id": 13153673283,
+          "name": "step42-dependencies-linux-reference",
+          "github_sha256": "sha256:ce6c93759e636951d613a10144de122e322c0b9dd300648c03bb602a427dec38",
+          "verified_sha256": "ce6c93759e636951d613a10144de122e322c0b9dd300648c03bb602a427dec38",
+          "zip_entries": 9,
+          "file": "41465460206/artifact-13153673283.zip"
+        },
+        {
+          "id": 13153668429,
+          "name": "step42-dependencies-windows-reference",
+          "github_sha256": "sha256:cb2ee043d6f7b1c7f5d31705c4741efafbf46e252a818a68b913372dd15b69d5",
+          "verified_sha256": "cb2ee043d6f7b1c7f5d31705c4741efafbf46e252a818a68b913372dd15b69d5",
+          "zip_entries": 9,
+          "file": "41465460206/artifact-13153668429.zip"
+        },
+        {
+          "id": 13153602720,
+          "name": "step42-linux-reference",
+          "github_sha256": "sha256:ecb1378b4b6ef5ed4816af3072a05bc348a7f6f84ac6205f04a3819a0bfab024",
+          "verified_sha256": "ecb1378b4b6ef5ed4816af3072a05bc348a7f6f84ac6205f04a3819a0bfab024",
+          "zip_entries": 8,
+          "file": "41465460206/artifact-13153602720.zip"
+        },
+        {
+          "id": 13153493055,
+          "name": "upstream-linux-scipy-sensitivity",
+          "github_sha256": "sha256:6842361ce71aa7d07e928b45491dc3581caa8bf57c14a6855406ce1d6f62a04d",
+          "verified_sha256": "6842361ce71aa7d07e928b45491dc3581caa8bf57c14a6855406ce1d6f62a04d",
+          "zip_entries": 80,
+          "file": "41465460206/artifact-13153493055.zip"
+        },
+        {
+          "id": 13153484487,
+          "name": "upstream-comparisons",
+          "github_sha256": "sha256:8ea96a413c5e8549895871b050ac611aeb5247881e9192d34a04918f0e6c1a3e",
+          "verified_sha256": "8ea96a413c5e8549895871b050ac611aeb5247881e9192d34a04918f0e6c1a3e",
+          "zip_entries": 27,
+          "file": "41465460206/artifact-13153484487.zip"
+        },
+        {
+          "id": 13153125079,
+          "name": "upstream-sealed",
+          "github_sha256": "sha256:436bbbc64d2726c98adbfe34ed2dfd29d9305ce19a302db5bd455dd230ba93fd",
+          "verified_sha256": "436bbbc64d2726c98adbfe34ed2dfd29d9305ce19a302db5bd455dd230ba93fd",
+          "zip_entries": 5,
+          "file": "41465460206/artifact-13153125079.zip"
+        },
+        {
+          "id": 13153108449,
+          "name": "upstream-windows-reference",
+          "github_sha256": "sha256:b43d5a8a05eb77f0edc56a3c35f29504d6b1d57c018f96a7ababdfd5dabe0a7b",
+          "verified_sha256": "b43d5a8a05eb77f0edc56a3c35f29504d6b1d57c018f96a7ababdfd5dabe0a7b",
+          "zip_entries": 80,
+          "file": "41465460206/artifact-13153108449.zip"
+        },
+        {
+          "id": 13153050133,
+          "name": "dependency-seal",
+          "github_sha256": "sha256:fadbc0573c797f38a05107c79f03a0e387ce00f966259d63828dd00be27131af",
+          "verified_sha256": "fadbc0573c797f38a05107c79f03a0e387ce00f966259d63828dd00be27131af",
+          "zip_entries": 9,
+          "file": "41465460206/artifact-13153050133.zip"
+        },
+        {
+          "id": 13152940440,
+          "name": "step42-capture-linux-reference",
+          "github_sha256": "sha256:a253701f6a5d85a024b523d992278a88a57aaf0b7ccdd20f0414521e026f69ae",
+          "verified_sha256": "a253701f6a5d85a024b523d992278a88a57aaf0b7ccdd20f0414521e026f69ae",
+          "zip_entries": 11,
+          "file": "41465460206/artifact-13152940440.zip"
+        },
+        {
+          "id": 13152925627,
+          "name": "step42-capture-windows-reference",
+          "github_sha256": "sha256:2ae86a2b938078510bb85f2ac9ca4197ccae6d51f5a84cb95c72d67ddda8fd71",
+          "verified_sha256": "2ae86a2b938078510bb85f2ac9ca4197ccae6d51f5a84cb95c72d67ddda8fd71",
+          "zip_entries": 11,
+          "file": "41465460206/artifact-13152925627.zip"
+        },
+        {
+          "id": 13152900453,
+          "name": "step42-capture-linux-numpy-sensitivity",
+          "github_sha256": "sha256:b65a29343d988c34fe9a8f9d474dbffed927d067604c66b32de54f0340c0485c",
+          "verified_sha256": "b65a29343d988c34fe9a8f9d474dbffed927d067604c66b32de54f0340c0485c",
+          "zip_entries": 11,
+          "file": "41465460206/artifact-13152900453.zip"
+        },
+        {
+          "id": 13151136586,
+          "name": "step42-capture-linux-scipy-sensitivity",
+          "github_sha256": "sha256:15507d6f359bacb2e812bb6a342c09d92b70e6ca8afa08e51653791f1a476e30",
+          "verified_sha256": "15507d6f359bacb2e812bb6a342c09d92b70e6ca8afa08e51653791f1a476e30",
+          "zip_entries": 11,
+          "file": "41465460206/artifact-13151136586.zip"
+        }
+      ]
+    }
+  ],
+  "verified_archives": 71,
+  "failures": [],
+  "status": "ALL_71_ORIGINAL_ARCHIVES_SHA256_VERIFIED"
+}

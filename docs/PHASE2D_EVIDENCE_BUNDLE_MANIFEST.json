@@ -1,0 +1,1785 @@
+﻿{
+    "schema":  "phase2d-evidence-bundle-plan-v1",
+    "status":  "LOCAL_INVENTORY_ONLY_NOT_A_PUBLISHED_BUNDLE",
+    "checkout_head":  "ecad1a2db55e91dfab9fdc63114b4cc4c3af9fb7",
+    "historical_source_commit":  "babc88ccd5086b5ec3a6e1c215524636d86b3580",
+    "diagnostic_source_commit":  "ecad1a2db55e91dfab9fdc63114b4cc4c3af9fb7 (dirty additions; retain source fingerprints)",
+    "hosted_run":  "41195815229 (report attribution; unauthenticated locally)",
+    "hosted_archive_authentication":  "UNAVAILABLE",
+    "commands":  "Original execution.json, execution-attempts.json, python-attempts.json, scientific-audit-attempts.json and logs are inventoried; no fresh successful execution claimed. See PHASE2D_VALIDATION_CLOSURE.md.",
+    "numerical_environment":  "Original worker execution.json and quick/results.json metadata, and training-and-settings.json; do not infer a fresh hosted environment",
+    "records":  [
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-cross-platform/cross-platform.json",
+                        "bytes":  13420648,
+                        "sha256":  "1ed730c53e8795927a0273ef493cdb4b2aa9fd6b26f71ecc2758105fdef5c64e",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-cross-platform/numpy-comparison.json",
+                        "bytes":  13622398,
+                        "sha256":  "8435d7f118bfed0d92410e85e453765895205fe8c6d0011a5d6d5ba64e561738",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-cross-platform/scipy-comparison.json",
+                        "bytes":  13420646,
+                        "sha256":  "58015f181a08c291cf579f2b4b20e2049b7530acb5417842bcc3030bb2a017c5",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/analytical.log",
+                        "bytes":  650,
+                        "sha256":  "34583598a65f34355a228c8fd9d6c3216ebd7a5f330b4707f09045d90addf034",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/committed-reference-comparison.json",
+                        "bytes":  13617132,
+                        "sha256":  "ee34681a8025025fa54386cf2a00fe90b98781ec708d2577dfe2e0d00b00af20",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/compilation.log",
+                        "bytes":  0,
+                        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/execution.json",
+                        "bytes":  15759,
+                        "sha256":  "02b429e5ce6536583379fec50dbe343cd8a0851d3c0420eac5e02cb7c4836622",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/fault-audit.json",
+                        "bytes":  31497,
+                        "sha256":  "dfac993e475cce9fee03240fd60235b9945ace1b225b36f5eb136a98d76cbec0",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/fault-reference-inputs.json",
+                        "bytes":  599919,
+                        "sha256":  "1831335ff5e8c94d771c785438136d73a9f140816b8ae86387f85293f94907de",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/final-tests.log",
+                        "bytes":  260,
+                        "sha256":  "028225214081179f104210f23f2fa935be19da16a57000f4c4206fdf6dd4430b",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/gate.json",
+                        "bytes":  889,
+                        "sha256":  "a74cd6e4afd1fdc01c2688d64a2eda6edd11f4871c8af6abe1fa28594bc6eee9",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/independent-audit.log",
+                        "bytes":  3444,
+                        "sha256":  "d900dae8243e25eacf0fc76c3f089f56c23c5e76eaa62232755bf2d2e0e338bf",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/integrity.json",
+                        "bytes":  13373,
+                        "sha256":  "d3639546cd42c46df2b8a8c70587084ca82977dba931f00907a36b17ad8e97d2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/investigation/analysis.json",
+                        "bytes":  232863,
+                        "sha256":  "1f1970255fa1f1886c86aa57a680a267853f59b1500e1e76e22d869b9bd810f8",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/investigation/geometry.json",
+                        "bytes":  1420527,
+                        "sha256":  "aa348719ad1322de05f06539902d03d2597b020d14b6f789dc8308e6ea12beb9",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/legacy-scientific-comparison.json",
+                        "bytes":  404459,
+                        "sha256":  "02c9fab4849946adeb1630f3561c6f92dfef3845121716e4b09640adaef3ef44",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/manifest.json",
+                        "bytes":  5701,
+                        "sha256":  "cade92ef2d02dba7a55ee7814f412fcc9b36c1f1e3679c0ec867947d14c97022",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/outputs.log",
+                        "bytes":  21,
+                        "sha256":  "3baaf1cef1cf58dc3e636029d69cd19ebc56cfd41cbc4fd5cec503ab47b35d8a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick.log",
+                        "bytes":  10840,
+                        "sha256":  "cd5f7aa7352cd86bd76e9832e9c8dca4c948806cb682cb51b90033a9163048e6",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/audit.json",
+                        "bytes":  3443,
+                        "sha256":  "66876414f7b9fbb58a54b6728c6ec6fb7f1661fc27d4b3e057a9835f3035c490",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/convergence.png",
+                        "bytes":  46872,
+                        "sha256":  "2ec246bcf2e7d7751d9f6cb813c96acdde8e34d600bcf95f15ddaf416e267249",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/current_tradeoff.png",
+                        "bytes":  33140,
+                        "sha256":  "250c73a581635feed80c2319d9e2a8c5b7743a76b4cb24764e2973dac8500598",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/currents.png",
+                        "bytes":  57301,
+                        "sha256":  "338898f31e98f3a94a9dba840b7e268688966edae26b253a4c7e27db68b32120",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/geometry.png",
+                        "bytes":  219709,
+                        "sha256":  "f9b1bec1a56c91956706d88fff11b4b35306e26ef307e4e85a9610d8bbc62f61",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/holdout.png",
+                        "bytes":  69936,
+                        "sha256":  "b2dd71678f5aa7c450aa6de4d254ce26f70c6d1961fb777be1d3d56b9ede63cd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/normal_field.png",
+                        "bytes":  61095,
+                        "sha256":  "6706893237962849406c1fd95b1a81174daa4a1f834949dcec867d8648cd96f1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/outages.png",
+                        "bytes":  55478,
+                        "sha256":  "219571c170f4c6d803f65d5c8aa416213694d51b0552954388eaa2fdbad46fdd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/pareto.csv",
+                        "bytes":  2260,
+                        "sha256":  "17a78808128829b55b0eeb26f5e8eaf1c0141f48c1510478f2d7cc58c13abce1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/pareto.png",
+                        "bytes":  34088,
+                        "sha256":  "21392a60cf4cdcc135b837d919a241b675209204b205d0d3f7619bd9f4d0b8b2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/quick/results.json",
+                        "bytes":  2420401,
+                        "sha256":  "38589d6e8f5630c2faaf1d7d6cabf55bf607cc74bfb5f369d0a24dbdcecf0371",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/execution.json",
+                        "bytes":  939,
+                        "sha256":  "4febe98bc9fcf18211f43d0959114930a0f02abf6604be3cd9a2583569cf5326",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/convergence.png",
+                        "bytes":  46872,
+                        "sha256":  "2ec246bcf2e7d7751d9f6cb813c96acdde8e34d600bcf95f15ddaf416e267249",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/current_tradeoff.png",
+                        "bytes":  33140,
+                        "sha256":  "250c73a581635feed80c2319d9e2a8c5b7743a76b4cb24764e2973dac8500598",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/currents.png",
+                        "bytes":  57301,
+                        "sha256":  "338898f31e98f3a94a9dba840b7e268688966edae26b253a4c7e27db68b32120",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/geometry.png",
+                        "bytes":  219709,
+                        "sha256":  "f9b1bec1a56c91956706d88fff11b4b35306e26ef307e4e85a9610d8bbc62f61",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/holdout.png",
+                        "bytes":  69936,
+                        "sha256":  "b2dd71678f5aa7c450aa6de4d254ce26f70c6d1961fb777be1d3d56b9ede63cd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/normal_field.png",
+                        "bytes":  61095,
+                        "sha256":  "6706893237962849406c1fd95b1a81174daa4a1f834949dcec867d8648cd96f1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/outages.png",
+                        "bytes":  55478,
+                        "sha256":  "219571c170f4c6d803f65d5c8aa416213694d51b0552954388eaa2fdbad46fdd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/pareto.csv",
+                        "bytes":  2260,
+                        "sha256":  "17a78808128829b55b0eeb26f5e8eaf1c0141f48c1510478f2d7cc58c13abce1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/pareto.png",
+                        "bytes":  34088,
+                        "sha256":  "21392a60cf4cdcc135b837d919a241b675209204b205d0d3f7619bd9f4d0b8b2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/quick/results.json",
+                        "bytes":  2420400,
+                        "sha256":  "dcf3619b7febd0694620829f07e0bd34e0f207d30036b76360495b64a83e3383",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/study/paired_difference.png",
+                        "bytes":  19604,
+                        "sha256":  "a77707334059cd5846e58c0b88cf39fe8c4204c6af31e2a3e60cc6a92b514387",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/study/peak_location_dense.png",
+                        "bytes":  22421,
+                        "sha256":  "976363c633543e24ec25c96506d5297338c8a773466e811df4c4a44951ce6f87",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/study/peak_location_matched_nominal.png",
+                        "bytes":  22233,
+                        "sha256":  "ba56f30eb91d55d92c5b55a3b8f44f2fad4736a3adce0bef9937b9f00af0226a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/study/peak_location_robust.png",
+                        "bytes":  22326,
+                        "sha256":  "1d76fd922fb8a7c167218ec4b83eaf3ee6213dbfaffe719a471075e060ca2320",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/study/peak_refinement.png",
+                        "bytes":  31129,
+                        "sha256":  "5793d2383fef83518e7c1f65393a921faadea4838da850ccbd46e8be99b49ceb",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/study/phase1_input.json",
+                        "bytes":  2420400,
+                        "sha256":  "dcf3619b7febd0694620829f07e0bd34e0f207d30036b76360495b64a83e3383",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat/study/study.json",
+                        "bytes":  802038,
+                        "sha256":  "9959230d1a16aba77771a1439aee1998a2e124db6af3af396821ef8e55085bb7",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat-quick.log",
+                        "bytes":  10840,
+                        "sha256":  "676e785176939500f8ffcbf2d93828f28d0f417585b8036b1ecd78e5e5af525b",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/repeat-study.log",
+                        "bytes":  141,
+                        "sha256":  "0459d855189e1943abe12642607faff3af0b7d7f80de12047acb2e4f0164a802",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/reproducibility.json",
+                        "bytes":  9622,
+                        "sha256":  "17f42c7c135b7a630cc0213728c57d0ac6795cd304158635e79c278bc5da961b",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/source_fingerprints.json",
+                        "bytes":  6968,
+                        "sha256":  "82af31e485f9db43ba08ff9815969a0634920f693bef7ddc0563a38191112bee",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/source_fingerprints_at_run.json",
+                        "bytes":  6968,
+                        "sha256":  "82af31e485f9db43ba08ff9815969a0634920f693bef7ddc0563a38191112bee",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study.log",
+                        "bytes":  141,
+                        "sha256":  "0459d855189e1943abe12642607faff3af0b7d7f80de12047acb2e4f0164a802",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study/paired_difference.png",
+                        "bytes":  19604,
+                        "sha256":  "a77707334059cd5846e58c0b88cf39fe8c4204c6af31e2a3e60cc6a92b514387",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study/peak_location_dense.png",
+                        "bytes":  22421,
+                        "sha256":  "976363c633543e24ec25c96506d5297338c8a773466e811df4c4a44951ce6f87",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study/peak_location_matched_nominal.png",
+                        "bytes":  22233,
+                        "sha256":  "ba56f30eb91d55d92c5b55a3b8f44f2fad4736a3adce0bef9937b9f00af0226a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study/peak_location_robust.png",
+                        "bytes":  22326,
+                        "sha256":  "1d76fd922fb8a7c167218ec4b83eaf3ee6213dbfaffe719a471075e060ca2320",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study/peak_refinement.png",
+                        "bytes":  31129,
+                        "sha256":  "5793d2383fef83518e7c1f65393a921faadea4838da850ccbd46e8be99b49ceb",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study/phase1_input.json",
+                        "bytes":  2420401,
+                        "sha256":  "38589d6e8f5630c2faaf1d7d6cabf55bf607cc74bfb5f369d0a24dbdcecf0371",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study/study.json",
+                        "bytes":  802038,
+                        "sha256":  "836b82df63f6bdac74b47a09557a1cb703e0eea0edda2889d68ed446328fd049",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/study/training_audit.json",
+                        "bytes":  3107,
+                        "sha256":  "ad5485e8483bb015f358d1ae8d7046759a59f8f5dca61b86c423745ae92c9eb1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/tests.log",
+                        "bytes":  260,
+                        "sha256":  "e994fd9ed707cde3c09f3339b1b946b4bdc3fb337230c7e873f4b70977df9e27",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-numpy-sensitivity/training-audit.log",
+                        "bytes":  2072,
+                        "sha256":  "6192036943f619e62a57e5821c13d7e44dd3e15f2a6381c89d9c8f9cd49bda1f",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/analytical.log",
+                        "bytes":  650,
+                        "sha256":  "34583598a65f34355a228c8fd9d6c3216ebd7a5f330b4707f09045d90addf034",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/committed-reference-comparison.json",
+                        "bytes":  13420355,
+                        "sha256":  "db0c466cbd0885283b73ebc139e4822bb15bba5b0c59d2021efed26d2f432fc9",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/compilation.log",
+                        "bytes":  0,
+                        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/execution.json",
+                        "bytes":  15752,
+                        "sha256":  "a365eacd1a5c7bc5dbff48f7eec1d7467070be270ed0ab3ca7bf162aea847269",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/fault-audit.json",
+                        "bytes":  31523,
+                        "sha256":  "d97b85ee7d52c0a9ad6da42e520b8ccd80202f48031e8732244502040277308a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/fault-reference-inputs.json",
+                        "bytes":  599917,
+                        "sha256":  "dc496a648ccb0917cc9490eda15c1ba6662a713483e1eba9121f3f702a2cb053",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/final-tests.log",
+                        "bytes":  260,
+                        "sha256":  "ecd2d79a46300df3df740fd4676da0e89076038fc1ad6bcb9c8c031a9bb93228",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/gate.json",
+                        "bytes":  889,
+                        "sha256":  "0494f805bfe6035652b18d471ef82538be1af5be88f7befb2c87e4b4d272e364",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/independent-audit.log",
+                        "bytes":  3439,
+                        "sha256":  "19fc25176543d112b08b1b5f65aadc8ee7fecacd1f20c26d71e2eb37d4d90018",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/integrity.json",
+                        "bytes":  13373,
+                        "sha256":  "a2851e3e86026c62dca168028aed3281fd31da838a23f3003087f2a934eb9890",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/investigation/analysis.json",
+                        "bytes":  232821,
+                        "sha256":  "3c4c87bdff5fad70e9ff0abce0e58ae199833cb7e05599d5759c55bce8008659",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/investigation/geometry.json",
+                        "bytes":  1420500,
+                        "sha256":  "43f43bc71529ef029c479e9a0f2a4b4afbb3f60a3284b61133065eb7a1975acd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/legacy-scientific-comparison.json",
+                        "bytes":  307989,
+                        "sha256":  "ea52871637d0f84e31bc5b4c13987b6a0da6bf369083857a6bbaf883d7b227c4",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/manifest.json",
+                        "bytes":  5701,
+                        "sha256":  "8b82c6c9e3d4cba335f6a876cf236d636b64fe1825fef8bd523044172774da7b",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/outputs.log",
+                        "bytes":  21,
+                        "sha256":  "3baaf1cef1cf58dc3e636029d69cd19ebc56cfd41cbc4fd5cec503ab47b35d8a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick.log",
+                        "bytes":  10827,
+                        "sha256":  "5b73db381ce037492140c61644a58da8c21024be8dacea9b88e04f594fa47e91",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/audit.json",
+                        "bytes":  3438,
+                        "sha256":  "1b07cf9c5f1adafe759b87e4abdf47246d500c20abfc56e1806a3decffbed207",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/convergence.png",
+                        "bytes":  46869,
+                        "sha256":  "6d7573aeacb43ab01c78e2ebc57e936694f3238df5b10b9dde358ab6f014f3d8",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/current_tradeoff.png",
+                        "bytes":  33140,
+                        "sha256":  "250c73a581635feed80c2319d9e2a8c5b7743a76b4cb24764e2973dac8500598",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/currents.png",
+                        "bytes":  57299,
+                        "sha256":  "ee11962283371dbbe5db9f3cadfb208183e295084765e3cfc1a01eebaad212d2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/geometry.png",
+                        "bytes":  219709,
+                        "sha256":  "f9b1bec1a56c91956706d88fff11b4b35306e26ef307e4e85a9610d8bbc62f61",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/holdout.png",
+                        "bytes":  69936,
+                        "sha256":  "b2dd71678f5aa7c450aa6de4d254ce26f70c6d1961fb777be1d3d56b9ede63cd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/normal_field.png",
+                        "bytes":  61095,
+                        "sha256":  "6706893237962849406c1fd95b1a81174daa4a1f834949dcec867d8648cd96f1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/outages.png",
+                        "bytes":  55478,
+                        "sha256":  "219571c170f4c6d803f65d5c8aa416213694d51b0552954388eaa2fdbad46fdd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/pareto.csv",
+                        "bytes":  2258,
+                        "sha256":  "c6d659342835b7e02284133341ab685cc831af7b90489625adec0fa3b1475bbc",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/pareto.png",
+                        "bytes":  34088,
+                        "sha256":  "21392a60cf4cdcc135b837d919a241b675209204b205d0d3f7619bd9f4d0b8b2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/quick/results.json",
+                        "bytes":  2419680,
+                        "sha256":  "f96015c531afafe76f18bf944feef6be949d61b0e76f123de76a2610f3b63f7d",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/execution.json",
+                        "bytes":  939,
+                        "sha256":  "ade9326a34e0c290541ef3a64006a7541bc48ec4703765c1880105485a137770",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/convergence.png",
+                        "bytes":  46869,
+                        "sha256":  "6d7573aeacb43ab01c78e2ebc57e936694f3238df5b10b9dde358ab6f014f3d8",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/current_tradeoff.png",
+                        "bytes":  33140,
+                        "sha256":  "250c73a581635feed80c2319d9e2a8c5b7743a76b4cb24764e2973dac8500598",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/currents.png",
+                        "bytes":  57299,
+                        "sha256":  "ee11962283371dbbe5db9f3cadfb208183e295084765e3cfc1a01eebaad212d2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/geometry.png",
+                        "bytes":  219709,
+                        "sha256":  "f9b1bec1a56c91956706d88fff11b4b35306e26ef307e4e85a9610d8bbc62f61",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/holdout.png",
+                        "bytes":  69936,
+                        "sha256":  "b2dd71678f5aa7c450aa6de4d254ce26f70c6d1961fb777be1d3d56b9ede63cd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/normal_field.png",
+                        "bytes":  61095,
+                        "sha256":  "6706893237962849406c1fd95b1a81174daa4a1f834949dcec867d8648cd96f1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/outages.png",
+                        "bytes":  55478,
+                        "sha256":  "219571c170f4c6d803f65d5c8aa416213694d51b0552954388eaa2fdbad46fdd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/pareto.csv",
+                        "bytes":  2258,
+                        "sha256":  "c6d659342835b7e02284133341ab685cc831af7b90489625adec0fa3b1475bbc",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/pareto.png",
+                        "bytes":  34088,
+                        "sha256":  "21392a60cf4cdcc135b837d919a241b675209204b205d0d3f7619bd9f4d0b8b2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/quick/results.json",
+                        "bytes":  2419686,
+                        "sha256":  "d9ff3f66aa8d3c19960471e4c89d446a0052151c91e58b17d43ce5c1496a5a15",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/study/paired_difference.png",
+                        "bytes":  19604,
+                        "sha256":  "a77707334059cd5846e58c0b88cf39fe8c4204c6af31e2a3e60cc6a92b514387",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/study/peak_location_dense.png",
+                        "bytes":  22421,
+                        "sha256":  "976363c633543e24ec25c96506d5297338c8a773466e811df4c4a44951ce6f87",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/study/peak_location_matched_nominal.png",
+                        "bytes":  22233,
+                        "sha256":  "ba56f30eb91d55d92c5b55a3b8f44f2fad4736a3adce0bef9937b9f00af0226a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/study/peak_location_robust.png",
+                        "bytes":  22326,
+                        "sha256":  "1d76fd922fb8a7c167218ec4b83eaf3ee6213dbfaffe719a471075e060ca2320",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/study/peak_refinement.png",
+                        "bytes":  31129,
+                        "sha256":  "5793d2383fef83518e7c1f65393a921faadea4838da850ccbd46e8be99b49ceb",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/study/phase1_input.json",
+                        "bytes":  2419686,
+                        "sha256":  "d9ff3f66aa8d3c19960471e4c89d446a0052151c91e58b17d43ce5c1496a5a15",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat/study/study.json",
+                        "bytes":  802041,
+                        "sha256":  "2e8b8f2e1923718ee90e9393338277fad39904fa29f9779f9098ab78083d2122",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat-quick.log",
+                        "bytes":  10832,
+                        "sha256":  "fc02cc51d15edb75b4ef70206beaf7b62c39edc0d74a12d168ef5b931cd01525",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/repeat-study.log",
+                        "bytes":  141,
+                        "sha256":  "0459d855189e1943abe12642607faff3af0b7d7f80de12047acb2e4f0164a802",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/reproducibility.json",
+                        "bytes":  9625,
+                        "sha256":  "c7a4eff0f0f27885a5b416acccb780626137ab4411ffbdc9a0dae4b8df024ebc",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/source_fingerprints.json",
+                        "bytes":  6968,
+                        "sha256":  "82af31e485f9db43ba08ff9815969a0634920f693bef7ddc0563a38191112bee",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/source_fingerprints_at_run.json",
+                        "bytes":  6968,
+                        "sha256":  "82af31e485f9db43ba08ff9815969a0634920f693bef7ddc0563a38191112bee",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study.log",
+                        "bytes":  141,
+                        "sha256":  "0459d855189e1943abe12642607faff3af0b7d7f80de12047acb2e4f0164a802",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study/paired_difference.png",
+                        "bytes":  19604,
+                        "sha256":  "a77707334059cd5846e58c0b88cf39fe8c4204c6af31e2a3e60cc6a92b514387",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study/peak_location_dense.png",
+                        "bytes":  22421,
+                        "sha256":  "976363c633543e24ec25c96506d5297338c8a773466e811df4c4a44951ce6f87",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study/peak_location_matched_nominal.png",
+                        "bytes":  22233,
+                        "sha256":  "ba56f30eb91d55d92c5b55a3b8f44f2fad4736a3adce0bef9937b9f00af0226a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study/peak_location_robust.png",
+                        "bytes":  22326,
+                        "sha256":  "1d76fd922fb8a7c167218ec4b83eaf3ee6213dbfaffe719a471075e060ca2320",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study/peak_refinement.png",
+                        "bytes":  31129,
+                        "sha256":  "5793d2383fef83518e7c1f65393a921faadea4838da850ccbd46e8be99b49ceb",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study/phase1_input.json",
+                        "bytes":  2419680,
+                        "sha256":  "f96015c531afafe76f18bf944feef6be949d61b0e76f123de76a2610f3b63f7d",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study/study.json",
+                        "bytes":  802043,
+                        "sha256":  "7ca3d9a7953f60dfc74858364ddbd45dcd995738498a2ce4095174009eeeb550",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/study/training_audit.json",
+                        "bytes":  3028,
+                        "sha256":  "01553edbe9762b3708a26984fb35425af6efc350e0c4483294806dd060761ac9",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/tests.log",
+                        "bytes":  260,
+                        "sha256":  "0f781523005bfa2b198b10516f6ccfa177d97535495d6edc6d5b49af9699c3b7",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-reference/training-audit.log",
+                        "bytes":  1993,
+                        "sha256":  "c68a1af87ad2c1e52a9b821502e6822b432c7f85b6603142ddc1b14f17f88b4d",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/analytical.log",
+                        "bytes":  650,
+                        "sha256":  "34583598a65f34355a228c8fd9d6c3216ebd7a5f330b4707f09045d90addf034",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/committed-reference-comparison.json",
+                        "bytes":  13420353,
+                        "sha256":  "b2f144e1ca0bef9b43801ed7f6a95a1c8ce7b4d07aaaaa0cd4b1954558fcb4a0",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/compilation.log",
+                        "bytes":  0,
+                        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/execution.json",
+                        "bytes":  15760,
+                        "sha256":  "98dd8cff49dfc35e38ab7a483d61a73a131463e709e0a45d9981a6b1ff6fa371",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/fault-audit.json",
+                        "bytes":  31523,
+                        "sha256":  "36d8cf390a593424e5a816ff90a0bb049f0550d65cdae5b6344e832df5bbeb93",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/fault-reference-inputs.json",
+                        "bytes":  599917,
+                        "sha256":  "dc496a648ccb0917cc9490eda15c1ba6662a713483e1eba9121f3f702a2cb053",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/final-tests.log",
+                        "bytes":  260,
+                        "sha256":  "0f84e4508c169010767156394fb3c6f36d96c8a23bcbb9bc75deb340df94bcd6",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/gate.json",
+                        "bytes":  889,
+                        "sha256":  "820d432cbcd989b7ab569ddbbabafb3f78cba7a8cae15f416c05464b0fa36440",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/independent-audit.log",
+                        "bytes":  3439,
+                        "sha256":  "74317c3ecbccbd4c580c2499d8fde236c52b56b421594e27a0bf7754622b833e",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/integrity.json",
+                        "bytes":  13373,
+                        "sha256":  "f685ba974c1b35adf48d7a4c0ba674e1e9e3f7ece1a6aa4a04aefe5d602fe169",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/investigation/analysis.json",
+                        "bytes":  232821,
+                        "sha256":  "f78fd2bca7ca69ec5bc0242ea68082eb569386852736ee9d6b8db19f599a6510",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/investigation/geometry.json",
+                        "bytes":  1420500,
+                        "sha256":  "43f43bc71529ef029c479e9a0f2a4b4afbb3f60a3284b61133065eb7a1975acd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/legacy-scientific-comparison.json",
+                        "bytes":  307987,
+                        "sha256":  "8db3454dab2bafe26b5e230c0031e868ff885d9269a7aaaea1efcb75b276b8dc",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/manifest.json",
+                        "bytes":  5701,
+                        "sha256":  "f1ff5f08ecfac05426d1ded0f9d0d5152bf0443eeca568cea67f0194c9bef2f2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/outputs.log",
+                        "bytes":  21,
+                        "sha256":  "3baaf1cef1cf58dc3e636029d69cd19ebc56cfd41cbc4fd5cec503ab47b35d8a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick.log",
+                        "bytes":  10827,
+                        "sha256":  "bc4154263e9a46a53077a2f1859220576f3cfdee70e29b31ae573f60c723846d",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/audit.json",
+                        "bytes":  3438,
+                        "sha256":  "284ea353bd6ef1aee2541d1e73b7deb114c2b2c2f3a0842868b36baf76b446f1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/convergence.png",
+                        "bytes":  46869,
+                        "sha256":  "6d7573aeacb43ab01c78e2ebc57e936694f3238df5b10b9dde358ab6f014f3d8",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/current_tradeoff.png",
+                        "bytes":  33140,
+                        "sha256":  "250c73a581635feed80c2319d9e2a8c5b7743a76b4cb24764e2973dac8500598",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/currents.png",
+                        "bytes":  57299,
+                        "sha256":  "ee11962283371dbbe5db9f3cadfb208183e295084765e3cfc1a01eebaad212d2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/geometry.png",
+                        "bytes":  219709,
+                        "sha256":  "f9b1bec1a56c91956706d88fff11b4b35306e26ef307e4e85a9610d8bbc62f61",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/holdout.png",
+                        "bytes":  69936,
+                        "sha256":  "b2dd71678f5aa7c450aa6de4d254ce26f70c6d1961fb777be1d3d56b9ede63cd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/normal_field.png",
+                        "bytes":  61095,
+                        "sha256":  "6706893237962849406c1fd95b1a81174daa4a1f834949dcec867d8648cd96f1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/outages.png",
+                        "bytes":  55478,
+                        "sha256":  "219571c170f4c6d803f65d5c8aa416213694d51b0552954388eaa2fdbad46fdd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/pareto.csv",
+                        "bytes":  2258,
+                        "sha256":  "c6d659342835b7e02284133341ab685cc831af7b90489625adec0fa3b1475bbc",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/pareto.png",
+                        "bytes":  34088,
+                        "sha256":  "21392a60cf4cdcc135b837d919a241b675209204b205d0d3f7619bd9f4d0b8b2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/quick/results.json",
+                        "bytes":  2419680,
+                        "sha256":  "54fda2d4eaaa3b6ff88dc7abc431785a08dd122bf9f052ed8647e72189964a6f",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/execution.json",
+                        "bytes":  939,
+                        "sha256":  "259cd63248c5218cc84966232ecff88024dc6aacda40a6617012fa4c66c6b427",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/convergence.png",
+                        "bytes":  46869,
+                        "sha256":  "6d7573aeacb43ab01c78e2ebc57e936694f3238df5b10b9dde358ab6f014f3d8",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/current_tradeoff.png",
+                        "bytes":  33140,
+                        "sha256":  "250c73a581635feed80c2319d9e2a8c5b7743a76b4cb24764e2973dac8500598",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/currents.png",
+                        "bytes":  57299,
+                        "sha256":  "ee11962283371dbbe5db9f3cadfb208183e295084765e3cfc1a01eebaad212d2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/geometry.png",
+                        "bytes":  219709,
+                        "sha256":  "f9b1bec1a56c91956706d88fff11b4b35306e26ef307e4e85a9610d8bbc62f61",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/holdout.png",
+                        "bytes":  69936,
+                        "sha256":  "b2dd71678f5aa7c450aa6de4d254ce26f70c6d1961fb777be1d3d56b9ede63cd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/normal_field.png",
+                        "bytes":  61095,
+                        "sha256":  "6706893237962849406c1fd95b1a81174daa4a1f834949dcec867d8648cd96f1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/outages.png",
+                        "bytes":  55478,
+                        "sha256":  "219571c170f4c6d803f65d5c8aa416213694d51b0552954388eaa2fdbad46fdd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/pareto.csv",
+                        "bytes":  2258,
+                        "sha256":  "c6d659342835b7e02284133341ab685cc831af7b90489625adec0fa3b1475bbc",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/pareto.png",
+                        "bytes":  34088,
+                        "sha256":  "21392a60cf4cdcc135b837d919a241b675209204b205d0d3f7619bd9f4d0b8b2",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/quick/results.json",
+                        "bytes":  2419685,
+                        "sha256":  "71ad3c0622fc8caa4b3b88af2f9241ecba6db81e47448c6b8fdea2e1cbe663bd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/study/paired_difference.png",
+                        "bytes":  19604,
+                        "sha256":  "a77707334059cd5846e58c0b88cf39fe8c4204c6af31e2a3e60cc6a92b514387",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/study/peak_location_dense.png",
+                        "bytes":  22421,
+                        "sha256":  "976363c633543e24ec25c96506d5297338c8a773466e811df4c4a44951ce6f87",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/study/peak_location_matched_nominal.png",
+                        "bytes":  22233,
+                        "sha256":  "ba56f30eb91d55d92c5b55a3b8f44f2fad4736a3adce0bef9937b9f00af0226a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/study/peak_location_robust.png",
+                        "bytes":  22326,
+                        "sha256":  "1d76fd922fb8a7c167218ec4b83eaf3ee6213dbfaffe719a471075e060ca2320",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/study/peak_refinement.png",
+                        "bytes":  31129,
+                        "sha256":  "5793d2383fef83518e7c1f65393a921faadea4838da850ccbd46e8be99b49ceb",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/study/phase1_input.json",
+                        "bytes":  2419685,
+                        "sha256":  "71ad3c0622fc8caa4b3b88af2f9241ecba6db81e47448c6b8fdea2e1cbe663bd",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat/study/study.json",
+                        "bytes":  802042,
+                        "sha256":  "96a7bff0487a0e6984a530b96c42cdcf06cb90881c580bc2ae8a3efe0b5cbdd0",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat-quick.log",
+                        "bytes":  10832,
+                        "sha256":  "f9ee09674b6125e6c48195a51162b82b1fd9b6c49d92e6c3c4d94ec6bd3c5550",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/repeat-study.log",
+                        "bytes":  141,
+                        "sha256":  "0459d855189e1943abe12642607faff3af0b7d7f80de12047acb2e4f0164a802",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/reproducibility.json",
+                        "bytes":  9623,
+                        "sha256":  "843c966c7d1b71bfb426c8c5786d0e390aa5e49a60a8515efd4ae3f54184c194",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/source_fingerprints.json",
+                        "bytes":  6968,
+                        "sha256":  "82af31e485f9db43ba08ff9815969a0634920f693bef7ddc0563a38191112bee",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/source_fingerprints_at_run.json",
+                        "bytes":  6968,
+                        "sha256":  "82af31e485f9db43ba08ff9815969a0634920f693bef7ddc0563a38191112bee",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study.log",
+                        "bytes":  141,
+                        "sha256":  "0459d855189e1943abe12642607faff3af0b7d7f80de12047acb2e4f0164a802",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study/paired_difference.png",
+                        "bytes":  19604,
+                        "sha256":  "a77707334059cd5846e58c0b88cf39fe8c4204c6af31e2a3e60cc6a92b514387",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study/peak_location_dense.png",
+                        "bytes":  22421,
+                        "sha256":  "976363c633543e24ec25c96506d5297338c8a773466e811df4c4a44951ce6f87",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study/peak_location_matched_nominal.png",
+                        "bytes":  22233,
+                        "sha256":  "ba56f30eb91d55d92c5b55a3b8f44f2fad4736a3adce0bef9937b9f00af0226a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study/peak_location_robust.png",
+                        "bytes":  22326,
+                        "sha256":  "1d76fd922fb8a7c167218ec4b83eaf3ee6213dbfaffe719a471075e060ca2320",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study/peak_refinement.png",
+                        "bytes":  31129,
+                        "sha256":  "5793d2383fef83518e7c1f65393a921faadea4838da850ccbd46e8be99b49ceb",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study/phase1_input.json",
+                        "bytes":  2419680,
+                        "sha256":  "54fda2d4eaaa3b6ff88dc7abc431785a08dd122bf9f052ed8647e72189964a6f",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study/study.json",
+                        "bytes":  802041,
+                        "sha256":  "11df345e1dbb16c96d330afa71d6818c8047436995f2814bb7a5485cd0de3797",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/study/training_audit.json",
+                        "bytes":  3028,
+                        "sha256":  "47b0346fd3e2f59a053aebff3909e36082bb915619cec9d0abb3d055328fd001",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/tests.log",
+                        "bytes":  260,
+                        "sha256":  "cbe3f01757adf283e6d101fdf079c8d82050884c871e578edcbd3d456fbbe6d3",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-linux-scipy-sensitivity/training-audit.log",
+                        "bytes":  1993,
+                        "sha256":  "c68a1af87ad2c1e52a9b821502e6822b432c7f85b6603142ddc1b14f17f88b4d",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/analytical.log",
+                        "bytes":  677,
+                        "sha256":  "98e405105912f3703f2accaed76c77ad489a7197cef76526f1757e49648599db",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/committed-reference-comparison.json",
+                        "bytes":  131402,
+                        "sha256":  "1c97f6aaa948ddc375031204e231a2e723c5ff5076e15c557ef35048f89ae678",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/compilation.log",
+                        "bytes":  0,
+                        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/execution.json",
+                        "bytes":  15981,
+                        "sha256":  "d557a22ff24bd699f48d8de329a6da21e36dd3faa254c644bbeddd3fe922230c",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/fault-audit.json",
+                        "bytes":  31993,
+                        "sha256":  "0f75748d8ad65145633afc04dedd026ed49fa0f8a4948226a8c55696ca894c35",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/fault-reference-inputs.json",
+                        "bytes":  599802,
+                        "sha256":  "c9f779f309fd8213404fd8f4afd592f34ee667626a156083e85a601dfb4e203c",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/final-tests.log",
+                        "bytes":  264,
+                        "sha256":  "f3ad28473a2a7c2e82d2ed6536d7319ae5423d3a7cb7ffafae040fa6f4e1b53c",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/gate.json",
+                        "bytes":  915,
+                        "sha256":  "60e777122d74390cdbc0c38d1ccb0cbd0ef549922e344fd4fe84e848a0f3e15a",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/independent-audit.log",
+                        "bytes":  3553,
+                        "sha256":  "6fbaa41587f8295aa9637acace494f6babac3127d6d4e2a4cb6d3cfe8a00a1a6",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/integrity.json",
+                        "bytes":  13499,
+                        "sha256":  "46a237ff2acd880c9941068735d0d97308a982055b29d163776e23e90d1ac759",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/investigation/analysis.json",
+                        "bytes":  242206,
+                        "sha256":  "e76b44a394d35c71f08d166c50d00bdff7a33059dd07320a13639ac6610595e8",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/investigation/geometry.json",
+                        "bytes":  1484940,
+                        "sha256":  "b4e555b012d039c02bbc99e5d7e4301ca996e354414b5637590ef41be622ff51",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/legacy-scientific-comparison.json",
+                        "bytes":  93083,
+                        "sha256":  "57cf75fa258f9bb943d521def9ff4f98f433722d64624d0fbd411f8c0f552a38",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/manifest.json",
+                        "bytes":  5762,
+                        "sha256":  "087a99a6fd758399007929d38fd450f581f3f79b73e488ba164b5dfb24f6103d",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/outputs.log",
+                        "bytes":  22,
+                        "sha256":  "f963584617ffd26ade347a3b97acaf8ddccecdd3e96d79d44558443b96a4277d",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick.log",
+                        "bytes":  11182,
+                        "sha256":  "c1828afb001b24cd2000cedd3908e7e29726d44ef472c3c98d973e4e7f2e5e74",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/audit.json",
+                        "bytes":  3551,
+                        "sha256":  "1498cb058e19d9c2f35cf0c3362d50fe21b681d97d872d01bf3eecfd57d0fc39",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/convergence.png",
+                        "bytes":  43220,
+                        "sha256":  "4e6469287f742b1c239e5b0984387514198a72e3ffd31b6c37ea45afe26b2732",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/current_tradeoff.png",
+                        "bytes":  29975,
+                        "sha256":  "99dd1c843f8e6e0e5724718b9b949e509b67a0aa71496d02afd543543c8b7f7f",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/currents.png",
+                        "bytes":  54224,
+                        "sha256":  "bbd4e826d585f21c3fd1f5948328d9257d3530591d9cc1ac4426909e1bc2ecca",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/geometry.png",
+                        "bytes":  187786,
+                        "sha256":  "a00d0910a9696d339baa777234668adb508f122c9fba8c1e84adc1eac7aec220",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/holdout.png",
+                        "bytes":  65227,
+                        "sha256":  "0510fce7f9d7172f3718d4d9030b38da2dfee9101929d3e4e8cd5a1a0bce5829",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/normal_field.png",
+                        "bytes":  54692,
+                        "sha256":  "2d7dab5a4c5cb317e07716ec20a638a2d46f1ac22f9006f59ffda918db8378f8",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/outages.png",
+                        "bytes":  51388,
+                        "sha256":  "8693f063e71aa58caf677e2478bdb73ec99b7984e8711f45f0583999c1493fbb",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/pareto.csv",
+                        "bytes":  2259,
+                        "sha256":  "e287db2de909fbe0fe8b21664f365e0d275f08562b7a384566512130ace29b26",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/pareto.png",
+                        "bytes":  30744,
+                        "sha256":  "0b24f29e5b9bfd1ebdc640106b4dd8603db9c631677a6be920ea8a895981fad6",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/quick/results.json",
+                        "bytes":  2494291,
+                        "sha256":  "eadc04f3c33a3955113b91cdf76ebf86eef42b1db7dac1a44cd8e6ce89aaa6e4",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/execution.json",
+                        "bytes":  929,
+                        "sha256":  "b13294083c7bde684573aad28565d23b04e830c20e0470f57825eb5583a73fac",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/convergence.png",
+                        "bytes":  43220,
+                        "sha256":  "4e6469287f742b1c239e5b0984387514198a72e3ffd31b6c37ea45afe26b2732",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/current_tradeoff.png",
+                        "bytes":  29975,
+                        "sha256":  "99dd1c843f8e6e0e5724718b9b949e509b67a0aa71496d02afd543543c8b7f7f",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/currents.png",
+                        "bytes":  54224,
+                        "sha256":  "bbd4e826d585f21c3fd1f5948328d9257d3530591d9cc1ac4426909e1bc2ecca",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/geometry.png",
+                        "bytes":  187786,
+                        "sha256":  "a00d0910a9696d339baa777234668adb508f122c9fba8c1e84adc1eac7aec220",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/holdout.png",
+                        "bytes":  65227,
+                        "sha256":  "0510fce7f9d7172f3718d4d9030b38da2dfee9101929d3e4e8cd5a1a0bce5829",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/normal_field.png",
+                        "bytes":  54692,
+                        "sha256":  "2d7dab5a4c5cb317e07716ec20a638a2d46f1ac22f9006f59ffda918db8378f8",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/outages.png",
+                        "bytes":  51388,
+                        "sha256":  "8693f063e71aa58caf677e2478bdb73ec99b7984e8711f45f0583999c1493fbb",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/pareto.csv",
+                        "bytes":  2259,
+                        "sha256":  "e287db2de909fbe0fe8b21664f365e0d275f08562b7a384566512130ace29b26",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/pareto.png",
+                        "bytes":  30744,
+                        "sha256":  "0b24f29e5b9bfd1ebdc640106b4dd8603db9c631677a6be920ea8a895981fad6",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/quick/results.json",
+                        "bytes":  2494299,
+                        "sha256":  "0c98c19bf62d845640527e1d2c6786bca1422729f05fc3f01013d088e89db690",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/study/paired_difference.png",
+                        "bytes":  17507,
+                        "sha256":  "ac27d7e8c50e705e7a6078b534f6899ceb066bcaad979257870dd4615c3b291e",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/study/peak_location_dense.png",
+                        "bytes":  20547,
+                        "sha256":  "525affdbe7848eb9a78961e415059cae62be1de39f4fd412646e8a2d563d1d97",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/study/peak_location_matched_nominal.png",
+                        "bytes":  20417,
+                        "sha256":  "a384b2f8f715cdaf8a9b55a0594d30192328e9472fe034a9d0b7e8cefc732dc1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/study/peak_location_robust.png",
+                        "bytes":  20541,
+                        "sha256":  "f1127935d03608225be96ba5ee3991488513402eab4b270e4ddf9b195b05fa5c",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/study/peak_refinement.png",
+                        "bytes":  27067,
+                        "sha256":  "9a7863448f82a408814616748452157295253b9d7f1a236050a0aa6df131d3d9",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/study/phase1_input.json",
+                        "bytes":  2494299,
+                        "sha256":  "0c98c19bf62d845640527e1d2c6786bca1422729f05fc3f01013d088e89db690",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat/study/study.json",
+                        "bytes":  832145,
+                        "sha256":  "16c1598c78fb04c7c33945d598bef9cc34a6286b75aa585441f7200fe6ce554f",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat-quick.log",
+                        "bytes":  11190,
+                        "sha256":  "23cf987f065321abdb41b8067ea7de8f2ffeaa71517d5b196fb34283c1d053ad",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/repeat-study.log",
+                        "bytes":  149,
+                        "sha256":  "f1eea9a4c69f88953353fbc212afb09446417da0c69615ab191e43ad61f63f79",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/reproducibility.json",
+                        "bytes":  9851,
+                        "sha256":  "6d4a92f6669282bc42de973dca2a954e398b32e009578dbabbd81b100c67695b",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/source_fingerprints.json",
+                        "bytes":  7038,
+                        "sha256":  "aa4ce6135b7f8de47cbe0fda93b63d163d36047fd3d5016643541b6afddb1d65",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/source_fingerprints_at_run.json",
+                        "bytes":  7038,
+                        "sha256":  "aa4ce6135b7f8de47cbe0fda93b63d163d36047fd3d5016643541b6afddb1d65",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study.log",
+                        "bytes":  149,
+                        "sha256":  "f1eea9a4c69f88953353fbc212afb09446417da0c69615ab191e43ad61f63f79",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study/paired_difference.png",
+                        "bytes":  17507,
+                        "sha256":  "ac27d7e8c50e705e7a6078b534f6899ceb066bcaad979257870dd4615c3b291e",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study/peak_location_dense.png",
+                        "bytes":  20547,
+                        "sha256":  "525affdbe7848eb9a78961e415059cae62be1de39f4fd412646e8a2d563d1d97",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study/peak_location_matched_nominal.png",
+                        "bytes":  20417,
+                        "sha256":  "a384b2f8f715cdaf8a9b55a0594d30192328e9472fe034a9d0b7e8cefc732dc1",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study/peak_location_robust.png",
+                        "bytes":  20541,
+                        "sha256":  "f1127935d03608225be96ba5ee3991488513402eab4b270e4ddf9b195b05fa5c",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study/peak_refinement.png",
+                        "bytes":  27067,
+                        "sha256":  "9a7863448f82a408814616748452157295253b9d7f1a236050a0aa6df131d3d9",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study/phase1_input.json",
+                        "bytes":  2494291,
+                        "sha256":  "eadc04f3c33a3955113b91cdf76ebf86eef42b1db7dac1a44cd8e6ce89aaa6e4",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study/study.json",
+                        "bytes":  832146,
+                        "sha256":  "f8811c7cea28602d6cf66ce244d7e6123091f7dba0dbd2862359934aac394c62",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/study/training_audit.json",
+                        "bytes":  3105,
+                        "sha256":  "a4b95af2ba426084acda41fc58df3241e94ad5f70d4bcfa8296bffa43c191721",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/tests.log",
+                        "bytes":  264,
+                        "sha256":  "212ec79fdcf51205beca8e4e8760a9dcb297a67d882d929c2e25ca14bb0054bf",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/ci/phase2d-hosted-investigation-41195815229/phase2d-windows-reference/training-audit.log",
+                        "bytes":  1981,
+                        "sha256":  "314cb4a437bf2ebf8c491c7345cb52fee3e302723afb08e43c71f1314855555e",
+                        "provenance":  "supplied historical extraction; not independently authenticated"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/all-failed-comparisons.json",
+                        "bytes":  8037,
+                        "sha256":  "0188b517212da798e071aa40b8bbc7b8d98c67902de7965f74e54ef814fc1577",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/attempt-0.log",
+                        "bytes":  83,
+                        "sha256":  "2c21ed8276c4cdaaad34c9a175ef500088c1ee0be74de9d3f46ad914294a432e",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/attempt-1.log",
+                        "bytes":  83,
+                        "sha256":  "2c21ed8276c4cdaaad34c9a175ef500088c1ee0be74de9d3f46ad914294a432e",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/attempt-2.log",
+                        "bytes":  83,
+                        "sha256":  "2c21ed8276c4cdaaad34c9a175ef500088c1ee0be74de9d3f46ad914294a432e",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/attempt-3.log",
+                        "bytes":  83,
+                        "sha256":  "2c21ed8276c4cdaaad34c9a175ef500088c1ee0be74de9d3f46ad914294a432e",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/attempt-4.log",
+                        "bytes":  83,
+                        "sha256":  "2c21ed8276c4cdaaad34c9a175ef500088c1ee0be74de9d3f46ad914294a432e",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/attempt-5.log",
+                        "bytes":  83,
+                        "sha256":  "2c21ed8276c4cdaaad34c9a175ef500088c1ee0be74de9d3f46ad914294a432e",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/binary64-all-field-probes.json",
+                        "bytes":  349707,
+                        "sha256":  "beafd3d6b121b4c964b32e905a0d3fd69c714b0525991e375ca08051cfa263dc",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/binary64-block-swaps.json",
+                        "bytes":  6361,
+                        "sha256":  "081143df363e0e688de492c1a05db6ba5b98ecc68630c28505c240be5d1fbb14",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/binary64-current-vectors.json",
+                        "bytes":  115870,
+                        "sha256":  "ddc08ac83ee5d38885a832f4681be04ed61a083c2d80d80213426d8720d1736c",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/binary64-references.json",
+                        "bytes":  3037,
+                        "sha256":  "9efb7c01321cf7b9bbea6ce4648755cd944e81e12ea14187b8e27abd338e2e94",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/block-swaps.json",
+                        "bytes":  6361,
+                        "sha256":  "9aec8cb0355580327f845dd49ca679650f00975db218de1993031b6b57d16c32",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/cross-platform-failed-comparisons.json",
+                        "bytes":  2645,
+                        "sha256":  "aa8ffd113c2be9c67fb74aa567bdf068ecc437672969edecee0705a650a9e8f1",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/cross-platform-records.json",
+                        "bytes":  4677,
+                        "sha256":  "dc0b3d2c139b404b297deb81230659140a4f9b3dd0da2a0cf2fe1c5233e7cd57",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/diagnostic-self-tests.json",
+                        "bytes":  496,
+                        "sha256":  "e22b4ab164f14edde78f6667b68319c76ac8fa23e03acb69ed3a46c28fab7026",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/diagnostic-source-hashes.json",
+                        "bytes":  477,
+                        "sha256":  "2bb62eccca0390c66dcf6b698796bdd91b64a4115943484b35cc5111d4bf0077",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/failed-comparisons.json",
+                        "bytes":  6073,
+                        "sha256":  "5793d57858b8179f13b10da862ed413bd312b8ea14967ea45562026eaa3f5156",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/independent-field-probes.json",
+                        "bytes":  15698,
+                        "sha256":  "2db73a6a7310d8cd2467ff07115e5b387ece07022ce730d4a09b4197d5bc24e8",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/independent-references.json",
+                        "bytes":  5770,
+                        "sha256":  "d96772cd2363a8437caaa4c67415735bc5cb9fb13316e45c48a901be98b8f3e8",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/manifest.json",
+                        "bytes":  4398,
+                        "sha256":  "f9fb692ae0634482d5ed509bb707d4204bf83ed9e2659a555d081edf5b208ea8",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/manifest-checks.json",
+                        "bytes":  579,
+                        "sha256":  "819fd45c24ca47bf4de75de18b6d503eda7fd26d1cf3ae841ec5fa32a6c4c99d",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/original-inventory.csv",
+                        "bytes":  64214,
+                        "sha256":  "938071170cd6996a890e300a3f7000036708f08f78093f4be7a39259f16583dc",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/preservation-check.json",
+                        "bytes":  66,
+                        "sha256":  "65f884348b216926134c15cff0d44bca3e40972fd5e5addc6ae8ede3ce42c78f",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/python-attempts.json",
+                        "bytes":  4755,
+                        "sha256":  "62afd44460084666357e8e7f9ed29b00de4c16929b8105c7560e2c28790e3446",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/scenario-input-equality.json",
+                        "bytes":  8880,
+                        "sha256":  "3b5ad01840a429eac59e5faf4429b3749c6183ef1e60b376aad7d085407c3654",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/scientific-audit-attempts.json",
+                        "bytes":  3158,
+                        "sha256":  "f2bde8906b993790eaaa13f74a1f3855095f4174e67d56dcde48f17b5c8f606c",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/settings-equality.json",
+                        "bytes":  930,
+                        "sha256":  "e0514a0cb92299043595e32d51815fae25b1096955062f85a06189d6cacaea68",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/source-equality.json",
+                        "bytes":  483,
+                        "sha256":  "690d60079960cef80c92c6334752b115275b51600f1470fc0d3c0e3284832efe",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/status.json",
+                        "bytes":  1365,
+                        "sha256":  "2ac629c61c8d417b028b6479d9f6ed79b8f4482f1c9829b33f320b2781b6d76e",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/training-and-settings.json",
+                        "bytes":  18412,
+                        "sha256":  "e76154c0f1ad4f3a38715ac69c5ab22d3f67d698cb8eeb7e0ad11244f4428c71",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/hosted-attribution-readonly-41195815229/vector-differences.json",
+                        "bytes":  39186,
+                        "sha256":  "90a4171df895ba0919c12757b36d665e537c2af43a0f3d82e564114a8e32f576",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/execution-attempts.json",
+                        "bytes":  1657,
+                        "sha256":  "f007b24ace0de3b4962066ba1ab8925c1dea5b89cb9dd35663a1e407012d3f2e",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/final-preservation.json",
+                        "bytes":  92,
+                        "sha256":  "4686db0e6e0214d3b349e6e4132aa32a8bd9e64b6dbb278605aa05e6ca9de01f",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/final-status.txt",
+                        "bytes":  10952,
+                        "sha256":  "30bea3082a050f4bc51a2cf81e89a482a8656b1b8e2dddf48bd925c50234a55d",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/gate-0.log",
+                        "bytes":  856,
+                        "sha256":  "8f73040c70d3ff42b284112663c50e7ed13298694f800d32d2b448ba843341c5",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/gate-1.log",
+                        "bytes":  856,
+                        "sha256":  "8f73040c70d3ff42b284112663c50e7ed13298694f800d32d2b448ba843341c5",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/gate-2.log",
+                        "bytes":  856,
+                        "sha256":  "8f73040c70d3ff42b284112663c50e7ed13298694f800d32d2b448ba843341c5",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/gate-3.log",
+                        "bytes":  856,
+                        "sha256":  "8f73040c70d3ff42b284112663c50e7ed13298694f800d32d2b448ba843341c5",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/gate-4.log",
+                        "bytes":  856,
+                        "sha256":  "8f73040c70d3ff42b284112663c50e7ed13298694f800d32d2b448ba843341c5",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/historical-preservation.json",
+                        "bytes":  98,
+                        "sha256":  "d51c0f0a74d513e709961692e1940b9a484403d8a6901e395c37171202e3c159",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/manifest.json",
+                        "bytes":  1503,
+                        "sha256":  "2496339a3fdd7bd5fb702c0e36bb61a04ab8fff6f65714dc7981edcfcd7e7639",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/new-source-sha256.json",
+                        "bytes":  819,
+                        "sha256":  "23ed8bcfb1671a391f70952692681958c06c12c4b94539c9eb7f7e38ecaeb47f",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/powershell-parse.json",
+                        "bytes":  68,
+                        "sha256":  "631f90e22de830b6cab66f6f4b9366e0aafb398fc8658ddd5ef99b06ea3118c5",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/preexisting.json",
+                        "bytes":  75836,
+                        "sha256":  "2601355331c2aee75db35c61581d7c8277e579bf73095435b10c89aeaa7d58bf",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/preflight.json",
+                        "bytes":  250,
+                        "sha256":  "203ce8ed0267e63f564cb364a6834f8ac11cd07805e861bc5691e71b3970b0fc",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/preservation.json",
+                        "bytes":  68,
+                        "sha256":  "f21493cd005f1ecdd3778bffea8083cce17396809507a00d12ea0f7690892b2f",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/python.log",
+                        "bytes":  856,
+                        "sha256":  "1ce51ef0683b5021a1bf699b9902b6dd2709cf2e7d5ae0d6aed31cad31a9e8db",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    },
+                    {
+                        "source_path":  "results/phase2d/upstream-preflight-20261031-091816/status.txt",
+                        "bytes":  9725,
+                        "sha256":  "55fbe1d26dceb0b82a570055c811bab6734d5f406b469c955b8fab79e51880b7",
+                        "provenance":  "local diagnostic; execution details in adjacent logs"
+                    }
+                ],
+    "historical_git_object_availability":  "UNAVAILABLE locally: git ls-tree reports not a tree object; source ID is reported provenance only",
+    "workflow_provenance":  "Historical run 41195815229 reported by local diagnostics; exact authenticated executed workflow and original archive digests unavailable. New .github/workflows/phase2d-upstream-attribution.yml is prepared only, not executed."
+}

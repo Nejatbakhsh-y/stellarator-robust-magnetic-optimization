@@ -1,0 +1,26 @@
+{
+    "manifest_sha256":  "4ca1db2a783f2d62295e5ec2ef623b434a03c1b5a2a485f728c0f67df3d4a26e",
+    "archives":  71,
+    "members":  1155,
+    "numerical_input_members":  53,
+    "unique_input_hashes":  4,
+    "seal_references":  1379,
+    "reference_counts":  [
+                             {
+                                 "Name":  "MISSING_EVIDENCE",
+                                 "Count":  300
+                             },
+                             {
+                                 "Name":  "MATCH",
+                                 "Count":  1079
+                             }
+                         ],
+    "unresolved_counts":  [
+                              {
+                                  "Name":  "BYTES_RECOVERED_PATH_ASSOCIATION_UNPROVEN",
+                                  "Count":  300
+                              }
+                          ],
+    "trust_scope":  "Original bytes match supplied STEP49 manifest; no fresh external attestation; no semantic or numerical validation",
+    "implementation_sha256":  "1ab61e4f50a1aa5062b22ba6f449fe4c73618b28ff672beac3ef43e934bf9b4d"
+}

@@ -12,3 +12,6 @@ src/stellarator_robust/frozen_diagnostics.py -text
 src/stellarator_robust/model.py -text
 src/stellarator_robust/optimize.py -text
 src/stellarator_robust/fault_metrics.py -text
+# Exact copy of the original STEP49 retrieval metadata; do not normalize bytes.
+docs/phase2d-final-evidence/original-archive-manifest.json -text whitespace=cr-at-eol
+docs/phase2d-final-evidence/validation-repair.json -text whitespace=cr-at-eol

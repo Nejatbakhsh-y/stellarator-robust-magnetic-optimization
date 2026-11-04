@@ -1,0 +1,8 @@
+{
+    "status":  "FAILED_IMPLEMENTATION_ATTEMPT",
+    "reason":  "PowerShell IDictionary Contains overload failed during scalar traversal",
+    "scientific_inference":  "NONE",
+    "measurements":  [
+
+                     ]
+}

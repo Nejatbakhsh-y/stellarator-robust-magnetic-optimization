@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: phase2d-frozen-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -68,6 +69,7 @@ jobs:
         with:
           name: phase2d-shared-sealed-inputs
           path: results/ci/phase2d-shared-inputs
+      - uses: ./.github/actions/provision-original-archives
       - run: python -m pytest -q
       - run: python -m compileall -q src scripts tests
       - name: Frozen diagnostic and captured log

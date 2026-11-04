@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: phase2b-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -45,6 +46,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]' numpy==${{ matrix.numpy }} scipy==${{ matrix.scipy }} matplotlib==3.11.2 pytest==9.2.0
+      - uses: ./.github/actions/provision-original-archives
       - run: python scripts/phase2b_verify.py --output results/ci/phase2b-run
         timeout-minutes: 135
       - run: python scripts/phase2b_investigate.py --output results/ci/phase2b-run/investigation --corrected results/ci/phase2b-run

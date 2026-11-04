@@ -1,0 +1,1476 @@
+{
+  "pr": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://github.com/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/pull/7",
+      "number": 7,
+      "state": "open",
+      "merged": false,
+      "mergeable": true,
+      "draft": true,
+      "body": "## Phase 2D — Upstream Solver Attribution\n\nResearch objective:\nIdentify why nominally equivalent optimization\nenvironments produce different coil-current vectors.\n\nImplementation:\n- Controlled optimizer-input capture\n- Independent solver replay\n- Numerical attribution diagnostics\n- Four-environment Windows/Linux validation\n- Scientific evidence integrity checks\n\nLocal validation:\n201 regression tests passed.\nPython compilation passed.\n\nScientific status: PARTIAL.\n\nHistorical production reproducibility: FAIL.\nUpstream root cause: INCONCLUSIVE.\n\nEvidence manifest: Local inventory only.\n\nThis pull request does not establish scientific\nacceptance or authorize a production correction.\n\nDo not merge before scientific review.",
+      "title": "Phase 2D: Upstream Solver Attribution (PARTIAL)",
+      "base": "codex/phase2d-cross-platform-reproducibility",
+      "base_sha": "ecad1a2db55e91dfab9fdc63114b4cc4c3af9fb7",
+      "head": "codex/phase2d-upstream-attribution",
+      "head_sha": "b9df6e64093ce16d8d20f164ad97bc66f77e93b6",
+      "head_repo_id": 1438931879,
+      "head_repo_full_name": "Nejatbakhsh-y/stellarator-robust-magnetic-optimization",
+      "merge_commit_sha": "daa88bbc6e818f7d84c420d0225a8ab6740fa9ae",
+      "user": {
+        "login": "Nejatbakhsh-y",
+        "name": "Nejatbakhsh-y",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/223850535?v=4",
+        "id": 223850535
+      },
+      "requested_reviewers": null,
+      "requested_team_reviewers": null,
+      "diff": null,
+      "comments": null,
+      "created_at": "2026-10-31T18:13:54Z",
+      "updated_at": "2026-11-03T10:09:22Z",
+      "closed_at": null,
+      "merged_at": null,
+      "commits": 29,
+      "changed_files": 97,
+      "additions": 24057,
+      "deletions": 1,
+      "display_url": "https://github.com/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/pull/7",
+      "display_title": "Phase 2D: Upstream Solver Attribution (PARTIAL)"
+    },
+    "isError": false
+  },
+  "artifacts": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "run_id": 41465448215,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Action completed."
+            }
+          ],
+          "structuredContent": {
+            "artifacts": [
+              {
+                "id": 13154085391,
+                "name": "step32-comparison-41465448215-1",
+                "size_in_bytes": 211559,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154085391",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154085391/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:00:33Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T15:00:33Z",
+                "digest": "sha256:0b81f8761e781a50ad2907c7b4f08b5da5fe30a9de1280b5380ee1b5aa4d4893",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153455263,
+                "name": "step32-replay-dependencies-linux-reference-41465448215-1",
+                "size_in_bytes": 125578,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153455263",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153455263/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:48Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:48Z",
+                "digest": "sha256:fe2f690287633adb63bb083cedfe4d35cb5e254ab084b6d3f388f40c8ad60760",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153300612,
+                "name": "step32-replay-linux-reference-41465448215-1",
+                "size_in_bytes": 2455290,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153300612",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153300612/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:47Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:47Z",
+                "digest": "sha256:514a12a09dbf4336b96d4c3ab37c65953c9d6aec35afdeebdfe8a5073fc2d521",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153290408,
+                "name": "step32-capture-dependencies-windows-reference-41465448215-1",
+                "size_in_bytes": 125423,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153290408",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153290408/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:47Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:47Z",
+                "digest": "sha256:6792529d31ffe779652ca2a98bb8e1a1866e73d29914d0821b9c97f68bb7183a",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153175380,
+                "name": "step32-capture-linux-scipy-sensitivity-41465448215-1",
+                "size_in_bytes": 404661,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153175380",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153175380/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:09Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:09Z",
+                "digest": "sha256:82d754aacfbad6ba1884f039a81d421e00987819f1c5dccb2e5b959d5d419340",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153105709,
+                "name": "step32-replay-dependencies-linux-numpy-sensitivity-41465448215-1",
+                "size_in_bytes": 141075,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153105709",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153105709/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:37Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:37Z",
+                "digest": "sha256:24c1bd9e625b9f1c3df90bf9dbfe20fdb5b80e9fb767bd8936417e609c812830",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153100498,
+                "name": "step32-capture-dependencies-linux-reference-41465448215-1",
+                "size_in_bytes": 125576,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153100498",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153100498/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:15Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:15Z",
+                "digest": "sha256:d69ba3241b880c5176e16d2bd0112339236321bf8445cb179de644c07b3ea92b",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153060601,
+                "name": "step32-capture-windows-reference-41465448215-1",
+                "size_in_bytes": 404389,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153060601",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153060601/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:46Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:46Z",
+                "digest": "sha256:df36f3701dad1bf25e3637745142557c0d7fdbd3a0adbc5c33d50e4e56a9ed42",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153050729,
+                "name": "step32-replay-linux-numpy-sensitivity-41465448215-1",
+                "size_in_bytes": 2456310,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153050729",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153050729/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:35Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:35Z",
+                "digest": "sha256:d78b0f57055aac7097a31bb684c89f86afa01c4213e569f6f747cfb4d785a3d9",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152995562,
+                "name": "step32-capture-linux-reference-41465448215-1",
+                "size_in_bytes": 404573,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152995562",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152995562/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:14Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:14Z",
+                "digest": "sha256:11862ec34ccf8ec99fb28c11e79acd2e374221683686c6fd7d43bf12904b53ea",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152970582,
+                "name": "step32-capture-dependencies-linux-scipy-sensitivity-41465448215-1",
+                "size_in_bytes": 125587,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152970582",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152970582/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:10Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:10Z",
+                "digest": "sha256:43205c0c53cf85f26f602a110c9f4ca334c3c809f625aa89abf5790d0208e8da",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152020521,
+                "name": "step32-capture-linux-numpy-sensitivity-41465448215-1",
+                "size_in_bytes": 404757,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152020521",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152020521/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:21Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:21Z",
+                "digest": "sha256:517e96d915e76dd1b44021dcb60fe38c13816ad0c24bb55d9cfdfc48546ed0b2",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151756000,
+                "name": "step32-replay-windows-reference-41465448215-1",
+                "size_in_bytes": 2456592,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151756000",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151756000/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:56:37Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:56:37Z",
+                "digest": "sha256:44a5697778271a322a40c72cfafec5576cb57038a7eb7d5a91a9e63a4619b09e",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151447642,
+                "name": "step32-replay-dependencies-windows-reference-41465448215-1",
+                "size_in_bytes": 125424,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151447642",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151447642/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:56:39Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:56:39Z",
+                "digest": "sha256:22c8cd8de8943c348f585dbedc081e1b50f3ce35e617e5f9068a7bdc3f545180",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13149824685,
+                "name": "step32-replay-linux-scipy-sensitivity-41465448215-1",
+                "size_in_bytes": 2455385,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149824685",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149824685/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:35Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:35Z",
+                "digest": "sha256:70b16cc02d5134f8fe35a81dcc4dcadcc19862e0af812fd8f45e422e69cf4528",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13149659999,
+                "name": "step32-replay-dependencies-linux-scipy-sensitivity-41465448215-1",
+                "size_in_bytes": 125594,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149659999",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149659999/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:36Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:36Z",
+                "digest": "sha256:68f5ae55ff58989cc511b4ce038e1ebaeed007287aecabd21deff542ed14b4d3",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13149604920,
+                "name": "step32-capture-dependencies-linux-numpy-sensitivity-41465448215-1",
+                "size_in_bytes": 141078,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149604920",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149604920/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:23Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:23Z",
+                "digest": "sha256:d3d2b1f386951c882103abf8f6e18aea18c16f3df83389e6398751ce8244520d",
+                "workflow_run": {
+                  "id": 41465448215,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "run_id": 41465448226,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Action completed."
+            }
+          ],
+          "structuredContent": {
+            "artifacts": [
+              {
+                "id": 13153310646,
+                "name": "step33-replay-dependencies-linux-reference-41465448226-1",
+                "size_in_bytes": 125571,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153310646",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153310646/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:58Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:58Z",
+                "digest": "sha256:6cf05ab14ce8a956c8bb20a7c55e9f91e1f662f149a64a40c0c343e41d165729",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153200761,
+                "name": "step33-replay-linux-reference-41465448226-1",
+                "size_in_bytes": 2522679,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153200761",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153200761/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:57Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:57Z",
+                "digest": "sha256:c789ee9db60e1bc1508ea4a045b5b9a1980a222f006ce8c930f8ead6715a3deb",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153141194,
+                "name": "step33-comparison-41465448226-1",
+                "size_in_bytes": 208347,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153141194",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153141194/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:55:10Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:55:10Z",
+                "digest": "sha256:9822f812bf375e3b819387d1292a432ff086dff389eaf2495e6439d0014d3ead",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152425063,
+                "name": "step33-replay-dependencies-linux-scipy-sensitivity-41465448226-1",
+                "size_in_bytes": 125587,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152425063",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152425063/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:54Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:54Z",
+                "digest": "sha256:c146f258ef59a2d2f985e463c9e50ccb38828175192878802cf8ca33a66720a8",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151985089,
+                "name": "step33-capture-dependencies-linux-numpy-sensitivity-41465448226-1",
+                "size_in_bytes": 141085,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151985089",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151985089/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:07Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:07Z",
+                "digest": "sha256:24379f9186a065d49b2803e7b65d8dcc58d0238596709b26adb1432c95354600",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151745823,
+                "name": "step33-capture-linux-scipy-sensitivity-41465448226-1",
+                "size_in_bytes": 404661,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151745823",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151745823/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:12Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:12Z",
+                "digest": "sha256:572f70a996c521de17875d4e5797bd82429281cf962c889a8bbb17881b2880f7",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151591012,
+                "name": "step33-capture-dependencies-linux-scipy-sensitivity-41465448226-1",
+                "size_in_bytes": 125589,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151591012",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151591012/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:13Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:13Z",
+                "digest": "sha256:23a2024f448429878611d2136a2815ab4ff05cfa2c0866ea343534ec4d8ce940",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151556273,
+                "name": "step33-capture-dependencies-windows-reference-41465448226-1",
+                "size_in_bytes": 125424,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151556273",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151556273/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:57Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:57Z",
+                "digest": "sha256:fb8cd79e7dd6a8545f14f0123f7016f67741ccd289154f0003ec137da2186abf",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151522085,
+                "name": "step33-replay-dependencies-linux-numpy-sensitivity-41465448226-1",
+                "size_in_bytes": 141075,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151522085",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151522085/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:53:11Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:53:11Z",
+                "digest": "sha256:c10aa96d238d11cc653395b2990a0eebf7029d33406c5762b11bb2cf04c869d2",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151465925,
+                "name": "step33-replay-linux-numpy-sensitivity-41465448226-1",
+                "size_in_bytes": 2524042,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151465925",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151465925/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:53:10Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:53:10Z",
+                "digest": "sha256:26b790911761232df75b772aac772c2358b7dcb3224f2d5d058ecdcca4a7b2a4",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151452195,
+                "name": "step33-replay-dependencies-windows-reference-41465448226-1",
+                "size_in_bytes": 125423,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151452195",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151452195/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:53:58Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:53:58Z",
+                "digest": "sha256:a05b987da9209da16dad12cc670587d88d8ffad9457d9798c63dbe73faa9c036",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151272044,
+                "name": "step33-replay-windows-reference-41465448226-1",
+                "size_in_bytes": 2524693,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151272044",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151272044/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:53:57Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:53:57Z",
+                "digest": "sha256:964b6d30eda94cc7a57dec57d1533a565401e80bc8750a4c1132ab04660a944b",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151171808,
+                "name": "step33-capture-dependencies-linux-reference-41465448226-1",
+                "size_in_bytes": 125569,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151171808",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151171808/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:27Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:27Z",
+                "digest": "sha256:21508c759c105780d1d7b836dd346abb5c5d212350f58c60d5ac070feeb335fd",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151051541,
+                "name": "step33-capture-linux-numpy-sensitivity-41465448226-1",
+                "size_in_bytes": 404680,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151051541",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151051541/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:05Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:05Z",
+                "digest": "sha256:3ef0f57d4771dc5a30018ed46d1b4a178ef58e4e0615648f070416d080c25118",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13150484964,
+                "name": "step33-capture-linux-reference-41465448226-1",
+                "size_in_bytes": 404642,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13150484964",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13150484964/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:26Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:26Z",
+                "digest": "sha256:c96d8c6b9c24dd6f23f925d9acd60fce5a6b0b8a7057052097c157e59af5957d",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13149894692,
+                "name": "step33-replay-linux-scipy-sensitivity-41465448226-1",
+                "size_in_bytes": 2522678,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149894692",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149894692/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:53Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:53Z",
+                "digest": "sha256:ffcda4fdd2dcfdadc7285745819299af9d8649d04a11e00676f190d0f884c2e4",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13149559818,
+                "name": "step33-capture-windows-reference-41465448226-1",
+                "size_in_bytes": 404387,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149559818",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149559818/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:55Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:55Z",
+                "digest": "sha256:2ef0105eb0ff7a58077ead6132b93bee306cd1f0e3d3712e2ab17c46d4f06d2b",
+                "workflow_run": {
+                  "id": 41465448226,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "run_id": 41465448239,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Action completed."
+            }
+          ],
+          "structuredContent": {
+            "artifacts": [
+              {
+                "id": 13153285610,
+                "name": "step45-diagnostics-linux-scipy-sensitivity-41465448239-1",
+                "size_in_bytes": 224864,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153285610",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153285610/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:55Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:55Z",
+                "digest": "sha256:051d8c4f4cca553cedffdb064ed18230c5b05893c11cf77d9987fabd62df1281",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153215648,
+                "name": "step45-worker-linux-reference-41465448239-1",
+                "size_in_bytes": 31485,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153215648",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153215648/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:42Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:42Z",
+                "digest": "sha256:472d30beeba9d763b60e7812dbbaf2727a90595dc2a060d11601976e6d4d03f3",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152845939,
+                "name": "step45-worker-linux-scipy-sensitivity-41465448239-1",
+                "size_in_bytes": 40597,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152845939",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152845939/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:54Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:54Z",
+                "digest": "sha256:1573d16039b91f3d47cec05b51fe5056523fb303d23e830e8f082c0133923cd4",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152395332,
+                "name": "step45-worker-windows-reference-41465448239-1",
+                "size_in_bytes": 38006,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152395332",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152395332/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:54:46Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:54:46Z",
+                "digest": "sha256:d881344cc044281e8eac1d3fd0b737ba3c55f2197170e6b7edb007f6dbfdfc86",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152155646,
+                "name": "step45-worker-linux-numpy-sensitivity-41465448239-1",
+                "size_in_bytes": 40622,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152155646",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152155646/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:55:51Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:55:51Z",
+                "digest": "sha256:3531381131ea2e923f478b39be0bd0ac3c7a8ce0a71545c08c5a8e8037bcf0c9",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152030604,
+                "name": "step45-capture-dependencies-windows-reference-41465448239-1",
+                "size_in_bytes": 125422,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152030604",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152030604/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:50Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:50Z",
+                "digest": "sha256:a6951e391a8c1d82bf080a4d28a695f409bccce3908dc5e96aa6e2619055cc23",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151680828,
+                "name": "step45-diagnostics-windows-reference-41465448239-1",
+                "size_in_bytes": 220451,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151680828",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151680828/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:54:47Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:54:47Z",
+                "digest": "sha256:9002641fcbf2f772fd314d2f8e04decf41dcdee6cbd9a50fe84869c6c192b74c",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151590849,
+                "name": "step45-capture-linux-reference-41465448239-1",
+                "size_in_bytes": 404573,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151590849",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151590849/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:26Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:50:26Z",
+                "digest": "sha256:7add4e5e7946e420c8c7de6c9c5f88ad17308df558e3bc985fb837b3830cdbc7",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151361335,
+                "name": "step45-capture-dependencies-linux-numpy-sensitivity-41465448239-1",
+                "size_in_bytes": 141077,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151361335",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151361335/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:56Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:50:56Z",
+                "digest": "sha256:cbb8176045354c9c6ce551a0c1ece5478696b49a15f41a94fb7f4801bb2bd556",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151296397,
+                "name": "step45-capture-linux-scipy-sensitivity-41465448239-1",
+                "size_in_bytes": 404586,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151296397",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151296397/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:26Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:50:26Z",
+                "digest": "sha256:dec944f469e638a2af880ce9fbd5cbfcf5c15556c5ef01de735c58094501cc19",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151172544,
+                "name": "step45-diagnostics-linux-numpy-sensitivity-41465448239-1",
+                "size_in_bytes": 240536,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151172544",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151172544/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:55:52Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:55:52Z",
+                "digest": "sha256:aeede1f4f0eaa9fd165b915cdd8f3f94d2b81139ac27f28e854103db8facd25a",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151117206,
+                "name": "step45-comparison-41465448239-1",
+                "size_in_bytes": 357389,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151117206",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151117206/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:57:32Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:57:32Z",
+                "digest": "sha256:ecd9c26de3f2bd137551ee991f9a36c9049b8b6c041acdc9ea20470973455656",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151081508,
+                "name": "step45-capture-linux-numpy-sensitivity-41465448239-1",
+                "size_in_bytes": 404683,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151081508",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151081508/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:55Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:50:55Z",
+                "digest": "sha256:53b7ea742e4c5aabb251e53620a529d59646b7137051272a9e6acf83247f642b",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151026786,
+                "name": "step45-diagnostics-linux-reference-41465448239-1",
+                "size_in_bytes": 212849,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151026786",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151026786/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:52:44Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:52:44Z",
+                "digest": "sha256:271ffc402bb9c60b012c0452f2d1eaf07520a06ce3dab28cabe7bd35c2b65be4",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13150449994,
+                "name": "step45-capture-dependencies-linux-scipy-sensitivity-41465448239-1",
+                "size_in_bytes": 125589,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13150449994",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13150449994/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:28Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:50:28Z",
+                "digest": "sha256:858ba079910a2c02bf18ad785902bb66d04e11e41057b358528ee57b6bd6af73",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13149674558,
+                "name": "step45-capture-dependencies-linux-reference-41465448239-1",
+                "size_in_bytes": 125577,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149674558",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149674558/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:28Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:50:28Z",
+                "digest": "sha256:92399f14683ca29339d7a8f50875637689985b497943619357252691f7352077",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13149624774,
+                "name": "step45-capture-windows-reference-41465448239-1",
+                "size_in_bytes": 404449,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149624774",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13149624774/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:49Z",
+                "expires_at": "2027-01-31T14:48:25Z",
+                "updated_at": "2026-11-02T14:51:49Z",
+                "digest": "sha256:958e9b23535bed6a50b77150a92a022282a7d34dff525ce49ff854a62b21048c",
+                "workflow_run": {
+                  "id": 41465448239,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "run_id": 41465460206,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Action completed."
+            }
+          ],
+          "structuredContent": {
+            "artifacts": [
+              {
+                "id": 13155270163,
+                "name": "step42-dependencies-linux-scipy-sensitivity",
+                "size_in_bytes": 125598,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13155270163",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13155270163/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:16:53Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:16:53Z",
+                "digest": "sha256:06b4545de3a5bbb1de420bf71d6a0d6f35a456d91a85c2af773958245469f070",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13155245206,
+                "name": "step42-dependencies-linux-numpy-sensitivity",
+                "size_in_bytes": 141087,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13155245206",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13155245206/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:16:38Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:16:38Z",
+                "digest": "sha256:7c5d143c60412c9f326b6e77c7664ce5011c894c96f598216960f1fa14ccab81",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13155010531,
+                "name": "step42-linux-numpy-sensitivity",
+                "size_in_bytes": 37668,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13155010531",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13155010531/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:16:37Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:16:37Z",
+                "digest": "sha256:ffe9f5d054fa367bf0f9b2fa03f3ae736ae010a040b9258a10cdc99c98e27498",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13154712537,
+                "name": "step42-windows-reference",
+                "size_in_bytes": 41099,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154712537",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154712537/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:17:50Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:17:50Z",
+                "digest": "sha256:077ae6a16aa1d7a466cc1ffcf0d9bbcb763a13edbff85e9f1552456bd1372e4d",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13154627532,
+                "name": "step42-linux-scipy-sensitivity",
+                "size_in_bytes": 37643,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154627532",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154627532/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:16:51Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:16:51Z",
+                "digest": "sha256:f3e7cbf201061d1180ff3cf113ff3eaf3e465c6eddb4e1a6b27d3191e32d06e3",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13154523937,
+                "name": "step42-comparison",
+                "size_in_bytes": 5402,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154523937",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154523937/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:18:22Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:18:22Z",
+                "digest": "sha256:4d37ad39ba2e202192d9f167b547102dfd429e3997064a1184f67f8eee096dd5",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13154478383,
+                "name": "upstream-linux-numpy-sensitivity",
+                "size_in_bytes": 6176528,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154478383",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154478383/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:15:55Z",
+                "expires_at": "2026-12-02T15:15:54Z",
+                "updated_at": "2026-11-02T15:15:55Z",
+                "digest": "sha256:6430b983fd5102684554a4f02a5b361c8bd10b9a94fc2a5bce61c9fb24ff8d75",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13154098463,
+                "name": "upstream-linux-reference",
+                "size_in_bytes": 6169404,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154098463",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13154098463/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:14:50Z",
+                "expires_at": "2026-12-02T15:14:49Z",
+                "updated_at": "2026-11-02T15:14:50Z",
+                "digest": "sha256:ea01b1c58c0cb010a4dda15130637aa261d4979148e0e586c61b8b0cd0daa768",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153673283,
+                "name": "step42-dependencies-linux-reference",
+                "size_in_bytes": 125576,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153673283",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153673283/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:16:38Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:16:38Z",
+                "digest": "sha256:ce6c93759e636951d613a10144de122e322c0b9dd300648c03bb602a427dec38",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153668429,
+                "name": "step42-dependencies-windows-reference",
+                "size_in_bytes": 125439,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153668429",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153668429/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:17:52Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:17:52Z",
+                "digest": "sha256:cb2ee043d6f7b1c7f5d31705c4741efafbf46e252a818a68b913372dd15b69d5",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153602720,
+                "name": "step42-linux-reference",
+                "size_in_bytes": 37624,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153602720",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153602720/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:16:38Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T15:16:38Z",
+                "digest": "sha256:ecb1378b4b6ef5ed4816af3072a05bc348a7f6f84ac6205f04a3819a0bfab024",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153493055,
+                "name": "upstream-linux-scipy-sensitivity",
+                "size_in_bytes": 6160913,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153493055",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153493055/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:08:57Z",
+                "expires_at": "2026-12-02T15:08:56Z",
+                "updated_at": "2026-11-02T15:08:57Z",
+                "digest": "sha256:6842361ce71aa7d07e928b45491dc3581caa8bf57c14a6855406ce1d6f62a04d",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153484487,
+                "name": "upstream-comparisons",
+                "size_in_bytes": 4125969,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153484487",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153484487/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:16:46Z",
+                "expires_at": "2026-12-02T15:16:44Z",
+                "updated_at": "2026-11-02T15:16:46Z",
+                "digest": "sha256:8ea96a413c5e8549895871b050ac611aeb5247881e9192d34a04918f0e6c1a3e",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153125079,
+                "name": "upstream-sealed",
+                "size_in_bytes": 387240,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153125079",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153125079/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:49:48Z",
+                "expires_at": "2026-12-02T14:49:48Z",
+                "updated_at": "2026-11-02T14:49:48Z",
+                "digest": "sha256:436bbbc64d2726c98adbfe34ed2dfd29d9305ce19a302db5bd455dd230ba93fd",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153108449,
+                "name": "upstream-windows-reference",
+                "size_in_bytes": 6044123,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153108449",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153108449/zip",
+                "expired": false,
+                "created_at": "2026-11-02T15:07:11Z",
+                "expires_at": "2026-12-02T15:07:08Z",
+                "updated_at": "2026-11-02T15:07:11Z",
+                "digest": "sha256:b43d5a8a05eb77f0edc56a3c35f29504d6b1d57c018f96a7ababdfd5dabe0a7b",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13153050133,
+                "name": "dependency-seal",
+                "size_in_bytes": 125435,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153050133",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13153050133/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:49:49Z",
+                "expires_at": "2026-12-02T14:49:49Z",
+                "updated_at": "2026-11-02T14:49:49Z",
+                "digest": "sha256:fadbc0573c797f38a05107c79f03a0e387ce00f966259d63828dd00be27131af",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152940440,
+                "name": "step42-capture-linux-reference",
+                "size_in_bytes": 404646,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152940440",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152940440/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:33Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T14:50:33Z",
+                "digest": "sha256:a253701f6a5d85a024b523d992278a88a57aaf0b7ccdd20f0414521e026f69ae",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152925627,
+                "name": "step42-capture-windows-reference",
+                "size_in_bytes": 404451,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152925627",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152925627/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:51:19Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T14:51:19Z",
+                "digest": "sha256:2ae86a2b938078510bb85f2ac9ca4197ccae6d51f5a84cb95c72d67ddda8fd71",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13152900453,
+                "name": "step42-capture-linux-numpy-sensitivity",
+                "size_in_bytes": 404686,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152900453",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13152900453/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:40Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T14:50:40Z",
+                "digest": "sha256:b65a29343d988c34fe9a8f9d474dbffed927d067604c66b32de54f0340c0485c",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              },
+              {
+                "id": 13151136586,
+                "name": "step42-capture-linux-scipy-sensitivity",
+                "size_in_bytes": 404586,
+                "url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151136586",
+                "archive_download_url": "https://api.github.com/repos/Nejatbakhsh-y/stellarator-robust-magnetic-optimization/actions/artifacts/13151136586/zip",
+                "expired": false,
+                "created_at": "2026-11-02T14:50:30Z",
+                "expires_at": "2027-01-31T14:48:30Z",
+                "updated_at": "2026-11-02T14:50:30Z",
+                "digest": "sha256:15507d6f359bacb2e812bb6a342c09d92b70e6ca8afa08e51653791f1a476e30",
+                "workflow_run": {
+                  "id": 41465460206,
+                  "repository_id": 1438931879,
+                  "head_repository_id": 1438931879,
+                  "head_branch": "codex/phase2d-upstream-attribution",
+                  "head_sha": "4177d52f1ac68f869147c2e3e02e1f8b876546d0"
+                }
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    }
+  ]
+}

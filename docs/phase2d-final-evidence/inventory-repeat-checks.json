@@ -1,0 +1,22 @@
+[
+    {
+        "file":  "archive-inventory.json",
+        "identical":  true
+    },
+    {
+        "file":  "historical-environments.json",
+        "identical":  true
+    },
+    {
+        "file":  "member-inventory.json",
+        "identical":  true
+    },
+    {
+        "file":  "numerical-input-inventory.json",
+        "identical":  true
+    },
+    {
+        "file":  "seal-reference-investigation.json",
+        "identical":  true
+    }
+]

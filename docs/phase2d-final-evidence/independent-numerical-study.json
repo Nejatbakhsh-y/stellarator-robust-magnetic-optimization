@@ -1,0 +1,213 @@
+{
+    "schema":  "phase2d-independent-numerical-study-v1",
+    "created_utc":  "2026-11-03T11:16:48.8940781Z",
+    "source_commit":  "c7aab608b291238272d64223d9de981687af9a62",
+    "branch":  "codex/phase2d-upstream-attribution",
+    "report_producer":  "PowerShell execution record; not output of completed Python study",
+    "execution_status":  "FAILED_BEFORE_PYTHON_STARTUP",
+    "executable":  "C:\\Users\\nejat\\AppData\\Local\\TheaResearch\\FinalValidation311\\Scripts\\python.exe",
+    "launcher_exit_code":  103,
+    "configured_python_version":  "3.11.9 (pyvenv.cfg only; unmeasured runtime)",
+    "operating_system":  "Microsoft Windows NT 10.0.26300.0",
+    "process_architecture":  "AMD64",
+    "numerical_runtime_metadata":  "UNAVAILABLE: Python did not start",
+    "executed_experiments":  [
+                                 {
+                                     "scope":  "Supplied STEP49 manifest byte consistency only",
+                                     "mismatches":  0,
+                                     "matches":  71,
+                                     "type":  "Original ZIP SHA256 calculation",
+                                     "archives":  71
+                                 }
+                             ],
+    "reused_historical_evidence":  {
+                                       "parsed_references":  1379,
+                                       "separate_failure_observations":  [
+                                                                             {
+                                                                                 "failures":  21,
+                                                                                 "run_id":  41256776296
+                                                                             },
+                                                                             {
+                                                                                 "failures":  11,
+                                                                                 "run_id":  41257645149
+                                                                             },
+                                                                             {
+                                                                                 "failures":  22,
+                                                                                 "scope":  "Earlier scalar paths"
+                                                                             }
+                                                                         ],
+                                       "distinct_input_hashes":  4,
+                                       "input_members":  53,
+                                       "direct_matches":  1079,
+                                       "eight_unique_pairs":  {
+                                                                  "pass":  2,
+                                                                  "fail":  6,
+                                                                  "freshly_reproduced":  false
+                                                              },
+                                       "same_run_byte_recoveries":  300,
+                                       "archive_association":  "Published final evidence; no fresh remote request"
+                                   },
+    "independently_recomputed_values":  [
+
+                                        ],
+    "confirmed_defects":  [
+
+                          ],
+    "source_supported_unexecuted_contract_discrepancy":  "STEP32 origin keys versus STEP50 literal paths; targeted test added, consumer unchanged",
+    "unavailable_experiments":  [
+                                    "Original solver replay and independent QR",
+                                    "60/90 digit full reduction and stabilization",
+                                    "Dense/recovered ULP interventions",
+                                    "Full original Bxyz array comparison",
+                                    "Smooth geometry refinement",
+                                    "Four matched-input environments",
+                                    "Regression and README validation"
+                                ],
+    "hypotheses":  [
+                       {
+                           "id":  "H1",
+                           "hypothesis":  "Incorrect input/source association",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "Origin-key/literal-path contract discrepancy visible in STEP32 writer and STEP50 reader; numerical source association not established",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "Incorrect input/source association",
+                           "remaining_uncertainty":  "Original-array numerical calculation did not start"
+                       },
+                       {
+                           "id":  "H2",
+                           "hypothesis":  "Different optimization solutions",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "See published final report; no fresh numerical measurement",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "Different optimization solutions",
+                           "remaining_uncertainty":  "Original-array numerical calculation did not start"
+                       },
+                       {
+                           "id":  "H3",
+                           "hypothesis":  "Floating-point rounding",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "See published final report; no fresh numerical measurement",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "Floating-point rounding",
+                           "remaining_uncertainty":  "Original-array numerical calculation did not start"
+                       },
+                       {
+                           "id":  "H4",
+                           "hypothesis":  "Recovery-ratio cancellation",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "Derivative of (L-P)/(L-B) contains inverse denominator and inverse squared denominator; historical small denominators retained",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "Recovery-ratio cancellation",
+                           "remaining_uncertainty":  "Original-array numerical calculation did not start"
+                       },
+                       {
+                           "id":  "H5",
+                           "hypothesis":  "Magnetic-field discretization",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "See published final report; no fresh numerical measurement",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "Magnetic-field discretization",
+                           "remaining_uncertainty":  "Original-array numerical calculation did not start"
+                       },
+                       {
+                           "id":  "H6",
+                           "hypothesis":  "Geometry mismatch",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "See published final report; no fresh numerical measurement",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "Geometry mismatch",
+                           "remaining_uncertainty":  "Original-array numerical calculation did not start"
+                       },
+                       {
+                           "id":  "H7",
+                           "hypothesis":  "BLAS/LAPACK differences",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "See published final report; no fresh numerical measurement",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "BLAS/LAPACK differences",
+                           "remaining_uncertainty":  "Historical BLAS, CPU dispatch, interpreter and library changes confounded"
+                       },
+                       {
+                           "id":  "H8",
+                           "hypothesis":  "NumPy/SciPy implementation differences",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "See published final report; no fresh numerical measurement",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "NumPy/SciPy implementation differences",
+                           "remaining_uncertainty":  "Historical library-wheel replacements also change bundled BLAS"
+                       },
+                       {
+                           "id":  "H9",
+                           "hypothesis":  "Binary64 serialization differences",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "See published final report; no fresh numerical measurement",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "Binary64 serialization differences",
+                           "remaining_uncertainty":  "Original-array numerical calculation did not start"
+                       },
+                       {
+                           "id":  "H10",
+                           "hypothesis":  "Incorrect comparison implementation",
+                           "classification":  "INCONCLUSIVE",
+                           "evidence_for":  "See published final report; no fresh numerical measurement",
+                           "evidence_against":  "No fresh discriminating numerical measurement",
+                           "independent_experiments_executed":  [
+
+                                                                ],
+                           "discriminating_measurement_needed":  "Incorrect comparison implementation",
+                           "remaining_uncertainty":  "Original-array numerical calculation did not start"
+                       }
+                   ],
+    "numerical_validation":  "INCOMPLETE",
+    "magnetic_field_validation":  "INCOMPLETE",
+    "recovery_ratio_validation":  "FAIL (historical unresolved)",
+    "four_environment_causal_attribution":  "INCOMPLETE",
+    "numerical_root_cause":  "INCONCLUSIVE",
+    "original_acceptance_gates":  {
+                                      "denominator_guard_T":  1E-15,
+                                      "outcome":  "Unresolved original FAIL/INCOMPLETE retained",
+                                      "refinement_limit":  0.0001,
+                                      "atol":  1E-13,
+                                      "rtol":  1E-11
+                                  },
+    "remaining_scientific_blockers":  [
+                                          "Working supplied Python runtime",
+                                          "Execution and validation of new code",
+                                          "Full worker-result/input/source associations",
+                                          "Independent full fields and smooth refinement",
+                                          "Controlled runtime causal interventions"
+                                      ],
+    "production_acceptance":  "FAIL",
+    "scientific_acceptance":  "NOT ACCEPTED",
+    "execution_logs":  "results/phase2d/independent-numerical-study-20261103-061511/commands.json",
+    "published_evidence_modified":  false,
+    "committed":  false,
+    "pushed":  false
+}
