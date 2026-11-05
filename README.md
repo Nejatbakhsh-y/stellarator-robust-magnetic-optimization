@@ -1,10 +1,10 @@
 ﻿# Robust Optimization and Independent Validation of Planar-Coil Magnetic-Field Models
 
-An independent synthetic research demonstration of magnetic-field correction, constrained optimization, and evidence-based numerical evaluation.
+Independent, general-purpose research in planar-coil magnetic-field modeling and robust optimization, using synthetic magnetic-field correction problems and evidence-based numerical evaluation.
 
 ![Six-stage research workflow: Formulate, Build Response, Optimize, Quantify Uncertainty, Numerical Evaluation, Validate and Report](docs/research-workflow.svg)
 
-**This is not an official Thea Energy model.** It has no Thea Energy affiliation, endorsement, proprietary geometry, or device validation. The coils, boundary, disturbance, and uncertainty assumptions are synthetic.
+The coils, boundary, disturbance, and uncertainty assumptions are synthetic. The model does not incorporate proprietary geometry or establish device validation.
 
 | Research status | Current disposition |
 |---|---|
